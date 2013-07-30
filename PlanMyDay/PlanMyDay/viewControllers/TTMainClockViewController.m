@@ -39,6 +39,7 @@
     svScrollView.showsVerticalScrollIndicator = NO;
     svScrollView.scrollsToTop = NO;
     pageControl.currentPage = 0;
+    //test changes
     [self createPageWithColor:[UIColor redColor] forPage:0];
     [self createPageWithColor:[UIColor blueColor] forPage:1];
 }
