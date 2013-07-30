@@ -35,6 +35,9 @@
     [svScrollView setContentSize:CGSizeMake(svScrollView.frame.size.width * pageControl.numberOfPages, svScrollView.frame.size.height)];
     svScrollView.delegate = self;
     svScrollView.pagingEnabled = YES;
+    svScrollView.showsHorizontalScrollIndicator = NO;
+    svScrollView.showsVerticalScrollIndicator = NO;
+    svScrollView.scrollsToTop = NO;
     pageControl.currentPage = 0;
     [self createPageWithColor:[UIColor redColor] forPage:0];
     [self createPageWithColor:[UIColor blueColor] forPage:1];
