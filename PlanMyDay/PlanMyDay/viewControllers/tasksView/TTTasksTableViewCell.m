@@ -30,6 +30,14 @@
        NSArray * nibbArray = [[NSBundle mainBundle] loadNibNamed:@"TTTasksTableViewCell" owner:self options:nil];
         self = [nibbArray objectAtIndex:0];
         
+        // add icon
+        CGRect taskIconFrame = CGRectMake(18, 25, 22, 22);
+        taskIcon = [[UIImageView alloc] initWithFrame:taskIconFrame];
+        [taskIcon setImage:[UIImage imageNamed:@"task_icons.png"]];
+        [taskIcon setContentMode:UIViewContentModeTop];
+        [taskIcon setClipsToBounds:YES];
+        [taskContentView addSubview:taskIcon];
+        
         // Setup a left swipe gesture recognizer
        
         UIPanGestureRecognizer* leftPanGestureRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(moveCell:)];
@@ -51,7 +59,7 @@
     {
         CGPoint location = [panGestureRecognizer translationInView:self.contentView];
         NSLog(@"location.x:%f,location.y:%f",fabs(location.x),fabs(location.y));
-        return fabs(location.x) >= fabs(location.y) ;
+        return fabs(location.x) > fabs(location.y) ;
     }
     return NO;
     
@@ -81,33 +89,22 @@
     clientName.text = [NSString stringWithFormat:@"%@ — %@",[data objectForKey:@"clientName"],[data objectForKey:@"projectName"]];
     taskName.text = [data objectForKey:@"taskName"];
     taskColor.backgroundColor = [self colorWithHexString:[data objectForKey:@"color"]];
+    
     if ([[data objectForKey:@"dateStart"] isEqual:@"06.06.2006"])
     {
-        // РАЗОБРАТЬСЯ
-        [UIView beginAnimations:nil context:nil];
-        [UIView setAnimationDuration:0.2];
-        [UIView setAnimationDelegate:self];
-        //[taskIcon setBounds:CGRectMake(0, -12, 22, 22)];
         CGRect taskIconFrame = taskIcon.frame;
         taskIconFrame.origin.y = 12;
         [taskIcon setFrame:taskIconFrame];
         
         [curentTaskTime setHidden:false];
-        if ([data objectForKey:@"durationReal"] > [data objectForKey:@"durationPlan"])
+        if ([[data objectForKey:@"durationReal"] integerValue] > [[data objectForKey:@"durationPlan"] integerValue])
         {
             [taskIcon setContentMode:UIViewContentModeCenter];
             isOvertime = true;
             curentTaskTime.textColor = [self colorWithHexString:@"fc3e39"];
-            
-            
         }
     }
-    else
-    {
-        CGRect taskIconFrame = taskIcon.frame;
-        taskIconFrame.origin.y = 12;
-        [taskIcon setFrame:taskIconFrame];
-    }
+    
     /*
     if ([[data objectForKey:@"isCheck"] isEqual:@"true"])
     {

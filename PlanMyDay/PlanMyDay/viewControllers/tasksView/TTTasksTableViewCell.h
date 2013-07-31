@@ -16,7 +16,7 @@
 
 @interface TTTasksTableViewCell : UITableViewCell {
     IBOutlet UIImageView *taskCheckBackground;
-    IBOutlet UIImageView *taskIcon;
+    UIImageView *taskIcon;
     IBOutlet UILabel *curentTaskTime;
     IBOutlet UIImageView *taskColor;
     IBOutlet UIView *taskContentView;

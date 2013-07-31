@@ -194,12 +194,12 @@
 		DDA17441178A48860000132D /* currentTasksView */ = {
 			isa = PBXGroup;
 			children = (
-				DD7BAE3317A5BDDB00CACFB2 /* TTTasksViewController.m */,
 				DD7BAE3417A5BDDB00CACFB2 /* TTTasksViewController.h */,
+				DD7BAE3317A5BDDB00CACFB2 /* TTTasksViewController.m */,
 				DD7BAE3517A5BDDB00CACFB2 /* TTTasksViewController.xib */,
-				DD7BAE2E17A5BDCA00CACFB2 /* TTTasksTableViewCell.xib */,
-				DD7BAE2F17A5BDCA00CACFB2 /* TTTasksTableViewCell.m */,
 				DD7BAE3017A5BDCA00CACFB2 /* TTTasksTableViewCell.h */,
+				DD7BAE2F17A5BDCA00CACFB2 /* TTTasksTableViewCell.m */,
+				DD7BAE2E17A5BDCA00CACFB2 /* TTTasksTableViewCell.xib */,
 			);
 			name = currentTasksView;
 			sourceTree = "<group>";
