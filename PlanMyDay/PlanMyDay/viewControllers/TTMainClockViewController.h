@@ -12,6 +12,7 @@
 #import "TTCurrentTaskNextTaskIndicatorViewController.h"
 #import "TTApplicationManager.h"
 
+
 @interface TTMainClockViewController : UIViewController
 {
     IBOutlet UIButton *btnSettings;
