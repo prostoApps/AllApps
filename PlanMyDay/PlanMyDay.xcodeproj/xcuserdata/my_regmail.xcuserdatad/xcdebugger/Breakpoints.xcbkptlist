@@ -8,11 +8,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "PlanMyDay/viewControllers/TTMainClockViewController.m"
-         timestampString = "396844272.369027"
+         timestampString = "397019016.086591"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "62"
-         endingLineNumber = "62"
+         startingLineNumber = "76"
+         endingLineNumber = "76"
          landmarkName = "-btnSettingsTouchHandler:"
          landmarkType = "5">
       </FileBreakpoint>

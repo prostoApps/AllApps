@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import "TTAppDataManager.h"
+#import "ClockViewController.h"
+#import "TTCurrentTaskNextTaskIndicatorViewController.h"
 #import "TTApplicationManager.h"
 
 @interface TTMainClockViewController : UIViewController

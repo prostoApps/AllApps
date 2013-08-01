@@ -39,9 +39,23 @@
     svScrollView.showsVerticalScrollIndicator = NO;
     svScrollView.scrollsToTop = NO;
     pageControl.currentPage = 0;
-    //test changes
-    [self createPageWithColor:[UIColor redColor] forPage:0];
-    [self createPageWithColor:[UIColor blueColor] forPage:1];
+
+    //добавляем основные часы
+    ClockViewController *clock = [[ClockViewController alloc] initWithNibName:@"ClockViewController" bundle:nil];
+    clock.view.frame = CGRectMake(0, 0, svScrollView.frame.size.width, svScrollView.frame.size.height);
+    [svScrollView addSubview:clock.view];
+    
+    //добавляем индикатор под основные часы
+    TTCurrentTaskNextTaskIndicatorViewController *indicator = [[TTCurrentTaskNextTaskIndicatorViewController alloc] initWithNibName:@"TTCurrentTaskNextTaskIndicatorViewController" bundle:nil];
+    indicator.view.frame = CGRectMake(0, 320, svScrollView.frame.size.width, svScrollView.frame.size.height);
+    [svScrollView addSubview:indicator.view];
+
+    //добавляем трекер текущей задачи
+    TTCustomTrackerViewController *viewCont = [[TTCustomTrackerViewController alloc] initWithNibName:@"TTCustomTrackerViewController" bundle:nil];
+    [svScrollView addSubview:viewCont.view];
+    viewCont.view.frame = CGRectMake(svScrollView.frame.size.width, 0, svScrollView.frame.size.width, svScrollView.frame.size.height);
+//    [self createPageWithColor:[UIColor redColor] forPage:0];
+//    [self createPageWithColor:[UIColor blueColor] forPage:1];
 }
 
 -(void) createPageWithColor: (UIColor*) color forPage:(NSInteger) page
@@ -129,8 +143,8 @@
     self.pageControl.currentPage = page;
     
     // load the visible page and the page on either side of it (to avoid flashes when the user starts scrolling)
-    [self createPageWithColor:[UIColor redColor] forPage:0];
-    [self createPageWithColor:[UIColor blueColor] forPage:1];
+//    [self createPageWithColor:[UIColor redColor] forPage:0];
+//    [self createPageWithColor:[UIColor blueColor] forPage:1];
 
     
     // a possible optimization would be to unload the views+controllers which are no longer visible
@@ -141,8 +155,8 @@
     NSInteger page = self.pageControl.currentPage;
     
     // load the visible page and the page on either side of it (to avoid flashes when the user starts scrolling)
-    [self createPageWithColor:[UIColor redColor] forPage:0];
-    [self createPageWithColor:[UIColor blueColor] forPage:1];
+//    [self createPageWithColor:[UIColor redColor] forPage:0];
+//    [self createPageWithColor:[UIColor blueColor] forPage:1];
     
 	// update the scroll view to the appropriate page
     CGRect bounds = self.svScrollView.bounds;
