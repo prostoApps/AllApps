@@ -23,5 +23,7 @@
 -(NSDictionary*)readDataFromFile:(NSString*)pathToFile;
 -(void)saveTTItem:(TTItem*)item;
 
+-(NSMutableArray*)getAllTasks;
+
 + (TTAppDataManager *)sharedAppDataManager;
 @end

@@ -31,6 +31,10 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    //вытаскиваем все таски, которые есть в localData
+    NSArray *arrAllTasks = [[NSMutableArray alloc] initWithArray:[[TTAppDataManager sharedAppDataManager] getAllTasks]];
+    
     self.view.backgroundColor = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"background.png"]];
 
     // Do any additional setup after loading the view from its nib.

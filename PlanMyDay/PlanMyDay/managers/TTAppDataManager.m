@@ -79,4 +79,11 @@ static TTLocalDataManager *localDataManager;
     return item;
 }
 
+-(NSMutableArray*)getAllTasks
+{
+    NSMutableArray *arrAllTasks;
+    arrAllTasks = [[NSMutableArray alloc] initWithArray:[localDataManager getAllTasks]];
+    return arrAllTasks;
+}
+
 @end
