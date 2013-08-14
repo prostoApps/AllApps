@@ -25,8 +25,11 @@
 -(NSDictionary*)readLocalData
 {
     [TTAppDataManager sharedAppDataManager];
-    dictLocalData = [dictLocalData init];
-    [dictLocalData setObject:[[TTAppDataManager sharedAppDataManager] readDataFromFile:[[TTAppDataManager sharedAppDataManager] getDocumentsPath]] forKey:STR_ALL_PROJECTS];
+
+    dictLocalData = [[NSMutableDictionary alloc]
+                     initWithDictionary:[[TTAppDataManager sharedAppDataManager]
+                                        readDataFromFile:[[TTAppDataManager sharedAppDataManager] getProjectsFilePath]]];
+
     return dictLocalData;
 }
 
@@ -37,7 +40,7 @@
 
 -(void)saveItemData:(NSMutableDictionary*)itemData
 {
-    [self initTestData ];
+//    [self initTestData ];
     
     BOOL *bIsNoEqualItems = NO;
         

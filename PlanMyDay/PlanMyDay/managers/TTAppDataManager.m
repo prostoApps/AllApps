@@ -50,12 +50,16 @@ static TTLocalDataManager *localDataManager;
     return [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
 }
 
+-(NSString*)getProjectsFilePath
+{
+    return [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject] stringByAppendingPathComponent:@"projectData.plist"];
+}
 //Save Item to Device
 -(void)saveTTItem:(TTItem*)item
 {
     [localDataManager saveItemData:[self serializeData:item]];
     [localDataManager writeData:[localDataManager dictLocalData]
-                         toFile:[[self getDocumentsPath] stringByAppendingPathComponent:@"projectData.plist"]];
+                         toFile:[self getProjectsFilePath] ];
     //    [localDataManager]
 }
 

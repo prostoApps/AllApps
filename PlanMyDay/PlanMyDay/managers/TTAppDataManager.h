@@ -19,6 +19,7 @@
 //@property (nonatomic, retain) TTLocalDataManager *localDataManager;
 
 -(NSString*)getDocumentsPath;
+-(NSString*)getProjectsFilePath;
 -(NSDictionary*)readDataFromFile:(NSString*)pathToFile;
 -(void)saveTTItem:(TTItem*)item;
 
