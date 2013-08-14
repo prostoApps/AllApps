@@ -60,7 +60,7 @@
     {
         CGPoint location = [panGestureRecognizer translationInView:self.contentView];
         NSLog(@"location.x:%f,location.y:%f",fabs(location.x),fabs(location.y));
-        return fabs(location.x) > fabs(location.y) ;
+        return fabs(location.x) >= fabs(location.y) ;
     }
     return NO;
     

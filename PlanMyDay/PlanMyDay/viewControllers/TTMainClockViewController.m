@@ -31,6 +31,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.view.backgroundColor = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"background.png"]];
+
     // Do any additional setup after loading the view from its nib.
     pageControl.numberOfPages = 2; 
     [svScrollView setContentSize:CGSizeMake(svScrollView.frame.size.width * pageControl.numberOfPages, svScrollView.frame.size.height)];

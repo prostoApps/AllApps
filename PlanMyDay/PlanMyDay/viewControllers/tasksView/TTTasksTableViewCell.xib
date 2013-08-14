@@ -241,7 +241,7 @@
 				<real value="95" key="IBUIRowHeight"/>
 			</object>
 			<object class="IBUITableViewCell" id="987303770">
-				<nil key="NSNextResponder"/>
+				<reference key="NSNextResponder"/>
 				<int key="NSvFlags">292</int>
 				<array class="NSMutableArray" key="NSSubviews">
 					<object class="IBUIView" id="614876022">
@@ -250,6 +250,7 @@
 						<array class="NSMutableArray" key="NSSubviews"/>
 						<string key="NSFrameSize">{320, 63}</string>
 						<reference key="NSSuperview" ref="987303770"/>
+						<reference key="NSWindow"/>
 						<string key="NSReuseIdentifierKey">_NS:11</string>
 						<reference key="IBUIBackgroundColor" ref="97014023"/>
 						<bool key="IBUIOpaque">NO</bool>
@@ -260,6 +261,8 @@
 					</object>
 				</array>
 				<string key="NSFrameSize">{320, 64}</string>
+				<reference key="NSSuperview"/>
+				<reference key="NSWindow"/>
 				<reference key="NSNextKeyView" ref="614876022"/>
 				<string key="NSReuseIdentifierKey">_NS:9</string>
 				<object class="NSColor" key="IBUIBackgroundColor">
@@ -271,7 +274,7 @@
 				<real value="64" key="IBUIRowHeight"/>
 			</object>
 			<object class="IBUITableViewCell" id="288853893">
-				<nil key="NSNextResponder"/>
+				<reference key="NSNextResponder"/>
 				<int key="NSvFlags">292</int>
 				<array class="NSMutableArray" key="NSSubviews">
 					<object class="IBUIView" id="358187591">
@@ -280,6 +283,7 @@
 						<array class="NSMutableArray" key="NSSubviews"/>
 						<string key="NSFrameSize">{320, 70}</string>
 						<reference key="NSSuperview" ref="288853893"/>
+						<reference key="NSWindow"/>
 						<string key="NSReuseIdentifierKey">_NS:11</string>
 						<reference key="IBUIBackgroundColor" ref="97014023"/>
 						<bool key="IBUIOpaque">NO</bool>
@@ -290,6 +294,8 @@
 					</object>
 				</array>
 				<string key="NSFrameSize">{320, 71}</string>
+				<reference key="NSSuperview"/>
+				<reference key="NSWindow"/>
 				<reference key="NSNextKeyView" ref="358187591"/>
 				<string key="NSReuseIdentifierKey">_NS:9</string>
 				<object class="NSColor" key="IBUIBackgroundColor">
@@ -301,7 +307,7 @@
 				<reference key="IBUIContentView" ref="358187591"/>
 			</object>
 			<object class="IBUITableViewCell" id="78352985">
-				<nil key="NSNextResponder"/>
+				<reference key="NSNextResponder"/>
 				<int key="NSvFlags">292</int>
 				<array class="NSMutableArray" key="NSSubviews">
 					<object class="IBUIView" id="293820487">
@@ -310,6 +316,7 @@
 						<array class="NSMutableArray" key="NSSubviews"/>
 						<string key="NSFrameSize">{320, 70}</string>
 						<reference key="NSSuperview" ref="78352985"/>
+						<reference key="NSWindow"/>
 						<string key="NSReuseIdentifierKey">_NS:11</string>
 						<reference key="IBUIBackgroundColor" ref="97014023"/>
 						<bool key="IBUIOpaque">NO</bool>
@@ -320,6 +327,8 @@
 					</object>
 				</array>
 				<string key="NSFrameSize">{320, 71}</string>
+				<reference key="NSSuperview"/>
+				<reference key="NSWindow"/>
 				<reference key="NSNextKeyView" ref="293820487"/>
 				<string key="NSReuseIdentifierKey">_NS:9</string>
 				<object class="NSColor" key="IBUIBackgroundColor">
@@ -944,11 +953,6 @@
 						<reference key="parent" ref="1067280255"/>
 					</object>
 					<object class="IBObjectRecord">
-						<int key="objectID">587</int>
-						<reference key="object" ref="153664243"/>
-						<reference key="parent" ref="740627925"/>
-					</object>
-					<object class="IBObjectRecord">
 						<int key="objectID">512</int>
 						<reference key="object" ref="352819715"/>
 						<reference key="parent" ref="1067280255"/>
@@ -1051,21 +1055,6 @@
 						<reference key="parent" ref="660879829"/>
 					</object>
 					<object class="IBObjectRecord">
-						<int key="objectID">736</int>
-						<reference key="object" ref="394089714"/>
-						<reference key="parent" ref="1067280255"/>
-					</object>
-					<object class="IBObjectRecord">
-						<int key="objectID">741</int>
-						<reference key="object" ref="205828438"/>
-						<reference key="parent" ref="809026757"/>
-					</object>
-					<object class="IBObjectRecord">
-						<int key="objectID">745</int>
-						<reference key="object" ref="382459360"/>
-						<reference key="parent" ref="1067280255"/>
-					</object>
-					<object class="IBObjectRecord">
 						<int key="objectID">753</int>
 						<reference key="object" ref="1033996428"/>
 						<reference key="parent" ref="201604145"/>
@@ -1086,18 +1075,8 @@
 						<reference key="parent" ref="190191948"/>
 					</object>
 					<object class="IBObjectRecord">
-						<int key="objectID">814</int>
-						<reference key="object" ref="252918060"/>
-						<reference key="parent" ref="678920613"/>
-					</object>
-					<object class="IBObjectRecord">
 						<int key="objectID">1006</int>
 						<reference key="object" ref="993207836"/>
-						<reference key="parent" ref="1067280255"/>
-					</object>
-					<object class="IBObjectRecord">
-						<int key="objectID">1010</int>
-						<reference key="object" ref="154088254"/>
 						<reference key="parent" ref="1067280255"/>
 					</object>
 					<object class="IBObjectRecord">
@@ -1114,6 +1093,36 @@
 						<int key="objectID">1018</int>
 						<reference key="object" ref="77688451"/>
 						<reference key="parent" ref="1067280255"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">736</int>
+						<reference key="object" ref="394089714"/>
+						<reference key="parent" ref="1067280255"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">814</int>
+						<reference key="object" ref="252918060"/>
+						<reference key="parent" ref="678920613"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">741</int>
+						<reference key="object" ref="205828438"/>
+						<reference key="parent" ref="809026757"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">1010</int>
+						<reference key="object" ref="154088254"/>
+						<reference key="parent" ref="1067280255"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">745</int>
+						<reference key="object" ref="382459360"/>
+						<reference key="parent" ref="1067280255"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">587</int>
+						<reference key="object" ref="153664243"/>
+						<reference key="parent" ref="740627925"/>
 					</object>
 				</array>
 			</object>
@@ -1222,7 +1231,61 @@
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">1018</int>
+			<int key="maxID">1107</int>
+		</object>
+		<object class="IBClassDescriber" key="IBDocument.Classes">
+			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
+				<object class="IBPartialClassDescription">
+					<string key="className">NSLayoutConstraint</string>
+					<string key="superclassName">NSObject</string>
+					<object class="IBClassDescriptionSource" key="sourceIdentifier">
+						<string key="majorKey">IBProjectSource</string>
+						<string key="minorKey">./Classes/NSLayoutConstraint.h</string>
+					</object>
+				</object>
+				<object class="IBPartialClassDescription">
+					<string key="className">TTTasksTableViewCell</string>
+					<string key="superclassName">UITableViewCell</string>
+					<dictionary class="NSMutableDictionary" key="outlets">
+						<string key="clientName">UILabel</string>
+						<string key="curentTaskTime">UILabel</string>
+						<string key="taskCheckBackground">UIImageView</string>
+						<string key="taskColor">UIImageView</string>
+						<string key="taskContentView">UIView</string>
+						<string key="taskName">UILabel</string>
+					</dictionary>
+					<dictionary class="NSMutableDictionary" key="toOneOutletInfosByName">
+						<object class="IBToOneOutletInfo" key="clientName">
+							<string key="name">clientName</string>
+							<string key="candidateClassName">UILabel</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="curentTaskTime">
+							<string key="name">curentTaskTime</string>
+							<string key="candidateClassName">UILabel</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="taskCheckBackground">
+							<string key="name">taskCheckBackground</string>
+							<string key="candidateClassName">UIImageView</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="taskColor">
+							<string key="name">taskColor</string>
+							<string key="candidateClassName">UIImageView</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="taskContentView">
+							<string key="name">taskContentView</string>
+							<string key="candidateClassName">UIView</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="taskName">
+							<string key="name">taskName</string>
+							<string key="candidateClassName">UILabel</string>
+						</object>
+					</dictionary>
+					<object class="IBClassDescriptionSource" key="sourceIdentifier">
+						<string key="majorKey">IBProjectSource</string>
+						<string key="minorKey">./Classes/TTTasksTableViewCell.h</string>
+					</object>
+				</object>
+			</array>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
