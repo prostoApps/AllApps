@@ -9,9 +9,13 @@
 #import "DACircularProgressView.h"
 #import <QuartzCore/QuartzCore.h>
 #import <UIKit/UIKit.h>
+#import "TTApplicationManager.h"
 
 @interface TTCustomTrackerViewController : UIViewController
 {
+    IBOutlet UIButton *btnMenu;
+    IBOutlet UIButton *btnNewTask;
+
     IBOutlet UIButton *playPauseButton;
     IBOutlet UIButton *stopButton;
     IBOutlet UIButton *cancelButton;
@@ -26,11 +30,20 @@
     NSDate *taskStartTimeNow;
     NSTimeInterval timeDifference,timeDifference100;
 }
+
+-(IBAction) btnNewTaskTouchHandler:(id)sender;
+-(IBAction) btnMenuTouchHandler:(id)sender;
+
+@property (nonatomic,retain) IBOutlet UIButton *btnMenu;
+@property (nonatomic,retain) IBOutlet UIButton *btnNewTask;
+
+@property (retain, nonatomic) IBOutlet UIButton *playPauseButton;
+
 @property (retain, nonatomic) IBOutlet UILabel *timerTitleLabel;
 @property (retain, nonatomic) IBOutlet UILabel *timerLabel;
 @property (strong, nonatomic) IBOutlet DACircularProgressView *largeProgressView;
 
--(IBAction)playPayseButtonPressed;
+-(IBAction)playPauseButtonPressed;
 -(IBAction)stopButtonPressed;
 -(IBAction)completeButtonPressed;
 -(IBAction)cancelButtonPressed;

@@ -40,16 +40,7 @@
     [self initTestData ];
     
     BOOL *bIsNoEqualItems = NO;
-    
-    //create task
-    NSMutableDictionary *tmpTask;
-    
-    //createProject
-    NSMutableDictionary *tmpPoject;
-    
-    //createClient
-    NSMutableDictionary *tmpClient;
-    
+        
     //если у клиента есть проекты, проходим по каждому из них, если нет - добавляем новый
     if ([[dictLocalData objectForKey:STR_ALL_CLIENTS] count] > 0)
     {

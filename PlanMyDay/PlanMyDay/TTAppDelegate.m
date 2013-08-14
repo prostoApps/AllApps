@@ -16,11 +16,16 @@
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
+    
+    [TTAppDataManager sharedAppDataManager];
+    
     self.viewController = [[TTMainClockViewController alloc] initWithNibName:@"TTMainClockViewController" bundle:nil];
     
     TTMainClockViewController *clockView = [[TTMainClockViewController alloc] initWithNibName:@"TTMainClockViewController" bundle:nil];
     
     UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:clockView];
+    
+    navController.navigationBarHidden = YES;
     
     //    self.window.rootViewController = self.viewController;
     self.window.rootViewController = navController;

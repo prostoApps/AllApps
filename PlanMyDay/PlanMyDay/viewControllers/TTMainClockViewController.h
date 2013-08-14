@@ -14,20 +14,13 @@
 
 @interface TTMainClockViewController : UIViewController
 {
-    IBOutlet UIButton *btnSettings;
+    IBOutlet UIButton *btnMenu;
     IBOutlet UIButton *btnNewTask;
-    IBOutlet UIButton *btnStatistics;
-    IBOutlet UIButton *btnCustomTracker;
-    IBOutlet UIButton *btnProfile;
-    IBOutlet UIButton *btnCurrentTasks;
 }
 
--(IBAction) btnSettingsTouchHandler:(id)sender;
 -(IBAction) btnNewTaskTouchHandler:(id)sender;
--(IBAction) btnStatisticsTouchHandler:(id)sender;
--(IBAction) btnCustomTrackerTouchHandler:(id)sender;
--(IBAction) btnProfileTouchHandler:(id)sender;
--(IBAction) btnCurrentTasksTouchHandler:(id)sender;
+-(IBAction) btnMenuTouchHandler:(id)sender;
+
 
 -(IBAction) changePage:(UIPageControl*) sender;
 
@@ -38,11 +31,9 @@
 @property (nonatomic,retain) IBOutlet UIPageControl *pageControl;
 @property (nonatomic,retain) IBOutlet UIScrollView  *svScrollView;
 
-@property (nonatomic,retain) IBOutlet UIButton *btnSettings;
+@property (nonatomic,retain) IBOutlet UIButton *btnMenu;
 @property (nonatomic,retain) IBOutlet UIButton *btnNewTask;
-@property (nonatomic,retain) IBOutlet UIButton *btnStatistics;
-@property (nonatomic,retain) IBOutlet UIButton *btnCustomTracker;
-@property (nonatomic,retain) IBOutlet UIButton *btnProfile;
-@property (nonatomic,retain) IBOutlet UIButton *btnCurrentTasks;
+
+@property (nonatomic,retain) UIViewController  *customTrackerViewController;
 
 @end

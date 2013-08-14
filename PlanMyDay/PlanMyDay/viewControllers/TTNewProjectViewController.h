@@ -7,6 +7,9 @@
 //
 
 #import "TTAppDataManager.h"
+#import "TTApplicationManager.h"
+#import "TTCreatePropertyViewController.h"
+#import "TTSelectPropertyViewController.h"
 
 @interface TTNewProjectViewController : UIViewController
 {    
@@ -17,6 +20,8 @@
     IBOutlet UITextField *tfStartTime;
     IBOutlet UITextField *tfDuration;
     IBOutlet UITextField *tfColor;
+    
+    IBOutlet UISegmentedControl *scTaskProjectClient;
     
     IBOutlet UIButton    *btnSave;
     IBOutlet UIButton    *btnClear;
@@ -43,11 +48,21 @@
 @property(nonatomic,retain) IBOutlet UITextField *tfDuration;
 @property(nonatomic,retain) IBOutlet UITextField *tfColor;
 
+@property(nonatomic,retain) IBOutlet UISegmentedControl *scTaskProjectClient;
+
 @property(nonatomic,retain) IBOutlet UIButton *btnSave;
-@property(nonatomic,retain) IBOutlet UIButton *btnClear;
+@property(nonatomic,retain) IBOutlet UIButton *btnSelectClient;
+@property(nonatomic,retain) IBOutlet UIButton *btnSelectProject;
+@property(nonatomic,retain) IBOutlet UIButton *btnSelectColor;
 
 @property(nonatomic,retain) UILabel     *lblLabel;
 @property(nonatomic,retain) UIImageView *imgImage;
 @property(nonatomic,retain) UISlider    *sldrSlider;
+
+-(IBAction) segmentedControlIndexChanged;
+-(IBAction)btnSelectProjectTouchHandler:(id)sender;
+-(IBAction)btnSelectColorTouchHandler:(id)sender;
+-(IBAction)btnSelectClientTouchHandler:(id)sender;
+
 @end
 

@@ -11,16 +11,25 @@
 
 @interface TTTasksViewController : UIViewController <TTTasksTableViewCellDelegate>
 {
+    IBOutlet UIButton *btnMenu;
+    IBOutlet UIButton *btnNewTask;
+    
     NSMutableArray* cellsDataArray;
     
     IBOutlet UITableView * tasksTableView;
-    IBOutlet UIView * tasksView;
-    UITableViewCell* tasksTableViewCell;
+    IBOutlet UIView      * tasksView;
+    UITableViewCell      * tasksTableViewCell;
 }
 
 @property (nonatomic, retain) NSMutableArray* cellsDataArray;
 @property (nonatomic, retain) IBOutlet UITableView* tasksTableView;
 @property (nonatomic, retain) IBOutlet UIView* tasksView;
 @property (nonatomic, retain) UITableViewCell* tasksTableViewCell;
+
+-(IBAction) btnNewTaskTouchHandler:(id)sender;
+-(IBAction) btnMenuTouchHandler:(id)sender;
+
+@property (nonatomic,retain) IBOutlet UIButton *btnMenu;
+@property (nonatomic,retain) IBOutlet UIButton *btnNewTask;
 
 @end

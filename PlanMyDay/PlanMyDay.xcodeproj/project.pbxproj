@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DD2B9B8117B06E1F00E37DA8 /* TTMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD2B9B7F17B06E1F00E37DA8 /* TTMenuViewController.m */; };
+		DD2B9B8217B06E1F00E37DA8 /* TTMenuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DD2B9B8017B06E1F00E37DA8 /* TTMenuViewController.xib */; };
 		DD7BAE3117A5BDCA00CACFB2 /* TTTasksTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DD7BAE2E17A5BDCA00CACFB2 /* TTTasksTableViewCell.xib */; };
 		DD7BAE3217A5BDCA00CACFB2 /* TTTasksTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DD7BAE2F17A5BDCA00CACFB2 /* TTTasksTableViewCell.m */; };
 		DD7BAE3617A5BDDB00CACFB2 /* TTTasksViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD7BAE3317A5BDDB00CACFB2 /* TTTasksViewController.m */; };
@@ -34,6 +36,10 @@
 		DD90BF6E17AA06530064233C /* ClockView.m in Sources */ = {isa = PBXBuildFile; fileRef = DD90BF6A17AA06530064233C /* ClockView.m */; };
 		DD90BF6F17AA06530064233C /* ClockViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD90BF6C17AA06530064233C /* ClockViewController.m */; };
 		DD90BF7017AA06530064233C /* ClockViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DD90BF6D17AA06530064233C /* ClockViewController.xib */; };
+		DD968BA017B7BBE8008D583F /* TTSelectPropertyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD968B9E17B7BBE8008D583F /* TTSelectPropertyViewController.m */; };
+		DD968BA117B7BBE8008D583F /* TTSelectPropertyViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DD968B9F17B7BBE8008D583F /* TTSelectPropertyViewController.xib */; };
+		DD968BA517B7BC1C008D583F /* TTCreatePropertyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD968BA317B7BC1C008D583F /* TTCreatePropertyViewController.m */; };
+		DD968BA617B7BC1C008D583F /* TTCreatePropertyViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DD968BA417B7BC1C008D583F /* TTCreatePropertyViewController.xib */; };
 		DDA17431178A38F40000132D /* TTApplicationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = DDA17430178A38F40000132D /* TTApplicationManager.m */; };
 		DDB4A82C17849C3F007C7F15 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDB4A82B17849C3F007C7F15 /* UIKit.framework */; };
 		DDB4A82E17849C3F007C7F15 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDB4A82D17849C3F007C7F15 /* Foundation.framework */; };
@@ -60,6 +66,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		DD2B9B7E17B06E1F00E37DA8 /* TTMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TTMenuViewController.h; path = viewControllers/menu/TTMenuViewController.h; sourceTree = "<group>"; };
+		DD2B9B7F17B06E1F00E37DA8 /* TTMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TTMenuViewController.m; path = viewControllers/menu/TTMenuViewController.m; sourceTree = "<group>"; };
+		DD2B9B8017B06E1F00E37DA8 /* TTMenuViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TTMenuViewController.xib; path = viewControllers/menu/TTMenuViewController.xib; sourceTree = "<group>"; };
 		DD7BAE2E17A5BDCA00CACFB2 /* TTTasksTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TTTasksTableViewCell.xib; path = viewControllers/tasksView/TTTasksTableViewCell.xib; sourceTree = "<group>"; };
 		DD7BAE2F17A5BDCA00CACFB2 /* TTTasksTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TTTasksTableViewCell.m; path = viewControllers/tasksView/TTTasksTableViewCell.m; sourceTree = "<group>"; };
 		DD7BAE3017A5BDCA00CACFB2 /* TTTasksTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TTTasksTableViewCell.h; path = viewControllers/tasksView/TTTasksTableViewCell.h; sourceTree = "<group>"; };
@@ -94,6 +103,12 @@
 		DD90BF6B17AA06530064233C /* ClockViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ClockViewController.h; path = viewControllers/mainClock/clock/ClockViewController.h; sourceTree = "<group>"; };
 		DD90BF6C17AA06530064233C /* ClockViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ClockViewController.m; path = viewControllers/mainClock/clock/ClockViewController.m; sourceTree = "<group>"; };
 		DD90BF6D17AA06530064233C /* ClockViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ClockViewController.xib; path = viewControllers/mainClock/clock/ClockViewController.xib; sourceTree = "<group>"; };
+		DD968B9D17B7BBE8008D583F /* TTSelectPropertyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TTSelectPropertyViewController.h; path = viewControllers/newProject/TTSelectPropertyViewController.h; sourceTree = "<group>"; };
+		DD968B9E17B7BBE8008D583F /* TTSelectPropertyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TTSelectPropertyViewController.m; path = viewControllers/newProject/TTSelectPropertyViewController.m; sourceTree = "<group>"; };
+		DD968B9F17B7BBE8008D583F /* TTSelectPropertyViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TTSelectPropertyViewController.xib; path = viewControllers/newProject/TTSelectPropertyViewController.xib; sourceTree = "<group>"; };
+		DD968BA217B7BC1C008D583F /* TTCreatePropertyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TTCreatePropertyViewController.h; path = viewControllers/newProject/TTCreatePropertyViewController.h; sourceTree = "<group>"; };
+		DD968BA317B7BC1C008D583F /* TTCreatePropertyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TTCreatePropertyViewController.m; path = viewControllers/newProject/TTCreatePropertyViewController.m; sourceTree = "<group>"; };
+		DD968BA417B7BC1C008D583F /* TTCreatePropertyViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TTCreatePropertyViewController.xib; path = viewControllers/newProject/TTCreatePropertyViewController.xib; sourceTree = "<group>"; };
 		DDA1742F178A38F40000132D /* TTApplicationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTApplicationManager.h; sourceTree = "<group>"; };
 		DDA17430178A38F40000132D /* TTApplicationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTApplicationManager.m; sourceTree = "<group>"; };
 		DDB4A82817849C3F007C7F15 /* PlanMyDay.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PlanMyDay.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -147,6 +162,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		DD2B9B8317B06E2600E37DA8 /* menu */ = {
+			isa = PBXGroup;
+			children = (
+				DD2B9B7E17B06E1F00E37DA8 /* TTMenuViewController.h */,
+				DD2B9B7F17B06E1F00E37DA8 /* TTMenuViewController.m */,
+				DD2B9B8017B06E1F00E37DA8 /* TTMenuViewController.xib */,
+			);
+			name = menu;
+			sourceTree = "<group>";
+		};
 		DD7BAE3817A5BE3A00CACFB2 /* assets */ = {
 			isa = PBXGroup;
 			children = (
@@ -279,6 +304,12 @@
 				DDB4A887178523B2007C7F15 /* TTNewProjectViewController.h */,
 				DDB4A886178523B2007C7F15 /* TTNewProjectViewController.m */,
 				DDB4A885178523B2007C7F15 /* TTNewProjectViewController.xib */,
+				DD968B9D17B7BBE8008D583F /* TTSelectPropertyViewController.h */,
+				DD968B9E17B7BBE8008D583F /* TTSelectPropertyViewController.m */,
+				DD968B9F17B7BBE8008D583F /* TTSelectPropertyViewController.xib */,
+				DD968BA217B7BC1C008D583F /* TTCreatePropertyViewController.h */,
+				DD968BA317B7BC1C008D583F /* TTCreatePropertyViewController.m */,
+				DD968BA417B7BC1C008D583F /* TTCreatePropertyViewController.xib */,
 			);
 			name = newProjectView;
 			sourceTree = "<group>";
@@ -348,6 +379,7 @@
 				DD7BAE4717A5BE9800CACFB2 /* statisticsView */,
 				DDA17444178CEB9E0000132D /* newProjectView */,
 				DD7BAE4817A5BEA600CACFB2 /* mainClockView */,
+				DD2B9B8317B06E2600E37DA8 /* menu */,
 			);
 			name = viewControllers;
 			sourceTree = "<group>";
@@ -457,6 +489,9 @@
 				DD90BF6617AA06210064233C /* clock-sec-background.png in Resources */,
 				DD90BF6717AA06210064233C /* OutputSample.png in Resources */,
 				DD90BF7017AA06530064233C /* ClockViewController.xib in Resources */,
+				DD2B9B8217B06E1F00E37DA8 /* TTMenuViewController.xib in Resources */,
+				DD968BA117B7BBE8008D583F /* TTSelectPropertyViewController.xib in Resources */,
+				DD968BA617B7BC1C008D583F /* TTCreatePropertyViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -485,6 +520,9 @@
 				DD90BF5417A9FEB50064233C /* TTCurrentTaskNextTaskIndicatorViewController.m in Sources */,
 				DD90BF6E17AA06530064233C /* ClockView.m in Sources */,
 				DD90BF6F17AA06530064233C /* ClockViewController.m in Sources */,
+				DD2B9B8117B06E1F00E37DA8 /* TTMenuViewController.m in Sources */,
+				DD968BA017B7BBE8008D583F /* TTSelectPropertyViewController.m in Sources */,
+				DD968BA517B7BC1C008D583F /* TTCreatePropertyViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

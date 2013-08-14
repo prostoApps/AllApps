@@ -24,7 +24,7 @@ static TTLocalDataManager *localDataManager;
         if (!sharedAppDataManager)
         {
             sharedAppDataManager = [[TTAppDataManager alloc] init];
-            localDataManager = [[TTLocalDataManager alloc] init];
+//            localDataManager = [[TTLocalDataManager alloc] init];
             [sharedAppDataManager initManagers];
         }
         return sharedAppDataManager;
@@ -33,8 +33,8 @@ static TTLocalDataManager *localDataManager;
 
 -(void)initManagers
 {
+    localDataManager = [[TTLocalDataManager alloc] init];
     [localDataManager readLocalData];
-//      localDataManager = [[TTLocalDataManager alloc] init];
 }
 
 -(NSDictionary*)readDataFromFile:(NSString*)pathToFile
@@ -54,15 +54,16 @@ static TTLocalDataManager *localDataManager;
 -(void)saveTTItem:(TTItem*)item
 {
     [localDataManager saveItemData:[self serializeData:item]];
-//    [localDataManager writeData:[self serializeData:item] toFile:[self getDocumentsPath]];
+    [localDataManager writeData:[localDataManager dictLocalData]
+                         toFile:[[self getDocumentsPath] stringByAppendingPathComponent:@"projectData.plist"]];
     //    [localDataManager]
 }
 
--(NSDictionary*)serializeData:(TTItem*)item
+-(NSMutableDictionary*)serializeData:(TTItem*)item
 {
-    NSDictionary *dictData = [[NSDictionary alloc] initWithObjectsAndKeys:item.strClientName, @"clientName",
-                              item.strProjectName,@"projectName",
-                              item.strTaskName,   @"taskName",
+    NSMutableDictionary *dictData = [[NSMutableDictionary alloc] initWithObjectsAndKeys:item.strClientName, STR_CLIENT_NAME,
+                              item.strProjectName,STR_PROJECT_NAME,
+                              item.strTaskName,   STR_TASK_NAME,
                               nil];
     
     return dictData;

@@ -17,6 +17,8 @@
 @synthesize timerTitleLabel;
 @synthesize timerLabel;
 @synthesize largeProgressView = _largeProgressView;
+@synthesize playPauseButton;
+@synthesize btnNewTask,btnMenu;
 
 - (void)viewDidLoad
 {
@@ -148,7 +150,7 @@
     
     
 }
--(IBAction)playPayseButtonPressed{
+-(IBAction)playPauseButtonPressed{
     if([playPauseButton.titleLabel.text isEqualToString:@"Pause"])
     {
         [playPauseButton setTitle:@"Resume" forState:UIControlStateNormal];
@@ -196,5 +198,15 @@
     [self updateTimerStuff];
     overtime = false;
     timerTitleLabel.text = @"Time ramaining";
+}
+
+-(IBAction) btnNewTaskTouchHandler:(id)sender
+{
+    [[TTApplicationManager sharedApplicationManager] switchViewTo:VIEW_NEW_TASK forNavigationController:self.navigationController];
+}
+
+-(IBAction) btnMenuTouchHandler:(id)sender
+{
+    [[TTApplicationManager sharedApplicationManager] switchViewTo:VIEW_MENU forNavigationController:self.navigationController];
 }
 @end

@@ -15,7 +15,8 @@
 
 @implementation TTNewProjectViewController
 
-@synthesize tfClientName,tfColor,tfDuration,tfStartTime,tfStartDate,tfTaskName,tfProjectName,btnClear,btnSave,sldrSlider,imgImage,lblLabel;
+@synthesize tfClientName,tfColor,tfDuration,tfStartTime,tfStartDate,tfTaskName,tfProjectName,btnSave,sldrSlider,imgImage,lblLabel,scTaskProjectClient,btnSelectClient,btnSelectColor,btnSelectProject;
+
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -154,7 +155,7 @@
     
     [self collectDataToItem:item];
     
-    lblLabel.text = [@"Client Name defined successfully!" stringByAppendingString:tfClientName.text];
+//    lblLabel.text = [@"Client Name defined successfully!" stringByAppendingString:tfClientName.text];
     
     //    NSDictionary *dictProjectData = [[NSDictionary alloc] initWithObjectsAndKeys:
     //                                     lblLabel.text, @"clientName",
@@ -174,17 +175,24 @@
     //    [dictProjectData writeToFile:filePathToProjectData atomically:YES];
 }
 
--(IBAction)btnClearTouchHandler:(id)sender
+-(IBAction)btnSelectClientTouchHandler:(id)sender
 {
-    tfClientName.text   = @"";
-    tfProjectName.text  = @"";
-    tfTaskName.text     = @"";
-    tfStartDate.text    = @"";
-    tfStartTime.text    = @"";
-    tfDuration.text     = @"";
-    tfColor.text        = @"";
+    NSLog(@"btnSelectClientTouchHandler");
+    [[TTApplicationManager sharedApplicationManager] switchViewTo:VIEW_SELECT_PROPERTY forNavigationController:self.navigationController];
+
 }
 
+-(IBAction)btnSelectProjectTouchHandler:(id)sender
+{
+    NSLog(@"btnSelectProjectTouchHandler");
+    [[TTApplicationManager sharedApplicationManager] switchViewTo:VIEW_SELECT_PROPERTY forNavigationController:self.navigationController];
+}
+
+-(IBAction)btnSelectColorTouchHandler:(id)sender
+{
+    NSLog(@"btnSelectColorTouchHandler");
+    [[TTApplicationManager sharedApplicationManager] switchViewTo:VIEW_SELECT_PROPERTY forNavigationController:self.navigationController];
+}
 -(void)collectDataToItem:(TTItem*)item
 {
     item.strClientName = tfClientName.text;
@@ -197,5 +205,28 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+-(IBAction) segmentedControlIndexChanged
+{
+	switch (self.scTaskProjectClient.selectedSegmentIndex) {
+		case 0:
+			NSLog(@"SegmentedControlTask");
+            [[TTApplicationManager sharedApplicationManager] switchViewTo:VIEW_NEW_TASK forNavigationController:self.navigationController];
+
+			break;
+		case 1:
+			NSLog(@"SegmentedControlProject");
+           [[TTApplicationManager sharedApplicationManager] switchViewTo:VIEW_SELECT_PROPERTY forNavigationController:self.navigationController];
+			break;
+		case 2:
+			NSLog(@"SegmentedControlCleint");
+            [[TTApplicationManager sharedApplicationManager] switchViewTo:VIEW_CREATE_PROPERTY forNavigationController:self.navigationController];
+			break;
+            
+		default:
+            break;
+    }
+}
+
 
 @end

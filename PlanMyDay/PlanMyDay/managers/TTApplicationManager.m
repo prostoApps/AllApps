@@ -11,13 +11,16 @@
 
 @implementation TTApplicationManager
 
-NSString *const VIEW_STATISTICS         = @"viewStatistics";
-NSString *const VIEW_CURRENT_TASKS      = @"viewCurrentTasks";
-NSString *const VIEW_NEW_TASK           = @"viewNewTask";
-NSString *const VIEW_PROFILE            = @"viewProfile";
-NSString *const VIEW_CUSTOM_TRACKER     = @"viewCustomTracker";
-NSString *const VIEW_MAIN_CLOCK         = @"viewMainClock";
-NSString *const VIEW_SETTINGS           = @"viewSettings";
+NSString *const VIEW_MENU                   = @"viewMenu";
+NSString *const VIEW_STATISTICS             = @"viewStatistics";
+NSString *const VIEW_CURRENT_TASKS          = @"viewCurrentTasks";
+NSString *const VIEW_NEW_TASK               = @"viewNewTask";
+NSString *const VIEW_SELECT_PROPERTY        = @"viewSelectProperty";
+NSString *const VIEW_CREATE_PROPERTY        = @"viewCreateProperty";
+NSString *const VIEW_PROFILE                = @"viewProfile";
+NSString *const VIEW_CUSTOM_TRACKER         = @"viewCustomTracker";
+NSString *const VIEW_MAIN_CLOCK             = @"viewMainClock";
+NSString *const VIEW_SETTINGS               = @"viewSettings";
 
 
 + (TTApplicationManager *)sharedApplicationManager
@@ -37,7 +40,7 @@ NSString *const VIEW_SETTINGS           = @"viewSettings";
 -(void) switchViewTo:(NSString*) strNewView forNavigationController:(UINavigationController*) navController
 {
     UIViewController *targetViewController;
-    
+
     if (strNewView == VIEW_CURRENT_TASKS)
     {
         NSLog(@"open  CurrentTasks view");
@@ -69,6 +72,18 @@ NSString *const VIEW_SETTINGS           = @"viewSettings";
         targetViewController = [[TTNewProjectViewController alloc]
                                 initWithNibName:@"TTNewProjectViewController" bundle:nil];
     }
+    else if (strNewView == VIEW_CREATE_PROPERTY)
+    {
+        NSLog(@"open  VIEW_CREATE_PROPERTY view");
+        targetViewController = [[TTCreatePropertyViewController alloc]
+                                initWithNibName:@"TTCreatePropertyViewController" bundle:nil];
+    }
+    else if (strNewView == VIEW_SELECT_PROPERTY)
+    {
+        NSLog(@"open  VIEW_SELECT_PROPERTY view");
+        targetViewController = [[TTSelectPropertyViewController alloc]
+                                initWithNibName:@"TTSelectPropertyViewController" bundle:nil];
+    }
     else if (strNewView == VIEW_PROFILE)
     {
         NSLog(@"open  VIEW_PROFILE view");
@@ -80,6 +95,13 @@ NSString *const VIEW_SETTINGS           = @"viewSettings";
         targetViewController = [[TTCustomTrackerViewController alloc]
                                 initWithNibName:@"TTCustomTrackerViewController" bundle:nil];
     }
+    else if (strNewView == VIEW_MENU)
+    {
+        NSLog(@"open  VIEW_MENU view");
+        targetViewController = [[TTMenuViewController alloc]
+                                initWithNibName:@"TTMenuViewController" bundle:nil];
+    }
+    
     [navController pushViewController:targetViewController animated:YES];
 }
 

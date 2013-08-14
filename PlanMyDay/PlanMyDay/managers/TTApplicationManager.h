@@ -14,15 +14,18 @@
 #import "TTMainClockViewController.h"
 #import "TTNewProjectViewController.h"
 #import "TTCustomTrackerViewController.h"
+#import "TTMenuViewController.h"
 
 @interface TTApplicationManager : NSObject
 {
 
 }
-
+extern NSString *const VIEW_MENU;
 extern NSString *const VIEW_STATISTICS;
 extern NSString *const VIEW_CURRENT_TASKS;
 extern NSString *const VIEW_NEW_TASK;
+extern NSString *const VIEW_SELECT_PROPERTY;
+extern NSString *const VIEW_CREATE_PROPERTY;
 extern NSString *const VIEW_PROFILE;
 extern NSString *const VIEW_CUSTOM_TRACKER;
 extern NSString *const VIEW_MAIN_CLOCK;

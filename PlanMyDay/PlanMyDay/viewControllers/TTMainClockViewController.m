@@ -14,9 +14,10 @@
 
 @implementation TTMainClockViewController
 
-@synthesize btnCurrentTasks,btnCustomTracker,btnNewTask,btnProfile,btnSettings,btnStatistics;
+@synthesize btnNewTask,btnMenu;
 
 @synthesize pageControl,svScrollView;
+@synthesize customTrackerViewController;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -51,9 +52,9 @@
     [svScrollView addSubview:indicator.view];
 
     //добавляем трекер текущей задачи
-    TTCustomTrackerViewController *viewCont = [[TTCustomTrackerViewController alloc] initWithNibName:@"TTCustomTrackerViewController" bundle:nil];
-    [svScrollView addSubview:viewCont.view];
-    viewCont.view.frame = CGRectMake(svScrollView.frame.size.width, 0, svScrollView.frame.size.width, svScrollView.frame.size.height);
+    customTrackerViewController = [[TTCustomTrackerViewController alloc] initWithNibName:@"TTCustomTrackerViewController" bundle:nil];
+    [svScrollView addSubview:customTrackerViewController.view];
+    customTrackerViewController.view.frame = CGRectMake(svScrollView.frame.size.width, 0, svScrollView.frame.size.width, svScrollView.frame.size.height);
 //    [self createPageWithColor:[UIColor redColor] forPage:0];
 //    [self createPageWithColor:[UIColor blueColor] forPage:1];
 }
@@ -71,68 +72,15 @@
     // Dispose of any resources that can be recreated.
 }
 
--(IBAction) btnSettingsTouchHandler:(id)sender
-{
-    [[TTApplicationManager sharedApplicationManager] switchViewTo:VIEW_SETTINGS forNavigationController:self.navigationController];
-}
-
 -(IBAction) btnNewTaskTouchHandler:(id)sender
 {
     [[TTApplicationManager sharedApplicationManager] switchViewTo:VIEW_NEW_TASK forNavigationController:self.navigationController];
 }
 
--(IBAction) btnStatisticsTouchHandler:(id)sender
+-(IBAction) btnMenuTouchHandler:(id)sender
 {
-    [[TTApplicationManager sharedApplicationManager] switchViewTo:VIEW_STATISTICS forNavigationController:self.navigationController];
+    [[TTApplicationManager sharedApplicationManager] switchViewTo:VIEW_MENU forNavigationController:self.navigationController];
 }
-
--(IBAction) btnCustomTrackerTouchHandler:(id)sender
-{
-    [[TTApplicationManager sharedApplicationManager] switchViewTo:VIEW_CUSTOM_TRACKER forNavigationController:self.navigationController];
-}
-
--(IBAction) btnProfileTouchHandler:(id)sender
-{
-    [[TTApplicationManager sharedApplicationManager] switchViewTo:VIEW_PROFILE forNavigationController:self.navigationController];
-}
-
--(IBAction) btnCurrentTasksTouchHandler:(id)sender
-{
-    [[TTApplicationManager sharedApplicationManager] switchViewTo:VIEW_CURRENT_TASKS forNavigationController:self.navigationController];
-}
-//
-//- (void)loadScrollViewWithPage:(NSUInteger)page
-//{
-//    if (page >= self.contentList.count)
-//        return;
-//    
-//    // replace the placeholder if necessary
-//    MyViewController *controller = [self.viewControllers objectAtIndex:page];
-//    if ((NSNull *)controller == [NSNull null])
-//    {
-//        controller = [[MyViewController alloc] initWithPageNumber:page];
-//        [self.viewControllers replaceObjectAtIndex:page withObject:controller];
-//    }
-//    
-//    // add the controller's view to the scroll view
-//    if (controller.view.superview == nil)
-//    {
-//        CGRect frame = self.scrollView.frame;
-//        frame.origin.x = CGRectGetWidth(frame) * page;
-//        frame.origin.y = 0;
-//        controller.view.frame = frame;
-//        
-//        [self addChildViewController:controller];
-//        [self.scrollView addSubview:controller.view];
-//        [controller didMoveToParentViewController:self];
-//        
-//        NSDictionary *numberItem = [self.contentList objectAtIndex:page];
-//        controller.numberImage.image = [UIImage imageNamed:[numberItem valueForKey:kImageKey]];
-//        controller.numberTitle.text = [numberItem valueForKey:kNameKey];
-//    }
-//}
-
-
 
 // at the end of scroll animation, reset the boolean used when scrolls originate from the UIPageControl
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView

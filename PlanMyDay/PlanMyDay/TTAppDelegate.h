@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "TTMainClockViewController.h"
+#import "TTApplicationManager.h"
 @class TTMainClockViewController;
 
 @interface TTAppDelegate : UIResponder <UIApplicationDelegate>

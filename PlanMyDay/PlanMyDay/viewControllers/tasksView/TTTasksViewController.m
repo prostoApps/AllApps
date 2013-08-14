@@ -9,6 +9,7 @@
 #import "TTTasksViewController.h"
 @implementation TTTasksViewController
 @synthesize tasksView, tasksTableView, tasksTableViewCell;
+@synthesize cellsDataArray, btnMenu,btnNewTask;
 
 - (void)viewDidLoad
 
