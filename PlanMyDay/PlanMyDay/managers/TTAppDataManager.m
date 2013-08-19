@@ -35,6 +35,7 @@ static TTLocalDataManager *localDataManager;
 {
     localDataManager = [[TTLocalDataManager alloc] init];
     [localDataManager readLocalData];
+//    [localDataManager initTestData];
 }
 
 -(NSDictionary*)readDataFromFile:(NSString*)pathToFile

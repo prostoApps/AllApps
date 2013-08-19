@@ -39,9 +39,9 @@
 		
 	// We customize the background images of clockView1, while clockView2 has default background.
 //    [clockView1 setClockBackgroundImage:[UIImage imageNamed:@"clock-background.png"].CGImage];
-	[clockView1 setHourHandImage:[UIImage imageNamed:@"clock-hour-background.png"].CGImage];
-	[clockView1 setMinHandImage:[UIImage imageNamed:@"clock-min-background.png"].CGImage];
-	[clockView1 setSecHandImage:[UIImage imageNamed:@"clock-sec-background.png"].CGImage];
+	[clockView1 setHourHandImage:[UIImage imageNamed:@"clock-hour-background_TT.png"].CGImage];
+	[clockView1 setMinHandImage:[UIImage imageNamed:@"clock-min-background_TT.png"].CGImage];
+	[clockView1 setSecHandImage:[UIImage imageNamed:@"clock-sec-background_TT.png"].CGImage];
 	[clockView1 start];
 }
 

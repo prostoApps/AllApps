@@ -7,6 +7,8 @@
 //
 
 #import "TTTasksViewController.h"
+#import "TTAppDataManager.h"
+#import "TTApplicationManager.h"
 @implementation TTTasksViewController
 @synthesize tasksView, tasksTableView, tasksTableViewCell;
 @synthesize cellsDataArray, btnMenu,btnNewTask;
@@ -21,76 +23,10 @@
     
     self.tasksView = [[UIView alloc] initWithFrame:CGRectMake(tasksTableView.frame.origin.x, tasksTableView.frame.origin.y, tasksTableView.frame.size.width, tasksTableView.rowHeight)];
     
+    // загружаем дату
+    TTAppDataManager * Mydata = [TTAppDataManager sharedAppDataManager];
+    cellsDataArray = [Mydata getAllTasks];
     
-    //    tableCellsData = [AppDataManager getCellsData];
-    NSDictionary *tmpTask1 = [[NSDictionary alloc] initWithObjectsAndKeys:
-                              @"Pavel Sorochkin" , 	@"clientName",
-                              @"Insurance Company" , 	@"projectName",
-                              @"Home Page Design" , 	@"taskName",
-                              @"20.06.20013" , 	@"dateStart",
-                              @"3600" , 			@"durationPlan",
-                              @"3800" ,			@"durationReal",
-                              @"20" ,			@"rate",
-                              @"fc3e39" , 		@"color",
-                              nil];
-    
-    NSDictionary *tmpTask2 = [[NSDictionary alloc] initWithObjectsAndKeys:
-                              @"ProstoApps" ,       @"clientName",
-                              @"ELLE Time App" ,      @"projectName",
-                              @"Find Store Page" , 		@"taskName",
-                              @"2220.06.20013" , 	@"dateStart",
-                              @"362200" , 			@"durationPlan",
-                              @"382200" ,			@"durationReal",
-                              @"202" ,			    @"rate",
-                              @"1c7efb" ,            @"color",
-                              nil];
-    NSDictionary *tmpTask3 = [[NSDictionary alloc] initWithObjectsAndKeys:
-                              @"Al Racine" , 	@"clientName",
-                              @"DayPad.org" , 	@"projectName",
-                              @"Slider" , 	@"taskName",
-                              @"20.06.20013" , 	@"dateStart",
-                              @"3600" , 			@"durationPlan",
-                              @"3800" ,			@"durationReal",
-                              @"20" ,			@"rate",
-                              @"fd9426" , 		@"color",
-                              
-                              nil];
-    
-    NSDictionary *tmpTask4 = [[NSDictionary alloc] initWithObjectsAndKeys:
-                              @"ProstoApps" ,       @"clientName",
-                              @"Tracker" ,      @"projectName",
-                              @"Custom Tracker Screen" , 		@"taskName",
-                              @"06.06.2006" , 	@"dateStart",
-                              @"333333" , 			@"durationPlan",
-                              @"333399" ,			@"durationReal",
-                              @"202" ,			    @"rate",
-                              @"53d769" ,            @"color",
-                              nil];
-    NSDictionary *tmpTask5 = [[NSDictionary alloc] initWithObjectsAndKeys:
-                              @"Pavel Sorochkin" , 	@"clientName",
-                              @"Insurance Company" , 	@"projectName",
-                              @"Next Page" , 	@"taskName",
-                              @"20.06.20013" , 	@"dateStart",
-                              @"3600" , 		@"durationPlan",
-                              @"3800" ,			@"durationReal",
-                              @"20" ,			@"rate",
-                              @"fc3e39" , 		@"color",
-                              nil];
-    
-    NSDictionary *tmpTask6 = [[NSDictionary alloc] initWithObjectsAndKeys:
-                              @"ProstoApps" ,       @"clientName",
-                              @"NY Philharmonic App" ,      @"projectName",
-                              @"New Stage Design" , 		@"taskName",
-                              @"2220.06.20013" , 	@"dateStart",
-                              @"362200" , 			@"durationPlan",
-                              @"382200" ,			@"durationReal",
-                              @"202" ,			    @"rate",
-                              @"53d769" ,            @"color",
-                              nil];
-    
-    
-    cellsDataArray = [[NSMutableArray alloc] initWithObjects:tmpTask1,tmpTask2,tmpTask3,tmpTask4,tmpTask5,tmpTask6,tmpTask3,tmpTask5,tmpTask6, nil];
-    // [tasksTableView setTableCellsData:tmpArr];
 }
 
 -(void) viewDidAppear:(BOOL)animated
@@ -173,6 +109,16 @@
 {
     return 71;
 }                                                         
+
+-(IBAction) btnNewTaskTouchHandler:(id)sender
+{
+    [[TTApplicationManager sharedApplicationManager] switchViewTo:VIEW_NEW_TASK forNavigationController:self.navigationController];
+}
+
+-(IBAction) btnMenuTouchHandler:(id)sender
+{
+    [[TTApplicationManager sharedApplicationManager] switchViewTo:VIEW_MENU forNavigationController:self.navigationController];
+}
 
 - (void)didReceiveMemoryWarning
 {

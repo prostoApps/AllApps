@@ -65,15 +65,16 @@
 
 - (void)setClockBackgroundImage:(CGImageRef)image
 {
-	if (image == NULL) {
-		containerLayer.borderColor = [UIColor blackColor].CGColor;
-		containerLayer.borderWidth = 1.0;
-		containerLayer.cornerRadius = 5.0;
-	}else{
-		containerLayer.borderColor = [UIColor clearColor].CGColor;
-		containerLayer.borderWidth = 0.0;
-		containerLayer.cornerRadius = 0.0;
-	}
+//	if (image == NULL) {
+//		containerLayer.borderColor = [UIColor blackColor].CGColor;
+//		containerLayer.borderWidth = 1.0;
+//		containerLayer.cornerRadius = 5.0;
+//	}else{
+//		containerLayer.borderColor = [UIColor clearColor].CGColor;
+//		containerLayer.borderWidth = 0.0;
+//		containerLayer.cornerRadius = 0.0;
+//	}
+    
 	containerLayer.contents = (__bridge id)image;
 }
 
@@ -177,9 +178,9 @@ float Degrees2Radians(float degrees) { return degrees * M_PI / 180; }
 	}
 	secHand.bounds = CGRectMake(0,0,w,h);
 
-	hourHand.anchorPoint = CGPointMake(0.5,0.0);
-	minHand.anchorPoint = CGPointMake(0.5,0.0);
-	secHand.anchorPoint = CGPointMake(0.5,0.0);
+	hourHand.anchorPoint = CGPointMake(0.5,0.05);
+	minHand.anchorPoint = CGPointMake(0.5,0.05);
+	secHand.anchorPoint = CGPointMake(0.5,0.05);
 	containerLayer.anchorPoint = CGPointMake(0.5, 0.5);
 }
 

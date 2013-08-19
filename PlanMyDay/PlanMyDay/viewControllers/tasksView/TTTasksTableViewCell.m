@@ -89,7 +89,7 @@
 {
     clientName.text = [NSString stringWithFormat:@"%@ — %@",[data objectForKey:@"clientName"],[data objectForKey:@"projectName"]];
     taskName.text = [data objectForKey:@"taskName"];
-    taskColor.backgroundColor = [self colorWithHexString:[data objectForKey:@"color"]];
+    taskColor.backgroundColor = [self colorWithHexString:[data objectForKey:@"taskColor"]];
     
     if ([[data objectForKey:@"dateStart"] isEqual:@"06.06.2006"])
     {
@@ -147,8 +147,8 @@
                             {
                                 [taskIcon setContentMode:UIViewContentModeCenter];
                             }
-                            taskName.alpha = 1-((translation.x / CHECK_MOVE_DISTANSE)/2);
-                            clientName.alpha = 1-((translation.x / CHECK_MOVE_DISTANSE)/2);
+                          //  taskName.alpha = 1-((translation.x / CHECK_MOVE_DISTANSE)/2);
+                          //  clientName.alpha = 1-((translation.x / CHECK_MOVE_DISTANSE)/2);
                             
                             taskIcon.alpha = 1-(translation.x / CHECK_MOVE_DISTANSE);
                         }
@@ -248,8 +248,8 @@
                             if (!isCheck)
                             {
                                 taskCheckBackgroundFrame.origin.x = CHECK_START_POSITION;
-                                [taskName setAlpha:1];
-                                [clientName setAlpha:1];
+                           //     [taskName setAlpha:1];
+                            //    [clientName setAlpha:1];
                                 [taskIcon setAlpha: 1];
                             }
                             //выполненное задание
@@ -324,8 +324,8 @@
 }
 // метод финиш анчек 
 -(void)animationDidStopUnCheckingCell{
-    [taskName setAlpha:1];
-    [clientName setAlpha:1];
+  //  [taskName setAlpha:1];
+  //  [clientName setAlpha:1];
     [taskIcon setAlpha: 1];
     if (!isOvertime)
     {

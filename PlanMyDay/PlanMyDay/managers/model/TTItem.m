@@ -16,6 +16,7 @@ NSString *const STR_ALL_TASKS    = @"allTasks";
 NSString *const STR_CLIENT_NAME  = @"clientName";
 NSString *const STR_PROJECT_NAME = @"projectName";
 NSString *const STR_TASK_NAME    = @"taskName";
+NSString *const STR_TASK_COLOR    = @"taskColor";
 
 @implementation TTItem
 

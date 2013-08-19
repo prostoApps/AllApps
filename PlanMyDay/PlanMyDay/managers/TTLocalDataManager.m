@@ -46,7 +46,7 @@
 
 -(void)saveItemData:(NSMutableDictionary*)itemData
 {
-//    [self initTestData ];
+    [self initTestData ];
     
     BOOL *bIsNoEqualItems = NO;
         
@@ -211,21 +211,25 @@
     NSMutableDictionary *dictTask1 = [[NSMutableDictionary alloc] initWithObjectsAndKeys:@"client1Name", STR_CLIENT_NAME,
                                       @"project1Name", STR_PROJECT_NAME,
                                       @"task1Name", STR_TASK_NAME,
+                                      @"fc3e39", STR_TASK_COLOR,
                                       nil];
     
     NSMutableDictionary *dictTask2 = [[NSMutableDictionary alloc] initWithObjectsAndKeys:@"client1Name", STR_CLIENT_NAME,
                                       @"project1Name", STR_PROJECT_NAME,
                                       @"task2Name", STR_TASK_NAME,
+                                      @"1c7efb", STR_TASK_COLOR,
                                       nil];
     
     NSMutableDictionary *dictTask3 = [[NSMutableDictionary alloc] initWithObjectsAndKeys:@"client1Name", STR_CLIENT_NAME,
                                       @"project2Name", STR_PROJECT_NAME,
                                       @"task1Name", STR_TASK_NAME,
+                                      @"fd9426", STR_TASK_COLOR,
                                       nil];
     
     NSMutableDictionary *dictTask4 = [[NSMutableDictionary alloc] initWithObjectsAndKeys:@"client1Name", STR_CLIENT_NAME,
                                       @"project2Name", STR_PROJECT_NAME,
                                       @"task2Name", STR_TASK_NAME,
+                                      @"53d769", STR_TASK_COLOR,
                                       nil];
     
     
@@ -234,21 +238,25 @@
     NSMutableDictionary *dictTask5 = [[NSMutableDictionary alloc] initWithObjectsAndKeys:@"client2Name", STR_CLIENT_NAME,
                                       @"project1Name", STR_PROJECT_NAME,
                                       @"task1Name", STR_TASK_NAME,
+                                      @"fd9426", STR_TASK_COLOR,
                                       nil];
     
     NSMutableDictionary *dictTask6 = [[NSMutableDictionary alloc] initWithObjectsAndKeys:@"client2Name", STR_CLIENT_NAME,
                                       @"project1Name", STR_PROJECT_NAME,
                                       @"task2Name", STR_TASK_NAME,
+                                      @"53d769", STR_TASK_COLOR,
                                       nil];
     
     NSMutableDictionary *dictTask7 = [[NSMutableDictionary alloc] initWithObjectsAndKeys:@"client2Name", STR_CLIENT_NAME,
                                       @"project2Name", STR_PROJECT_NAME,
                                       @"task1Name", STR_TASK_NAME,
+                                      @"fc3e39", STR_TASK_COLOR,
                                       nil];
     
     NSMutableDictionary *dictTask8 = [[NSMutableDictionary alloc] initWithObjectsAndKeys:@"client2Name", STR_CLIENT_NAME,
                                       @"project2Name", STR_PROJECT_NAME,
                                       @"task2Name", STR_TASK_NAME,
+                                      @"1c7efb", STR_TASK_COLOR,
                                       nil];
     
     //CLIENT 3
@@ -256,21 +264,25 @@
     NSMutableDictionary *dictTask9 = [[NSMutableDictionary alloc] initWithObjectsAndKeys:@"client3Name", STR_CLIENT_NAME,
                                       @"project1Name", STR_PROJECT_NAME,
                                       @"task1Name", STR_TASK_NAME,
+                                      @"1c7efb", STR_TASK_COLOR,
                                       nil];
     
     NSMutableDictionary *dictTask10 = [[NSMutableDictionary alloc] initWithObjectsAndKeys:@"client3Name", STR_CLIENT_NAME,
                                        @"project1Name", STR_PROJECT_NAME,
                                        @"task2Name", STR_TASK_NAME,
+                                       @"1c7efb", STR_TASK_COLOR,
                                        nil];
     
     NSMutableDictionary *dictTask11 = [[NSMutableDictionary alloc] initWithObjectsAndKeys:@"client3Name", STR_CLIENT_NAME,
                                        @"project2Name", STR_PROJECT_NAME,
                                        @"task1Name", STR_TASK_NAME,
+                                       @"1c7efb", STR_TASK_COLOR,
                                        nil];
     
     NSMutableDictionary *dictTask12 = [[NSMutableDictionary alloc] initWithObjectsAndKeys:@"client3Name", STR_CLIENT_NAME,
                                        @"project2Name", STR_PROJECT_NAME,
                                        @"task2Name", STR_TASK_NAME,
+                                       @"1c7efb", STR_TASK_COLOR,
                                        nil];
     
     /////////////////////////
@@ -330,7 +342,8 @@
 
 -(NSMutableArray*)getAllTasks
 {
-    //
+    
+   
     if (arrAllTasks.count > 0) {
         [arrAllTasks removeAllObjects];
     }

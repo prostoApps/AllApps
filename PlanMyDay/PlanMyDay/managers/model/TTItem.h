@@ -15,7 +15,7 @@ extern NSString *const STR_ALL_TASKS;
 extern NSString *const STR_CLIENT_NAME;
 extern NSString *const STR_PROJECT_NAME;
 extern NSString *const STR_TASK_NAME;
-//extern NSString *const VIEW_STATISTICS;
+extern NSString *const STR_TASK_COLOR;
 //extern NSString *const VIEW_STATISTICS;
 //extern NSString *const VIEW_STATISTICS;
 //extern NSString *const VIEW_STATISTICS;

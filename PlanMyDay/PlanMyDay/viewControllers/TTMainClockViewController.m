@@ -54,7 +54,7 @@
     
     //добавляем индикатор под основные часы
     TTCurrentTaskNextTaskIndicatorViewController *indicator = [[TTCurrentTaskNextTaskIndicatorViewController alloc] initWithNibName:@"TTCurrentTaskNextTaskIndicatorViewController" bundle:nil];
-    indicator.view.frame = CGRectMake(0, 320, svScrollView.frame.size.width, svScrollView.frame.size.height);
+    indicator.view.frame = CGRectMake(0, 410, svScrollView.frame.size.width, svScrollView.frame.size.height);
     [svScrollView addSubview:indicator.view];
 
     //добавляем трекер текущей задачи
