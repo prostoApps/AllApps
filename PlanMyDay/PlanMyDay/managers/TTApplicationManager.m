@@ -101,7 +101,9 @@ NSString *const VIEW_SETTINGS               = @"viewSettings";
         targetViewController = [[TTMenuViewController alloc]
                                 initWithNibName:@"TTMenuViewController" bundle:nil];
     }
-    
+    //Ставим стандартный background вьюшке
+    targetViewController.view.backgroundColor = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"background.png"]];
+    //показываем вьюшку
     [navController pushViewController:targetViewController animated:YES];
 }
 

@@ -16,6 +16,7 @@
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
+    ;
     
     [TTAppDataManager sharedAppDataManager];
     
@@ -31,7 +32,7 @@
     self.window.rootViewController = navController;
     
 //    navController.tabBarController
-    
+  
     [self.window makeKeyAndVisible];
     return YES;
 }

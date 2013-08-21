@@ -63,6 +63,7 @@
     customTrackerViewController.view.frame = CGRectMake(svScrollView.frame.size.width, 0, svScrollView.frame.size.width, svScrollView.frame.size.height);
 //    [self createPageWithColor:[UIColor redColor] forPage:0];
 //    [self createPageWithColor:[UIColor blueColor] forPage:1];
+    
 }
 
 -(void) createPageWithColor: (UIColor*) color forPage:(NSInteger) page

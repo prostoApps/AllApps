@@ -228,5 +228,11 @@
     }
 }
 
+-(IBAction) btnMenuTouchHandler:(id)sender
+{
+    [[TTApplicationManager sharedApplicationManager] switchViewTo:VIEW_MENU forNavigationController:self.navigationController];
+}
+
+
 
 @end
