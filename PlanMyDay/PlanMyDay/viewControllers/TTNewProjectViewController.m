@@ -40,39 +40,12 @@
     [scrvScrollView setScrollEnabled:YES];
     [scrvScrollView setContentSize:CGSizeMake(320, 650)];    
     
-    //[self initTextFields];
-    
-    //init button Save
-  /*  UIButton *btnSave = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    [btnSave addTarget:self action:@selector(buttonSaveTouchHandler:) forControlEvents:UIControlEventTouchDown];
-    [btnSave setTitle:@"Save" forState:UIControlStateNormal];
-    btnSave.frame = CGRectMake(20, 140, 97, 37);
-    [self.view addSubview:btnSave];
-   */
-    
     lblLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, 370, 300, 21)];
     lblLabel.backgroundColor = [UIColor clearColor];
     lblLabel.font = [UIFont systemFontOfSize:15.0];
     lblLabel.textAlignment = NSTextAlignmentCenter;
     lblLabel.text = @"Please enter the Client Name";
     [self.view addSubview:lblLabel];
-    
-    CGRect rctImageRect = CGRectMake(40.0f, 190.0f, 240.0f, 190.0f);
-    imgImage = [[UIImageView alloc] initWithFrame:rctImageRect ];
-    [imgImage setImage:[UIImage imageNamed:@"dots.png"]];
-    imgImage.backgroundColor = [UIColor clearColor];
-    imgImage.opaque = YES;
-    imgImage.alpha = 0;
-    [self.view addSubview:imgImage];
-    
-    CGRect rctSliderFrame = CGRectMake(18.0, 348.0, 284.0, 23.0);
-    sldrSlider = [[UISlider alloc] initWithFrame:rctSliderFrame];
-    [sldrSlider addTarget:self action:@selector(sliderValueChangedHandler:) forControlEvents:UIControlEventValueChanged];
-    [sldrSlider setBackgroundColor:[UIColor clearColor]];
-    sldrSlider.continuous = YES;
-    sldrSlider.value = 0;
-    sldrSlider.alpha = 0;
-    [self.view addSubview:sldrSlider];
 }
 -(void)initTextFields
 {
@@ -91,38 +64,6 @@
     tfClientName.clearButtonMode = UITextFieldViewModeWhileEditing;
     [tfClientName addTarget:self action:@selector(hideKeyboard:) forControlEvents:UIControlEventTouchUpOutside];
     [self.view addSubview:tfClientName];
-    
-    //init projectName textfield
-    tfProjectName = [[UITextField alloc]initWithFrame:CGRectMake(20, 80, 280, 31)];
-    tfProjectName.borderStyle = UITextBorderStyleRoundedRect;
-    tfProjectName.textColor = [UIColor whiteColor];
-    tfProjectName.font = [UIFont systemFontOfSize:17.0];
-    tfProjectName.placeholder = @"Project Name";
-    tfProjectName.backgroundColor = [UIColor whiteColor];
-    tfProjectName.autocorrectionType = UITextAutocorrectionTypeNo;
-    tfProjectName.backgroundColor = [UIColor clearColor];
-    tfProjectName.keyboardType = UIKeyboardTypeDefault;
-    tfProjectName.returnKeyType = UIReturnKeyDone;
-    
-    tfProjectName.clearButtonMode = UITextFieldViewModeWhileEditing;
-    [tfProjectName addTarget:self action:@selector(hideKeyboard:) forControlEvents:UIControlEventTouchUpOutside];
-    [self.view addSubview:tfProjectName];
-    
-    //init TaskName textfield
-    tfTaskName = [[UITextField alloc]initWithFrame:CGRectMake(20, 110, 280, 31)];
-    tfTaskName.borderStyle = UITextBorderStyleRoundedRect;
-    tfTaskName.textColor = [UIColor whiteColor];
-    tfTaskName.font = [UIFont systemFontOfSize:17.0];
-    tfTaskName.placeholder = @"Task Name";
-    tfTaskName.backgroundColor = [UIColor whiteColor];
-    tfTaskName.autocorrectionType = UITextAutocorrectionTypeNo;
-    tfTaskName.backgroundColor = [UIColor clearColor];
-    tfTaskName.keyboardType = UIKeyboardTypeDefault;
-    tfTaskName.returnKeyType = UIReturnKeyDone;
-    
-    tfTaskName.clearButtonMode = UITextFieldViewModeWhileEditing;
-    [tfTaskName addTarget:self action:@selector(hideKeyboard:) forControlEvents:UIControlEventTouchUpOutside];
-    [self.view addSubview:tfTaskName];
 }
 
 -(IBAction)hideKeyboard:(id)sender
@@ -130,10 +71,6 @@
     [tfClientName resignFirstResponder];
 }
 
--(IBAction)sliderValueChangedHandler:(id)sender
-{
-    imgImage.alpha = sldrSlider.value;
-}
 
 -(IBAction)btnSaveTouchHandler:(id)sender
 {
@@ -178,8 +115,20 @@
 -(IBAction)btnSelectClientTouchHandler:(id)sender
 {
     NSLog(@"btnSelectClientTouchHandler");
-    [[TTApplicationManager sharedApplicationManager] switchViewTo:VIEW_SELECT_PROPERTY forNavigationController:self.navigationController];
-
+    NSMutableArray *arrClients = [[NSMutableArray alloc] initWithArray:[[TTAppDataManager sharedAppDataManager] getAllClients]];
+    //еcли есть клиенты - переходим на вью выбора клиента
+    //если нету клиентов - переходим на вью создания нового клиента
+    if (arrClients.count > 0)
+    {
+        NSMutableDictionary *dictData = [[NSMutableDictionary alloc] initWithObjectsAndKeys:arrClients, STR_ALL_CLIENTS, nil];
+        [[TTApplicationManager sharedApplicationManager] switchViewTo:VIEW_SELECT_PROPERTY
+                                              forNavigationController:self.navigationController
+                                                           withParams:dictData];
+    }
+    else
+    {
+        [[TTApplicationManager sharedApplicationManager] switchViewTo:VIEW_CREATE_PROPERTY forNavigationController:self.navigationController];
+    }
 }
 
 -(IBAction)btnSelectProjectTouchHandler:(id)sender

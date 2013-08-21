@@ -24,14 +24,8 @@
     self.tasksView = [[UIView alloc] initWithFrame:CGRectMake(tasksTableView.frame.origin.x, tasksTableView.frame.origin.y, tasksTableView.frame.size.width, tasksTableView.rowHeight)];
     
     // загружаем дату
-    TTAppDataManager * Mydata = [TTAppDataManager sharedAppDataManager];
-    cellsDataArray = [Mydata getAllTasks];
+    cellsDataArray = [[TTAppDataManager sharedAppDataManager] getAllTasks];
     
-}
-
--(void) viewDidAppear:(BOOL)animated
-{
-    NSLog(@"1");
 }
 
 #pragma mark TTTasksTableViewCellDelegate

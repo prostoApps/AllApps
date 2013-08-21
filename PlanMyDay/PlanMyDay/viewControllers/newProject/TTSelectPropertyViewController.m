@@ -14,7 +14,7 @@
 
 @implementation TTSelectPropertyViewController
 
-@synthesize btnBack;
+@synthesize btnBack,tablePropertiesList,arrProperties;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -29,6 +29,10 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    
+    // загружаем дату
+//    TTAppDataManager * Mydata = [TTAppDataManager sharedAppDataManager];
+    arrProperties = [Mydata getAllTasks];
 }
 
 -(IBAction)btnBackTouchHandler:(id)sender

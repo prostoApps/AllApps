@@ -13,7 +13,7 @@
 
 }
 
-@synthesize dictLocalData,arrAllTasks;
+@synthesize dictLocalData,arrAllTasks,arrAllClients,arrAllProjects;
 
 -(id)init
 {
@@ -379,4 +379,50 @@
     return arrAllTasks;
 }
 
+-(NSMutableArray*)getAllProjects
+{
+    
+    
+    if (arrAllProjects.count > 0) {
+        [arrAllProjects removeAllObjects];
+    }
+    
+    if ([[dictLocalData objectForKey:STR_ALL_CLIENTS] count] > 0)
+    {
+        for (NSMutableDictionary *dictClientData in [dictLocalData objectForKey:STR_ALL_CLIENTS])
+        {
+            //проходим по всем проектам в локал дате
+            //если у клиента есть проекты, проходим по каждому из них
+            if ([[dictClientData objectForKey:STR_ALL_PROJECTS] count] > 0)
+            {
+                //проходим по всем проектам клиента
+                for (NSMutableDictionary *dictProjectData in [dictClientData objectForKey:STR_ALL_PROJECTS])
+                {
+                    [arrAllProjects addObject:[dictProjectData copy]];
+                }//end for
+            }//end if
+        }//end for
+    }//end if
+    
+    return arrAllProjects;
+}
+
+-(NSMutableArray*)getAllClients
+{
+    
+    
+    if (arrAllClients.count > 0) {
+        [arrAllClients removeAllObjects];
+    }
+    
+    if ([[dictLocalData objectForKey:STR_ALL_CLIENTS] count] > 0)
+    {
+        for (NSMutableDictionary *dictClientData in [dictLocalData objectForKey:STR_ALL_CLIENTS])
+        {
+            [arrAllClients addObject:[dictClientData copy]];
+        }//end for
+    }//end if
+    
+    return arrAllClients;
+}
 @end

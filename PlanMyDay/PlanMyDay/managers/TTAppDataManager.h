@@ -24,6 +24,8 @@
 -(void)saveTTItem:(TTItem*)item;
 
 -(NSMutableArray*)getAllTasks;
+-(NSMutableArray*)getAllProjects;
+-(NSMutableArray*)getAllClients;
 
 + (TTAppDataManager *)sharedAppDataManager;
 @end

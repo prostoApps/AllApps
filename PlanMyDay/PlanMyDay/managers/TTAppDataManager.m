@@ -87,4 +87,18 @@ static TTLocalDataManager *localDataManager;
     return arrAllTasks;
 }
 
+-(NSMutableArray*)getAllProjects
+{
+    NSMutableArray *arrAllProjects;
+    arrAllProjects = [[NSMutableArray alloc] initWithArray:[localDataManager getAllProjects]];
+    return arrAllProjects;
+}
+
+-(NSMutableArray*)getAllClients
+{
+    NSMutableArray *arrAllClients;
+    arrAllClients = [[NSMutableArray alloc] initWithArray:[localDataManager getAllClients]];
+    return arrAllClients;
+}
+
 @end
