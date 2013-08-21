@@ -70,6 +70,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		059779CC17C546BA009B2ECF /* bgTaskInfoLabel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bgTaskInfoLabel.png; sourceTree = "<group>"; };
 		05EF3DCD17C24FB0000005E8 /* clock-hour-background_TT.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "clock-hour-background_TT.png"; path = "mainClock/clock-hour-background_TT.png"; sourceTree = "<group>"; };
 		05EF3DCF17C25125000005E8 /* clock-min-background_TT.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "clock-min-background_TT.png"; path = "mainClock/clock-min-background_TT.png"; sourceTree = "<group>"; };
 		05EF3DD017C25125000005E8 /* clock-sec-background_TT.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "clock-sec-background_TT.png"; path = "mainClock/clock-sec-background_TT.png"; sourceTree = "<group>"; };
@@ -192,6 +193,7 @@
 			isa = PBXGroup;
 			children = (
 				DD90BF5717AA05FE0064233C /* mainClock */,
+				059779CC17C546BA009B2ECF /* bgTaskInfoLabel.png */,
 				DD7BAE3A17A5BE4400CACFB2 /* background.png */,
 				05EF3DD317C25DEC000005E8 /* background@2x.png */,
 				DD7BAE3B17A5BE4400CACFB2 /* ckeck_cell_icons.png */,

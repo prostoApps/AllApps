@@ -12,7 +12,8 @@
 #import "TTSelectPropertyViewController.h"
 
 @interface TTNewProjectViewController : UIViewController
-{    
+{
+    IBOutlet UIView * bgProjectInfo;
     IBOutlet UITextField *tfClientName;
     IBOutlet UITextField *tfProjectName;
     IBOutlet UITextField *tfTaskName;
@@ -20,6 +21,7 @@
     IBOutlet UITextField *tfStartTime;
     IBOutlet UITextField *tfDuration;
     IBOutlet UITextField *tfColor;
+    IBOutlet UILabel *lbTask;
     
     IBOutlet UISegmentedControl *scTaskProjectClient;
     

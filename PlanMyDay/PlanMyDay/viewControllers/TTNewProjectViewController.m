@@ -38,7 +38,20 @@
 -(void)initVisibleComponents
 {
     [scrvScrollView setScrollEnabled:YES];
-    [scrvScrollView setContentSize:CGSizeMake(320, 650)];    
+    [scrvScrollView setContentSize:CGSizeMake(320, 650)];
+    
+    // Блок Project info внешний вид
+    bgProjectInfo.layer.borderColor = [self colorWithHexString:@"#a8adb3"].CGColor;
+    bgProjectInfo.layer.borderWidth = 1.0f;
+    
+    tfTaskName.layer.borderWidth = 1.0;
+    tfTaskName.layer.borderColor = [self colorWithHexString:@"#333b43"].CGColor;
+    
+    lbTask.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"bgTaskInfoLabel.png"]];
+   
+   
+    
+    
     
     lblLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, 370, 300, 21)];
     lblLabel.backgroundColor = [UIColor clearColor];
@@ -47,6 +60,20 @@
     lblLabel.text = @"Please enter the Client Name";
     [self.view addSubview:lblLabel];
 }
+
+- (UIColor *)colorWithHexString:(NSString *)stringToConvert
+{
+    NSString *noHashString = [stringToConvert stringByReplacingOccurrencesOfString:@"#" withString:@""]; // remove the #
+    NSScanner *scanner = [NSScanner scannerWithString:noHashString];
+    [scanner setCharactersToBeSkipped:[NSCharacterSet symbolCharacterSet]]; // remove + and $
+    unsigned hex;
+    if (![scanner scanHexInt:&hex]) return nil;
+    int r = (hex >> 16) & 0xFF;
+    int g = (hex >> 8) & 0xFF;
+    int b = (hex) & 0xFF;
+    return [UIColor colorWithRed:r / 255.0f green:g / 255.0f blue:b / 255.0f alpha:1.0f];
+}
+
 -(void)initTextFields
 {
     //init clientName textfield
