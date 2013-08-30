@@ -21,6 +21,7 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
+         
     }
     return self;
 }
@@ -29,6 +30,8 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    [self setTitle:@"Menu"];
+
 }
 
 - (void)didReceiveMemoryWarning
@@ -55,6 +58,7 @@
 -(IBAction) btnCustomTrackerTouchHandler:(id)sender
 {
     [[TTApplicationManager sharedApplicationManager] switchViewTo:VIEW_CUSTOM_TRACKER forNavigationController:self.navigationController];
+    
 }
 
 -(IBAction) btnProfileTouchHandler:(id)sender

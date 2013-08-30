@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0596765117D0CAD000653A60 /* DDMenuController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0596765017D0CAD000653A60 /* DDMenuController.m */; };
+		05C8136E17C6283E00E90B2F /* icon_button_arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 05C8136C17C6283E00E90B2F /* icon_button_arrow.png */; };
+		05C8136F17C6283E00E90B2F /* icon_button_arrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 05C8136D17C6283E00E90B2F /* icon_button_arrow@2x.png */; };
 		05EF3DCE17C24FB0000005E8 /* clock-hour-background_TT.png in Resources */ = {isa = PBXBuildFile; fileRef = 05EF3DCD17C24FB0000005E8 /* clock-hour-background_TT.png */; };
 		05EF3DD117C25125000005E8 /* clock-min-background_TT.png in Resources */ = {isa = PBXBuildFile; fileRef = 05EF3DCF17C25125000005E8 /* clock-min-background_TT.png */; };
 		05EF3DD217C25125000005E8 /* clock-sec-background_TT.png in Resources */ = {isa = PBXBuildFile; fileRef = 05EF3DD017C25125000005E8 /* clock-sec-background_TT.png */; };
@@ -22,7 +25,7 @@
 		DD7BAE4217A5BE4400CACFB2 /* delete_cell_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = DD7BAE3C17A5BE4400CACFB2 /* delete_cell_icon.png */; };
 		DD7BAE4317A5BE4400CACFB2 /* one_task_back@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DD7BAE3D17A5BE4400CACFB2 /* one_task_back@2x.png */; };
 		DD7BAE4417A5BE4400CACFB2 /* task_icons.png in Resources */ = {isa = PBXBuildFile; fileRef = DD7BAE3E17A5BE4400CACFB2 /* task_icons.png */; };
-		DD7BAE4517A5BE4400CACFB2 /* TTTasksTableViewCell.png in Resources */ = {isa = PBXBuildFile; fileRef = DD7BAE3F17A5BE4400CACFB2 /* TTTasksTableViewCell.png */; };
+		DD7BAE4517A5BE4400CACFB2 /* bgTaskInfoLabel.png in Resources */ = {isa = PBXBuildFile; fileRef = DD7BAE3F17A5BE4400CACFB2 /* bgTaskInfoLabel.png */; };
 		DD7BAE4D17A5C24600CACFB2 /* TTCustomTrackerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD7BAE4B17A5C24600CACFB2 /* TTCustomTrackerViewController.m */; };
 		DD7BAE4E17A5C24600CACFB2 /* TTCustomTrackerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DD7BAE4C17A5C24600CACFB2 /* TTCustomTrackerViewController.xib */; };
 		DD7BAE5217A5C3A500CACFB2 /* DACircularProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = DD7BAE5117A5C3A500CACFB2 /* DACircularProgressView.m */; };
@@ -70,7 +73,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		059779CC17C546BA009B2ECF /* bgTaskInfoLabel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bgTaskInfoLabel.png; sourceTree = "<group>"; };
+		0596764F17D0CAD000653A60 /* DDMenuController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDMenuController.h; sourceTree = "<group>"; };
+		0596765017D0CAD000653A60 /* DDMenuController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDMenuController.m; sourceTree = "<group>"; };
+		05C8136B17C622C700E90B2F /* bgTaskInfoLabel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bgTaskInfoLabel.png; sourceTree = "<group>"; };
+		05C8136C17C6283E00E90B2F /* icon_button_arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_button_arrow.png; sourceTree = "<group>"; };
+		05C8136D17C6283E00E90B2F /* icon_button_arrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_button_arrow@2x.png"; sourceTree = "<group>"; };
 		05EF3DCD17C24FB0000005E8 /* clock-hour-background_TT.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "clock-hour-background_TT.png"; path = "mainClock/clock-hour-background_TT.png"; sourceTree = "<group>"; };
 		05EF3DCF17C25125000005E8 /* clock-min-background_TT.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "clock-min-background_TT.png"; path = "mainClock/clock-min-background_TT.png"; sourceTree = "<group>"; };
 		05EF3DD017C25125000005E8 /* clock-sec-background_TT.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "clock-sec-background_TT.png"; path = "mainClock/clock-sec-background_TT.png"; sourceTree = "<group>"; };
@@ -89,7 +96,7 @@
 		DD7BAE3C17A5BE4400CACFB2 /* delete_cell_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = delete_cell_icon.png; sourceTree = "<group>"; };
 		DD7BAE3D17A5BE4400CACFB2 /* one_task_back@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "one_task_back@2x.png"; sourceTree = "<group>"; };
 		DD7BAE3E17A5BE4400CACFB2 /* task_icons.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = task_icons.png; sourceTree = "<group>"; };
-		DD7BAE3F17A5BE4400CACFB2 /* TTTasksTableViewCell.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TTTasksTableViewCell.png; sourceTree = "<group>"; };
+		DD7BAE3F17A5BE4400CACFB2 /* bgTaskInfoLabel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bgTaskInfoLabel.png; sourceTree = "<group>"; };
 		DD7BAE4A17A5C24600CACFB2 /* TTCustomTrackerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TTCustomTrackerViewController.h; path = viewControllers/customTracker/TTCustomTrackerViewController.h; sourceTree = "<group>"; };
 		DD7BAE4B17A5C24600CACFB2 /* TTCustomTrackerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TTCustomTrackerViewController.m; path = viewControllers/customTracker/TTCustomTrackerViewController.m; sourceTree = "<group>"; };
 		DD7BAE4C17A5C24600CACFB2 /* TTCustomTrackerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TTCustomTrackerViewController.xib; path = viewControllers/customTracker/TTCustomTrackerViewController.xib; sourceTree = "<group>"; };
@@ -171,9 +178,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0596765217D0CAD700653A60 /* DDMenuController */ = {
+			isa = PBXGroup;
+			children = (
+				0596764F17D0CAD000653A60 /* DDMenuController.h */,
+				0596765017D0CAD000653A60 /* DDMenuController.m */,
+			);
+			name = DDMenuController;
+			sourceTree = "<group>";
+		};
 		DD2B9B8317B06E2600E37DA8 /* menu */ = {
 			isa = PBXGroup;
 			children = (
+				0596765217D0CAD700653A60 /* DDMenuController */,
 				DD2B9B7E17B06E1F00E37DA8 /* TTMenuViewController.h */,
 				DD2B9B7F17B06E1F00E37DA8 /* TTMenuViewController.m */,
 				DD2B9B8017B06E1F00E37DA8 /* TTMenuViewController.xib */,
@@ -192,15 +209,17 @@
 		DD7BAE3917A5BE4400CACFB2 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				05C8136C17C6283E00E90B2F /* icon_button_arrow.png */,
+				05C8136D17C6283E00E90B2F /* icon_button_arrow@2x.png */,
+				05C8136B17C622C700E90B2F /* bgTaskInfoLabel.png */,
 				DD90BF5717AA05FE0064233C /* mainClock */,
-				059779CC17C546BA009B2ECF /* bgTaskInfoLabel.png */,
 				DD7BAE3A17A5BE4400CACFB2 /* background.png */,
 				05EF3DD317C25DEC000005E8 /* background@2x.png */,
 				DD7BAE3B17A5BE4400CACFB2 /* ckeck_cell_icons.png */,
 				DD7BAE3C17A5BE4400CACFB2 /* delete_cell_icon.png */,
 				DD7BAE3D17A5BE4400CACFB2 /* one_task_back@2x.png */,
 				DD7BAE3E17A5BE4400CACFB2 /* task_icons.png */,
-				DD7BAE3F17A5BE4400CACFB2 /* TTTasksTableViewCell.png */,
+				DD7BAE3F17A5BE4400CACFB2 /* bgTaskInfoLabel.png */,
 			);
 			name = images;
 			path = assets/images;
@@ -452,6 +471,11 @@
 				CLASSPREFIX = TT;
 				LastUpgradeCheck = 0460;
 				ORGANIZATIONNAME = "prosto*";
+				TargetAttributes = {
+					DDB4A82717849C3F007C7F15 = {
+						DevelopmentTeam = 24QCU7VC45;
+					};
+				};
 			};
 			buildConfigurationList = DDB4A82317849C3F007C7F15 /* Build configuration list for PBXProject "PlanMyDay" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -491,7 +515,7 @@
 				DD7BAE4217A5BE4400CACFB2 /* delete_cell_icon.png in Resources */,
 				DD7BAE4317A5BE4400CACFB2 /* one_task_back@2x.png in Resources */,
 				DD7BAE4417A5BE4400CACFB2 /* task_icons.png in Resources */,
-				DD7BAE4517A5BE4400CACFB2 /* TTTasksTableViewCell.png in Resources */,
+				DD7BAE4517A5BE4400CACFB2 /* bgTaskInfoLabel.png in Resources */,
 				DD7BAE4E17A5C24600CACFB2 /* TTCustomTrackerViewController.xib in Resources */,
 				DD90BF5517A9FEB50064233C /* TTCurrentTaskNextTaskIndicatorViewController.xib in Resources */,
 				DD90BF6017AA06210064233C /* -clock-face.png in Resources */,
@@ -499,12 +523,14 @@
 				DD90BF6217AA06210064233C /* clock-background.png in Resources */,
 				DD90BF6317AA06210064233C /* clock-hour-background.png in Resources */,
 				DD90BF6417AA06210064233C /* clock-min-background_.png in Resources */,
+				05C8136F17C6283E00E90B2F /* icon_button_arrow@2x.png in Resources */,
 				DD90BF6517AA06210064233C /* clock-min-background.png in Resources */,
 				DD90BF6617AA06210064233C /* clock-sec-background.png in Resources */,
 				DD90BF6717AA06210064233C /* OutputSample.png in Resources */,
 				DD90BF7017AA06530064233C /* ClockViewController.xib in Resources */,
 				DD2B9B8217B06E1F00E37DA8 /* TTMenuViewController.xib in Resources */,
 				DD968BA117B7BBE8008D583F /* TTSelectPropertyViewController.xib in Resources */,
+				05C8136E17C6283E00E90B2F /* icon_button_arrow.png in Resources */,
 				DD968BA617B7BC1C008D583F /* TTCreatePropertyViewController.xib in Resources */,
 				05EF3DCE17C24FB0000005E8 /* clock-hour-background_TT.png in Resources */,
 				05EF3DD117C25125000005E8 /* clock-min-background_TT.png in Resources */,
@@ -540,6 +566,7 @@
 				DD90BF6F17AA06530064233C /* ClockViewController.m in Sources */,
 				DD2B9B8117B06E1F00E37DA8 /* TTMenuViewController.m in Sources */,
 				DD968BA017B7BBE8008D583F /* TTSelectPropertyViewController.m in Sources */,
+				0596765117D0CAD000653A60 /* DDMenuController.m in Sources */,
 				DD968BA517B7BC1C008D583F /* TTCreatePropertyViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -625,6 +652,7 @@
 		DDB4A84C17849C3F007C7F15 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "PlanMyDay/PlanMyDay-Prefix.pch";
 				INFOPLIST_FILE = "PlanMyDay/PlanMyDay-Info.plist";
@@ -636,6 +664,7 @@
 		DDB4A84D17849C3F007C7F15 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "PlanMyDay/PlanMyDay-Prefix.pch";
 				INFOPLIST_FILE = "PlanMyDay/PlanMyDay-Info.plist";

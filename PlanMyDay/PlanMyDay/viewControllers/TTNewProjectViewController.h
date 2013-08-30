@@ -13,6 +13,10 @@
 
 @interface TTNewProjectViewController : UIViewController
 {
+    IBOutlet UITableView *TaskTableView;
+    NSDictionary *tableContents;
+    NSArray *sortedKeys;
+    
     IBOutlet UIView * bgProjectInfo;
     IBOutlet UITextField *tfClientName;
     IBOutlet UITextField *tfProjectName;

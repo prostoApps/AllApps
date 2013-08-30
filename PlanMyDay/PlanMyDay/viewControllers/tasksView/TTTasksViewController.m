@@ -27,6 +27,8 @@
     TTAppDataManager * Mydata = [TTAppDataManager sharedAppDataManager];
     cellsDataArray = [Mydata getAllTasks];
     
+    
+    
 }
 
 -(void) viewDidAppear:(BOOL)animated
