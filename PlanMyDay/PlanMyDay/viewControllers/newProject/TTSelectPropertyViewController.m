@@ -32,7 +32,7 @@
     
     // загружаем дату
 //    TTAppDataManager * Mydata = [TTAppDataManager sharedAppDataManager];
-    arrProperties = [Mydata getAllTasks];
+    arrProperties = [[TTAppDataManager sharedAppDataManager] getAllTasks];
 }
 
 -(IBAction)btnBackTouchHandler:(id)sender
