@@ -17,11 +17,23 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
     
-    [TTAppDataManager sharedAppDataManager];
+  //[TTAppDataManager sharedAppDataManager];
 
     TTMainClockViewController *mainController = [[TTMainClockViewController alloc] init];
     UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:mainController];
-    navController.delegate = self;
+    
+    //белый цвет Title UINavigationBar
+    NSDictionary *navbarTitleTextAttributes = [NSDictionary dictionaryWithObjectsAndKeys:
+                                               [UIColor whiteColor],UITextAttributeTextColor,
+                                               nil];
+    [[UINavigationBar appearance] setTitleTextAttributes:navbarTitleTextAttributes];
+    //прозрачность UINavigationBar
+    UIImage *portraitImage = [UIImage imageNamed:@"icon_button_arrow.png"];
+    [[UINavigationBar appearance] setBackgroundImage:portraitImage
+                                       forBarMetrics:UIBarMetricsDefault];
+    
+    
+    
     DDMenuController *rootController = [[DDMenuController alloc] initWithRootViewController:navController];
     _menuController = rootController;
     
@@ -83,8 +95,9 @@
 {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
-#pragma UINavigationControllerDelegate
 
+#pragma UINavigationControllerDelegate
+/*
 - (void)navigationController:(UINavigationController *)navigationController willShowViewController:(UIViewController *)viewController animated:(BOOL)animated{
 
     if ( [viewController.nibName  isEqual:  @"TTMenuViewController"]) {
@@ -93,5 +106,5 @@
         [navigationController setNavigationBarHidden:NO animated:NO];
     }
 }
-
+*/
 @end

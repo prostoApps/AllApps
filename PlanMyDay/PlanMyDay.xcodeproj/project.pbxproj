@@ -73,6 +73,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		055A5DC417D4E16200A0FE85 /* background_clear.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background_clear.png; sourceTree = "<group>"; };
+		055A5DC517D4E2AE00A0FE85 /* background_clear@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "background_clear@2x.png"; sourceTree = "<group>"; };
 		0596764F17D0CAD000653A60 /* DDMenuController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDMenuController.h; sourceTree = "<group>"; };
 		0596765017D0CAD000653A60 /* DDMenuController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDMenuController.m; sourceTree = "<group>"; };
 		05C8136B17C622C700E90B2F /* bgTaskInfoLabel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bgTaskInfoLabel.png; sourceTree = "<group>"; };
@@ -209,6 +211,8 @@
 		DD7BAE3917A5BE4400CACFB2 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				055A5DC517D4E2AE00A0FE85 /* background_clear@2x.png */,
+				055A5DC417D4E16200A0FE85 /* background_clear.png */,
 				05C8136C17C6283E00E90B2F /* icon_button_arrow.png */,
 				05C8136D17C6283E00E90B2F /* icon_button_arrow@2x.png */,
 				05C8136B17C622C700E90B2F /* bgTaskInfoLabel.png */,

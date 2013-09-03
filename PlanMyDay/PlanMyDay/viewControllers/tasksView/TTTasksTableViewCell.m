@@ -56,7 +56,7 @@
 
 
 - (BOOL)gestureRecognizerShouldBegin:(UIPanGestureRecognizer *)panGestureRecognizer {
-    if ([panGestureRecognizer class ] != [UILongPressGestureRecognizer class])
+   if ([panGestureRecognizer class ] != [UILongPressGestureRecognizer class])
     {
         CGPoint location = [panGestureRecognizer translationInView:self.contentView];
         NSLog(@"location.x:%f,location.y:%f",fabs(location.x),fabs(location.y));

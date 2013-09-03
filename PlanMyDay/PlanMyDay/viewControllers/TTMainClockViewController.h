@@ -17,6 +17,7 @@
 {
     IBOutlet UIButton *btnMenu;
     IBOutlet UIButton *btnNewTask;
+    IBOutlet UIView * viewIndicator;
 }
 
 -(IBAction) btnNewTaskTouchHandler:(id)sender;

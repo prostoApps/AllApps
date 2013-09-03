@@ -29,13 +29,13 @@
 #define kMenuFullWidth 320.0f
 #define kMenuDisplayedWidth 90.0f
 #define kMenuOverlayWidth (self.view.bounds.size.width - kMenuDisplayedWidth)
-#define kMenuBounceOffset 10.0f
-#define kMenuBounceDuration .3f
-#define kMenuSlideDuration .3f
+#define kMenuBounceOffset 0.0f
+#define kMenuBounceDuration .0f
+#define kMenuSlideDuration .0f
 
 
 @interface DDMenuController (Internal)
-- (void)showShadow:(BOOL)val;
+
 @end
 
 @implementation DDMenuController
@@ -74,6 +74,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setRootViewController:_root]; // reset root
+    
+    
     
     if (!_tap) {
         UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tap:)];
@@ -138,7 +140,7 @@
         _root.view.frame = frame;
         _root.view.autoresizingMask = self.view.autoresizingMask;
         
-        [self showShadow:(_root.view.layer.shadowOpacity!=0.0f)];
+       
         
     }
     
@@ -160,7 +162,7 @@
     
     if (gesture.state == UIGestureRecognizerStateBegan) {
         
-        [self showShadow:YES];
+       
         _panOriginX = self.view.frame.origin.x;
         _panVelocity = CGPointMake(0.0f, 0.0f);
         
@@ -262,7 +264,7 @@
             if (completion == DDMenuPanCompletionLeft) {
                 [self showLeftController:NO];
             } else if (completion == DDMenuPanCompletionRight) {
-                [self showRightController:NO];
+                
             } else {
                 [self showRootController:NO];
             }
@@ -381,7 +383,8 @@
 #pragma Internal Nav Handling
 
 - (void)resetNavButtons {
- /*   if (!_root) return;
+
+    if (!_root) return;
     
     UIViewController *topController = nil;
     if ([_root isKindOfClass:[UINavigationController class]]) {
@@ -402,6 +405,13 @@
         
     }
     
+    UIBarButtonItem *infoButtonItem=[[UIBarButtonItem alloc]initWithTitle:@"=" style:UIBarButtonItemStyleBordered  target:self action:@selector(showLeft:)];
+    UIBarButtonItem *infoButtonItem2=[[UIBarButtonItem alloc]initWithTitle:@"+" style:UIBarButtonItemStyleBordered  target:self action:@selector(RightBarButtonItemAction)];
+    [topController.navigationItem setLeftBarButtonItem:infoButtonItem];
+    [topController.navigationItem setRightBarButtonItem:infoButtonItem2];
+    [topController.navigationController.navigationBar setTintColor:[UIColor whiteColor]];
+    
+    /*
     if (_menuFlags.canShowLeft) {
         UIBarButtonItem *button = [[barButtonItemClass alloc] initWithImage:[UIImage imageNamed:@"nav_menu_icon.png"] style:UIBarButtonItemStyleBordered target:self action:@selector(showLeft:)];
         topController.navigationItem.leftBarButtonItem = button;
@@ -419,21 +429,13 @@
 			topController.navigationItem.rightBarButtonItem = nil;
 		}
     }
-  */
+     */
     
 }
 
-- (void)showShadow:(BOOL)val {
-    if (!_root) return;
-    
-    _root.view.layer.shadowOpacity = val ? 0.8f : 0.0f;
-    if (val) {
-        _root.view.layer.cornerRadius = 4.0f;
-        _root.view.layer.shadowOffset = CGSizeZero;
-        _root.view.layer.shadowRadius = 4.0f;
-        _root.view.layer.shadowPath = [UIBezierPath bezierPathWithRect:self.view.bounds].CGPath;
-    }
-    
+-(void)RightBarButtonItemAction{
+//    // lets just push another feed view
+
 }
 
 - (void)showRootController:(BOOL)animated {
@@ -466,7 +468,8 @@
         _menuFlags.showingLeftView = NO;
         _menuFlags.showingRightView = NO;
         
-        [self showShadow:NO];
+       
+        
         
     }];
     
@@ -488,7 +491,7 @@
         [self.delegate menuController:self willShowViewController:self.leftViewController];
     }
     _menuFlags.showingLeftView = YES;
-    [self showShadow:YES];
+   
     
     UIView *view = self.leftViewController.view;
 	CGRect frame = self.view.bounds;
@@ -518,47 +521,6 @@
     
 }
 
-- (void)showRightController:(BOOL)animated {
-    if (!_menuFlags.canShowRight) return;
-    
-    if (_left && _left.view.superview) {
-        [_left.view removeFromSuperview];
-        _menuFlags.showingLeftView = NO;
-    }
-    
-    if (_menuFlags.respondsToWillShowViewController) {
-        [self.delegate menuController:self willShowViewController:self.rightViewController];
-    }
-    _menuFlags.showingRightView = YES;
-    [self showShadow:YES];
-    
-    UIView *view = self.rightViewController.view;
-    CGRect frame = self.view.bounds;
-	frame.origin.x += frame.size.width - kMenuFullWidth;
-	frame.size.width = kMenuFullWidth;
-    view.frame = frame;
-    [self.view insertSubview:view atIndex:0];
-    
-    frame = _root.view.frame;
-    frame.origin.x = -(frame.size.width - kMenuOverlayWidth);
-    
-    BOOL _enabled = [UIView areAnimationsEnabled];
-    if (!animated) {
-        [UIView setAnimationsEnabled:NO];
-    }
-    
-    _root.view.userInteractionEnabled = NO;
-    [UIView animateWithDuration:.3 animations:^{
-        _root.view.frame = frame;
-    } completion:^(BOOL finished) {
-        [_tap setEnabled:YES];
-    }];
-    
-    if (!animated) {
-        [UIView setAnimationsEnabled:_enabled];
-    }
-}
-
 
 #pragma mark Setters
 
@@ -566,13 +528,6 @@
     delegate = val;
     _menuFlags.respondsToWillShowViewController = [(id)self.delegate respondsToSelector:@selector(menuController:willShowViewController:)];
 }
-
-- (void)setRightViewController:(UIViewController *)rightController {
-    _right = rightController;
-    _menuFlags.canShowRight = (_right!=nil);
-    [self resetNavButtons];
-}
-
 - (void)setLeftViewController:(UIViewController *)leftController {
     _left = leftController;
     _menuFlags.canShowLeft = (_left!=nil);
@@ -596,7 +551,7 @@
         
         UIPanGestureRecognizer *pan = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(pan:)];
         pan.delegate = (id<UIGestureRecognizerDelegate>)self;
-        [view addGestureRecognizer:pan];
+       // [view addGestureRecognizer:pan];
         _pan = pan;
         
     } else {
@@ -608,7 +563,7 @@
         
     }
     
-    [self resetNavButtons];
+   [self resetNavButtons];
 }
 
 - (void)setRootController:(UIViewController *)controller animated:(BOOL)animated {
@@ -626,7 +581,7 @@
         __block DDMenuController *selfRef = self;
         __block UIViewController *rootRef = _root;
         CGRect frame = rootRef.view.frame;
-        frame.origin.x = rootRef.view.bounds.size.width;
+        frame.origin.x = kMenuDisplayedWidth;
         
         [UIView animateWithDuration:.1 animations:^{
             
@@ -725,7 +680,7 @@
         }];
         
     } else {
-        
+    
         [navController pushViewController:viewController animated:animated];
         
     }
@@ -743,7 +698,7 @@
 
 - (void)showRight:(id)sender {
     
-    [self showRightController:YES];
+
     
 }
 

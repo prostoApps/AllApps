@@ -27,7 +27,9 @@
     TTAppDataManager * Mydata = [TTAppDataManager sharedAppDataManager];
     cellsDataArray = [Mydata getAllTasks];
     
+    self.navigationController.navigationBar.barTintColor = [UIColor redColor];
     
+
     
 }
 
