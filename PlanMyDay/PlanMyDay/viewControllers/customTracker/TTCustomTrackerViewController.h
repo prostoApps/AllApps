@@ -13,9 +13,6 @@
 
 @interface TTCustomTrackerViewController : UIViewController
 {
-    IBOutlet UIButton *btnMenu;
-    IBOutlet UIButton *btnNewTask;
-
     IBOutlet UIButton *playPauseButton;
     IBOutlet UIButton *stopButton;
     IBOutlet UIButton *cancelButton;

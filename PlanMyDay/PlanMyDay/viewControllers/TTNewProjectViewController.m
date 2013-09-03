@@ -40,18 +40,67 @@
     [scrvScrollView setScrollEnabled:YES];
     [scrvScrollView setContentSize:CGSizeMake(320, 650)];
     
-    // Блок Project info внешний вид
+    NSArray *arrTemp1 = [[NSArray alloc]
+                         initWithObjects:@"Task",@"Project",@"Client",@"Color",@"Billable",nil];
+    NSArray *arrTemp2 = [[NSArray alloc]
+                         initWithObjects:@"Date",@"Start",@"Finish",nil];
+    NSDictionary *temp =[[NSDictionary alloc]
+                         initWithObjectsAndKeys:arrTemp1,@"Task Info",arrTemp2,@"Planning Time",nil];
+    tableContents = temp;
+    sortedKeys = [[NSArray alloc]
+                  initWithObjects:@"Task Info",@"Planning Time",nil];
+
+    
+    
+    /* Блок Project info внешний вид
     bgProjectInfo.layer.borderColor = [self colorWithHexString:@"#a8adb3"].CGColor;
     bgProjectInfo.layer.borderWidth = 1.0f;
     
-    tfTaskName.layer.borderWidth = 1.0;
     tfTaskName.layer.borderColor = [self colorWithHexString:@"#333b43"].CGColor;
     
-    lbTask.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"bgTaskInfoLabel.png"]];
-   
-   
+    lbTask.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"TTTasksTableViewCell.png"]];
+    */
     
+   
+
+
+}
+#pragma mark UITableViewDataSource
+- (NSInteger)tableView:(UITableView *)table
+ numberOfRowsInSection:(NSInteger)section {
+    NSArray *listData =[tableContents objectForKey:[sortedKeys objectAtIndex:section]];
+    return [listData count];
+}
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
+    return [sortedKeys count];
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath    *)indexPath {
+    static NSString *CellIdentifier = @"Cell";
     
+    NSArray *listData =[tableContents objectForKey:
+                        [sortedKeys objectAtIndex:[indexPath section]]];
+    
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    if (cell == nil) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+    }
+    cell.backgroundColor = [self colorWithHexString:@"#333b43"];
+
+    cell.textLabel.textColor = [UIColor whiteColor];
+ 
+    
+    NSUInteger row = [indexPath row];
+    cell.textLabel.text = [listData objectAtIndex:row];
+       cell.accessibilityValue = [listData objectAtIndex:row];
+    
+     return cell;
+     }
+
+// Apple's docs: To enable the swipe-to-delete feature of table views (wherein a user swipes horizontally across a row to display a Delete button), you must implement the tableView:commitEditingStyle:forRowAtIndexPath: method.
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+{
     
     lblLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, 370, 300, 21)];
     lblLabel.backgroundColor = [UIColor clearColor];

@@ -16,7 +16,24 @@
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
-    ;
+    
+    [TTAppDataManager sharedAppDataManager];
+
+    TTMainClockViewController *mainController = [[TTMainClockViewController alloc] init];
+    UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:mainController];
+    navController.delegate = self;
+    DDMenuController *rootController = [[DDMenuController alloc] initWithRootViewController:navController];
+    _menuController = rootController;
+    
+    TTMenuViewController *leftController = [[TTMenuViewController alloc] init];
+    rootController.leftViewController = leftController;
+    
+    self.window.rootViewController = rootController;
+    
+    
+    
+    
+    /*
     
     [TTAppDataManager sharedAppDataManager];
     
@@ -25,17 +42,20 @@
     TTMainClockViewController *clockView = [[TTMainClockViewController alloc] initWithNibName:@"TTMainClockViewController" bundle:nil];
     
     UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:clockView];
+    navController.delegate = self;
     
-    navController.navigationBarHidden = YES;
+  //  navController.navigationBarHidden = NO;
     
     //    self.window.rootViewController = self.viewController;
     self.window.rootViewController = navController;
     
 //    navController.tabBarController
-  
+  */
     [self.window makeKeyAndVisible];
     return YES;
 }
+
+
 
 - (void)applicationWillResignActive:(UIApplication *)application
 {
@@ -62,6 +82,16 @@
 - (void)applicationWillTerminate:(UIApplication *)application
 {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+#pragma UINavigationControllerDelegate
+
+- (void)navigationController:(UINavigationController *)navigationController willShowViewController:(UIViewController *)viewController animated:(BOOL)animated{
+
+    if ( [viewController.nibName  isEqual:  @"TTMenuViewController"]) {
+        [navigationController setNavigationBarHidden:YES animated:NO];
+    } else if ( [navigationController isNavigationBarHidden] ) {
+        [navigationController setNavigationBarHidden:NO animated:NO];
+    }
 }
 
 @end

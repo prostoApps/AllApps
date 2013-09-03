@@ -26,6 +26,8 @@
     // загружаем дату
     cellsDataArray = [[TTAppDataManager sharedAppDataManager] getAllTasks];
     
+    
+    
 }
 
 #pragma mark TTTasksTableViewCellDelegate

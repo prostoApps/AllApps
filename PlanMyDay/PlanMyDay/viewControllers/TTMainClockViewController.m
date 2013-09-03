@@ -64,8 +64,24 @@
 //    [self createPageWithColor:[UIColor redColor] forPage:0];
 //    [self createPageWithColor:[UIColor blueColor] forPage:1];
     
-}
+    self.title = @"Current Project";
+    UIBarButtonItem *infoButtonItem=[[UIBarButtonItem alloc]initWithTitle:@"=" style:UIBarButtonItemStyleBordered  target:self action:@selector(LeftBarButtonItemAction)];
+    UIBarButtonItem *infoButtonItem2=[[UIBarButtonItem alloc]initWithTitle:@"+" style:UIBarButtonItemStyleBordered  target:self action:@selector(RightBarButtonItemAction)];
+    [self.navigationItem setLeftBarButtonItem:infoButtonItem];
+    [self.navigationItem setRightBarButtonItem:infoButtonItem2];
+ //   self.navigationController.navigationController.v view.backgroundColor = [UIColor clearColor];
+    
 
+}
+     
+-(void)LeftBarButtonItemAction{
+     DDMenuController *menuController = (DDMenuController*)((TTAppDelegate*)[[UIApplication sharedApplication] delegate]).menuController;
+     [menuController showLeftController:YES];
+    //[[TTApplicationManager sharedApplicationManager] switchViewTo:VIEW_MENU forNavigationController:self.navigationController];
+}
+-(void)RightBarButtonItemAction{
+    [[TTApplicationManager sharedApplicationManager] switchViewTo:VIEW_NEW_TASK forNavigationController:self.navigationController];
+}
 -(void) createPageWithColor: (UIColor*) color forPage:(NSInteger) page
 {
     UIView *newView = [[UIView alloc] initWithFrame:CGRectMake(svScrollView.frame.size.width * page, 0, svScrollView.frame.size.width, svScrollView.frame.size.height)];

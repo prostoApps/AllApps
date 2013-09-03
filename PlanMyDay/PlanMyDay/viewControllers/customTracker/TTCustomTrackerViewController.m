@@ -199,14 +199,4 @@
     overtime = false;
     timerTitleLabel.text = @"Time ramaining";
 }
-
--(IBAction) btnNewTaskTouchHandler:(id)sender
-{
-    [[TTApplicationManager sharedApplicationManager] switchViewTo:VIEW_NEW_TASK forNavigationController:self.navigationController];
-}
-
--(IBAction) btnMenuTouchHandler:(id)sender
-{
-    [[TTApplicationManager sharedApplicationManager] switchViewTo:VIEW_MENU forNavigationController:self.navigationController];
-}
 @end
