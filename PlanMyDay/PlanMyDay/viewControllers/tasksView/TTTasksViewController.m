@@ -33,11 +33,6 @@
     
 }
 
--(void) viewDidAppear:(BOOL)animated
-{
-    NSLog(@"1");
-}
-
 #pragma mark TTTasksTableViewCellDelegate
 -(void)allowTTTasksTableViewScroll:(BOOL)variable{
     [tasksTableView setScrollEnabled:variable];
@@ -67,14 +62,7 @@
     TTTasksTableViewCell *cell = (TTTasksTableViewCell*)[theTableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil)
         cell = [[TTTasksTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
-    if ([cell respondsToSelector:@selector(setTableCellData:)])
-    {
-        NSLog(@"responds");
-    }
-    else
-    {
-        NSLog(@"not responds");
-    }
+
     [cell setTableCellData:[cellsDataArray objectAtIndex:indexPath.row]];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     cell.delegate = self;

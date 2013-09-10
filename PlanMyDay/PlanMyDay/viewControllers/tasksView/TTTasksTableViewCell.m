@@ -14,8 +14,12 @@
 #define DELETE_END_POSITION 360
 
 #import "TTTasksTableViewCell.h"
+#import <QuartzCore/QuartzCore.h>
 
 @implementation TTTasksTableViewCell
+{
+    CABasicAnimation * _taskAnimation;
+}
 
 @synthesize clientName;
 @synthesize taskName;
@@ -38,6 +42,7 @@
         [taskIcon setContentMode:UIViewContentModeTop];
         [taskIcon setClipsToBounds:YES];
         [taskContentView addSubview:taskIcon];
+        isCheck = false;
         
         // Setup a left swipe gesture recognizer
        
@@ -47,7 +52,13 @@
         [leftPanGestureRecognizer setCancelsTouchesInView:NO];
         [leftPanGestureRecognizer setDelegate:self];
         [self addGestureRecognizer:leftPanGestureRecognizer];
+
         
+        _taskAnimation = [CABasicAnimation animationWithKeyPath:@"transform.translation.x"];
+        _taskAnimation.delegate = self;
+        _taskAnimation.duration = 0.2f;
+        _taskAnimation.fillMode = kCAFillModeForwards;
+        _taskAnimation.removedOnCompletion = NO;
     }
     return self;
 }
@@ -62,10 +73,12 @@
         NSLog(@"location.x:%f,location.y:%f",fabs(location.x),fabs(location.y));
         return fabs(location.x) >= fabs(location.y) ;
     }
+    
     return NO;
     
 }
- 
+
+
 
  //поддержа других gestureRecognizer
 - (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer {
@@ -106,34 +119,46 @@
         }
     }
     
-    /*
+    
     if ([[data objectForKey:@"isCheck"] isEqual:@"true"])
     {
+        
         isCheck = true;
+        [taskCheckBackground.layer setAnchorPoint:CGPointMake(0.0, 0.0)];
+        [taskCheckBackground.layer setPosition:CGPointMake(CHECK_END_POSITION, 0)];
+        taskCheckBackground.hidden = true;
     }
-     */
+    else
+    {
+        isCheck = false;
+        [taskCheckBackground.layer setAnchorPoint:CGPointMake(0.0, 0.0)];
+        [taskCheckBackground.layer setPosition:CGPointMake(CHECK_START_POSITION, 0)];
+        taskCheckBackground.hidden = false;
+    }
+    
 
 }
 
 - (void)moveCell:(id)sender {
     UIPanGestureRecognizer *r = (UIPanGestureRecognizer*)sender;
     CGPoint translation = [r translationInView:self];
-    CGRect taskCheckBackgroundFrame = taskCheckBackground.frame;
-    CGRect taskContentViewFrame = taskContentView.frame;
- 
+//    CGRect taskCheckBackgroundFrame = taskCheckBackground.frame;
+//    CGRect taskContentViewFrame = taskContentView.frame;
+    
         switch (r.state) {
             case UIGestureRecognizerStateBegan:
                 //отключаем скролл таблицы
                 [self.delegate allowTTTasksTableViewScroll:NO];
                 break;
-                
+    
             case UIGestureRecognizerStateChanged:
                 // отметить ячейчку
                 if (translation.x >= 0 )
                 {
-                    NSLog(@"translation: %f",translation.x);
-                    taskContentViewFrame.origin.x = DELETE_START_POSITION;
-                    [taskContentView setFrame:taskContentViewFrame];
+                    [taskContentView.layer setAnchorPoint:CGPointMake(0,0)];
+                    [taskCheckBackground.layer setAnchorPoint:CGPointMake(0,0)];
+                    [taskContentView.layer setPosition:CGPointMake(DELETE_START_POSITION, 0)];
+                    
                     // двигаем иконку
                     if (translation.x < CHECK_MOVE_DISTANSE)
                     {
@@ -147,21 +172,8 @@
                             {
                                 [taskIcon setContentMode:UIViewContentModeCenter];
                             }
-                          //  taskName.alpha = 1-((translation.x / CHECK_MOVE_DISTANSE)/2);
-                          //  clientName.alpha = 1-((translation.x / CHECK_MOVE_DISTANSE)/2);
-                            
                             taskIcon.alpha = 1-(translation.x / CHECK_MOVE_DISTANSE);
                         }
-//                        else
-//                        {
-//                            
-//                            [taskIcon setContentMode:UIViewContentModeBottom];
-//
-//                           taskName.alpha = ((translation.x / CHECK_MOVE_DISTANSE)/2)+0.5;
-//                           clientName.alpha = ((translation.x / CHECK_MOVE_DISTANSE)/2)+0.5;
-//                        }
-                        
-
                     }
                     else
                     {
@@ -170,76 +182,47 @@
                             [taskIcon setContentMode:UIViewContentModeBottom];
                             taskIcon.alpha = (translation.x / CHECK_MOVE_DISTANSE)-1;
                         }
-//                        else
-//                        {
-//                            if (!isOvertime)
-//                            {
-//                                [taskIcon setContentMode:UIViewContentModeTop];
-//                            }
-//                            else
-//                            {
-//                                [taskIcon setContentMode:UIViewContentModeCenter];
-//                            }
-//                        }
-                        
                     }
                     // двигаем бекграунд
                     if (!isCheck)
                     {
-                        taskCheckBackgroundFrame.origin.x = translation.x + CHECK_START_POSITION;
+                        [taskCheckBackground.layer setPosition:CGPointMake(translation.x +CHECK_START_POSITION, 0)];
                     }
-//                    else
-//                    {
-//                        taskCheckBackground.hidden = false;
-//                        taskCheckBackgroundFrame.origin.x = translation.x - UNCHECK_START_POSITION;
-//                    }
-                    [taskCheckBackground setFrame:taskCheckBackgroundFrame];
-                     NSLog(@"taskFrame: %f",taskCheckBackgroundFrame.origin.x);
                 }
                 // удалить ячейку
                 else
                 {
+                    [taskContentView.layer setAnchorPoint:CGPointMake(0,0)];
+                    [taskCheckBackground.layer setAnchorPoint:CGPointMake(0,0)];
                     if (!isCheck)
                     {
-                        taskCheckBackgroundFrame.origin.x = CHECK_START_POSITION;
+                       [taskCheckBackground.layer setPosition:CGPointMake(CHECK_START_POSITION, 0)];
+                        
                     }
-//                    else
-//                    {
-//                        taskCheckBackgroundFrame.origin.x = -UNCHECK_START_POSITION;
-//                    }
-                    //возвращаем на место чек,анчек бекграунд ячейки
-                    [taskCheckBackground setFrame:taskCheckBackgroundFrame];
                     //двигаем ячейку
-                    taskContentViewFrame.origin.x = translation.x;
-                    [taskContentView setFrame:taskContentViewFrame];
+                    [taskContentView.layer setPosition:CGPointMake(translation.x, 0)];
                 }
                 break;
-                
             case UIGestureRecognizerStateEnded:
                 //подключаем скролл таблицы
                 [self.delegate allowTTTasksTableViewScroll:YES];
                 // включаем анимацию
-                [UIView beginAnimations:nil context:nil];
-                [UIView setAnimationDuration:0.2];
-                [UIView setAnimationDelegate:self];
+
                 // завершение чек\анчек задания когда отпустили палец
                 if (translation.x >= 0 )
                 {
+                   
                     //завершить действие
                         if (translation.x > CHECK_MOVE_DISTANSE)
                         {
                             // не выполненное задание
                             if (!isCheck)
                             {
-                                taskCheckBackgroundFrame.origin.x = CHECK_END_POSITION;
-                                [UIView setAnimationDidStopSelector:@selector(animationDidStopCheckingCell)];
+                              //  [taskCheckBackground.layer setPosition:CGPointMake(CHECK_END_POSITION, self.frame.origin.y)];
+                                _taskAnimation.fromValue = [NSNumber numberWithFloat:0];
+                                _taskAnimation.toValue = [NSNumber numberWithFloat:taskCheckBackground.frame.size.width - translation.x];
+                               [_taskAnimation setValue:@"CheckTask" forKey:@"taskCellAnimation"];
                             }
-                            // выполненное задание
-//                            else
-//                            {
-//                                taskCheckBackgroundFrame.origin.x = CHECK_START_POSITION;
-//                                [UIView setAnimationDidStopSelector:@selector(animationDidStopUnCheckingCell)];
-//                            }
                         }
                     // вернуть  в исходное положение
                         else
@@ -247,23 +230,15 @@
                             // не выполненное задание
                             if (!isCheck)
                             {
-                                taskCheckBackgroundFrame.origin.x = CHECK_START_POSITION;
-                           //     [taskName setAlpha:1];
-                            //    [clientName setAlpha:1];
                                 [taskIcon setAlpha: 1];
+                                // точки анимации
+                                _taskAnimation.fromValue = [NSNumber numberWithFloat:0];
+                                _taskAnimation.toValue = [NSNumber numberWithFloat:-translation.x];
+                                [_taskAnimation setValue:@"DontCheckTask" forKey:@"taskCellAnimation"];
                             }
-                            //выполненное задание
-//                            else
-//                            {
-//                                taskCheckBackgroundFrame.origin.x = -UNCHECK_START_POSITION;
-//                                [taskName setAlpha:0.5];
-//                                [clientName setAlpha:0.5];
-//                                [taskIcon setAlpha: 1];
-//                            }
                         }
-                        [taskCheckBackground setFrame:taskCheckBackgroundFrame];
-                        taskContentViewFrame.origin.x = DELETE_START_POSITION;
-                        [taskContentView setFrame:taskContentViewFrame];
+                    
+                    [taskCheckBackground.layer addAnimation:_taskAnimation forKey:nil];
                 }
                 // завершение удаления ячейки
                 else
@@ -271,26 +246,21 @@
                     // удалить задание
                     if (translation.x < -DELETE_MOVE_DISTANSE)
                     {
-                        taskContentViewFrame.origin.x = -DELETE_END_POSITION;
-                        [UIView setAnimationDidStopSelector:@selector(animationDidStopDeletingCell)];
+                        _taskAnimation.fromValue = [NSNumber numberWithFloat:0];
+                        _taskAnimation.toValue = [NSNumber numberWithFloat:-taskContentView.frame.size.width-translation.x];
+                        [_taskAnimation setValue:@"DeleteTask" forKey:@"taskCellAnimation"];
                     }
                     //вернуть в исходное положение
                     else
                     {
-                        taskContentViewFrame.origin.x = DELETE_START_POSITION;
-                        // и вернуть чек анчек в исходное
-                        if (!isCheck)
-                        {
-                            taskCheckBackgroundFrame.origin.x = CHECK_START_POSITION;
-                        }
-//                        else
-//                        {
-//                            taskCheckBackgroundFrame.origin.x = -UNCHECK_START_POSITION; 
-//                        }
-                        [taskCheckBackground setFrame:taskCheckBackgroundFrame];
+                        _taskAnimation.fromValue = [NSNumber numberWithFloat:0];
+                        _taskAnimation.toValue = [NSNumber numberWithFloat:-translation.x];
+                        [_taskAnimation setValue:@"DontDeleteTask" forKey:@"taskCellAnimation"];
                     }
-                    [taskContentView setFrame:taskContentViewFrame];
+                    [taskContentView.layer addAnimation:_taskAnimation forKey:nil];
                 }
+                [CATransaction commit];
+                
                 break;
                 
             case UIGestureRecognizerStateFailed:
@@ -299,43 +269,44 @@
                 break;
         }
 }
+- (void)animationDidStop:(CAAnimation *)theAnimation finished:(BOOL)flag{
+   
+    NSString * animationName = [theAnimation valueForKey:@"taskCellAnimation"];
+    
+    if ([animationName isEqualToString:@"DontCheckTask"]) {
+        [taskCheckBackground.layer setPosition:CGPointMake(CHECK_START_POSITION,0)];
+        
+    }
+    
+    if ([animationName isEqualToString:@"CheckTask"]) {
+        [taskName setAlpha:0.5];
+        [clientName setAlpha:0.5];
+        [taskIcon setAlpha: 1];
+        [taskIcon setContentMode:UIViewContentModeBottom];
+        
+        CGRect taskIconFrame = taskIcon.frame;
+        taskIconFrame.origin.y = 25;
+        [taskIcon setFrame:taskIconFrame];
+        [curentTaskTime setHidden:true];
+        
+        [taskCheckBackground.layer setPosition:CGPointMake(-UNCHECK_START_POSITION,0)];
+        [taskCheckBackground setHidden:TRUE];
+        
+        isCheck = true;
+    }
+    // не удалять задание
+    if ([animationName isEqualToString:@"DontDeleteTask"]) {
+        [taskContentView.layer setPosition:CGPointMake(DELETE_START_POSITION,0)];
+     }
+    // удалить задание
+    if ([animationName isEqualToString:@"DeleteTask"]) {
+        [taskContentView.layer setPosition:CGPointMake(DELETE_END_POSITION,0)];
+        [self.delegate deleteCellFromTTTasksTableView:self];
 
--(void)animationDidStopDeletingCell{
-    [self.delegate deleteCellFromTTTasksTableView:self];
-}
-// метод финиш Чек 
--(void)animationDidStopCheckingCell{
-    [taskName setAlpha:0.5];
-    [clientName setAlpha:0.5];
-    [taskIcon setAlpha: 1];
-    [taskIcon setContentMode:UIViewContentModeBottom];
-    
-    CGRect taskIconFrame = taskIcon.frame;
-    taskIconFrame.origin.y = 25;
-    [taskIcon setFrame:taskIconFrame];
-    [curentTaskTime setHidden:true];
-    
-    CGRect taskCheckBackgroundFrame = taskCheckBackground.frame;
-    taskCheckBackgroundFrame.origin.x = -UNCHECK_START_POSITION;
-    [taskCheckBackground setFrame:taskCheckBackgroundFrame];
-    [taskCheckBackground setHidden:TRUE];
-    
-    isCheck = true;
-}
-// метод финиш анчек 
--(void)animationDidStopUnCheckingCell{
-  //  [taskName setAlpha:1];
-  //  [clientName setAlpha:1];
-    [taskIcon setAlpha: 1];
-    if (!isOvertime)
-    {
-        [taskIcon setContentMode:UIViewContentModeTop];
     }
-    else
-    {
-        [taskIcon setContentMode:UIViewContentModeCenter];
-    }
-    isCheck = false;
+    
+    [taskCheckBackground.layer removeAllAnimations];
+    [taskContentView.layer removeAllAnimations];
 }
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated
 {
