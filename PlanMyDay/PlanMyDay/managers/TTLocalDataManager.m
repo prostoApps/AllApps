@@ -208,80 +208,82 @@
 -(void)initTestData
 {
     //    CLIENT 1
-    NSMutableDictionary *dictTask1 = [[NSMutableDictionary alloc] initWithObjectsAndKeys:@"client1Name", STR_CLIENT_NAME,
-                                      @"project1Name", STR_PROJECT_NAME,
-                                      @"task1Name", STR_TASK_NAME,
+    NSMutableDictionary *dictTask1 = [[NSMutableDictionary alloc] initWithObjectsAndKeys:@"Павел", STR_CLIENT_NAME,
+                                      @"Окна", STR_PROJECT_NAME,
+                                      @"Правки", STR_TASK_NAME,
                                       @"fc3e39", STR_TASK_COLOR,
                                       nil];
     
-    NSMutableDictionary *dictTask2 = [[NSMutableDictionary alloc] initWithObjectsAndKeys:@"client1Name", STR_CLIENT_NAME,
-                                      @"project1Name", STR_PROJECT_NAME,
-                                      @"task2Name", STR_TASK_NAME,
+    NSMutableDictionary *dictTask2 = [[NSMutableDictionary alloc] initWithObjectsAndKeys:@"Павел", STR_CLIENT_NAME,
+                                      @"Окна", STR_PROJECT_NAME,
+                                      @"Окошко", STR_TASK_NAME,
                                       @"1c7efb", STR_TASK_COLOR,
                                       nil];
     
-    NSMutableDictionary *dictTask3 = [[NSMutableDictionary alloc] initWithObjectsAndKeys:@"client1Name", STR_CLIENT_NAME,
-                                      @"project2Name", STR_PROJECT_NAME,
-                                      @"task1Name", STR_TASK_NAME,
+    NSMutableDictionary *dictTask3 = [[NSMutableDictionary alloc] initWithObjectsAndKeys:@"Павел", STR_CLIENT_NAME,
+                                      @"Страховая Компания", STR_PROJECT_NAME,
+                                      @"Дизайн", STR_TASK_NAME,
                                       @"fd9426", STR_TASK_COLOR,
+                                      @"true", STR_TASK_CHECK,
                                       nil];
     
-    NSMutableDictionary *dictTask4 = [[NSMutableDictionary alloc] initWithObjectsAndKeys:@"client1Name", STR_CLIENT_NAME,
-                                      @"project2Name", STR_PROJECT_NAME,
-                                      @"task2Name", STR_TASK_NAME,
+    NSMutableDictionary *dictTask4 = [[NSMutableDictionary alloc] initWithObjectsAndKeys:@"Павел", STR_CLIENT_NAME,
+                                      @"Страховая Компания", STR_PROJECT_NAME,
+                                      @"Верстка", STR_TASK_NAME,
                                       @"53d769", STR_TASK_COLOR,
                                       nil];
     
     
     //CLIENT 2
     
-    NSMutableDictionary *dictTask5 = [[NSMutableDictionary alloc] initWithObjectsAndKeys:@"client2Name", STR_CLIENT_NAME,
-                                      @"project1Name", STR_PROJECT_NAME,
-                                      @"task1Name", STR_TASK_NAME,
+    NSMutableDictionary *dictTask5 = [[NSMutableDictionary alloc] initWithObjectsAndKeys:@"Клиент", STR_CLIENT_NAME,
+                                      @"Альтрон", STR_PROJECT_NAME,
+                                      @"Главная страница", STR_TASK_NAME,
                                       @"fd9426", STR_TASK_COLOR,
                                       nil];
     
-    NSMutableDictionary *dictTask6 = [[NSMutableDictionary alloc] initWithObjectsAndKeys:@"client2Name", STR_CLIENT_NAME,
-                                      @"project1Name", STR_PROJECT_NAME,
-                                      @"task2Name", STR_TASK_NAME,
+    NSMutableDictionary *dictTask6 = [[NSMutableDictionary alloc] initWithObjectsAndKeys:@"Клиент", STR_CLIENT_NAME,
+                                      @"Альтрон", STR_PROJECT_NAME,
+                                      @"Контакты", STR_TASK_NAME,
                                       @"53d769", STR_TASK_COLOR,
                                       nil];
     
-    NSMutableDictionary *dictTask7 = [[NSMutableDictionary alloc] initWithObjectsAndKeys:@"client2Name", STR_CLIENT_NAME,
-                                      @"project2Name", STR_PROJECT_NAME,
-                                      @"task1Name", STR_TASK_NAME,
+    NSMutableDictionary *dictTask7 = [[NSMutableDictionary alloc] initWithObjectsAndKeys:@"Клиент", STR_CLIENT_NAME,
+                                      @"БВПЮ", STR_PROJECT_NAME,
+                                      @"Календарик", STR_TASK_NAME,
                                       @"fc3e39", STR_TASK_COLOR,
                                       nil];
     
-    NSMutableDictionary *dictTask8 = [[NSMutableDictionary alloc] initWithObjectsAndKeys:@"client2Name", STR_CLIENT_NAME,
-                                      @"project2Name", STR_PROJECT_NAME,
-                                      @"task2Name", STR_TASK_NAME,
+    NSMutableDictionary *dictTask8 = [[NSMutableDictionary alloc] initWithObjectsAndKeys:@"Клиент", STR_CLIENT_NAME,
+                                      @"БВПЮ", STR_PROJECT_NAME,
+                                      @"Логотип", STR_TASK_NAME,
                                       @"1c7efb", STR_TASK_COLOR,
                                       nil];
     
     //CLIENT 3
     
-    NSMutableDictionary *dictTask9 = [[NSMutableDictionary alloc] initWithObjectsAndKeys:@"client3Name", STR_CLIENT_NAME,
-                                      @"project1Name", STR_PROJECT_NAME,
-                                      @"task1Name", STR_TASK_NAME,
+    NSMutableDictionary *dictTask9 = [[NSMutableDictionary alloc] initWithObjectsAndKeys:@"Алексей", STR_CLIENT_NAME,
+                                      @"Bookzy", STR_PROJECT_NAME,
+                                      @"Читалка", STR_TASK_NAME,
                                       @"1c7efb", STR_TASK_COLOR,
+                                      @"true", STR_TASK_CHECK,
                                       nil];
     
-    NSMutableDictionary *dictTask10 = [[NSMutableDictionary alloc] initWithObjectsAndKeys:@"client3Name", STR_CLIENT_NAME,
-                                       @"project1Name", STR_PROJECT_NAME,
-                                       @"task2Name", STR_TASK_NAME,
+    NSMutableDictionary *dictTask10 = [[NSMutableDictionary alloc] initWithObjectsAndKeys:@"Алексей", STR_CLIENT_NAME,
+                                       @"Bookzy", STR_PROJECT_NAME,
+                                       @"Главная страница", STR_TASK_NAME,
                                        @"1c7efb", STR_TASK_COLOR,
                                        nil];
     
-    NSMutableDictionary *dictTask11 = [[NSMutableDictionary alloc] initWithObjectsAndKeys:@"client3Name", STR_CLIENT_NAME,
-                                       @"project2Name", STR_PROJECT_NAME,
-                                       @"task1Name", STR_TASK_NAME,
+    NSMutableDictionary *dictTask11 = [[NSMutableDictionary alloc] initWithObjectsAndKeys:@"Алексей", STR_CLIENT_NAME,
+                                       @"DayPad", STR_PROJECT_NAME,
+                                       @"Слайдер", STR_TASK_NAME,
                                        @"1c7efb", STR_TASK_COLOR,
                                        nil];
     
-    NSMutableDictionary *dictTask12 = [[NSMutableDictionary alloc] initWithObjectsAndKeys:@"client3Name", STR_CLIENT_NAME,
-                                       @"project2Name", STR_PROJECT_NAME,
-                                       @"task2Name", STR_TASK_NAME,
+    NSMutableDictionary *dictTask12 = [[NSMutableDictionary alloc] initWithObjectsAndKeys:@"Алексей", STR_CLIENT_NAME,
+                                       @"DayPad", STR_PROJECT_NAME,
+                                       @"Картинки на слайдер", STR_TASK_NAME,
                                        @"1c7efb", STR_TASK_COLOR,
                                        nil];
     
@@ -336,13 +338,13 @@
     
     
     dictLocalData = [[NSMutableDictionary alloc] initWithObjectsAndKeys:
-                     [[NSMutableArray alloc] initWithObjects:dictClient1,dictClient2,dictClient3,nil], STR_ALL_CLIENTS
+                     [[NSMutableArray alloc] initWithObjects:dictClient1,dictClient2,dictClient3, nil], STR_ALL_CLIENTS
                      ,nil];
 }
 
 -(NSMutableArray*)getAllTasks
 {
-    
+    [self initTestData];
    
     if (arrAllTasks.count > 0) {
         [arrAllTasks removeAllObjects];

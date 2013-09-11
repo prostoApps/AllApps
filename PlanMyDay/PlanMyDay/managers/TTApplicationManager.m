@@ -54,6 +54,7 @@ NSString *const VIEW_SETTINGS               = @"viewSettings";
         targetViewController = [[TTTasksViewController alloc]
                                 initWithNibName:@"TTTasksViewController" bundle:nil];
 
+
     }
     else if (strNewView == VIEW_STATISTICS)
     {
@@ -113,31 +114,11 @@ NSString *const VIEW_SETTINGS               = @"viewSettings";
     //показываем вьюшку
     
     // set the root controller
-    DDMenuController *menuController = (DDMenuController*)((TTAppDelegate*)[[UIApplication sharedApplication] delegate]).menuController;
-    
-    UIBarButtonItem *infoButtonItem=[[UIBarButtonItem alloc]initWithTitle:@"=" style:UIBarButtonItemStyleBordered  target:self action:@selector(LeftBarButtonItemAction)];
-    UIBarButtonItem *infoButtonItem2=[[UIBarButtonItem alloc]initWithTitle:@"+" style:UIBarButtonItemStyleBordered  target:self action:@selector(RightBarButtonItemAction)];
-    [targetViewController.navigationItem setLeftBarButtonItem:infoButtonItem];
-    [targetViewController.navigationItem setRightBarButtonItem:infoButtonItem2];
-
-
     UINavigationController *navControllerRRR = [[UINavigationController alloc] initWithRootViewController:targetViewController];
-    
-    
-    
     
     [menuController setRootController:navControllerRRR animated:YES];
     
    // [navController pushViewController:targetViewController animated:YES];
-}
-
--(void)LeftBarButtonItemAction{
-    DDMenuController *menuController = (DDMenuController*)((TTAppDelegate*)[[UIApplication sharedApplication] delegate]).menuController;
-    [menuController showLeftController:YES];
-    //[[TTApplicationManager sharedApplicationManager] switchViewTo:VIEW_MENU forNavigationController:self.navigationController];
-}
--(void)RightBarButtonItemAction{
-  //  [[TTApplicationManager sharedApplicationManager] switchViewTo:VIEW_NEW_TASK forNavigationController:self.navigationController];
 }
 
 @end

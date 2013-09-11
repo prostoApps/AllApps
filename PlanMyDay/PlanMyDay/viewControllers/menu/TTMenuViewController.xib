@@ -22,7 +22,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="11">
-                    <rect key="frame" x="4" y="47" width="38" height="30"/>
+                    <rect key="frame" x="4" y="48" width="38" height="30"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                     <state key="normal" title="tasks">
@@ -100,11 +100,11 @@
                     </connections>
                 </button>
             </subviews>
-            <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+            <color key="backgroundColor" red="0.6588235294" green="0.67843137249999996" blue="0.70196078429999997" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
                 <constraint firstItem="4" firstAttribute="trailing" secondItem="11" secondAttribute="trailing" constant="37" id="4cm-n0-PPZ"/>
                 <constraint firstAttribute="trailing" secondItem="18" secondAttribute="trailing" constant="155" id="K49-Pq-DCl"/>
-                <constraint firstItem="11" firstAttribute="top" secondItem="18" secondAttribute="bottom" constant="-55" id="ME6-Nw-dGs"/>
+                <constraint firstItem="11" firstAttribute="top" secondItem="18" secondAttribute="bottom" constant="-54" id="ME6-Nw-dGs"/>
                 <constraint firstItem="4" firstAttribute="top" secondItem="7" secondAttribute="bottom" constant="-155" id="Rim-Fw-9Pa"/>
                 <constraint firstItem="18" firstAttribute="top" secondItem="4" secondAttribute="bottom" constant="22" id="XrZ-IG-jZ0"/>
                 <constraint firstAttribute="trailing" secondItem="4" secondAttribute="trailing" constant="241" id="YsO-aU-SD8"/>

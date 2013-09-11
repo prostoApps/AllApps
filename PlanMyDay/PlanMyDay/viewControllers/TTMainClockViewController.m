@@ -38,49 +38,38 @@
     self.view.backgroundColor = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"background.png"]];
 
     // Do any additional setup after loading the view from its nib.
-    pageControl.numberOfPages = 2; 
-    [svScrollView setContentSize:CGSizeMake(svScrollView.frame.size.width * pageControl.numberOfPages, svScrollView.frame.size.height)];
-    svScrollView.delegate = self;
-    svScrollView.pagingEnabled = YES;
-    svScrollView.showsHorizontalScrollIndicator = NO;
-    svScrollView.showsVerticalScrollIndicator = NO;
-    svScrollView.scrollsToTop = NO;
-    pageControl.currentPage = 0;
+//    pageControl.numberOfPages = 2; 
+//    [svScrollView setContentSize:CGSizeMake(svScrollView.frame.size.width * pageControl.numberOfPages, svScrollView.frame.size.height)];
+//    svScrollView.delegate = self;
+//    svScrollView.pagingEnabled = YES;
+//    svScrollView.showsHorizontalScrollIndicator = NO;
+//    svScrollView.showsVerticalScrollIndicator = NO;
+//    svScrollView.scrollsToTop = NO;
+//    pageControl.currentPage = 0;
 
     //добавляем основные часы
     ClockViewController *clock = [[ClockViewController alloc] initWithNibName:@"ClockViewController" bundle:nil];
     clock.view.frame = CGRectMake(0, 0, svScrollView.frame.size.width, svScrollView.frame.size.height);
-    [svScrollView addSubview:clock.view];
+    //[svScrollView addSubview:clock.view];
+    [self.view addSubview:clock.view];
     
     //добавляем индикатор под основные часы
-    TTCurrentTaskNextTaskIndicatorViewController *indicator = [[TTCurrentTaskNextTaskIndicatorViewController alloc] initWithNibName:@"TTCurrentTaskNextTaskIndicatorViewController" bundle:nil];
-    indicator.view.frame = CGRectMake(0, 410, svScrollView.frame.size.width, svScrollView.frame.size.height);
-    [svScrollView addSubview:indicator.view];
-
+   // TTCurrentTaskNextTaskIndicatorViewController *indicator = [[TTCurrentTaskNextTaskIndicatorViewController alloc] initWithNibName:@"TTCurrentTaskNextTaskIndicatorViewController" bundle:nil];
+  //  indicator.view.frame = CGRectMake(0, 0, svScrollView.frame.size.width, svScrollView.frame.size.height);
+   // [svScrollView addSubview:indicator.view];
+   
     //добавляем трекер текущей задачи
-    customTrackerViewController = [[TTCustomTrackerViewController alloc] initWithNibName:@"TTCustomTrackerViewController" bundle:nil];
+   /* customTrackerViewController = [[TTCustomTrackerViewController alloc] initWithNibName:@"TTCustomTrackerViewController" bundle:nil];
     [svScrollView addSubview:customTrackerViewController.view];
     customTrackerViewController.view.frame = CGRectMake(svScrollView.frame.size.width, 0, svScrollView.frame.size.width, svScrollView.frame.size.height);
-//    [self createPageWithColor:[UIColor redColor] forPage:0];
-//    [self createPageWithColor:[UIColor blueColor] forPage:1];
+    */
     
     self.title = @"Current Project";
-    UIBarButtonItem *infoButtonItem=[[UIBarButtonItem alloc]initWithTitle:@"=" style:UIBarButtonItemStyleBordered  target:self action:@selector(LeftBarButtonItemAction)];
-    UIBarButtonItem *infoButtonItem2=[[UIBarButtonItem alloc]initWithTitle:@"+" style:UIBarButtonItemStyleBordered  target:self action:@selector(RightBarButtonItemAction)];
-    [self.navigationItem setLeftBarButtonItem:infoButtonItem];
-    [self.navigationItem setRightBarButtonItem:infoButtonItem2];
+
+    
  //   self.navigationController.navigationController.v view.backgroundColor = [UIColor clearColor];
     
 
-}
-     
--(void)LeftBarButtonItemAction{
-     DDMenuController *menuController = (DDMenuController*)((TTAppDelegate*)[[UIApplication sharedApplication] delegate]).menuController;
-     [menuController showLeftController:YES];
-    //[[TTApplicationManager sharedApplicationManager] switchViewTo:VIEW_MENU forNavigationController:self.navigationController];
-}
--(void)RightBarButtonItemAction{
-    [[TTApplicationManager sharedApplicationManager] switchViewTo:VIEW_NEW_TASK forNavigationController:self.navigationController];
 }
 -(void) createPageWithColor: (UIColor*) color forPage:(NSInteger) page
 {
