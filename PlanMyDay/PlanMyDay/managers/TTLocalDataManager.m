@@ -46,7 +46,7 @@
 
 -(void)saveItemData:(NSMutableDictionary*)itemData
 {
-    [self initTestData ];
+   // [self initTestData ];
     
     BOOL *bIsNoEqualItems = NO;
         
@@ -224,7 +224,7 @@
                                       @"Страховая Компания", STR_PROJECT_NAME,
                                       @"Дизайн", STR_TASK_NAME,
                                       @"fd9426", STR_TASK_COLOR,
-                                      @"true", STR_TASK_CHECK,
+                                      @"1", STR_TASK_CHECK,
                                       nil];
     
     NSMutableDictionary *dictTask4 = [[NSMutableDictionary alloc] initWithObjectsAndKeys:@"Павел", STR_CLIENT_NAME,
@@ -266,7 +266,7 @@
                                       @"Bookzy", STR_PROJECT_NAME,
                                       @"Читалка", STR_TASK_NAME,
                                       @"1c7efb", STR_TASK_COLOR,
-                                      @"true", STR_TASK_CHECK,
+                                      @"1", STR_TASK_CHECK,
                                       nil];
     
     NSMutableDictionary *dictTask10 = [[NSMutableDictionary alloc] initWithObjectsAndKeys:@"Алексей", STR_CLIENT_NAME,
@@ -344,7 +344,7 @@
 
 -(NSMutableArray*)getAllTasks
 {
-    [self initTestData];
+  //  [self initTestData];
    
     if (arrAllTasks.count > 0) {
         [arrAllTasks removeAllObjects];
@@ -377,6 +377,10 @@
             }//end if
         }//end for
     }//end if
+    else
+    {
+        [self initTestData];
+    }
     
     return arrAllTasks;
 }

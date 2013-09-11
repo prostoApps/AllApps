@@ -11,6 +11,7 @@
 
 -(void)allowTTTasksTableViewScroll:(BOOL)variable;
 -(void)deleteCellFromTTTasksTableView:(id)cell;
+-(void)checkCellFromTTTasksTableView:(id)cell;
 
 @end
 
@@ -30,5 +31,5 @@
 @property (nonatomic,retain) id<TTTasksTableViewCellDelegate> delegate;
 
 -(void)setTableCellData:(NSDictionary*)data;
-
+-(NSDictionary*)getTableCellData;
 @end

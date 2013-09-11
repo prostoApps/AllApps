@@ -18,8 +18,8 @@
     // Override point for customization after application launch.
     
   //[TTAppDataManager sharedAppDataManager];
-    TTTasksViewController *mainController = [[TTTasksViewController alloc] init];
-    //TTMainClockViewController *mainController = [[TTMainClockViewController alloc] init];
+    //TTTasksViewController *mainController = [[TTTasksViewController alloc] init];
+    TTMainClockViewController *mainController = [[TTMainClockViewController alloc] init];
     UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:mainController];
     
     //белый цвет Title UINavigationBar

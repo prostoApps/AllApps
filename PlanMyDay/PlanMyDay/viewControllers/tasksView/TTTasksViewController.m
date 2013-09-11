@@ -48,6 +48,21 @@
                           withRowAnimation:UITableViewRowAnimationFade];
     
 }
+-(void)checkCellFromTTTasksTableView:(TTTasksTableViewCell*)cell{
+    
+    TTItem * itemToSave = [[TTItem alloc] init];
+    [itemToSave setStrCheck:[cell.getTableCellData objectForKey:@"isCheck"]];
+    [itemToSave setStrClientName:[cell.getTableCellData objectForKey:@"clientName"]];
+    [itemToSave setStrProjectName:[cell.getTableCellData objectForKey:@"projectName"]];
+    [itemToSave setStrTaskName:[cell.getTableCellData objectForKey:@"taskName"]];
+    NSLog(@"isCheck: %@",[cell.getTableCellData objectForKey:@"isCheck"]);
+    [[TTAppDataManager sharedAppDataManager] saveTTItem:itemToSave];
+    
+    TTAppDataManager * Mydata = [TTAppDataManager sharedAppDataManager];
+    cellsDataArray = [Mydata getAllTasks];
+    
+    [tasksTableView reloadData];
+}
 
 #pragma mark UITableViewDataSource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
