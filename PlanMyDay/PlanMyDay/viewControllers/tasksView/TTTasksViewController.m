@@ -27,12 +27,14 @@
     cellsDataArray = [[TTAppDataManager sharedAppDataManager] getAllTasks];
     
     self.navigationController.navigationBar.barTintColor = [UIColor redColor];
-    
+}
 
 #pragma mark TTTasksTableViewCellDelegate
--(void)allowTTTasksTableViewScroll:(BOOL)variable{
+-(void)allowTTTasksTableViewScroll:(BOOL)variable
+{
     [tasksTableView setScrollEnabled:variable];
 }
+
 -(void)deleteCellFromTTTasksTableView:(TTTasksTableViewCell*)cell{
     // найти какую ячейку удалить из списка
     // cell.taskName

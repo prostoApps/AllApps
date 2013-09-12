@@ -46,6 +46,8 @@ NSString *const VIEW_SETTINGS               = @"viewSettings";
         forNavigationController:(UINavigationController*) navController
         withParams:(NSMutableDictionary*)dictParams
 {
+    DDMenuController *menuController = (DDMenuController*)((TTAppDelegate*)[[UIApplication sharedApplication] delegate]).menuController;
+    
     UIViewController *targetViewController;
 
     if (strNewView == VIEW_CURRENT_TASKS)
