@@ -69,6 +69,7 @@ static TTLocalDataManager *localDataManager;
     NSMutableDictionary *dictData = [[NSMutableDictionary alloc] initWithObjectsAndKeys:item.strClientName, STR_CLIENT_NAME,
                               item.strProjectName,STR_PROJECT_NAME,
                               item.strTaskName,   STR_TASK_NAME,
+                              item.strCheck,   STR_TASK_CHECK,
                               nil];
     
     return dictData;
