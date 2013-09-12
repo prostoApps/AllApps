@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0596765117D0CAD000653A60 /* DDMenuController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0596765017D0CAD000653A60 /* DDMenuController.m */; };
+		05BAA80417E1F586003D7498 /* PropertyListOfViewForms.plist in Resources */ = {isa = PBXBuildFile; fileRef = 05BAA80317E1F586003D7498 /* PropertyListOfViewForms.plist */; };
 		05C8136E17C6283E00E90B2F /* icon_button_arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 05C8136C17C6283E00E90B2F /* icon_button_arrow.png */; };
 		05C8136F17C6283E00E90B2F /* icon_button_arrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 05C8136D17C6283E00E90B2F /* icon_button_arrow@2x.png */; };
 		05EF3DCE17C24FB0000005E8 /* clock-hour-background_TT.png in Resources */ = {isa = PBXBuildFile; fileRef = 05EF3DCD17C24FB0000005E8 /* clock-hour-background_TT.png */; };
@@ -77,6 +78,7 @@
 		055A5DC517D4E2AE00A0FE85 /* background_clear@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "background_clear@2x.png"; sourceTree = "<group>"; };
 		0596764F17D0CAD000653A60 /* DDMenuController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDMenuController.h; sourceTree = "<group>"; };
 		0596765017D0CAD000653A60 /* DDMenuController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDMenuController.m; sourceTree = "<group>"; };
+		05BAA80317E1F586003D7498 /* PropertyListOfViewForms.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = PropertyListOfViewForms.plist; sourceTree = "<group>"; };
 		05C8136B17C622C700E90B2F /* bgTaskInfoLabel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bgTaskInfoLabel.png; sourceTree = "<group>"; };
 		05C8136C17C6283E00E90B2F /* icon_button_arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_button_arrow.png; sourceTree = "<group>"; };
 		05C8136D17C6283E00E90B2F /* icon_button_arrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_button_arrow@2x.png"; sourceTree = "<group>"; };
@@ -347,6 +349,7 @@
 				DD968BA217B7BC1C008D583F /* TTCreatePropertyViewController.h */,
 				DD968BA317B7BC1C008D583F /* TTCreatePropertyViewController.m */,
 				DD968BA417B7BC1C008D583F /* TTCreatePropertyViewController.xib */,
+				05BAA80317E1F586003D7498 /* PropertyListOfViewForms.plist */,
 			);
 			name = newProjectView;
 			sourceTree = "<group>";
@@ -526,6 +529,7 @@
 				DD90BF6117AA06210064233C /* bliss-roman-aluminium-clock.jpg in Resources */,
 				DD90BF6217AA06210064233C /* clock-background.png in Resources */,
 				DD90BF6317AA06210064233C /* clock-hour-background.png in Resources */,
+				05BAA80417E1F586003D7498 /* PropertyListOfViewForms.plist in Resources */,
 				DD90BF6417AA06210064233C /* clock-min-background_.png in Resources */,
 				05C8136F17C6283E00E90B2F /* icon_button_arrow@2x.png in Resources */,
 				DD90BF6517AA06210064233C /* clock-min-background.png in Resources */,

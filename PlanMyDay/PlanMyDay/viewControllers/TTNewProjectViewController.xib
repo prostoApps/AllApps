@@ -131,6 +131,6 @@
         </view>
     </objects>
     <resources>
-        <image name="icon_button_arrow.png" width="8" height="13"/>
+        <image name="icon_button_arrow.png" width="1" height="1"/>
     </resources>
 </document>

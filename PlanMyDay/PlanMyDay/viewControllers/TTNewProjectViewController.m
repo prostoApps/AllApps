@@ -10,6 +10,9 @@
 
 
 @interface TTNewProjectViewController ()
+{
+    NSArray *formDataDictionary;
+}
 
 @end
 
@@ -39,7 +42,7 @@
 {
     [scrvScrollView setScrollEnabled:YES];
     [scrvScrollView setContentSize:CGSizeMake(320, 650)];
-    
+    /*
     NSArray *arrTemp1 = [[NSArray alloc]
                          initWithObjects:@"Task",@"Project",@"Client",@"Color",@"Billable",nil];
     NSArray *arrTemp2 = [[NSArray alloc]
@@ -50,6 +53,12 @@
     sortedKeys = [[NSArray alloc]
                   initWithObjects:@"Task Info",@"Planning Time",nil];
 
+    */
+    // загружаем ячейки формы
+    NSString* plistPath = [[NSBundle mainBundle] pathForResource:@"PropertyListOfViewForms" ofType:@"plist"];
+    NSDictionary * rootDictionary =[NSDictionary dictionaryWithContentsOfFile:plistPath];
+    formDataDictionary = [NSArray arrayWithArray:[rootDictionary objectForKey:@"newProject"]];
+  //  NSLog(@"%@", formDataDictionary);
     
     
     /* Блок Project info внешний вид
@@ -68,32 +77,56 @@
 #pragma mark UITableViewDataSource
 - (NSInteger)tableView:(UITableView *)table
  numberOfRowsInSection:(NSInteger)section {
-    NSArray *listData =[tableContents objectForKey:[sortedKeys objectAtIndex:section]];
+    NSArray *listData =[[formDataDictionary objectAtIndex:section] objectForKey:@"cells"];
     return [listData count];
 }
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
-    return [sortedKeys count];
+    return [formDataDictionary count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath    *)indexPath {
     static NSString *CellIdentifier = @"Cell";
     
-    NSArray *listData =[tableContents objectForKey:
-                        [sortedKeys objectAtIndex:[indexPath section]]];
+   // NSArray *listData =[tableContents objectForKey:
+    //                    [sortedKeys objectAtIndex:[indexPath section]]];
+    NSArray *listData = [[formDataDictionary objectAtIndex:[indexPath section]] objectForKey:@"cells"];
     
+    UITextField *inputField;
+    NSUInteger row = [indexPath row];
+    int typeCell = [[[listData objectAtIndex:row] objectForKey:@"type"] intValue];
+
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
-        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+        
+        switch ( typeCell ) {
+            case 0:
+                cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+                break;
+            case 1:
+                inputField = [[UITextField alloc] initWithFrame:CGRectMake(80,12,160,20)];
+                inputField.adjustsFontSizeToFitWidth = YES;
+                inputField.textColor = [UIColor whiteColor];
+                [cell addSubview:inputField];
+                break;
+            case 2:
+                
+                break;
+                
+            default:
+                break;
+        }
+
+        
     }
     cell.backgroundColor = [self colorWithHexString:@"#333b43"];
 
     cell.textLabel.textColor = [UIColor whiteColor];
  
     
-    NSUInteger row = [indexPath row];
-    cell.textLabel.text = [listData objectAtIndex:row];
-       cell.accessibilityValue = [listData objectAtIndex:row];
+    
+    cell.textLabel.text = [[listData objectAtIndex:row] objectForKey:@"name"];
+       cell.accessibilityValue = [[listData objectAtIndex:row] objectForKey:@"name"];
     
      return cell;
      }
@@ -119,7 +152,7 @@
     tempLabel.textColor = [UIColor whiteColor]; //here you can change the text color of header.
     tempLabel.font = [UIFont fontWithName:@"Helvetica Neue Light" size:16];
    
-    tempLabel.text = [sortedKeys objectAtIndex:section];
+    tempLabel.text = [[formDataDictionary objectAtIndex:section] objectForKey:@"name"];
     
     [tempView addSubview:tempLabel];
     
