@@ -42,23 +42,12 @@
 {
     [scrvScrollView setScrollEnabled:YES];
     [scrvScrollView setContentSize:CGSizeMake(320, 650)];
-    /*
-    NSArray *arrTemp1 = [[NSArray alloc]
-                         initWithObjects:@"Task",@"Project",@"Client",@"Color",@"Billable",nil];
-    NSArray *arrTemp2 = [[NSArray alloc]
-                         initWithObjects:@"Date",@"Start",@"Finish",nil];
-    NSDictionary *temp =[[NSDictionary alloc]
-                         initWithObjectsAndKeys:arrTemp1,@"Task Info",arrTemp2,@"Planning Time",nil];
-    tableContents = temp;
-    sortedKeys = [[NSArray alloc]
-                  initWithObjects:@"Task Info",@"Planning Time",nil];
-
-    */
+    
     // загружаем ячейки формы
     NSString* plistPath = [[NSBundle mainBundle] pathForResource:@"PropertyListOfViewForms" ofType:@"plist"];
     NSDictionary * rootDictionary =[NSDictionary dictionaryWithContentsOfFile:plistPath];
     formDataDictionary = [NSArray arrayWithArray:[rootDictionary objectForKey:@"newProject"]];
-  //  NSLog(@"%@", formDataDictionary);
+
     
     
     /* Блок Project info внешний вид
@@ -87,11 +76,10 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath    *)indexPath {
     static NSString *CellIdentifier = @"Cell";
     
-   // NSArray *listData =[tableContents objectForKey:
-    //                    [sortedKeys objectAtIndex:[indexPath section]]];
     NSArray *listData = [[formDataDictionary objectAtIndex:[indexPath section]] objectForKey:@"cells"];
     
     UITextField *inputField;
+    UISwitch *swithField;
     NSUInteger row = [indexPath row];
     int typeCell = [[[listData objectAtIndex:row] objectForKey:@"type"] intValue];
 
@@ -101,7 +89,7 @@
         
         switch ( typeCell ) {
             case 0:
-                cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+                cell.accessoryType = UITableViewCellAccessoryDetailDisclosureButton;
                 break;
             case 1:
                 inputField = [[UITextField alloc] initWithFrame:CGRectMake(80,12,160,20)];
@@ -111,6 +99,9 @@
                 break;
             case 2:
                 
+                swithField = [[UISwitch alloc] initWithFrame:CGRectMake(255, 6, 40,30)];
+                
+                [cell addSubview:swithField];
                 break;
                 
             default:
@@ -134,8 +125,15 @@
 // Apple's docs: To enable the swipe-to-delete feature of table views (wherein a user swipes horizontally across a row to display a Delete button), you must implement the tableView:commitEditingStyle:forRowAtIndexPath: method.
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
+    NSLog(@"commitEditingStyle");
 }
+// Tap on table Row
+- (void) tableView: (UITableView *) tableView accessoryButtonTappedForRowWithIndexPath: (NSIndexPath *) indexPath {
+
+    NSLog(@"tap on accessoryButton");
+
+}
+
 
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
 {
