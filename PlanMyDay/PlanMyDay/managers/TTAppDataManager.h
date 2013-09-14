@@ -17,6 +17,11 @@
 }
 
 //@property (nonatomic, retain) TTLocalDataManager *localDataManager;
+@property (nonatomic,retain) NSDictionary * addNewTaskData;
+@property (nonatomic,retain) NSDictionary * addNewProjectData;
+@property (nonatomic,retain) NSDictionary * addNewClientData;
+@property (nonatomic,copy) NSString * selectProperty;
+@property (nonatomic,copy) NSString * addNewStr;
 
 -(NSString*)getDocumentsPath;
 -(NSString*)getProjectsFilePath;

@@ -29,6 +29,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    propertyToSelect = [TTAppDataManager sharedAppDataManager].selectProperty;
+   // self.title = [NSString stringWithFormat:(@"Choose '%@' "),propertyToSelect];
     titleLabel.text = [NSString stringWithFormat:(@"Select '%@' property View "),propertyToSelect];
     // Do any additional setup after loading the view from its nib.
 }

@@ -12,6 +12,11 @@
 
 static TTLocalDataManager *localDataManager;
 //@synthesize localDataManager;
+@synthesize addNewClientData;
+@synthesize addNewProjectData;
+@synthesize addNewTaskData;
+@synthesize selectProperty;
+@synthesize addNewStr;
 
 + (TTAppDataManager *)sharedAppDataManager
 {

@@ -349,7 +349,6 @@
 				DD968BA217B7BC1C008D583F /* TTCreatePropertyViewController.h */,
 				DD968BA317B7BC1C008D583F /* TTCreatePropertyViewController.m */,
 				DD968BA417B7BC1C008D583F /* TTCreatePropertyViewController.xib */,
-				05BAA80317E1F586003D7498 /* PropertyListOfViewForms.plist */,
 			);
 			name = newProjectView;
 			sourceTree = "<group>";
@@ -399,6 +398,7 @@
 		DDB4A83217849C3F007C7F15 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				05BAA80317E1F586003D7498 /* PropertyListOfViewForms.plist */,
 				DDB4A83317849C3F007C7F15 /* PlanMyDay-Info.plist */,
 				DDB4A83417849C3F007C7F15 /* InfoPlist.strings */,
 				DDB4A83717849C3F007C7F15 /* main.m */,
@@ -661,10 +661,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "PlanMyDay/PlanMyDay-Prefix.pch";
 				INFOPLIST_FILE = "PlanMyDay/PlanMyDay-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -673,10 +675,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "PlanMyDay/PlanMyDay-Prefix.pch";
 				INFOPLIST_FILE = "PlanMyDay/PlanMyDay-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
