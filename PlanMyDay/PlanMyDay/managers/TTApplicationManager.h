@@ -34,5 +34,6 @@ extern NSString *const VIEW_SETTINGS;
 + (TTApplicationManager *)sharedApplicationManager;
 
 -(void) switchViewTo:(NSString*) strNewView forNavigationController:(UINavigationController*) navController;
+-(void) pushViewTo:(NSString*) strNewView forNavigationController:(UINavigationController*) navController;
 
 @end

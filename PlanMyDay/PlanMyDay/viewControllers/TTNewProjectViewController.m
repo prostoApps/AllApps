@@ -129,11 +129,18 @@
 }
 // Tap on table Row
 - (void) tableView: (UITableView *) tableView accessoryButtonTappedForRowWithIndexPath: (NSIndexPath *) indexPath {
-
-    NSLog(@"tap on accessoryButton");
+    
+    TTSelectPropertyViewController * selectPropertyView = [[TTSelectPropertyViewController alloc] initWithNibName:@"TTSelectPropertyViewController" bundle:nil];
+     NSArray *listData = [[formDataDictionary objectAtIndex:[indexPath section]] objectForKey:@"cells"];
+    NSUInteger row = [indexPath row];
+    selectPropertyView.propertyToSelect = [[listData objectAtIndex:row] objectForKey:@"name"];
+    
+        [[self navigationController] pushViewController:selectPropertyView
+animated:YES];
+    
+    //[[TTApplicationManager sharedApplicationManager] pushViewTo:VIEW_SELECT_PROPERTY forNavigationController:self.navigationController];
 
 }
-
 
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -143,26 +150,21 @@
 
 -(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
-    UIView *tempView=[[UIView alloc]initWithFrame:CGRectMake(0,0,305,32)];
+    UIView *tempView=[[UIView alloc]initWithFrame:CGRectMake(0,0,305,30)];
     tempView.backgroundColor=[UIColor clearColor];
     
-    UILabel *tempLabel=[[UILabel alloc]initWithFrame:CGRectMake(15,0,305,32)];
-    tempLabel.textColor = [UIColor whiteColor]; //here you can change the text color of header.
-    tempLabel.font = [UIFont fontWithName:@"Helvetica Neue Light" size:16];
+    UILabel *tempLabel=[[UILabel alloc]initWithFrame:CGRectMake(15,0,305,30)];
+    tempLabel.textColor = [UIColor whiteColor];
    
     tempLabel.text = [[formDataDictionary objectAtIndex:section] objectForKey:@"name"];
-    
+     tempLabel.font = [UIFont fontWithName:@"Helvetica Neue Light" size:13];
     [tempView addSubview:tempLabel];
     
     return tempView;
 }
-
-- (NSString *)tableView:(UITableView *)tableView
-titleForHeaderInSection:(NSInteger)section
-{
-    return @"Task Info";
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+        return 30.f;
 }
-
 - (UIColor *)colorWithHexString:(NSString *)stringToConvert
 {
     NSString *noHashString = [stringToConvert stringByReplacingOccurrencesOfString:@"#" withString:@""]; // remove the #

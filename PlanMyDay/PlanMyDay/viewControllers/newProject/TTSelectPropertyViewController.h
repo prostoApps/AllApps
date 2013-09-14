@@ -12,10 +12,12 @@
 @interface TTSelectPropertyViewController : UIViewController
 {
     IBOutlet UIButton *btnBack;
+    IBOutlet UILabel * titleLabel;
 }
 
 -(IBAction)btnBackTouchHandler:(id)sender;
 
 @property (retain,nonatomic) IBOutlet UIButton *btnBack;
+@property(retain,nonatomic) NSString * propertyToSelect;
 
 @end

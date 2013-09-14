@@ -28,7 +28,7 @@
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
-    //add test changes! passwordtoGH!!!!!!!!13asd
+    //add test changes! 
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
      

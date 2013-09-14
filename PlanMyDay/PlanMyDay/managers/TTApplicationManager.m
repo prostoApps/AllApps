@@ -37,68 +37,64 @@ NSString *const VIEW_SETTINGS               = @"viewSettings";
     }
 }
 
--(void) switchViewTo:(NSString*) strNewView forNavigationController:(UINavigationController*) navController
-{
-    DDMenuController *menuController = (DDMenuController*)((TTAppDelegate*)[[UIApplication sharedApplication] delegate]).menuController;
+- (UIViewController*)getUIViewControllerFromString:(NSString*) strViewController{
     
-    UIViewController *targetViewController;
-
-    if (strNewView == VIEW_CURRENT_TASKS)
+    UIViewController* targetViewController;
+    
+    if (strViewController == VIEW_CURRENT_TASKS)
     {
         NSLog(@"open  CurrentTasks view");
         targetViewController = [[TTTasksViewController alloc]
                                 initWithNibName:@"TTTasksViewController" bundle:nil];
-
-
     }
-    else if (strNewView == VIEW_STATISTICS)
+    else if (strViewController == VIEW_STATISTICS)
     {
         NSLog(@"open  STATISTICS view");
         targetViewController = [[TTStatisticsViewController alloc]
                                 initWithNibName:@"TTStatisticsViewController" bundle:nil];
     }
-    else if (strNewView == VIEW_SETTINGS)
+    else if (strViewController == VIEW_SETTINGS)
     {
         NSLog(@"open  VIEW_SETTINGS view");
         targetViewController = [[TTSettingsViewController alloc]
                                 initWithNibName:@"TTSettingsViewController" bundle:nil];
     }
-    else if (strNewView == VIEW_MAIN_CLOCK)
+    else if (strViewController == VIEW_MAIN_CLOCK)
     {
         NSLog(@"open  VIEW_MAIN_CLOCK view");
         targetViewController = [[TTMainClockViewController alloc]
                                 initWithNibName:@"TTMainClockViewController" bundle:nil];
     }
-    else if (strNewView == VIEW_NEW_TASK)
+    else if (strViewController == VIEW_NEW_TASK)
     {
         NSLog(@"open  VIEW_NEW_TASK view");
         targetViewController = [[TTNewProjectViewController alloc]
                                 initWithNibName:@"TTNewProjectViewController" bundle:nil];
     }
-    else if (strNewView == VIEW_CREATE_PROPERTY)
+    else if (strViewController == VIEW_CREATE_PROPERTY)
     {
         NSLog(@"open  VIEW_CREATE_PROPERTY view");
         targetViewController = [[TTCreatePropertyViewController alloc]
                                 initWithNibName:@"TTCreatePropertyViewController" bundle:nil];
     }
-    else if (strNewView == VIEW_SELECT_PROPERTY)
+    else if (strViewController == VIEW_SELECT_PROPERTY)
     {
         NSLog(@"open  VIEW_SELECT_PROPERTY view");
         targetViewController = [[TTSelectPropertyViewController alloc]
                                 initWithNibName:@"TTSelectPropertyViewController" bundle:nil];
     }
-    else if (strNewView == VIEW_PROFILE)
+    else if (strViewController == VIEW_PROFILE)
     {
         NSLog(@"open  VIEW_PROFILE view");
         //TODO add profile page
     }
-    else if (strNewView == VIEW_CUSTOM_TRACKER)
+    else if (strViewController == VIEW_CUSTOM_TRACKER)
     {
         NSLog(@"open  VIEW_CUSTOM_TRACKER view");
         targetViewController = [[TTCustomTrackerViewController alloc]
                                 initWithNibName:@"TTCustomTrackerViewController" bundle:nil];
     }
-    else if (strNewView == VIEW_MENU)
+    else if (strViewController == VIEW_MENU)
     {
         NSLog(@"open  VIEW_MENU view");
         targetViewController = [[TTMenuViewController alloc]
@@ -106,14 +102,31 @@ NSString *const VIEW_SETTINGS               = @"viewSettings";
     }
     //Ставим стандартный background вьюшке
     targetViewController.view.backgroundColor = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"background.png"]];
-    //показываем вьюшку
+    
+    return targetViewController;
+    
+}
+-(void) pushViewTo:(NSString*) strNewView forNavigationController:(UINavigationController*) navController
+{
+    // определяем новый вью контроллер
+    UIViewController* targetViewController  = [self getUIViewControllerFromString:strNewView];
+    
+    [navController pushViewController:targetViewController animated:YES];
+    
+}
+
+-(void) switchViewTo:(NSString*) strNewView forNavigationController:(UINavigationController*) navController
+{
+    DDMenuController *menuController = (DDMenuController*)((TTAppDelegate*)[[UIApplication sharedApplication] delegate]).menuController;
+    // определяем новый вью контроллер
+    UIViewController* targetViewController  = [self getUIViewControllerFromString:strNewView];
+
     
     // set the root controller
     UINavigationController *navControllerRRR = [[UINavigationController alloc] initWithRootViewController:targetViewController];
     
     [menuController setRootController:navControllerRRR animated:YES];
-    
-   // [navController pushViewController:targetViewController animated:YES];
+
 }
 
 @end

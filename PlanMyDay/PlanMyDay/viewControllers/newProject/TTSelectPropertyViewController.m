@@ -15,6 +15,7 @@
 @implementation TTSelectPropertyViewController
 
 @synthesize btnBack;
+@synthesize propertyToSelect;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -28,6 +29,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    titleLabel.text = [NSString stringWithFormat:(@"Select '%@' property View "),propertyToSelect];
     // Do any additional setup after loading the view from its nib.
 }
 
