@@ -11,7 +11,12 @@
 
 @interface TTNewProjectViewController ()
 {
-    NSArray *formDataDictionary;
+   
+    NSDictionary * rootFormPropertyDictionary;
+    NSArray *currentFormPropertyArray;
+    NSArray * currentFormDataArray;
+    
+    
 }
 
 @end
@@ -35,20 +40,27 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     [[TTAppDataManager sharedAppDataManager] setAddNewStr:@"Task"];
+    [[TTAppDataManager sharedAppDataManager] loadTTItemFormData];
+    
+    //rootFormPropertyDictionary = [NSDictionary dictionaryWithContentsOfFile:plistPath];
+    
+   // rootFormPropertyDictionary
     [self setTitle:@"Add New Task"];
    // [self initVisibleComponents];
     [self loadPropertyForView];
 }
 
 - (void) loadPropertyForView {
-    NSString * nameStr =[[TTAppDataManager sharedAppDataManager] addNewStr];
+    TTAppDataManager * appDataManager = [TTAppDataManager sharedAppDataManager];
+    NSString * nameStr = appDataManager.addNewStr;
+    
     [self setTitle:[NSString stringWithFormat:@"Add %@",nameStr]];
     [btnSave setTitle:[NSString stringWithFormat:@"Add %@",nameStr] forState:UIControlStateNormal];
-    
-    // загружаем стили ячеек для формы
-    NSString* plistPath = [[NSBundle mainBundle] pathForResource:@"PropertyListOfViewForms" ofType:@"plist"];
-    NSDictionary * rootDictionary =[NSDictionary dictionaryWithContentsOfFile:plistPath];
-    formDataDictionary = [NSArray arrayWithArray:[rootDictionary objectForKey:nameStr]];
+    // переопределяем значения для таблицы
+   // currentFormDataArray = [[NSArray alloc] init];
+//    currentFormDataArray = [appDataManager.addTTItemData objectForKey:nameStr];
+   // currentFormPropertyArray = [NSArray arrayWithArray:[rootFormPropertyDictionary objectForKey:nameStr]];
+    currentFormPropertyArray = [appDataManager getAddTTItemFormData];
     [TaskTableView reloadData];
 }
 
@@ -60,57 +72,75 @@
 #pragma mark UITableViewDataSource
 - (NSInteger)tableView:(UITableView *)table
  numberOfRowsInSection:(NSInteger)section {
-    NSArray *listData =[[formDataDictionary objectAtIndex:section] objectForKey:@"cells"];
+    NSArray *listData =[[currentFormPropertyArray objectAtIndex:section] objectForKey:@"cells"];
     return [listData count];
 }
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
-    return [formDataDictionary count];
+    return [currentFormPropertyArray count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath    *)indexPath {
     static NSString *CellIdentifier = @"Cell";
     
-    NSArray *listData = [[formDataDictionary objectAtIndex:[indexPath section]] objectForKey:@"cells"];
+    NSArray *listData = [[currentFormPropertyArray objectAtIndex:[indexPath section]] objectForKey:@"cells"];
     
     UITextField *inputField;
     UISwitch *swithField;
     NSUInteger row = [indexPath row];
     int typeCell = [[[listData objectAtIndex:row] objectForKey:@"type"] intValue];
 
+    
+    
+    
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    cell = nil;
-   // if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
-
-        switch ( typeCell ) {
-            case 0:
-                
-               cell.accessoryType = UITableViewCellAccessoryDetailDisclosureButton;
-                 break;
-            case 1:
-                inputField = [[UITextField alloc] initWithFrame:CGRectMake(80,0,220,44)];
-                inputField.adjustsFontSizeToFitWidth = YES;
-                inputField.textColor = [UIColor whiteColor];
-                [cell addSubview:inputField];
-                break;
-            case 2:
-                
-                swithField = [[UISwitch alloc] initWithFrame:CGRectMake(255, 6, 40,30)];
-                
-                [cell addSubview:swithField];
-                break;
-                
-            default:
-                break;
-        }
-
-   // }
+    
+    if (!cell) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:CellIdentifier];
+         [cell.detailTextLabel setFrame:CGRectMake(80, 0, 180, 44)];
+    }
+    else{
+        //clear cell
+        cell.accessoryType = UITableViewCellAccessoryNone;
+        [[cell viewWithTag:1] removeFromSuperview];
+        [[cell viewWithTag:2] removeFromSuperview];
+        cell.detailTextLabel.text = nil;
+        
+    }
+    
+   
+    switch ( typeCell ) {
+        case 0:
+            
+            cell.accessoryType = UITableViewCellAccessoryDetailDisclosureButton;
+            
+            cell.detailTextLabel.text = [[listData objectAtIndex:row] objectForKey:@"value"];
+            break;
+        case 1:
+            inputField = [[UITextField alloc] initWithFrame:CGRectMake(80,0,220,44)];
+            inputField.adjustsFontSizeToFitWidth = YES;
+            inputField.textColor = [UIColor whiteColor];
+            inputField.tag = 1;
+            inputField.delegate = self;
+            inputField.text = [[listData objectAtIndex:row] objectForKey:@"value"];
+           
+            [cell addSubview:inputField];
+            break;
+        case 2:
+            swithField = [[UISwitch alloc] initWithFrame:CGRectMake(255, 6, 30,30)];
+            swithField.tag = 2;
+            
+            [cell addSubview:swithField];
+            break;
+            
+        default:
+            break;
+    }
     
     cell.backgroundColor = [self colorWithHexString:@"#333b43"];
     cell.textLabel.textColor = [UIColor whiteColor];
-
+    
     cell.textLabel.text = [[listData objectAtIndex:row] objectForKey:@"name"];
-       cell.accessibilityValue = [[listData objectAtIndex:row] objectForKey:@"name"];
+    //cell.accessibilityValue = [[listData objectAtIndex:row] objectForKey:@"name"];
     
      return cell;
      }
@@ -122,7 +152,7 @@
 }
 // Tap on table Row
 - (void) tableView: (UITableView *) tableView accessoryButtonTappedForRowWithIndexPath: (NSIndexPath *) indexPath {
-    NSArray *listData = [[formDataDictionary objectAtIndex:[indexPath section]] objectForKey:@"cells"];
+    NSArray *listData = [[currentFormPropertyArray objectAtIndex:[indexPath section]] objectForKey:@"cells"];
     NSUInteger row = [indexPath row];
     [[TTAppDataManager sharedAppDataManager] setSelectProperty:[[listData objectAtIndex:row] objectForKey:@"name"]];
     
@@ -144,7 +174,7 @@
     UILabel *tempLabel=[[UILabel alloc]initWithFrame:CGRectMake(15,0,305,30)];
     tempLabel.textColor = [UIColor whiteColor];
    
-    tempLabel.text = [[formDataDictionary objectAtIndex:section] objectForKey:@"name"];
+    tempLabel.text = [[currentFormPropertyArray objectAtIndex:section] objectForKey:@"name"];
     tempLabel.font = [UIFont fontWithName:@"Helvetica Neue Light" size:13];
     [tempView addSubview:tempLabel];
     return tempView;
@@ -152,9 +182,35 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
         return 30.f;
 }
+#pragma mark -
+#pragma mark UITextFieldDelegate methods
 
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+	[textField resignFirstResponder];
+	return TRUE;
+}
+
+
+- (void)textFieldDidEndEditing:(UITextField *)textField
+{
+	 NSIndexPath *indexPath = [TaskTableView indexPathForCell:(UITableViewCell*)[[textField superview] superview]]; // this should return you your current indexPath
+    TTAppDataManager * appDataManager = [TTAppDataManager sharedAppDataManager];
+    
+    [appDataManager saveTTItemAddDataValue:textField.text valueSection:[indexPath section] valueRow:[indexPath row]];
+    
+
+   
+    
+   
+    NSLog(@"index path: %@",indexPath);
+}
+
+#pragma mark -
+#pragma mark segmentedControl methods
 -(IBAction) segmentedControlIndexChanged
 {
+    [self.view endEditing:YES];
 	switch (self.scTaskProjectClient.selectedSegmentIndex) {
 		case 0:
             [[TTAppDataManager sharedAppDataManager] setAddNewStr:@"Task"];

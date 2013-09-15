@@ -11,7 +11,7 @@
 #import "TTCreatePropertyViewController.h"
 #import "TTSelectPropertyViewController.h"
 
-@interface TTNewProjectViewController : UIViewController
+@interface TTNewProjectViewController : UIViewController <UITextFieldDelegate>
 {
     IBOutlet UITableView *TaskTableView;
     

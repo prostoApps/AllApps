@@ -15,6 +15,8 @@ static TTLocalDataManager *localDataManager;
 @synthesize addNewClientData;
 @synthesize addNewProjectData;
 @synthesize addNewTaskData;
+@synthesize addTTItemData;
+
 @synthesize selectProperty;
 @synthesize addNewStr;
 
@@ -59,6 +61,26 @@ static TTLocalDataManager *localDataManager;
 -(NSString*)getProjectsFilePath
 {
     return [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject] stringByAppendingPathComponent:@"projectData.plist"];
+}
+-(void)loadTTItemFormData{
+    // загружаем стили ячеек для формы
+    if (addTTItemDataDictionary.count == 0) {
+        NSString* plistPath = [[NSBundle mainBundle] pathForResource:@"PropertyListOfViewForms" ofType:@"plist"];
+        addTTItemDataDictionary = [[NSMutableDictionary alloc] initWithContentsOfFile:plistPath];
+
+    }
+      //
+}
+
+-(NSArray*)getAddTTItemFormData{
+    
+    return [addTTItemDataDictionary objectForKey:addNewStr];
+    
+}
+-(void)saveTTItemAddDataValue:(NSObject*)object valueSection:(NSInteger)section valueRow:(NSInteger)row{
+    
+    [[[[[addTTItemDataDictionary objectForKey:addNewStr] objectAtIndex:section] objectForKey:@"cells"] objectAtIndex:row] setObject:object forKey:@"value"];
+    
 }
 //Save Item to Device
 -(void)saveTTItem:(TTItem*)item
