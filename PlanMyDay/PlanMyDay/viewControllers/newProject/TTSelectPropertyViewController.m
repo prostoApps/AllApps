@@ -14,8 +14,6 @@
 
 @implementation TTSelectPropertyViewController
 
-@synthesize btnBack;
-@synthesize propertyToSelect;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -29,18 +27,44 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    propertyToSelect = [TTAppDataManager sharedAppDataManager].selectProperty;
-   // self.title = [NSString stringWithFormat:(@"Choose '%@' "),propertyToSelect];
-    titleLabel.text = [NSString stringWithFormat:(@"Select '%@' property View "),propertyToSelect];
-    // Do any additional setup after loading the view from its nib.
+    TTAppDataManager * appDataManager = [TTAppDataManager sharedAppDataManager];
+    
+    selectIP = appDataManager.selectPropertyIndexPath;
+    selectStr = [NSString stringWithFormat:@"%@",[appDataManager getValueFormData:@"name" ByIndexPath:selectIP]];
+    [self setTitle:[NSString stringWithFormat:@"Choose %@",selectStr]];
+    
+    
+  }
+
+#pragma mark UITableViewDataSource
+
+- (NSInteger)tableView:(UITableView *)table numberOfRowsInSection:(NSInteger)section {
+    return 3;
+}
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
+    return 1;
 }
 
--(IBAction)btnBackTouchHandler:(id)sender
-{
-    NSLog(@"CREATE_PROPERTY::btnBackTouchHandler");
-    [[TTApplicationManager sharedApplicationManager] switchViewTo:VIEW_NEW_TASK
-                                          forNavigationController:self.navigationController];
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath    *)indexPath {
+    static NSString *CellIdentifier = @"selectCell";
     
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    
+    if (!cell) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:CellIdentifier];
+        cell.backgroundColor = [UIColor clearColor];
+        cell.textLabel.textColor = [UIColor whiteColor];
+        
+    }
+    
+    cell.textLabel.text = selectStr;
+    
+    return cell;
+}
+
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return NO;
 }
 
 - (void)didReceiveMemoryWarning

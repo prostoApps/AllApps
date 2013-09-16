@@ -96,7 +96,10 @@
     
     if (!cell) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:CellIdentifier];
-         [cell.detailTextLabel setFrame:CGRectMake(80, 0, 180, 44)];
+        [cell.detailTextLabel setFrame:CGRectMake(80, 0, 180, 44)];
+        cell.backgroundColor = [[TTAppDataManager sharedAppDataManager] colorWithHexString:@"#333b43"];
+        cell.textLabel.textColor = [UIColor whiteColor];
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
     }
     else{
         //clear cell
@@ -111,9 +114,9 @@
     switch ( typeCell ) {
         case 0:
             
-            cell.accessoryType = UITableViewCellAccessoryDetailDisclosureButton;
-            
+            cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
             cell.detailTextLabel.text = [[listData objectAtIndex:row] objectForKey:@"value"];
+            cell.selectionStyle = UITableViewCellSelectionStyleDefault;
             break;
         case 1:
             inputField = [[UITextField alloc] initWithFrame:CGRectMake(80,0,220,44)];
@@ -136,8 +139,8 @@
             break;
     }
     
-    cell.backgroundColor = [self colorWithHexString:@"#333b43"];
-    cell.textLabel.textColor = [UIColor whiteColor];
+     NSLog(@"Selection style: %d",cell.selectionStyle);
+    
     
     cell.textLabel.text = [[listData objectAtIndex:row] objectForKey:@"name"];
     //cell.accessibilityValue = [[listData objectAtIndex:row] objectForKey:@"name"];
@@ -150,11 +153,26 @@
 {
     NSLog(@"commitEditingStyle");
 }
+
+// Tap on table Row
+- (void) tableView: (UITableView *) tableView didSelectRowAtIndexPath: (NSIndexPath *) indexPath {
+    [[TTAppDataManager sharedAppDataManager] setSelectPropertyIndexPath:indexPath];
+    UITableViewCell * cell = [tableView cellForRowAtIndexPath:indexPath];
+    NSLog(@"%d",cell.selectionStyle);
+    if (cell.selectionStyle == 3){
+         [[TTApplicationManager sharedApplicationManager] pushViewTo:VIEW_SELECT_PROPERTY forNavigationController:self.navigationController];
+    }
+    else
+    {
+        
+    }
+    
+}
+
 // Tap on table Row
 - (void) tableView: (UITableView *) tableView accessoryButtonTappedForRowWithIndexPath: (NSIndexPath *) indexPath {
-    NSArray *listData = [[currentFormPropertyArray objectAtIndex:[indexPath section]] objectForKey:@"cells"];
-    NSUInteger row = [indexPath row];
-    [[TTAppDataManager sharedAppDataManager] setSelectProperty:[[listData objectAtIndex:row] objectForKey:@"name"]];
+    
+    [[TTAppDataManager sharedAppDataManager] setSelectPropertyIndexPath:indexPath];
     
     [[TTApplicationManager sharedApplicationManager] pushViewTo:VIEW_SELECT_PROPERTY forNavigationController:self.navigationController];
 
@@ -233,18 +251,7 @@
     }
 }
 
-- (UIColor *)colorWithHexString:(NSString *)stringToConvert
-{
-    NSString *noHashString = [stringToConvert stringByReplacingOccurrencesOfString:@"#" withString:@""]; // remove the #
-    NSScanner *scanner = [NSScanner scannerWithString:noHashString];
-    [scanner setCharactersToBeSkipped:[NSCharacterSet symbolCharacterSet]]; // remove + and $
-    unsigned hex;
-    if (![scanner scanHexInt:&hex]) return nil;
-    int r = (hex >> 16) & 0xFF;
-    int g = (hex >> 8) & 0xFF;
-    int b = (hex) & 0xFF;
-    return [UIColor colorWithRed:r / 255.0f green:g / 255.0f blue:b / 255.0f alpha:1.0f];
-}
+
 ////
 ////-(void)initTextFields
 ////{

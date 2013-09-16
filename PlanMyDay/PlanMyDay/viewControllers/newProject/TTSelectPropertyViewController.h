@@ -11,13 +11,9 @@
 
 @interface TTSelectPropertyViewController : UIViewController
 {
-    IBOutlet UIButton *btnBack;
-    IBOutlet UILabel * titleLabel;
+    NSIndexPath * selectIP;
+    NSString * selectStr;
+    IBOutlet UISearchBar * searchBar;
 }
-
--(IBAction)btnBackTouchHandler:(id)sender;
-
-@property (retain,nonatomic) IBOutlet UIButton *btnBack;
-@property(retain,nonatomic) NSString * propertyToSelect;
 
 @end
