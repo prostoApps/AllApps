@@ -13,7 +13,7 @@
 
 @interface TTNewProjectViewController : UIViewController
 {
-    IBOutlet UITableView *TaskTableView;
+    IBOutlet UITableView *taskTableView;
     NSDictionary *tableContents;
     NSArray *sortedKeys;
     
@@ -30,7 +30,6 @@
     IBOutlet UISegmentedControl *scTaskProjectClient;
     
     IBOutlet UIButton    *btnSave;
-    IBOutlet UIButton    *btnClear;
     
     IBOutlet UIScrollView *scrvScrollView;
     
@@ -40,7 +39,6 @@
 }
 
 -(IBAction) btnSaveTouchHandler:(id)sender;
--(IBAction) btnClearTouchHandler:(id)sender;
 
 -(void)collectDataToItem:(TTItem*)item;
 -(void)initVisibleComponents;

@@ -7,13 +7,13 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TTNewProjectViewController">
             <connections>
-                <outlet property="TaskTableView" destination="m0w-MT-nVK" id="DMW-NN-iiF"/>
                 <outlet property="bgProjectInfo" destination="FlD-hB-XpR" id="2ck-Cs-0WP"/>
                 <outlet property="btnSave" destination="868" id="881"/>
                 <outlet property="btnSelectClient" destination="wuc-RR-PKc" id="YyR-f0-jrt"/>
                 <outlet property="btnSelectProject" destination="rqi-dy-7Xt" id="qTu-Tl-o3g"/>
                 <outlet property="lbTask" destination="2Ab-1Q-nhA" id="EaT-id-423"/>
                 <outlet property="scTaskProjectClient" destination="466" id="492"/>
+                <outlet property="taskTableView" destination="m0w-MT-nVK" id="NEK-Ii-9nO"/>
                 <outlet property="tfColor" destination="765" id="796"/>
                 <outlet property="tfTaskName" destination="765" id="CsC-tv-60f"/>
                 <outlet property="view" destination="1" id="3"/>
@@ -130,7 +130,4 @@
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
         </view>
     </objects>
-    <resources>
-        <image name="icon_button_arrow.png" width="8" height="13"/>
-    </resources>
 </document>

@@ -385,6 +385,52 @@
     return arrAllTasks;
 }
 
+-(NSMutableArray*)getAllTasksForToday
+{
+    NSDate *dtDateToday = [NSDate date];
+    //  [self initTestData];
+    
+    if (arrAllTasks.count > 0) {
+        [arrAllTasks removeAllObjects];
+    }
+    
+    if ([[dictLocalData objectForKey:STR_ALL_CLIENTS] count] > 0)
+    {
+        for (NSMutableDictionary *dictClientData in [dictLocalData objectForKey:STR_ALL_CLIENTS])
+        {
+            //проходим по всем проектам в локал дате и проверяем имена на повторение
+            //если в локал дате существует клиент с таким же именем, то заходим в него
+            
+            //если у клиента есть проекты, проходим по каждому из них
+            if ([[dictClientData objectForKey:STR_ALL_PROJECTS] count] > 0)
+            {
+                //проходим по всем проектам клиента и проверяем на совпадение имени
+                //если у клиента существует проект с таким же именем, то заходим в него
+                for (NSMutableDictionary *dictProjectData in [dictClientData objectForKey:STR_ALL_PROJECTS])
+                {
+                    //если в проекте есть таски, то проходим по каждой
+                    if([[dictProjectData objectForKey:STR_ALL_TASKS] count] > 0)
+                    {
+                        //проходим по всем таскам проекта и добавляем и в массив всех тасков
+                        for (NSMutableDictionary *dictTaskData in [dictProjectData objectForKey:STR_ALL_TASKS])
+                        {
+                            //[NSDate timeIntervalSinceReferenceDate]
+                            if(dtDateToday == [dictTaskData objectForKey:STR_START_DATE])
+                            [arrAllTasks addObject:[dictTaskData copy]];
+                        }
+                    }//end if
+                }//end for
+            }//end if
+        }//end for
+    }//end if
+    else
+    {
+        [self initTestData];
+    }
+    
+    return arrAllTasks;
+}
+
 -(NSMutableArray*)getAllProjects
 {
     

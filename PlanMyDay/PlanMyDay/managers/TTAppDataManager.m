@@ -66,10 +66,13 @@ static TTLocalDataManager *localDataManager;
 
 -(NSMutableDictionary*)serializeData:(TTItem*)item
 {
-    NSMutableDictionary *dictData = [[NSMutableDictionary alloc] initWithObjectsAndKeys:item.strClientName, STR_CLIENT_NAME,
+    NSMutableDictionary *dictData = [[NSMutableDictionary alloc] initWithObjectsAndKeys:
+                              item.strClientName, STR_CLIENT_NAME,
                               item.strProjectName,STR_PROJECT_NAME,
                               item.strTaskName,   STR_TASK_NAME,
-                              item.strCheck,   STR_TASK_CHECK,
+                              item.strCheck,      STR_TASK_CHECK,
+                              item.dtStartDate,   STR_START_DATE,
+                              item.dtEndDate,     STR_END_DATE,
                               nil];
     
     return dictData;
@@ -101,5 +104,13 @@ static TTLocalDataManager *localDataManager;
     arrAllClients = [[NSMutableArray alloc] initWithArray:[localDataManager getAllClients]];
     return arrAllClients;
 }
+
+-(NSMutableArray*)getAllTasksForToday
+{
+    NSMutableArray *arrAllTasks;
+    arrAllTasks  = [[NSMutableArray alloc] initWithArray:[localDataManager getAllTasksForToday]];
+    return arrAllTasks;
+}
+
 
 @end

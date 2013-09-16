@@ -8,7 +8,6 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TTSelectPropertyViewController">
             <connections>
                 <outlet property="btnBack" destination="7" id="11"/>
-                <outlet property="tablePropertiesList" destination="vYr-GU-35N" id="ZJk-Xk-ETM"/>
                 <outlet property="view" destination="1" id="3"/>
             </connections>
         </placeholder>

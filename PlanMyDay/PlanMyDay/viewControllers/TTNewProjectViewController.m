@@ -99,7 +99,7 @@
      }
 
 // Apple's docs: To enable the swipe-to-delete feature of table views (wherein a user swipes horizontally across a row to display a Delete button), you must implement the tableView:commitEditingStyle:forRowAtIndexPath: method.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+/*- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
     lblLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, 370, 300, 21)];
@@ -109,6 +109,7 @@
     lblLabel.text = @"Please enter the Client Name";
     [self.view addSubview:lblLabel];
 }
+ */
 
 - (UIColor *)colorWithHexString:(NSString *)stringToConvert
 {
@@ -223,6 +224,8 @@
     item.strClientName = tfClientName.text;
     item.strProjectName = tfProjectName.text;
     item.strTaskName = tfTaskName.text;
+    item.dtStartDate = [NSDate date];
+    item.dtEndDate = [item.dtStartDate dateByAddingTimeInterval:60*60*2];
 }
 
 - (void)didReceiveMemoryWarning
