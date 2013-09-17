@@ -56,10 +56,7 @@
     
     [self setTitle:[NSString stringWithFormat:@"Add %@",nameStr]];
     [btnSave setTitle:[NSString stringWithFormat:@"Add %@",nameStr] forState:UIControlStateNormal];
-    // переопределяем значения для таблицы
-   // currentFormDataArray = [[NSArray alloc] init];
-//    currentFormDataArray = [appDataManager.addTTItemData objectForKey:nameStr];
-   // currentFormPropertyArray = [NSArray arrayWithArray:[rootFormPropertyDictionary objectForKey:nameStr]];
+
     currentFormPropertyArray = [appDataManager getAddTTItemFormData];
     [TaskTableView reloadData];
 }
@@ -94,29 +91,32 @@
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
-    if (!cell) {
+    if (!cell)
+    {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:CellIdentifier];
         [cell.detailTextLabel setFrame:CGRectMake(80, 0, 180, 44)];
         cell.backgroundColor = [[TTAppDataManager sharedAppDataManager] colorWithHexString:@"#333b43"];
         cell.textLabel.textColor = [UIColor whiteColor];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
     }
-    else{
+    else
+    {
         //clear cell
         cell.accessoryType = UITableViewCellAccessoryNone;
         [[cell viewWithTag:1] removeFromSuperview];
         [[cell viewWithTag:2] removeFromSuperview];
         cell.detailTextLabel.text = nil;
-        
     }
-    
+
    
-    switch ( typeCell ) {
+    switch ( typeCell )
+    {
         case 0:
             
             cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
             cell.detailTextLabel.text = [[listData objectAtIndex:row] objectForKey:@"value"];
             cell.selectionStyle = UITableViewCellSelectionStyleDefault;
+           // cell.selectedBackgroundView = []
             break;
         case 1:
             inputField = [[UITextField alloc] initWithFrame:CGRectMake(80,0,220,44)];
@@ -141,9 +141,7 @@
     
      NSLog(@"Selection style: %d",cell.selectionStyle);
     
-    
     cell.textLabel.text = [[listData objectAtIndex:row] objectForKey:@"name"];
-    //cell.accessibilityValue = [[listData objectAtIndex:row] objectForKey:@"name"];
     
      return cell;
      }
@@ -216,10 +214,6 @@
     TTAppDataManager * appDataManager = [TTAppDataManager sharedAppDataManager];
     
     [appDataManager saveTTItemAddDataValue:textField.text valueSection:[indexPath section] valueRow:[indexPath row]];
-    
-
-   
-    
    
     NSLog(@"index path: %@",indexPath);
 }
@@ -252,79 +246,9 @@
 }
 
 
-////
-////-(void)initTextFields
-////{
-////    //init clientName textfield
-////    tfClientName = [[UITextField alloc]initWithFrame:CGRectMake(20, 50, 280, 31)];
-////    tfClientName.borderStyle = UITextBorderStyleRoundedRect;
-////    tfClientName.textColor = [UIColor whiteColor];
-////    tfClientName.font = [UIFont systemFontOfSize:17.0];
-////    tfClientName.placeholder = @"Client Name";
-////    tfClientName.backgroundColor = [UIColor whiteColor];
-////    tfClientName.autocorrectionType = UITextAutocorrectionTypeNo;
-////    tfClientName.backgroundColor = [UIColor clearColor];
-////    tfClientName.keyboardType = UIKeyboardTypeDefault;
-////    tfClientName.returnKeyType = UIReturnKeyDone;
-////    
-////    tfClientName.clearButtonMode = UITextFieldViewModeWhileEditing;
-////    [tfClientName addTarget:self action:@selector(hideKeyboard:) forControlEvents:UIControlEventTouchUpOutside];
-////    [self.view addSubview:tfClientName];
-////    
-////    //init projectName textfield
-////    tfProjectName = [[UITextField alloc]initWithFrame:CGRectMake(20, 80, 280, 31)];
-////    tfProjectName.borderStyle = UITextBorderStyleRoundedRect;
-////    tfProjectName.textColor = [UIColor whiteColor];
-////    tfProjectName.font = [UIFont systemFontOfSize:17.0];
-////    tfProjectName.placeholder = @"Project Name";
-////    tfProjectName.backgroundColor = [UIColor whiteColor];
-////    tfProjectName.autocorrectionType = UITextAutocorrectionTypeNo;
-////    tfProjectName.backgroundColor = [UIColor clearColor];
-////    tfProjectName.keyboardType = UIKeyboardTypeDefault;
-////    tfProjectName.returnKeyType = UIReturnKeyDone;
-////    
-////    tfProjectName.clearButtonMode = UITextFieldViewModeWhileEditing;
-////    [tfProjectName addTarget:self action:@selector(hideKeyboard:) forControlEvents:UIControlEventTouchUpOutside];
-////    [self.view addSubview:tfProjectName];
-////    
-////    //init TaskName textfield
-////    tfTaskName = [[UITextField alloc]initWithFrame:CGRectMake(20, 110, 280, 31)];
-////    tfTaskName.borderStyle = UITextBorderStyleRoundedRect;
-////    tfTaskName.textColor = [UIColor whiteColor];
-////    tfTaskName.font = [UIFont systemFontOfSize:17.0];
-////    tfTaskName.placeholder = @"Task Name";
-////    tfTaskName.backgroundColor = [UIColor whiteColor];
-////    tfTaskName.autocorrectionType = UITextAutocorrectionTypeNo;
-////    tfTaskName.backgroundColor = [UIColor clearColor];
-////    tfTaskName.keyboardType = UIKeyboardTypeDefault;
-////    tfTaskName.returnKeyType = UIReturnKeyDone;
-////    
-////    tfTaskName.clearButtonMode = UITextFieldViewModeWhileEditing;
-////    [tfTaskName addTarget:self action:@selector(hideKeyboard:) forControlEvents:UIControlEventTouchUpOutside];
-////    [self.view addSubview:tfTaskName];
-////}
-//
-//-(IBAction)hideKeyboard:(id)sender
-//{
-//    [tfClientName resignFirstResponder];
-//}
-//
-//-(IBAction)sliderValueChangedHandler:(id)sender
-//{
-//    imgImage.alpha = sldrSlider.value;
-//}
-//
 //-(IBAction)btnSaveTouchHandler:(id)sender
 //{
-//    
-//    [tfClientName resignFirstResponder]; //hide keyboard
-//    [tfProjectName resignFirstResponder]; //hide keyboard
-//    [tfTaskName resignFirstResponder]; //hide keyboard
-//    [tfStartDate resignFirstResponder]; //hide keyboard
-//    [tfStartTime resignFirstResponder]; //hide keyboard
-//    [tfDuration resignFirstResponder]; //hide keyboard
-//    [tfColor resignFirstResponder]; //hide keyboard
-//    
+
 //    //read data from device
 //    /*    NSString *filePathToProjectData = [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject] stringByAppendingPathComponent:@"projectData.plist"];
 //     
@@ -353,35 +277,7 @@
 //    //    [[TTAppDataManager sharedAppDataManager] saveTTItem:item];
 //    //    [dictProjectData writeToFile:filePathToProjectData atomically:YES];
 //}
-//
-//-(IBAction)btnSelectClientTouchHandler:(id)sender
-//{
-//    NSLog(@"btnSelectClientTouchHandler");
-//    [[TTApplicationManager sharedApplicationManager] switchViewTo:VIEW_SELECT_PROPERTY forNavigationController:self.navigationController];
-//    
-//}
-//
-//-(IBAction)btnSelectProjectTouchHandler:(id)sender
-//{
-//    NSLog(@"btnSelectProjectTouchHandler");
-//    [[TTApplicationManager sharedApplicationManager] switchViewTo:VIEW_SELECT_PROPERTY forNavigationController:self.navigationController];
-//}
-//
-//-(IBAction)btnSelectColorTouchHandler:(id)sender
-//{
-//    NSLog(@"btnSelectColorTouchHandler");
-//    [[TTApplicationManager sharedApplicationManager] switchViewTo:VIEW_SELECT_PROPERTY forNavigationController:self.navigationController];
-//}
-//-(IBAction)btnClearTouchHandler:(id)sender
-//{
-//    
-//}
-//-(void)collectDataToItem:(TTItem*)item
-//{
-//    item.strClientName = tfClientName.text;
-//    item.strProjectName = tfProjectName.text;
-//    item.strTaskName = tfTaskName.text;
-//}
+
 
 - (void)didReceiveMemoryWarning
 {
