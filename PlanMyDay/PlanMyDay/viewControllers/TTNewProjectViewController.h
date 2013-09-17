@@ -11,7 +11,7 @@
 #import "TTCreatePropertyViewController.h"
 #import "TTSelectPropertyViewController.h"
 
-@interface TTNewProjectViewController : UIViewController
+@interface TTNewProjectViewController : UIViewController <UITextFieldDelegate>
 {
     IBOutlet UITableView *taskTableView;
     NSDictionary *tableContents;
@@ -32,10 +32,6 @@
     IBOutlet UIButton    *btnSave;
     
     IBOutlet UIScrollView *scrvScrollView;
-    
-    UILabel *lblLabel;
-    UIImageView *imgImage;
-    UISlider *sldrSlider;
 }
 
 -(IBAction) btnSaveTouchHandler:(id)sender;
@@ -53,20 +49,9 @@
 @property(nonatomic,retain) IBOutlet UITextField *tfColor;
 
 @property(nonatomic,retain) IBOutlet UISegmentedControl *scTaskProjectClient;
-
 @property(nonatomic,retain) IBOutlet UIButton *btnSave;
-@property(nonatomic,retain) IBOutlet UIButton *btnSelectClient;
-@property(nonatomic,retain) IBOutlet UIButton *btnSelectProject;
-@property(nonatomic,retain) IBOutlet UIButton *btnSelectColor;
-
-@property(nonatomic,retain) UILabel     *lblLabel;
-@property(nonatomic,retain) UIImageView *imgImage;
-@property(nonatomic,retain) UISlider    *sldrSlider;
 
 -(IBAction) segmentedControlIndexChanged;
--(IBAction)btnSelectProjectTouchHandler:(id)sender;
--(IBAction)btnSelectColorTouchHandler:(id)sender;
--(IBAction)btnSelectClientTouchHandler:(id)sender;
-
+//-(IBAction) btnSaveTouchHandler:(id)sender;
 @end
 

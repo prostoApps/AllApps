@@ -11,7 +11,9 @@
 
 @interface TTSelectPropertyViewController : UIViewController
 {
-    IBOutlet UIButton *btnBack;
+    NSIndexPath * selectIP;
+    NSString * selectStr;
+    IBOutlet UISearchBar * searchBar;
 }
 
 @property (nonatomic, retain) NSMutableArray *arrProperties;

@@ -28,10 +28,9 @@
                                                nil];
     [[UINavigationBar appearance] setTitleTextAttributes:navbarTitleTextAttributes];
     //прозрачность UINavigationBar
-    UIImage *portraitImage = [UIImage imageNamed:@"icon_button_arrow.png"];
-    [[UINavigationBar appearance] setBackgroundImage:portraitImage
-                                       forBarMetrics:UIBarMetricsDefault];
-    
+//    UIImage *portraitImage = [UIImage imageNamed:@"icon_button_arrow.png"];
+//    [[UINavigationBar appearance] setBackgroundImage:portraitImage
+//                                       forBarMetrics:UIBarMetricsDefault];
     
     
     DDMenuController *rootController = [[DDMenuController alloc] initWithRootViewController:navController];

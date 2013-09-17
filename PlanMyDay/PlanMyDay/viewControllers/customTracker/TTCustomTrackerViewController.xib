@@ -22,7 +22,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6">
-                    <rect key="frame" x="27" y="492" width="130" height="44"/>
+                    <rect key="frame" x="28" y="492" width="130" height="44"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" red="0.84705882349999995" green="0.85490196080000003" blue="0.85882352939999995" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
@@ -42,7 +42,7 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5">
-                    <rect key="frame" x="162" y="492" width="130" height="44"/>
+                    <rect key="frame" x="163" y="492" width="130" height="44"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" red="0.84705882349999995" green="0.85490196080000003" blue="0.85882352939999995" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
@@ -61,7 +61,7 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7">
-                    <rect key="frame" x="27" y="440" width="265" height="44"/>
+                    <rect key="frame" x="28" y="440" width="265" height="44"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" red="0.20784313730000001" green="0.82352941180000006" blue="0.31372549020000001" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
@@ -81,7 +81,7 @@
                     </connections>
                 </button>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8" customClass="DACircularProgressView">
-                    <rect key="frame" x="27" y="80" width="265" height="300"/>
+                    <rect key="frame" x="28" y="72" width="265" height="353"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="00:00:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="21">
@@ -116,7 +116,7 @@
                 </view>
             </subviews>
             <constraints>
-                <constraint firstItem="8" firstAttribute="leading" secondItem="4" secondAttribute="leading" constant="27" id="11"/>
+                <constraint firstItem="8" firstAttribute="leading" secondItem="4" secondAttribute="leading" constant="28" id="11"/>
                 <constraint firstItem="7" firstAttribute="leading" secondItem="8" secondAttribute="leading" id="12"/>
                 <constraint firstItem="7" firstAttribute="trailing" secondItem="8" secondAttribute="trailing" id="13"/>
                 <constraint firstItem="6" firstAttribute="leading" secondItem="7" secondAttribute="leading" id="14"/>
@@ -125,8 +125,8 @@
                 <constraint firstAttribute="bottom" secondItem="6" secondAttribute="bottom" constant="32" id="17"/>
                 <constraint firstItem="5" firstAttribute="top" secondItem="7" secondAttribute="bottom" constant="8" symbolic="YES" id="18"/>
                 <constraint firstItem="5" firstAttribute="trailing" secondItem="7" secondAttribute="trailing" id="19"/>
-                <constraint firstItem="8" firstAttribute="top" secondItem="4" secondAttribute="top" constant="80" id="56"/>
-                <constraint firstItem="7" firstAttribute="top" secondItem="8" secondAttribute="bottom" constant="60" id="58"/>
+                <constraint firstItem="8" firstAttribute="top" secondItem="4" secondAttribute="top" constant="72" id="56"/>
+                <constraint firstItem="7" firstAttribute="top" secondItem="8" secondAttribute="bottom" constant="15" id="58"/>
             </constraints>
             <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
             <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>

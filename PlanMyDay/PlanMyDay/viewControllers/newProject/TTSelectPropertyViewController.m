@@ -35,12 +35,26 @@
     arrProperties = [[TTAppDataManager sharedAppDataManager] getAllTasks];
 }
 
--(IBAction)btnBackTouchHandler:(id)sender
-{
-    NSLog(@"CREATE_PROPERTY::btnBackTouchHandler");
-    [[TTApplicationManager sharedApplicationManager] switchViewTo:VIEW_NEW_TASK
-                                          forNavigationController:self.navigationController];
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath    *)indexPath {
+    static NSString *CellIdentifier = @"selectCell";
     
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    
+    if (!cell) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:CellIdentifier];
+        cell.backgroundColor = [UIColor clearColor];
+        cell.textLabel.textColor = [UIColor whiteColor];
+        
+    }
+    
+    cell.textLabel.text = selectStr;
+    
+    return cell;
+}
+
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return NO;
 }
 
 - (void)didReceiveMemoryWarning

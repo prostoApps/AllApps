@@ -411,9 +411,10 @@
         return;
     }
     
+    [[TTApplicationManager sharedApplicationManager] pushViewTo:VIEW_NEW_TASK forNavigationController:navController];
+
     
-    
-        [navController pushViewController:viewController animated:animated];
+      //  [navController pushViewController:viewController animated:animated];
 
 }
 
@@ -428,8 +429,29 @@
 
 - (void)showRight:(id)sender {
     
-    TTNewProjectViewController *NewProject = [[TTNewProjectViewController alloc] initWithNibName:@"TTNewProjectViewController" bundle:nil];
-    [self pushViewController:NewProject animated:YES];
+    UINavigationController *navController = nil;
+    
+    if ([_root isKindOfClass:[UINavigationController class]]) {
+        
+        navController = (UINavigationController*)_root;
+        
+    } else if ([_root isKindOfClass:[UITabBarController class]]) {
+        
+        UIViewController *topController = [(UITabBarController*)_root selectedViewController];
+        if ([topController isKindOfClass:[UINavigationController class]]) {
+            navController = (UINavigationController*)topController;
+        }
+        
+    }
+    
+    if (navController == nil) {
+        
+        NSLog(@"root controller is not a navigation controller.");
+        return;
+    }
+    
+    [[TTApplicationManager sharedApplicationManager] pushViewTo:VIEW_NEW_TASK forNavigationController:navController];
+    
     
 }
 

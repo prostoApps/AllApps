@@ -10,12 +10,20 @@
 
 
 @interface TTNewProjectViewController ()
+{
+   
+    NSDictionary * rootFormPropertyDictionary;
+    NSArray *currentFormPropertyArray;
+    NSArray * currentFormDataArray;
+    
+    
+}
 
 @end
 
 @implementation TTNewProjectViewController
 
-@synthesize tfClientName,tfColor,tfDuration,tfStartTime,tfStartDate,tfTaskName,tfProjectName,btnSave,sldrSlider,imgImage,lblLabel,scTaskProjectClient,btnSelectClient,btnSelectColor,btnSelectProject;
+@synthesize btnSave,scTaskProjectClient;
 
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -31,69 +39,109 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    [[TTAppDataManager sharedAppDataManager] setAddNewStr:@"Task"];
+    [[TTAppDataManager sharedAppDataManager] loadTTItemFormData];
     
-    [self initVisibleComponents];
+    //rootFormPropertyDictionary = [NSDictionary dictionaryWithContentsOfFile:plistPath];
+    
+   // rootFormPropertyDictionary
+    [self setTitle:@"Add New Task"];
+   // [self initVisibleComponents];
+    [self loadPropertyForView];
+}
+
+- (void) loadPropertyForView {
+    TTAppDataManager * appDataManager = [TTAppDataManager sharedAppDataManager];
+    NSString * nameStr = appDataManager.addNewStr;
+    
+    [self setTitle:[NSString stringWithFormat:@"Add %@",nameStr]];
+    [btnSave setTitle:[NSString stringWithFormat:@"Add %@",nameStr] forState:UIControlStateNormal];
+
+    currentFormPropertyArray = [appDataManager getAddTTItemFormData];
+    [TaskTableView reloadData];
 }
 
 -(void)initVisibleComponents
 {
     [scrvScrollView setScrollEnabled:YES];
-    [scrvScrollView setContentSize:CGSizeMake(320, 650)];
-    
-    NSArray *arrTemp1 = [[NSArray alloc]
-                         initWithObjects:@"Task",@"Project",@"Client",@"Color",@"Billable",nil];
-    NSArray *arrTemp2 = [[NSArray alloc]
-                         initWithObjects:@"Date",@"Start",@"Finish",nil];
-    NSDictionary *temp =[[NSDictionary alloc]
-                         initWithObjectsAndKeys:arrTemp1,@"Task Info",arrTemp2,@"Planning Time",nil];
-    tableContents = temp;
-    sortedKeys = [[NSArray alloc]
-                  initWithObjects:@"Task Info",@"Planning Time",nil];
-
-    
-    
-    /* Блок Project info внешний вид
-    bgProjectInfo.layer.borderColor = [self colorWithHexString:@"#a8adb3"].CGColor;
-    bgProjectInfo.layer.borderWidth = 1.0f;
-    
-    tfTaskName.layer.borderColor = [self colorWithHexString:@"#333b43"].CGColor;
-    
-    lbTask.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"TTTasksTableViewCell.png"]];
-    */
-    
-   
-
-
+    [scrvScrollView setContentSize:CGSizeMake(320, 1000)];
 }
 #pragma mark UITableViewDataSource
 - (NSInteger)tableView:(UITableView *)table
  numberOfRowsInSection:(NSInteger)section {
-    NSArray *listData =[tableContents objectForKey:[sortedKeys objectAtIndex:section]];
+    NSArray *listData =[[currentFormPropertyArray objectAtIndex:section] objectForKey:@"cells"];
     return [listData count];
 }
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
-    return [sortedKeys count];
+    return [currentFormPropertyArray count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath    *)indexPath {
     static NSString *CellIdentifier = @"Cell";
     
-    NSArray *listData =[tableContents objectForKey:
-                        [sortedKeys objectAtIndex:[indexPath section]]];
+    NSArray *listData = [[currentFormPropertyArray objectAtIndex:[indexPath section]] objectForKey:@"cells"];
+    
+    UITextField *inputField;
+    UISwitch *swithField;
+    NSUInteger row = [indexPath row];
+    int typeCell = [[[listData objectAtIndex:row] objectForKey:@"type"] intValue];
+
+    
+    
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
-        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-    }
-    cell.backgroundColor = [self colorWithHexString:@"#333b43"];
-
-    cell.textLabel.textColor = [UIColor whiteColor];
- 
     
-    NSUInteger row = [indexPath row];
-    cell.textLabel.text = [listData objectAtIndex:row];
-       cell.accessibilityValue = [listData objectAtIndex:row];
+    if (!cell)
+    {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:CellIdentifier];
+        [cell.detailTextLabel setFrame:CGRectMake(80, 0, 180, 44)];
+        cell.backgroundColor = [[TTAppDataManager sharedAppDataManager] colorWithHexString:@"#333b43"];
+        cell.textLabel.textColor = [UIColor whiteColor];
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    }
+    else
+    {
+        //clear cell
+        cell.accessoryType = UITableViewCellAccessoryNone;
+        [[cell viewWithTag:1] removeFromSuperview];
+        [[cell viewWithTag:2] removeFromSuperview];
+        cell.detailTextLabel.text = nil;
+    }
+
+   
+    switch ( typeCell )
+    {
+        case 0:
+            
+            cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+            cell.detailTextLabel.text = [[listData objectAtIndex:row] objectForKey:@"value"];
+            cell.selectionStyle = UITableViewCellSelectionStyleDefault;
+           // cell.selectedBackgroundView = []
+            break;
+        case 1:
+            inputField = [[UITextField alloc] initWithFrame:CGRectMake(80,0,220,44)];
+            inputField.adjustsFontSizeToFitWidth = YES;
+            inputField.textColor = [UIColor whiteColor];
+            inputField.tag = 1;
+            inputField.delegate = self;
+            inputField.text = [[listData objectAtIndex:row] objectForKey:@"value"];
+           
+            [cell addSubview:inputField];
+            break;
+        case 2:
+            swithField = [[UISwitch alloc] initWithFrame:CGRectMake(255, 6, 30,30)];
+            swithField.tag = 2;
+            
+            [cell addSubview:swithField];
+            break;
+            
+        default:
+            break;
+    }
+    
+     NSLog(@"Selection style: %d",cell.selectionStyle);
+    
+    cell.textLabel.text = [[listData objectAtIndex:row] objectForKey:@"name"];
     
      return cell;
      }
@@ -101,6 +149,26 @@
 // Apple's docs: To enable the swipe-to-delete feature of table views (wherein a user swipes horizontally across a row to display a Delete button), you must implement the tableView:commitEditingStyle:forRowAtIndexPath: method.
 /*- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    NSLog(@"commitEditingStyle");
+}
+
+// Tap on table Row
+- (void) tableView: (UITableView *) tableView didSelectRowAtIndexPath: (NSIndexPath *) indexPath {
+    [[TTAppDataManager sharedAppDataManager] setSelectPropertyIndexPath:indexPath];
+    UITableViewCell * cell = [tableView cellForRowAtIndexPath:indexPath];
+    NSLog(@"%d",cell.selectionStyle);
+    if (cell.selectionStyle == 3){
+         [[TTApplicationManager sharedApplicationManager] pushViewTo:VIEW_SELECT_PROPERTY forNavigationController:self.navigationController];
+    }
+    else
+    {
+        
+    }
+    
+}
+
+// Tap on table Row
+- (void) tableView: (UITableView *) tableView accessoryButtonTappedForRowWithIndexPath: (NSIndexPath *) indexPath {
     
     lblLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, 370, 300, 21)];
     lblLabel.backgroundColor = [UIColor clearColor];
@@ -123,8 +191,10 @@
     int b = (hex) & 0xFF;
     return [UIColor colorWithRed:r / 255.0f green:g / 255.0f blue:b / 255.0f alpha:1.0f];
 }
+#pragma mark -
+#pragma mark UITextFieldDelegate methods
 
--(void)initTextFields
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
 {
     //init clientName textfield
     tfClientName = [[UITextField alloc]initWithFrame:CGRectMake(20, 50, 280, 31)];
@@ -149,16 +219,10 @@
 }
 
 
--(IBAction)btnSaveTouchHandler:(id)sender
+- (void)textFieldDidEndEditing:(UITextField *)textField
 {
- 
-    [tfClientName resignFirstResponder]; //hide keyboard
-    [tfProjectName resignFirstResponder]; //hide keyboard
-    [tfTaskName resignFirstResponder]; //hide keyboard
-    [tfStartDate resignFirstResponder]; //hide keyboard
-    [tfStartTime resignFirstResponder]; //hide keyboard
-    [tfDuration resignFirstResponder]; //hide keyboard
-    [tfColor resignFirstResponder]; //hide keyboard
+	 NSIndexPath *indexPath = [TaskTableView indexPathForCell:(UITableViewCell*)[[textField superview] superview]]; // this should return you your current indexPath
+    TTAppDataManager * appDataManager = [TTAppDataManager sharedAppDataManager];
     
     //read data from device
 /*    NSString *filePathToProjectData = [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject] stringByAppendingPathComponent:@"projectData.plist"];
@@ -234,21 +298,26 @@
     // Dispose of any resources that can be recreated.
 }
 
+#pragma mark -
+#pragma mark segmentedControl methods
 -(IBAction) segmentedControlIndexChanged
 {
+    [self.view endEditing:YES];
 	switch (self.scTaskProjectClient.selectedSegmentIndex) {
 		case 0:
-			NSLog(@"SegmentedControlTask");
-            [[TTApplicationManager sharedApplicationManager] switchViewTo:VIEW_NEW_TASK forNavigationController:self.navigationController];
-
+            [[TTAppDataManager sharedAppDataManager] setAddNewStr:@"Task"];
+            [self loadPropertyForView];
 			break;
+            
 		case 1:
-			NSLog(@"SegmentedControlProject");
-           [[TTApplicationManager sharedApplicationManager] switchViewTo:VIEW_SELECT_PROPERTY forNavigationController:self.navigationController];
+            [[TTAppDataManager sharedAppDataManager] setAddNewStr:@"Project"];
+            [self loadPropertyForView];
 			break;
+            
 		case 2:
 			NSLog(@"SegmentedControlCleint");
-            [[TTApplicationManager sharedApplicationManager] switchViewTo:VIEW_CREATE_PROPERTY forNavigationController:self.navigationController];
+            [[TTAppDataManager sharedAppDataManager] setAddNewStr:@"Client"];
+            [self loadPropertyForView];
 			break;
             
 		default:
@@ -256,11 +325,44 @@
     }
 }
 
--(IBAction) btnMenuTouchHandler:(id)sender
+
+//-(IBAction)btnSaveTouchHandler:(id)sender
+//{
+
+//    //read data from device
+//    /*    NSString *filePathToProjectData = [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject] stringByAppendingPathComponent:@"projectData.plist"];
+//     
+//     NSDictionary *dictCustomProject = [NSDictionary dictionaryWithContentsOfFile:filePathToProjectData];*/
+//    
+//    TTItem *item = [[TTItem alloc] init];
+//    
+//    [self collectDataToItem:item];
+//    
+//    //    lblLabel.text = [@"Client Name defined successfully!" stringByAppendingString:tfClientName.text];
+//    
+//    //    NSDictionary *dictProjectData = [[NSDictionary alloc] initWithObjectsAndKeys:
+//    //                                     lblLabel.text, @"clientName",
+//    //                                     @"projectName1", @"projectName",
+//    //                                     @"05.06.2013", @"startDate",
+//    //                                     @"12.55"     , @"startTime",
+//    //                                     @"05.06.2013", @"endDate",
+//    //                                     @"13.00"     , @"endTime",
+//    //                                     @"300"       , @"durationPlan",
+//    //                                     @"300"       , @"durationFact",
+//    //                                     @"FFFFFF"    , @"color", nil];
+//    //
+//    NSLog(@"clinetName: %@",item.strClientName);
+//    
+//    [[TTAppDataManager sharedAppDataManager] saveTTItem:item];
+//    //    [[TTAppDataManager sharedAppDataManager] saveTTItem:item];
+//    //    [dictProjectData writeToFile:filePathToProjectData atomically:YES];
+//}
+
+
+- (void)didReceiveMemoryWarning
 {
-    [[TTApplicationManager sharedApplicationManager] switchViewTo:VIEW_MENU forNavigationController:self.navigationController];
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
 }
-
-
 
 @end

@@ -19,7 +19,7 @@
     [super viewDidLoad];
     
     tasksTableView.backgroundColor = [[UIColor alloc] initWithRed:0x3b/255.0 green:0x46/255.0 blue:0x50/255.0 alpha:1];
-    tasksTableView.separatorColor = [[UIColor alloc] initWithRed:0xa8/255.0 green:0xad/255.0 blue:0xb3/255.0 alpha:1];
+  //  tasksTableView.separatorColor = [[UIColor alloc] initWithRed:0xa8/255.0 green:0xad/255.0 blue:0xb3/255.0 alpha:1];
     
     self.tasksView = [[UIView alloc] initWithFrame:CGRectMake(tasksTableView.frame.origin.x, tasksTableView.frame.origin.y, tasksTableView.frame.size.width, tasksTableView.rowHeight)];
     
