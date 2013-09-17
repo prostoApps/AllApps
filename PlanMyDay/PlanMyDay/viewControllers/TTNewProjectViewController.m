@@ -225,7 +225,7 @@
     item.strProjectName = tfProjectName.text;
     item.strTaskName = tfTaskName.text;
     item.dtStartDate = [NSDate date];
-    item.dtEndDate = [item.dtStartDate dateByAddingTimeInterval:60*60*2];
+//    item.dtEndDate = [item.dtStartDate dateByAddingTimeInterval:60*60*2]
 }
 
 - (void)didReceiveMemoryWarning
