@@ -38,7 +38,10 @@
     [self setTitle:[NSString stringWithFormat:@"Choose %@",selectStr]];
     
     arrProperties = [[TTAppDataManager sharedAppDataManager] getAllTasks];
+    [self.view setBackgroundColor:[UIColor redColor]];
     
+    
+    [searchBar setSearchFieldBackgroundImage:[UIImage imageNamed:@"bgTaskInfoLabel.png"] forState:UIControlStateNormal];
 }
 
 #pragma mark UITableViewDataSource

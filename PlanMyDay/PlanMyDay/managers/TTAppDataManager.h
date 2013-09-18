@@ -39,6 +39,7 @@
 -(NSMutableArray*)getAllTasks;
 -(NSMutableArray*)getAllProjects;
 -(NSMutableArray*)getAllClients;
+-(NSMutableArray*)getAllTasksForToday;
 - (UIColor *)colorWithHexString:(NSString *)stringToConvert;
 
 + (TTAppDataManager *)sharedAppDataManager;

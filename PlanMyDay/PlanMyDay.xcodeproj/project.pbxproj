@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		05103CC617EA0EAB008C9D81 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05103CC517EA0EAB008C9D81 /* XCTest.framework */; };
+		05103CC717EA0EAB008C9D81 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDB4A82D17849C3F007C7F15 /* Foundation.framework */; };
+		05103CC817EA0EAB008C9D81 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDB4A82B17849C3F007C7F15 /* UIKit.framework */; };
+		05103CCE17EA0EAB008C9D81 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 05103CCC17EA0EAB008C9D81 /* InfoPlist.strings */; };
+		05103CD017EA0EAB008C9D81 /* PlanMyDay_Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 05103CCF17EA0EAB008C9D81 /* PlanMyDay_Tests.m */; };
+		05103CDA17EA1EAF008C9D81 /* bgTaskInfoLabel@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 05103CD917EA1EAF008C9D81 /* bgTaskInfoLabel@2x.png */; };
 		05941E9417E9E0110079C571 /* TTNewProjectTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 05941E9317E9E0110079C571 /* TTNewProjectTableViewCell.m */; };
 		0596765117D0CAD000653A60 /* DDMenuController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0596765017D0CAD000653A60 /* DDMenuController.m */; };
 		05BAA80417E1F586003D7498 /* PropertyListOfViewForms.plist in Resources */ = {isa = PBXBuildFile; fileRef = 05BAA80317E1F586003D7498 /* PropertyListOfViewForms.plist */; };
@@ -73,7 +79,24 @@
 		DDB4A88F178523B2007C7F15 /* TTNewProjectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DDB4A886178523B2007C7F15 /* TTNewProjectViewController.m */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		05103CD217EA0EAB008C9D81 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DDB4A82017849C3F007C7F15 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DDB4A82717849C3F007C7F15;
+			remoteInfo = PlanMyDay;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
+		05103CC417EA0EAB008C9D81 /* PlanMyDay Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "PlanMyDay Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		05103CC517EA0EAB008C9D81 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		05103CCB17EA0EAB008C9D81 /* PlanMyDay Tests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "PlanMyDay Tests-Info.plist"; sourceTree = "<group>"; };
+		05103CCD17EA0EAB008C9D81 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		05103CCF17EA0EAB008C9D81 /* PlanMyDay_Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PlanMyDay_Tests.m; sourceTree = "<group>"; };
+		05103CD117EA0EAB008C9D81 /* PlanMyDay Tests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PlanMyDay Tests-Prefix.pch"; sourceTree = "<group>"; };
+		05103CD917EA1EAF008C9D81 /* bgTaskInfoLabel@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bgTaskInfoLabel@2x.png"; sourceTree = "<group>"; };
 		055A5DC417D4E16200A0FE85 /* background_clear.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background_clear.png; sourceTree = "<group>"; };
 		055A5DC517D4E2AE00A0FE85 /* background_clear@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "background_clear@2x.png"; sourceTree = "<group>"; };
 		05941E9117E9BFCE0079C571 /* TTNewProjectViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = TTNewProjectViewController.xib; path = viewControllers/TTNewProjectViewController.xib; sourceTree = "<group>"; };
@@ -170,6 +193,16 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		05103CC117EA0EAB008C9D81 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				05103CC617EA0EAB008C9D81 /* XCTest.framework in Frameworks */,
+				05103CC817EA0EAB008C9D81 /* UIKit.framework in Frameworks */,
+				05103CC717EA0EAB008C9D81 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		DDB4A82517849C3F007C7F15 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -184,6 +217,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		05103CC917EA0EAB008C9D81 /* PlanMyDay Tests */ = {
+			isa = PBXGroup;
+			children = (
+				05103CCF17EA0EAB008C9D81 /* PlanMyDay_Tests.m */,
+				05103CCA17EA0EAB008C9D81 /* Supporting Files */,
+			);
+			path = "PlanMyDay Tests";
+			sourceTree = "<group>";
+		};
+		05103CCA17EA0EAB008C9D81 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				05103CCB17EA0EAB008C9D81 /* PlanMyDay Tests-Info.plist */,
+				05103CCC17EA0EAB008C9D81 /* InfoPlist.strings */,
+				05103CD117EA0EAB008C9D81 /* PlanMyDay Tests-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 		0596765217D0CAD700653A60 /* DDMenuController */ = {
 			isa = PBXGroup;
 			children = (
@@ -215,6 +267,7 @@
 		DD7BAE3917A5BE4400CACFB2 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				05103CD917EA1EAF008C9D81 /* bgTaskInfoLabel@2x.png */,
 				055A5DC517D4E2AE00A0FE85 /* background_clear@2x.png */,
 				055A5DC417D4E16200A0FE85 /* background_clear.png */,
 				05C8136C17C6283E00E90B2F /* icon_button_arrow.png */,
@@ -362,6 +415,7 @@
 			children = (
 				DD7BAE5317A5C4FE00CACFB2 /* QuartzCore.framework */,
 				DDB4A83117849C3F007C7F15 /* PlanMyDay */,
+				05103CC917EA0EAB008C9D81 /* PlanMyDay Tests */,
 				DDB4A82A17849C3F007C7F15 /* Frameworks */,
 				DDB4A82917849C3F007C7F15 /* Products */,
 			);
@@ -371,6 +425,7 @@
 			isa = PBXGroup;
 			children = (
 				DDB4A82817849C3F007C7F15 /* PlanMyDay.app */,
+				05103CC417EA0EAB008C9D81 /* PlanMyDay Tests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -381,6 +436,7 @@
 				DDB4A82B17849C3F007C7F15 /* UIKit.framework */,
 				DDB4A82D17849C3F007C7F15 /* Foundation.framework */,
 				DDB4A82F17849C3F007C7F15 /* CoreGraphics.framework */,
+				05103CC517EA0EAB008C9D81 /* XCTest.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -456,6 +512,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		05103CC317EA0EAB008C9D81 /* PlanMyDay Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 05103CD617EA0EAB008C9D81 /* Build configuration list for PBXNativeTarget "PlanMyDay Tests" */;
+			buildPhases = (
+				05103CC017EA0EAB008C9D81 /* Sources */,
+				05103CC117EA0EAB008C9D81 /* Frameworks */,
+				05103CC217EA0EAB008C9D81 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				05103CD317EA0EAB008C9D81 /* PBXTargetDependency */,
+			);
+			name = "PlanMyDay Tests";
+			productName = "PlanMyDay Tests";
+			productReference = 05103CC417EA0EAB008C9D81 /* PlanMyDay Tests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		DDB4A82717849C3F007C7F15 /* PlanMyDay */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = DDB4A84B17849C3F007C7F15 /* Build configuration list for PBXNativeTarget "PlanMyDay" */;
@@ -483,6 +557,9 @@
 				LastUpgradeCheck = 0460;
 				ORGANIZATIONNAME = "prosto*";
 				TargetAttributes = {
+					05103CC317EA0EAB008C9D81 = {
+						TestTargetID = DDB4A82717849C3F007C7F15;
+					};
 					DDB4A82717849C3F007C7F15 = {
 						DevelopmentTeam = 24QCU7VC45;
 					};
@@ -501,11 +578,20 @@
 			projectRoot = "";
 			targets = (
 				DDB4A82717849C3F007C7F15 /* PlanMyDay */,
+				05103CC317EA0EAB008C9D81 /* PlanMyDay Tests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		05103CC217EA0EAB008C9D81 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				05103CCE17EA0EAB008C9D81 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		DDB4A82617849C3F007C7F15 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -533,6 +619,7 @@
 				DD90BF6217AA06210064233C /* clock-background.png in Resources */,
 				DD90BF6317AA06210064233C /* clock-hour-background.png in Resources */,
 				05BAA80417E1F586003D7498 /* PropertyListOfViewForms.plist in Resources */,
+				05103CDA17EA1EAF008C9D81 /* bgTaskInfoLabel@2x.png in Resources */,
 				DD90BF6417AA06210064233C /* clock-min-background_.png in Resources */,
 				05C8136F17C6283E00E90B2F /* icon_button_arrow@2x.png in Resources */,
 				DD90BF6517AA06210064233C /* clock-min-background.png in Resources */,
@@ -553,6 +640,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		05103CC017EA0EAB008C9D81 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				05103CD017EA0EAB008C9D81 /* PlanMyDay_Tests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		DDB4A82417849C3F007C7F15 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -585,7 +680,23 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		05103CD317EA0EAB008C9D81 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DDB4A82717849C3F007C7F15 /* PlanMyDay */;
+			targetProxy = 05103CD217EA0EAB008C9D81 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
+		05103CCC17EA0EAB008C9D81 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				05103CCD17EA0EAB008C9D81 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
 		DDB4A83417849C3F007C7F15 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -605,6 +716,67 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		05103CD417EA0EAB008C9D81 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/PlanMyDay.app/PlanMyDay";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "PlanMyDay Tests/PlanMyDay Tests-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				INFOPLIST_FILE = "PlanMyDay Tests/PlanMyDay Tests-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		05103CD517EA0EAB008C9D81 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/PlanMyDay.app/PlanMyDay";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				ENABLE_NS_ASSERTIONS = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "PlanMyDay Tests/PlanMyDay Tests-Prefix.pch";
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				INFOPLIST_FILE = "PlanMyDay Tests/PlanMyDay Tests-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
 		DDB4A84917849C3F007C7F15 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -692,6 +864,14 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		05103CD617EA0EAB008C9D81 /* Build configuration list for PBXNativeTarget "PlanMyDay Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				05103CD417EA0EAB008C9D81 /* Debug */,
+				05103CD517EA0EAB008C9D81 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		DDB4A82317849C3F007C7F15 /* Build configuration list for PBXProject "PlanMyDay" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
