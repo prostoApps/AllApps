@@ -37,11 +37,12 @@
     selectStr = [NSString stringWithFormat:@"%@",[appDataManager getValueFormData:@"name" ByIndexPath:selectIP]];
     [self setTitle:[NSString stringWithFormat:@"Choose %@",selectStr]];
     
-    arrProperties = [[TTAppDataManager sharedAppDataManager] getAllTasks];
+    arrProperties = [[TTAppDataManager sharedAppDataManager] getAllClients];
     [self.view setBackgroundColor:[UIColor redColor]];
     
-    
-    [searchBar setSearchFieldBackgroundImage:[UIImage imageNamed:@"bgTaskInfoLabel.png"] forState:UIControlStateNormal];
+    //Внешний вид
+    [searchBar setSearchFieldBackgroundImage:[UIImage imageNamed:@"bgUiSearch.png"] forState:UIControlStateNormal];
+    [tablePropertiesList setBackgroundColor:[[TTAppDataManager sharedAppDataManager] colorWithHexString:@"#54616f"]];
 }
 
 #pragma mark UITableViewDataSource

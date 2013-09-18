@@ -13,6 +13,8 @@
 		05103CCE17EA0EAB008C9D81 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 05103CCC17EA0EAB008C9D81 /* InfoPlist.strings */; };
 		05103CD017EA0EAB008C9D81 /* PlanMyDay_Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 05103CCF17EA0EAB008C9D81 /* PlanMyDay_Tests.m */; };
 		05103CDA17EA1EAF008C9D81 /* bgTaskInfoLabel@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 05103CD917EA1EAF008C9D81 /* bgTaskInfoLabel@2x.png */; };
+		05103CDD17EA2015008C9D81 /* bgUiSearch.png in Resources */ = {isa = PBXBuildFile; fileRef = 05103CDB17EA2015008C9D81 /* bgUiSearch.png */; };
+		05103CDE17EA2015008C9D81 /* bgUiSearch@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 05103CDC17EA2015008C9D81 /* bgUiSearch@2x.png */; };
 		05941E9417E9E0110079C571 /* TTNewProjectTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 05941E9317E9E0110079C571 /* TTNewProjectTableViewCell.m */; };
 		0596765117D0CAD000653A60 /* DDMenuController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0596765017D0CAD000653A60 /* DDMenuController.m */; };
 		05BAA80417E1F586003D7498 /* PropertyListOfViewForms.plist in Resources */ = {isa = PBXBuildFile; fileRef = 05BAA80317E1F586003D7498 /* PropertyListOfViewForms.plist */; };
@@ -97,6 +99,8 @@
 		05103CCF17EA0EAB008C9D81 /* PlanMyDay_Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PlanMyDay_Tests.m; sourceTree = "<group>"; };
 		05103CD117EA0EAB008C9D81 /* PlanMyDay Tests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PlanMyDay Tests-Prefix.pch"; sourceTree = "<group>"; };
 		05103CD917EA1EAF008C9D81 /* bgTaskInfoLabel@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bgTaskInfoLabel@2x.png"; sourceTree = "<group>"; };
+		05103CDB17EA2015008C9D81 /* bgUiSearch.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bgUiSearch.png; sourceTree = "<group>"; };
+		05103CDC17EA2015008C9D81 /* bgUiSearch@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bgUiSearch@2x.png"; sourceTree = "<group>"; };
 		055A5DC417D4E16200A0FE85 /* background_clear.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background_clear.png; sourceTree = "<group>"; };
 		055A5DC517D4E2AE00A0FE85 /* background_clear@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "background_clear@2x.png"; sourceTree = "<group>"; };
 		05941E9117E9BFCE0079C571 /* TTNewProjectViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = TTNewProjectViewController.xib; path = viewControllers/TTNewProjectViewController.xib; sourceTree = "<group>"; };
@@ -267,6 +271,8 @@
 		DD7BAE3917A5BE4400CACFB2 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				05103CDB17EA2015008C9D81 /* bgUiSearch.png */,
+				05103CDC17EA2015008C9D81 /* bgUiSearch@2x.png */,
 				05103CD917EA1EAF008C9D81 /* bgTaskInfoLabel@2x.png */,
 				055A5DC517D4E2AE00A0FE85 /* background_clear@2x.png */,
 				055A5DC417D4E16200A0FE85 /* background_clear.png */,
@@ -607,6 +613,7 @@
 				DD7BAE3117A5BDCA00CACFB2 /* TTTasksTableViewCell.xib in Resources */,
 				DD7BAE3717A5BDDB00CACFB2 /* TTTasksViewController.xib in Resources */,
 				DD7BAE4017A5BE4400CACFB2 /* background.png in Resources */,
+				05103CDE17EA2015008C9D81 /* bgUiSearch@2x.png in Resources */,
 				DD7BAE4117A5BE4400CACFB2 /* ckeck_cell_icons.png in Resources */,
 				DD7BAE4217A5BE4400CACFB2 /* delete_cell_icon.png in Resources */,
 				DD7BAE4317A5BE4400CACFB2 /* one_task_back@2x.png in Resources */,
@@ -623,6 +630,7 @@
 				DD90BF6417AA06210064233C /* clock-min-background_.png in Resources */,
 				05C8136F17C6283E00E90B2F /* icon_button_arrow@2x.png in Resources */,
 				DD90BF6517AA06210064233C /* clock-min-background.png in Resources */,
+				05103CDD17EA2015008C9D81 /* bgUiSearch.png in Resources */,
 				DD90BF6617AA06210064233C /* clock-sec-background.png in Resources */,
 				DD90BF6717AA06210064233C /* OutputSample.png in Resources */,
 				DD90BF7017AA06530064233C /* ClockViewController.xib in Resources */,

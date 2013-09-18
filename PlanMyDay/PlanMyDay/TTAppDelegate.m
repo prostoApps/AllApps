@@ -28,10 +28,10 @@
                                                nil];
     [[UINavigationBar appearance] setTitleTextAttributes:navbarTitleTextAttributes];
     //прозрачность UINavigationBar
-    UIImage *portraitImage = [UIImage imageNamed:@"icon_button_arrow.png"];
-    [[UINavigationBar appearance] setBackgroundImage:portraitImage forBarMetrics:UIBarMetricsDefault];
-   // [[UINavigationBar appearance] setBackgroundColor:[[TTAppDataManager sharedAppDataManager] colorWithHexString:@"#404a53"]];
-   // [[UINavigationBar appearance] setBarStyle:UIBarStyleBlack];
+   // UIImage *portraitImage = [UIImage imageNamed:@"icon_button_arrow.png"];
+   // [[UINavigationBar appearance] setBackgroundImage:portraitImage forBarMetrics:UIBarMetricsDefault];
+    [[UINavigationBar appearance] setBackgroundColor:[[TTAppDataManager sharedAppDataManager] colorWithHexString:@"#404a53"]];
+    [[UINavigationBar appearance] setBarStyle:UIBarStyleBlack];
     
     DDMenuController *rootController = [[DDMenuController alloc] initWithRootViewController:navController];
     _menuController = rootController;

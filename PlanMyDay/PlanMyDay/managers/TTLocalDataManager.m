@@ -455,13 +455,13 @@
             }//end if
         }//end for
     }//end if
-    
+  
     return arrAllProjects;
 }
 
 -(NSMutableArray*)getAllClients
 {
-    
+    arrAllClients = [[NSMutableArray alloc] init];
     
     if (arrAllClients.count > 0) {
         [arrAllClients removeAllObjects];
@@ -474,7 +474,7 @@
             [arrAllClients addObject:[dictClientData copy]];
         }//end for
     }//end if
-    
+    NSLog(@"%@",arrAllClients);
     return arrAllClients;
 }
 @end
