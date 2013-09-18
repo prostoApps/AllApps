@@ -69,13 +69,13 @@
 		DDB4A88A178523B2007C7F15 /* TTStatisticsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DDB4A87E178523B1007C7F15 /* TTStatisticsViewController.xib */; };
 		DDB4A88C178523B2007C7F15 /* TTSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DDB4A882178523B2007C7F15 /* TTSettingsViewController.m */; };
 		DDB4A88D178523B2007C7F15 /* TTStatisticsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DDB4A884178523B2007C7F15 /* TTStatisticsViewController.m */; };
-		DDB4A88E178523B2007C7F15 /* TTNewProjectViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DDB4A885178523B2007C7F15 /* TTNewProjectViewController.xib */; };
 		DDB4A88F178523B2007C7F15 /* TTNewProjectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DDB4A886178523B2007C7F15 /* TTNewProjectViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		055A5DC417D4E16200A0FE85 /* background_clear.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background_clear.png; sourceTree = "<group>"; };
 		055A5DC517D4E2AE00A0FE85 /* background_clear@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "background_clear@2x.png"; sourceTree = "<group>"; };
+		05941E9117E9BFCE0079C571 /* TTNewProjectViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = TTNewProjectViewController.xib; path = viewControllers/TTNewProjectViewController.xib; sourceTree = "<group>"; };
 		0596764F17D0CAD000653A60 /* DDMenuController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDMenuController.h; sourceTree = "<group>"; };
 		0596765017D0CAD000653A60 /* DDMenuController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDMenuController.m; sourceTree = "<group>"; };
 		05BAA80317E1F586003D7498 /* PropertyListOfViewForms.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = PropertyListOfViewForms.plist; sourceTree = "<group>"; };
@@ -162,7 +162,6 @@
 		DDB4A882178523B2007C7F15 /* TTSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TTSettingsViewController.m; path = viewControllers/TTSettingsViewController.m; sourceTree = "<group>"; };
 		DDB4A883178523B2007C7F15 /* TTStatisticsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TTStatisticsViewController.h; path = viewControllers/TTStatisticsViewController.h; sourceTree = "<group>"; };
 		DDB4A884178523B2007C7F15 /* TTStatisticsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TTStatisticsViewController.m; path = viewControllers/TTStatisticsViewController.m; sourceTree = "<group>"; };
-		DDB4A885178523B2007C7F15 /* TTNewProjectViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TTNewProjectViewController.xib; path = viewControllers/TTNewProjectViewController.xib; sourceTree = "<group>"; };
 		DDB4A886178523B2007C7F15 /* TTNewProjectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TTNewProjectViewController.m; path = viewControllers/TTNewProjectViewController.m; sourceTree = "<group>"; };
 		DDB4A887178523B2007C7F15 /* TTNewProjectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TTNewProjectViewController.h; path = viewControllers/TTNewProjectViewController.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -342,7 +341,7 @@
 			children = (
 				DDB4A887178523B2007C7F15 /* TTNewProjectViewController.h */,
 				DDB4A886178523B2007C7F15 /* TTNewProjectViewController.m */,
-				DDB4A885178523B2007C7F15 /* TTNewProjectViewController.xib */,
+				05941E9117E9BFCE0079C571 /* TTNewProjectViewController.xib */,
 				DD968B9D17B7BBE8008D583F /* TTSelectPropertyViewController.h */,
 				DD968B9E17B7BBE8008D583F /* TTSelectPropertyViewController.m */,
 				DD968B9F17B7BBE8008D583F /* TTSelectPropertyViewController.xib */,
@@ -514,7 +513,6 @@
 				DDB4A85217850BCE007C7F15 /* TTMainClockViewController.xib in Resources */,
 				DDB4A889178523B2007C7F15 /* TTSettingsViewController.xib in Resources */,
 				DDB4A88A178523B2007C7F15 /* TTStatisticsViewController.xib in Resources */,
-				DDB4A88E178523B2007C7F15 /* TTNewProjectViewController.xib in Resources */,
 				DD7BAE3117A5BDCA00CACFB2 /* TTTasksTableViewCell.xib in Resources */,
 				DD7BAE3717A5BDDB00CACFB2 /* TTTasksViewController.xib in Resources */,
 				DD7BAE4017A5BE4400CACFB2 /* background.png in Resources */,

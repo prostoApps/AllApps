@@ -14,7 +14,7 @@
 
 @implementation TTSelectPropertyViewController
 
-@synthesize btnBack,tablePropertiesList,arrProperties;
+@synthesize tablePropertiesList,arrProperties;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -30,9 +30,23 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
-    // загружаем дату
-//    TTAppDataManager * Mydata = [TTAppDataManager sharedAppDataManager];
-    arrProperties = [[TTAppDataManager sharedAppDataManager] getAllTasks];
+ 
+    TTAppDataManager * appDataManager = [TTAppDataManager sharedAppDataManager];
+    
+    selectIP = appDataManager.selectPropertyIndexPath;
+    selectStr = [NSString stringWithFormat:@"%@",[appDataManager getValueFormData:@"name" ByIndexPath:selectIP]];
+    [self setTitle:[NSString stringWithFormat:@"Choose %@",selectStr]];
+    
+  //  arrProperties = [[TTAppDataManager sharedAppDataManager] getAllTasks];
+}
+
+#pragma mark UITableViewDataSource
+
+- (NSInteger)tableView:(UITableView *)table numberOfRowsInSection:(NSInteger)section {
+    return 3;
+}
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
+    return 1;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath    *)indexPath {

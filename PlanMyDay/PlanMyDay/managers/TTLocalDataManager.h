@@ -37,5 +37,6 @@
 -(NSMutableArray*)getAllTasks;
 -(NSMutableArray*)getAllProjects;
 -(NSMutableArray*)getAllClients;
+-(NSMutableArray*)getAllTasksForToday;
 -(void)initTestData;
 @end

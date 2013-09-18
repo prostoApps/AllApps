@@ -37,17 +37,10 @@ NSString *const VIEW_SETTINGS               = @"viewSettings";
     }
 }
 
--(void) switchViewTo:(NSString*) strNewView forNavigationController:(UINavigationController*) navController
-{
-    [self switchViewTo:strNewView forNavigationController:navController withParams:nil];
-}
 
--(void) switchViewTo:(NSString*) strNewView
-        forNavigationController:(UINavigationController*) navController
-        withParams:(NSMutableDictionary*)dictParams
+-(UIViewController*) getUIViewControllerFromString: (NSString*)strViewController
 {
-    DDMenuController *menuController = (DDMenuController*)((TTAppDelegate*)[[UIApplication sharedApplication] delegate]).menuController;
-    
+
     UIViewController* targetViewController;
     
     if (strViewController == VIEW_CURRENT_TASKS)
@@ -88,7 +81,7 @@ NSString *const VIEW_SETTINGS               = @"viewSettings";
     }
     else if (strViewController == VIEW_SELECT_PROPERTY)
     {
-        NSLog(@"open  VIEW_SELECT_PROPERTY view %@",dictParams);
+        NSLog(@"open  VIEW_SELECT_PROPERTY view ");
         targetViewController = [[TTSelectPropertyViewController alloc]
                                 initWithNibName:@"TTSelectPropertyViewController" bundle:nil];
     }
@@ -103,12 +96,7 @@ NSString *const VIEW_SETTINGS               = @"viewSettings";
         targetViewController = [[TTCustomTrackerViewController alloc]
                                 initWithNibName:@"TTCustomTrackerViewController" bundle:nil];
     }
-    else if (strViewController == VIEW_MENU)
-    {
-        NSLog(@"open  VIEW_MENU view");
-        targetViewController = [[TTMenuViewController alloc]
-                                initWithNibName:@"TTMenuViewController" bundle:nil];
-    }
+    
     //Ставим стандартный background вьюшке
     targetViewController.view.backgroundColor = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"background.png"]];
     

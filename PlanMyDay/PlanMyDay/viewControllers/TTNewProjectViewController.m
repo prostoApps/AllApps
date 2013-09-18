@@ -23,7 +23,7 @@
 
 @implementation TTNewProjectViewController
 
-@synthesize btnSave,scTaskProjectClient;
+@synthesize scTaskProjectClient;
 
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -59,13 +59,9 @@
 
     currentFormPropertyArray = [appDataManager getAddTTItemFormData];
     [TaskTableView reloadData];
+    
 }
 
--(void)initVisibleComponents
-{
-    [scrvScrollView setScrollEnabled:YES];
-    [scrvScrollView setContentSize:CGSizeMake(320, 1000)];
-}
 #pragma mark UITableViewDataSource
 - (NSInteger)tableView:(UITableView *)table
  numberOfRowsInSection:(NSInteger)section {
@@ -132,6 +128,7 @@
             swithField = [[UISwitch alloc] initWithFrame:CGRectMake(255, 6, 30,30)];
             swithField.tag = 2;
             
+            
             [cell addSubview:swithField];
             break;
             
@@ -179,124 +176,54 @@
 }
  */
 
-- (UIColor *)colorWithHexString:(NSString *)stringToConvert
-{
-    NSString *noHashString = [stringToConvert stringByReplacingOccurrencesOfString:@"#" withString:@""]; // remove the #
-    NSScanner *scanner = [NSScanner scannerWithString:noHashString];
-    [scanner setCharactersToBeSkipped:[NSCharacterSet symbolCharacterSet]]; // remove + and $
-    unsigned hex;
-    if (![scanner scanHexInt:&hex]) return nil;
-    int r = (hex >> 16) & 0xFF;
-    int g = (hex >> 8) & 0xFF;
-    int b = (hex) & 0xFF;
-    return [UIColor colorWithRed:r / 255.0f green:g / 255.0f blue:b / 255.0f alpha:1.0f];
+// Tap on table Row
+- (void) tableView: (UITableView *) tableView didSelectRowAtIndexPath: (NSIndexPath *) indexPath {
+    [[TTAppDataManager sharedAppDataManager] setSelectPropertyIndexPath:indexPath];
+    UITableViewCell * cell = [tableView cellForRowAtIndexPath:indexPath];
+    NSLog(@"%d",cell.selectionStyle);
+    if (cell.selectionStyle == 3){
+        [[TTApplicationManager sharedApplicationManager] pushViewTo:VIEW_SELECT_PROPERTY forNavigationController:self.navigationController];
+    }
+    
 }
+
 #pragma mark -
 #pragma mark UITextFieldDelegate methods
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
 {
-    //init clientName textfield
-    tfClientName = [[UITextField alloc]initWithFrame:CGRectMake(20, 50, 280, 31)];
-    tfClientName.borderStyle = UITextBorderStyleRoundedRect;
-    tfClientName.textColor = [UIColor whiteColor];
-    tfClientName.font = [UIFont systemFontOfSize:17.0];
-    tfClientName.placeholder = @"Client Name";
-    tfClientName.backgroundColor = [UIColor whiteColor];
-    tfClientName.autocorrectionType = UITextAutocorrectionTypeNo;
-    tfClientName.backgroundColor = [UIColor clearColor];
-    tfClientName.keyboardType = UIKeyboardTypeDefault;
-    tfClientName.returnKeyType = UIReturnKeyDone;
-    
-    tfClientName.clearButtonMode = UITextFieldViewModeWhileEditing;
-    [tfClientName addTarget:self action:@selector(hideKeyboard:) forControlEvents:UIControlEventTouchUpOutside];
-    [self.view addSubview:tfClientName];
+    [textField resignFirstResponder];
+    return true;
 }
-
--(IBAction)hideKeyboard:(id)sender
-{
-    [tfClientName resignFirstResponder];
-}
-
 
 - (void)textFieldDidEndEditing:(UITextField *)textField
 {
 	 NSIndexPath *indexPath = [TaskTableView indexPathForCell:(UITableViewCell*)[[textField superview] superview]]; // this should return you your current indexPath
     TTAppDataManager * appDataManager = [TTAppDataManager sharedAppDataManager];
     
-    //read data from device
-/*    NSString *filePathToProjectData = [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject] stringByAppendingPathComponent:@"projectData.plist"];
+    [appDataManager saveTTItemAddDataValue:textField.text valueSection:[indexPath section] valueRow:[indexPath row]];
     
-    NSDictionary *dictCustomProject = [NSDictionary dictionaryWithContentsOfFile:filePathToProjectData];*/
-    
-    TTItem *item = [[TTItem alloc] init];
-    
-    [self collectDataToItem:item];
-    
-//    lblLabel.text = [@"Client Name defined successfully!" stringByAppendingString:tfClientName.text];
-    
-    //    NSDictionary *dictProjectData = [[NSDictionary alloc] initWithObjectsAndKeys:
-    //                                     lblLabel.text, @"clientName",
-    //                                     @"projectName1", @"projectName",
-    //                                     @"05.06.2013", @"startDate",
-    //                                     @"12.55"     , @"startTime",
-    //                                     @"05.06.2013", @"endDate",
-    //                                     @"13.00"     , @"endTime",
-    //                                     @"300"       , @"durationPlan",
-    //                                     @"300"       , @"durationFact",
-    //                                     @"FFFFFF"    , @"color", nil];
-    //
-    NSLog(@"clinetName: %@",item.strClientName);
-    
-    [[TTAppDataManager sharedAppDataManager] saveTTItem:item];
-//    [[TTAppDataManager sharedAppDataManager] saveTTItem:item];
-    //    [dictProjectData writeToFile:filePathToProjectData atomically:YES];
-}
+ }
 
--(IBAction)btnSelectClientTouchHandler:(id)sender
-{
-    NSLog(@"btnSelectClientTouchHandler");
-    NSMutableArray *arrClients = [[NSMutableArray alloc] initWithArray:[[TTAppDataManager sharedAppDataManager] getAllClients]];
-    //еcли есть клиенты - переходим на вью выбора клиента
-    //если нету клиентов - переходим на вью создания нового клиента
-    if (arrClients.count > 0)
-    {
-        NSMutableDictionary *dictData = [[NSMutableDictionary alloc] initWithObjectsAndKeys:arrClients, STR_ALL_CLIENTS, nil];
-        [[TTApplicationManager sharedApplicationManager] switchViewTo:VIEW_SELECT_PROPERTY
-                                              forNavigationController:self.navigationController
-                                                           withParams:dictData];
-    }
-    else
-    {
-        [[TTApplicationManager sharedApplicationManager] switchViewTo:VIEW_CREATE_PROPERTY forNavigationController:self.navigationController];
-    }
-}
-
--(IBAction)btnSelectProjectTouchHandler:(id)sender
-{
-    NSLog(@"btnSelectProjectTouchHandler");
-    [[TTApplicationManager sharedApplicationManager] switchViewTo:VIEW_SELECT_PROPERTY forNavigationController:self.navigationController];
-}
-
--(IBAction)btnSelectColorTouchHandler:(id)sender
-{
-    NSLog(@"btnSelectColorTouchHandler");
-    [[TTApplicationManager sharedApplicationManager] switchViewTo:VIEW_SELECT_PROPERTY forNavigationController:self.navigationController];
-}
--(void)collectDataToItem:(TTItem*)item
-{
-    item.strClientName = tfClientName.text;
-    item.strProjectName = tfProjectName.text;
-    item.strTaskName = tfTaskName.text;
-    item.dtStartDate = [NSDate date];
-//    item.dtEndDate = [item.dtStartDate dateByAddingTimeInterval:60*60*2]
-}
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
+//
+//-(IBAction)btnSelectClientTouchHandler:(id)sender
+//{
+//    NSLog(@"btnSelectClientTouchHandler");
+//    NSMutableArray *arrClients = [[NSMutableArray alloc] initWithArray:[[TTAppDataManager sharedAppDataManager] getAllClients]];
+//    //еcли есть клиенты - переходим на вью выбора клиента
+//    //если нету клиентов - переходим на вью создания нового клиента
+//    if (arrClients.count > 0)
+//    {
+//        NSMutableDictionary *dictData = [[NSMutableDictionary alloc] initWithObjectsAndKeys:arrClients, STR_ALL_CLIENTS, nil];
+//        [[TTApplicationManager sharedApplicationManager] switchViewTo:VIEW_SELECT_PROPERTY
+//                                              forNavigationController:self.navigationController
+//                                                           withParams:dictData];
+//    }
+//    else
+//    {
+//        [[TTApplicationManager sharedApplicationManager] switchViewTo:VIEW_CREATE_PROPERTY forNavigationController:self.navigationController];
+//    }
+//}
 
 #pragma mark -
 #pragma mark segmentedControl methods
@@ -315,7 +242,6 @@
 			break;
             
 		case 2:
-			NSLog(@"SegmentedControlCleint");
             [[TTAppDataManager sharedAppDataManager] setAddNewStr:@"Client"];
             [self loadPropertyForView];
 			break;
@@ -324,39 +250,6 @@
             break;
     }
 }
-
-
-//-(IBAction)btnSaveTouchHandler:(id)sender
-//{
-
-//    //read data from device
-//    /*    NSString *filePathToProjectData = [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject] stringByAppendingPathComponent:@"projectData.plist"];
-//     
-//     NSDictionary *dictCustomProject = [NSDictionary dictionaryWithContentsOfFile:filePathToProjectData];*/
-//    
-//    TTItem *item = [[TTItem alloc] init];
-//    
-//    [self collectDataToItem:item];
-//    
-//    //    lblLabel.text = [@"Client Name defined successfully!" stringByAppendingString:tfClientName.text];
-//    
-//    //    NSDictionary *dictProjectData = [[NSDictionary alloc] initWithObjectsAndKeys:
-//    //                                     lblLabel.text, @"clientName",
-//    //                                     @"projectName1", @"projectName",
-//    //                                     @"05.06.2013", @"startDate",
-//    //                                     @"12.55"     , @"startTime",
-//    //                                     @"05.06.2013", @"endDate",
-//    //                                     @"13.00"     , @"endTime",
-//    //                                     @"300"       , @"durationPlan",
-//    //                                     @"300"       , @"durationFact",
-//    //                                     @"FFFFFF"    , @"color", nil];
-//    //
-//    NSLog(@"clinetName: %@",item.strClientName);
-//    
-//    [[TTAppDataManager sharedAppDataManager] saveTTItem:item];
-//    //    [[TTAppDataManager sharedAppDataManager] saveTTItem:item];
-//    //    [dictProjectData writeToFile:filePathToProjectData atomically:YES];
-//}
 
 
 - (void)didReceiveMemoryWarning

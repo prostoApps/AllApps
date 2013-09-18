@@ -32,10 +32,10 @@ extern NSString *const VIEW_MAIN_CLOCK;
 extern NSString *const VIEW_SETTINGS;
 
 + (TTApplicationManager *)sharedApplicationManager;
-
+-(void) pushViewTo:(NSString*) strNewView forNavigationController:(UINavigationController*) navController;
 -(void) switchViewTo:(NSString*) strNewView forNavigationController:(UINavigationController*) navController;
--(void) switchViewTo:(NSString*) strNewView
-        forNavigationController:(UINavigationController*) navController
-        withParams:(NSMutableDictionary*)dictParams;
+//-(void) switchViewTo:(NSString*) strNewView
+//        forNavigationController:(UINavigationController*) navController
+//        withParams:(NSMutableDictionary*)dictParams;
 
 @end
