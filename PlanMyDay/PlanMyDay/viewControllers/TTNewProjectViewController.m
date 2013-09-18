@@ -38,25 +38,27 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+     TTAppDataManager * appDataManager = [TTAppDataManager sharedAppDataManager];
+    
 	// Do any additional setup after loading the view.
-    [[TTAppDataManager sharedAppDataManager] setAddNewStr:@"Task"];
-    [[TTAppDataManager sharedAppDataManager] loadTTItemFormData];
+    if (appDataManager.titleNewProject == nil)
+    {
+        appDataManager.titleNewProject = @"Task";
+    }
+    [appDataManager loadTTItemFormData];
     
-    //rootFormPropertyDictionary = [NSDictionary dictionaryWithContentsOfFile:plistPath];
-    
-   // rootFormPropertyDictionary
-    [self setTitle:@"Add New Task"];
-   // [self initVisibleComponents];
     [self loadPropertyForView];
 }
 
 - (void) loadPropertyForView {
+    
     TTAppDataManager * appDataManager = [TTAppDataManager sharedAppDataManager];
-    NSString * nameStr = appDataManager.addNewStr;
+    NSString * nameStr = appDataManager.titleNewProject;
     
     [self setTitle:[NSString stringWithFormat:@"Add %@",nameStr]];
     [btnSave setTitle:[NSString stringWithFormat:@"Add %@",nameStr] forState:UIControlStateNormal];
-
+    [scTaskProjectClient setSelectedSegmentIndex:appDataManager.newProjectSegmentIndex];
+    
     currentFormPropertyArray = [appDataManager getAddTTItemFormData];
     [TaskTableView reloadData];
     
@@ -77,19 +79,18 @@
     
     NSArray *listData = [[currentFormPropertyArray objectAtIndex:[indexPath section]] objectForKey:@"cells"];
     
-    UITextField *inputField;
-    UISwitch *swithField;
+    
     NSUInteger row = [indexPath row];
     int typeCell = [[[listData objectAtIndex:row] objectForKey:@"type"] intValue];
-
     
     
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    
+    TTNewProjectTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
     if (!cell)
     {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:CellIdentifier];
+        cell = [[TTNewProjectTableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:CellIdentifier];
         [cell.detailTextLabel setFrame:CGRectMake(80, 0, 180, 44)];
         cell.backgroundColor = [[TTAppDataManager sharedAppDataManager] colorWithHexString:@"#333b43"];
         cell.textLabel.textColor = [UIColor whiteColor];
@@ -97,25 +98,23 @@
     }
     else
     {
-        //clear cell
+        //Очищаем ячейку
         cell.accessoryType = UITableViewCellAccessoryNone;
-        [[cell viewWithTag:1] removeFromSuperview];
-        [[cell viewWithTag:2] removeFromSuperview];
+        cell.accessoryView = nil;
         cell.detailTextLabel.text = nil;
+        [[cell viewWithTag:1] removeFromSuperview];
     }
-
-   
-    switch ( typeCell )
-    {
-        case 0:
-            
+    
+    // если ячейчка с выбором
+   if (typeCell == 0)
+   {
             cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
             cell.detailTextLabel.text = [[listData objectAtIndex:row] objectForKey:@"value"];
-            cell.selectionStyle = UITableViewCellSelectionStyleDefault;
-           // cell.selectedBackgroundView = []
-            break;
-        case 1:
-            inputField = [[UITextField alloc] initWithFrame:CGRectMake(80,0,220,44)];
+   }
+    // если ячейчка с инпутом
+   else if (typeCell == 1)
+   {
+            UITextField * inputField = [[UITextField alloc] initWithFrame:CGRectMake(80,0,220,44)];
             inputField.adjustsFontSizeToFitWidth = YES;
             inputField.textColor = [UIColor whiteColor];
             inputField.tag = 1;
@@ -123,68 +122,56 @@
             inputField.text = [[listData objectAtIndex:row] objectForKey:@"value"];
            
             [cell addSubview:inputField];
-            break;
-        case 2:
-            swithField = [[UISwitch alloc] initWithFrame:CGRectMake(255, 6, 30,30)];
-            swithField.tag = 2;
-            
-            
-            [cell addSubview:swithField];
-            break;
-            
-        default:
-            break;
     }
-    
-     NSLog(@"Selection style: %d",cell.selectionStyle);
+    // если ячейчка с переключателем
+    else if (typeCell == 2)
+    {
+            UISwitch * swithField = [[UISwitch alloc] initWithFrame:CGRectZero];
+            [swithField addTarget:self action:@selector(switchChanged:) forControlEvents:UIControlEventValueChanged];
+            [swithField setOn:[[[listData objectAtIndex:row] objectForKey:@"value"] boolValue]];
+            [cell setAccessoryView:swithField];
+    }
     
     cell.textLabel.text = [[listData objectAtIndex:row] objectForKey:@"name"];
-    
-     return cell;
-     }
+    return cell;
+}
 
-// Apple's docs: To enable the swipe-to-delete feature of table views (wherein a user swipes horizontally across a row to display a Delete button), you must implement the tableView:commitEditingStyle:forRowAtIndexPath: method.
-/*- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+-(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
-    NSLog(@"commitEditingStyle");
+    UIView *tempView=[[UIView alloc]initWithFrame:CGRectMake(0,0,305,30)];
+    tempView.backgroundColor=[UIColor clearColor];
+    
+    UILabel *tempLabel=[[UILabel alloc]initWithFrame:CGRectMake(15,0,305,30)];
+    tempLabel.textColor = [UIColor whiteColor];
+    
+    tempLabel.text = [[currentFormPropertyArray objectAtIndex:section] objectForKey:@"name"];
+    tempLabel.font = [UIFont fontWithName:@"Helvetica Neue Light" size:13];
+    [tempView addSubview:tempLabel];
+    return tempView;
+}
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    return 30.f;
 }
 
 // Tap on table Row
 - (void) tableView: (UITableView *) tableView didSelectRowAtIndexPath: (NSIndexPath *) indexPath {
     [[TTAppDataManager sharedAppDataManager] setSelectPropertyIndexPath:indexPath];
     UITableViewCell * cell = [tableView cellForRowAtIndexPath:indexPath];
-    NSLog(@"%d",cell.selectionStyle);
-    if (cell.selectionStyle == 3){
-         [[TTApplicationManager sharedApplicationManager] pushViewTo:VIEW_SELECT_PROPERTY forNavigationController:self.navigationController];
-    }
-    else
-    {
-        
-    }
-    
-}
-
-// Tap on table Row
-- (void) tableView: (UITableView *) tableView accessoryButtonTappedForRowWithIndexPath: (NSIndexPath *) indexPath {
-    
-    lblLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, 370, 300, 21)];
-    lblLabel.backgroundColor = [UIColor clearColor];
-    lblLabel.font = [UIFont systemFontOfSize:15.0];
-    lblLabel.textAlignment = NSTextAlignmentCenter;
-    lblLabel.text = @"Please enter the Client Name";
-    [self.view addSubview:lblLabel];
-}
- */
-
-// Tap on table Row
-- (void) tableView: (UITableView *) tableView didSelectRowAtIndexPath: (NSIndexPath *) indexPath {
-    [[TTAppDataManager sharedAppDataManager] setSelectPropertyIndexPath:indexPath];
-    UITableViewCell * cell = [tableView cellForRowAtIndexPath:indexPath];
-    NSLog(@"%d",cell.selectionStyle);
-    if (cell.selectionStyle == 3){
+    NSLog(@"%d",cell.accessoryType);
+    if (cell.accessoryType == 1){
         [[TTApplicationManager sharedApplicationManager] pushViewTo:VIEW_SELECT_PROPERTY forNavigationController:self.navigationController];
     }
-    
+}
+
+#pragma mark -
+#pragma mark UISwitch methods
+
+- (void) switchChanged:(id)sender
+{
+    UISwitch* switchControl = sender;
+    NSIndexPath *indexPath = [TaskTableView indexPathForCell:(UITableViewCell*)[[switchControl superview] superview]]; // this should return you
+    TTAppDataManager * appDataManager = [TTAppDataManager sharedAppDataManager];
+    [appDataManager saveTTItemAddDataValue:switchControl.on ? @"YES" : @"NO" valueSection:[indexPath section] valueRow:[indexPath row]];
 }
 
 #pragma mark -
@@ -230,25 +217,23 @@
 -(IBAction) segmentedControlIndexChanged
 {
     [self.view endEditing:YES];
+    [[TTAppDataManager sharedAppDataManager] setNewProjectSegmentIndex:scTaskProjectClient.selectedSegmentIndex];
+    
 	switch (self.scTaskProjectClient.selectedSegmentIndex) {
 		case 0:
-            [[TTAppDataManager sharedAppDataManager] setAddNewStr:@"Task"];
-            [self loadPropertyForView];
+            [[TTAppDataManager sharedAppDataManager] setTitleNewProject:@"Task"];
 			break;
-            
 		case 1:
-            [[TTAppDataManager sharedAppDataManager] setAddNewStr:@"Project"];
-            [self loadPropertyForView];
+            [[TTAppDataManager sharedAppDataManager] setTitleNewProject:@"Project"];
 			break;
-            
 		case 2:
-            [[TTAppDataManager sharedAppDataManager] setAddNewStr:@"Client"];
-            [self loadPropertyForView];
+            [[TTAppDataManager sharedAppDataManager] setTitleNewProject:@"Client"];
 			break;
-            
 		default:
             break;
     }
+    
+    [self loadPropertyForView];
 }
 
 

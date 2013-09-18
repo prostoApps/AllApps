@@ -15,6 +15,7 @@
 //    TTLocalDataManager *myLocalDataManager;
 //    TTLocalDataManager *localDataManager;
     NSMutableDictionary * addTTItemDataDictionary;
+   
     
 }
 
@@ -22,7 +23,8 @@
 @property (nonatomic,retain) NSMutableDictionary * addTTItemData;
 
 @property (nonatomic,copy) NSIndexPath * selectPropertyIndexPath;
-@property (nonatomic,copy) NSString * addNewStr;
+@property (nonatomic,copy) NSString * titleNewProject;
+@property (nonatomic,readwrite) int newProjectSegmentIndex;
 
 -(NSString*)getDocumentsPath;
 -(NSString*)getProjectsFilePath;

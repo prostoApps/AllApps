@@ -15,7 +15,8 @@ static TTLocalDataManager *localDataManager;
 @synthesize addTTItemData;
 
 @synthesize selectPropertyIndexPath;
-@synthesize addNewStr;
+@synthesize titleNewProject;
+@synthesize newProjectSegmentIndex;
 
 + (TTAppDataManager *)sharedAppDataManager
 {
@@ -69,17 +70,17 @@ static TTLocalDataManager *localDataManager;
       //
 }
 -(NSObject*)getValueFormData:(NSString*)value ByIndexPath:(NSIndexPath*)indexPath{
-    return [[[[[addTTItemDataDictionary objectForKey:addNewStr] objectAtIndex:[indexPath section]] objectForKey:@"cells"] objectAtIndex:[indexPath row]] objectForKey:value];
+    return [[[[[addTTItemDataDictionary objectForKey:titleNewProject] objectAtIndex:[indexPath section]] objectForKey:@"cells"] objectAtIndex:[indexPath row]] objectForKey:value];
 }
 
 -(NSArray*)getAddTTItemFormData{
     
-    return [addTTItemDataDictionary objectForKey:addNewStr];
+    return [addTTItemDataDictionary objectForKey:titleNewProject];
     
 }
 -(void)saveTTItemAddDataValue:(NSObject*)object valueSection:(NSInteger)section valueRow:(NSInteger)row{
     
-    [[[[[addTTItemDataDictionary objectForKey:addNewStr] objectAtIndex:section] objectForKey:@"cells"] objectAtIndex:row] setObject:object forKey:@"value"];
+    [[[[[addTTItemDataDictionary objectForKey:titleNewProject] objectAtIndex:section] objectForKey:@"cells"] objectAtIndex:row] setObject:object forKey:@"value"];
     
 }
 //Save Item to Device

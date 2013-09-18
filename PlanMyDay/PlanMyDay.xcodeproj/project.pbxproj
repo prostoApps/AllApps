@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		05941E9417E9E0110079C571 /* TTNewProjectTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 05941E9317E9E0110079C571 /* TTNewProjectTableViewCell.m */; };
 		0596765117D0CAD000653A60 /* DDMenuController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0596765017D0CAD000653A60 /* DDMenuController.m */; };
 		05BAA80417E1F586003D7498 /* PropertyListOfViewForms.plist in Resources */ = {isa = PBXBuildFile; fileRef = 05BAA80317E1F586003D7498 /* PropertyListOfViewForms.plist */; };
 		05C8136E17C6283E00E90B2F /* icon_button_arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 05C8136C17C6283E00E90B2F /* icon_button_arrow.png */; };
@@ -76,6 +77,8 @@
 		055A5DC417D4E16200A0FE85 /* background_clear.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background_clear.png; sourceTree = "<group>"; };
 		055A5DC517D4E2AE00A0FE85 /* background_clear@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "background_clear@2x.png"; sourceTree = "<group>"; };
 		05941E9117E9BFCE0079C571 /* TTNewProjectViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = TTNewProjectViewController.xib; path = viewControllers/TTNewProjectViewController.xib; sourceTree = "<group>"; };
+		05941E9217E9E0110079C571 /* TTNewProjectTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TTNewProjectTableViewCell.h; path = viewControllers/newProject/TTNewProjectTableViewCell.h; sourceTree = "<group>"; };
+		05941E9317E9E0110079C571 /* TTNewProjectTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TTNewProjectTableViewCell.m; path = viewControllers/newProject/TTNewProjectTableViewCell.m; sourceTree = "<group>"; };
 		0596764F17D0CAD000653A60 /* DDMenuController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDMenuController.h; sourceTree = "<group>"; };
 		0596765017D0CAD000653A60 /* DDMenuController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDMenuController.m; sourceTree = "<group>"; };
 		05BAA80317E1F586003D7498 /* PropertyListOfViewForms.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = PropertyListOfViewForms.plist; sourceTree = "<group>"; };
@@ -339,6 +342,8 @@
 		DDA17444178CEB9E0000132D /* newProjectView */ = {
 			isa = PBXGroup;
 			children = (
+				05941E9217E9E0110079C571 /* TTNewProjectTableViewCell.h */,
+				05941E9317E9E0110079C571 /* TTNewProjectTableViewCell.m */,
 				DDB4A887178523B2007C7F15 /* TTNewProjectViewController.h */,
 				DDB4A886178523B2007C7F15 /* TTNewProjectViewController.m */,
 				05941E9117E9BFCE0079C571 /* TTNewProjectViewController.xib */,
@@ -552,6 +557,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				05941E9417E9E0110079C571 /* TTNewProjectTableViewCell.m in Sources */,
 				DDB4A83817849C3F007C7F15 /* main.m in Sources */,
 				DDB4A83C17849C3F007C7F15 /* TTAppDelegate.m in Sources */,
 				DDB4A85117850BCE007C7F15 /* TTMainClockViewController.m in Sources */,

@@ -37,13 +37,14 @@
     selectStr = [NSString stringWithFormat:@"%@",[appDataManager getValueFormData:@"name" ByIndexPath:selectIP]];
     [self setTitle:[NSString stringWithFormat:@"Choose %@",selectStr]];
     
-  //  arrProperties = [[TTAppDataManager sharedAppDataManager] getAllTasks];
+    arrProperties = [[TTAppDataManager sharedAppDataManager] getAllTasks];
+    
 }
 
 #pragma mark UITableViewDataSource
 
 - (NSInteger)tableView:(UITableView *)table numberOfRowsInSection:(NSInteger)section {
-    return 3;
+    return [arrProperties count];
 }
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     return 1;
@@ -61,7 +62,7 @@
         
     }
     
-    cell.textLabel.text = selectStr;
+    cell.textLabel.text = [[arrProperties objectAtIndex:[indexPath row]] objectForKey:@"projectName"];
     
     return cell;
 }
