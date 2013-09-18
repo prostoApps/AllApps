@@ -16,4 +16,12 @@
     IBOutlet UISearchBar * searchBar;
 }
 
+@property (nonatomic, retain) NSMutableArray *arrProperties;
+
+-(IBAction)btnBackTouchHandler:(id)sender;
+
+@property (nonatomic, retain) IBOutlet UITableView *tablePropertiesList;
+
+@property (retain,nonatomic) IBOutlet UIButton *btnBack;
+
 @end

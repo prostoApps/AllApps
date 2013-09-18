@@ -24,6 +24,8 @@
 
 @property(nonatomic,retain) NSMutableDictionary *dictLocalData;
 @property(nonatomic,retain) NSMutableArray      *arrAllTasks;
+@property(nonatomic,retain) NSMutableArray      *arrAllProjects;
+@property(nonatomic,retain) NSMutableArray      *arrAllClients;
 
 -(void)writeData:(NSMutableDictionary*) data toFile:(NSString*)path ;
 -(NSMutableDictionary*)readLocalData;
@@ -33,5 +35,7 @@
 -(NSMutableDictionary*)createProjectWithTasks:(NSMutableArray*) arrTasks;
 -(NSMutableDictionary*)createClientWithProjects:(NSMutableArray*)arrProjects;
 -(NSMutableArray*)getAllTasks;
+-(NSMutableArray*)getAllProjects;
+-(NSMutableArray*)getAllClients;
 -(void)initTestData;
 @end

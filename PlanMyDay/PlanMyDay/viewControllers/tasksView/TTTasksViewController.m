@@ -24,19 +24,17 @@
     self.tasksView = [[UIView alloc] initWithFrame:CGRectMake(tasksTableView.frame.origin.x, tasksTableView.frame.origin.y, tasksTableView.frame.size.width, tasksTableView.rowHeight)];
     
     // загружаем дату
-    TTAppDataManager * Mydata = [TTAppDataManager sharedAppDataManager];
-    cellsDataArray = [Mydata getAllTasks];
+    cellsDataArray = [[TTAppDataManager sharedAppDataManager] getAllTasks];
     
     self.navigationController.navigationBar.barTintColor = [UIColor redColor];
-    
-
-    
 }
 
 #pragma mark TTTasksTableViewCellDelegate
--(void)allowTTTasksTableViewScroll:(BOOL)variable{
+-(void)allowTTTasksTableViewScroll:(BOOL)variable
+{
     [tasksTableView setScrollEnabled:variable];
 }
+
 -(void)deleteCellFromTTTasksTableView:(TTTasksTableViewCell*)cell{
     // найти какую ячейку удалить из списка
     // cell.taskName

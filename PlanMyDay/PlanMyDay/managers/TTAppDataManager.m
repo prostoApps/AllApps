@@ -92,10 +92,13 @@ static TTLocalDataManager *localDataManager;
 
 -(NSMutableDictionary*)serializeData:(TTItem*)item
 {
-    NSMutableDictionary *dictData = [[NSMutableDictionary alloc] initWithObjectsAndKeys:item.strClientName, STR_CLIENT_NAME,
+    NSMutableDictionary *dictData = [[NSMutableDictionary alloc] initWithObjectsAndKeys:
+                              item.strClientName, STR_CLIENT_NAME,
                               item.strProjectName,STR_PROJECT_NAME,
                               item.strTaskName,   STR_TASK_NAME,
-                              item.strCheck,   STR_TASK_CHECK,
+                              item.strCheck,      STR_TASK_CHECK,
+                              item.dtStartDate,   STR_START_DATE,
+                              item.dtEndDate,     STR_END_DATE,
                               nil];
     
     return dictData;
@@ -114,17 +117,26 @@ static TTLocalDataManager *localDataManager;
     return arrAllTasks;
 }
 
-- (UIColor *)colorWithHexString:(NSString *)stringToConvert
+-(NSMutableArray*)getAllProjects
 {
-    NSString *noHashString = [stringToConvert stringByReplacingOccurrencesOfString:@"#" withString:@""]; // remove the #
-    NSScanner *scanner = [NSScanner scannerWithString:noHashString];
-    [scanner setCharactersToBeSkipped:[NSCharacterSet symbolCharacterSet]]; // remove + and $
-    unsigned hex;
-    if (![scanner scanHexInt:&hex]) return nil;
-    int r = (hex >> 16) & 0xFF;
-    int g = (hex >> 8) & 0xFF;
-    int b = (hex) & 0xFF;
-    return [UIColor colorWithRed:r / 255.0f green:g / 255.0f blue:b / 255.0f alpha:1.0f];
+    NSMutableArray *arrAllProjects;
+    arrAllProjects = [[NSMutableArray alloc] initWithArray:[localDataManager getAllProjects]];
+    return arrAllProjects;
 }
+
+-(NSMutableArray*)getAllClients
+{
+    NSMutableArray *arrAllClients;
+    arrAllClients = [[NSMutableArray alloc] initWithArray:[localDataManager getAllClients]];
+    return arrAllClients;
+}
+
+-(NSMutableArray*)getAllTasksForToday
+{
+    NSMutableArray *arrAllTasks;
+    arrAllTasks  = [[NSMutableArray alloc] initWithArray:[localDataManager getAllTasksForToday]];
+    return arrAllTasks;
+}
+
 
 @end

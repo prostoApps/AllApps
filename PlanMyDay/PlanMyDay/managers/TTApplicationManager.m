@@ -37,7 +37,16 @@ NSString *const VIEW_SETTINGS               = @"viewSettings";
     }
 }
 
-- (UIViewController*)getUIViewControllerFromString:(NSString*) strViewController{
+-(void) switchViewTo:(NSString*) strNewView forNavigationController:(UINavigationController*) navController
+{
+    [self switchViewTo:strNewView forNavigationController:navController withParams:nil];
+}
+
+-(void) switchViewTo:(NSString*) strNewView
+        forNavigationController:(UINavigationController*) navController
+        withParams:(NSMutableDictionary*)dictParams
+{
+    DDMenuController *menuController = (DDMenuController*)((TTAppDelegate*)[[UIApplication sharedApplication] delegate]).menuController;
     
     UIViewController* targetViewController;
     
@@ -79,7 +88,7 @@ NSString *const VIEW_SETTINGS               = @"viewSettings";
     }
     else if (strViewController == VIEW_SELECT_PROPERTY)
     {
-        NSLog(@"open  VIEW_SELECT_PROPERTY view");
+        NSLog(@"open  VIEW_SELECT_PROPERTY view %@",dictParams);
         targetViewController = [[TTSelectPropertyViewController alloc]
                                 initWithNibName:@"TTSelectPropertyViewController" bundle:nil];
     }

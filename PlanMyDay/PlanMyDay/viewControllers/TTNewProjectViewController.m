@@ -147,7 +147,7 @@
      }
 
 // Apple's docs: To enable the swipe-to-delete feature of table views (wherein a user swipes horizontally across a row to display a Delete button), you must implement the tableView:commitEditingStyle:forRowAtIndexPath: method.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+/*- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     NSLog(@"commitEditingStyle");
 }
@@ -170,41 +170,52 @@
 // Tap on table Row
 - (void) tableView: (UITableView *) tableView accessoryButtonTappedForRowWithIndexPath: (NSIndexPath *) indexPath {
     
-    [[TTAppDataManager sharedAppDataManager] setSelectPropertyIndexPath:indexPath];
-    
-    [[TTApplicationManager sharedApplicationManager] pushViewTo:VIEW_SELECT_PROPERTY forNavigationController:self.navigationController];
-
+    lblLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, 370, 300, 21)];
+    lblLabel.backgroundColor = [UIColor clearColor];
+    lblLabel.font = [UIFont systemFontOfSize:15.0];
+    lblLabel.textAlignment = NSTextAlignmentCenter;
+    lblLabel.text = @"Please enter the Client Name";
+    [self.view addSubview:lblLabel];
 }
+ */
 
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
+- (UIColor *)colorWithHexString:(NSString *)stringToConvert
 {
-    //we are using gestures, don't allow editing
-    return NO;
-}
-
--(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
-{
-    UIView *tempView=[[UIView alloc]initWithFrame:CGRectMake(0,0,305,30)];
-    tempView.backgroundColor=[UIColor clearColor];
-    
-    UILabel *tempLabel=[[UILabel alloc]initWithFrame:CGRectMake(15,0,305,30)];
-    tempLabel.textColor = [UIColor whiteColor];
-   
-    tempLabel.text = [[currentFormPropertyArray objectAtIndex:section] objectForKey:@"name"];
-    tempLabel.font = [UIFont fontWithName:@"Helvetica Neue Light" size:13];
-    [tempView addSubview:tempLabel];
-    return tempView;
-}
-- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
-        return 30.f;
+    NSString *noHashString = [stringToConvert stringByReplacingOccurrencesOfString:@"#" withString:@""]; // remove the #
+    NSScanner *scanner = [NSScanner scannerWithString:noHashString];
+    [scanner setCharactersToBeSkipped:[NSCharacterSet symbolCharacterSet]]; // remove + and $
+    unsigned hex;
+    if (![scanner scanHexInt:&hex]) return nil;
+    int r = (hex >> 16) & 0xFF;
+    int g = (hex >> 8) & 0xFF;
+    int b = (hex) & 0xFF;
+    return [UIColor colorWithRed:r / 255.0f green:g / 255.0f blue:b / 255.0f alpha:1.0f];
 }
 #pragma mark -
 #pragma mark UITextFieldDelegate methods
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
 {
-	[textField resignFirstResponder];
-	return TRUE;
+    //init clientName textfield
+    tfClientName = [[UITextField alloc]initWithFrame:CGRectMake(20, 50, 280, 31)];
+    tfClientName.borderStyle = UITextBorderStyleRoundedRect;
+    tfClientName.textColor = [UIColor whiteColor];
+    tfClientName.font = [UIFont systemFontOfSize:17.0];
+    tfClientName.placeholder = @"Client Name";
+    tfClientName.backgroundColor = [UIColor whiteColor];
+    tfClientName.autocorrectionType = UITextAutocorrectionTypeNo;
+    tfClientName.backgroundColor = [UIColor clearColor];
+    tfClientName.keyboardType = UIKeyboardTypeDefault;
+    tfClientName.returnKeyType = UIReturnKeyDone;
+    
+    tfClientName.clearButtonMode = UITextFieldViewModeWhileEditing;
+    [tfClientName addTarget:self action:@selector(hideKeyboard:) forControlEvents:UIControlEventTouchUpOutside];
+    [self.view addSubview:tfClientName];
+}
+
+-(IBAction)hideKeyboard:(id)sender
+{
+    [tfClientName resignFirstResponder];
 }
 
 
@@ -213,9 +224,78 @@
 	 NSIndexPath *indexPath = [TaskTableView indexPathForCell:(UITableViewCell*)[[textField superview] superview]]; // this should return you your current indexPath
     TTAppDataManager * appDataManager = [TTAppDataManager sharedAppDataManager];
     
-    [appDataManager saveTTItemAddDataValue:textField.text valueSection:[indexPath section] valueRow:[indexPath row]];
-   
-    NSLog(@"index path: %@",indexPath);
+    //read data from device
+/*    NSString *filePathToProjectData = [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject] stringByAppendingPathComponent:@"projectData.plist"];
+    
+    NSDictionary *dictCustomProject = [NSDictionary dictionaryWithContentsOfFile:filePathToProjectData];*/
+    
+    TTItem *item = [[TTItem alloc] init];
+    
+    [self collectDataToItem:item];
+    
+//    lblLabel.text = [@"Client Name defined successfully!" stringByAppendingString:tfClientName.text];
+    
+    //    NSDictionary *dictProjectData = [[NSDictionary alloc] initWithObjectsAndKeys:
+    //                                     lblLabel.text, @"clientName",
+    //                                     @"projectName1", @"projectName",
+    //                                     @"05.06.2013", @"startDate",
+    //                                     @"12.55"     , @"startTime",
+    //                                     @"05.06.2013", @"endDate",
+    //                                     @"13.00"     , @"endTime",
+    //                                     @"300"       , @"durationPlan",
+    //                                     @"300"       , @"durationFact",
+    //                                     @"FFFFFF"    , @"color", nil];
+    //
+    NSLog(@"clinetName: %@",item.strClientName);
+    
+    [[TTAppDataManager sharedAppDataManager] saveTTItem:item];
+//    [[TTAppDataManager sharedAppDataManager] saveTTItem:item];
+    //    [dictProjectData writeToFile:filePathToProjectData atomically:YES];
+}
+
+-(IBAction)btnSelectClientTouchHandler:(id)sender
+{
+    NSLog(@"btnSelectClientTouchHandler");
+    NSMutableArray *arrClients = [[NSMutableArray alloc] initWithArray:[[TTAppDataManager sharedAppDataManager] getAllClients]];
+    //еcли есть клиенты - переходим на вью выбора клиента
+    //если нету клиентов - переходим на вью создания нового клиента
+    if (arrClients.count > 0)
+    {
+        NSMutableDictionary *dictData = [[NSMutableDictionary alloc] initWithObjectsAndKeys:arrClients, STR_ALL_CLIENTS, nil];
+        [[TTApplicationManager sharedApplicationManager] switchViewTo:VIEW_SELECT_PROPERTY
+                                              forNavigationController:self.navigationController
+                                                           withParams:dictData];
+    }
+    else
+    {
+        [[TTApplicationManager sharedApplicationManager] switchViewTo:VIEW_CREATE_PROPERTY forNavigationController:self.navigationController];
+    }
+}
+
+-(IBAction)btnSelectProjectTouchHandler:(id)sender
+{
+    NSLog(@"btnSelectProjectTouchHandler");
+    [[TTApplicationManager sharedApplicationManager] switchViewTo:VIEW_SELECT_PROPERTY forNavigationController:self.navigationController];
+}
+
+-(IBAction)btnSelectColorTouchHandler:(id)sender
+{
+    NSLog(@"btnSelectColorTouchHandler");
+    [[TTApplicationManager sharedApplicationManager] switchViewTo:VIEW_SELECT_PROPERTY forNavigationController:self.navigationController];
+}
+-(void)collectDataToItem:(TTItem*)item
+{
+    item.strClientName = tfClientName.text;
+    item.strProjectName = tfProjectName.text;
+    item.strTaskName = tfTaskName.text;
+    item.dtStartDate = [NSDate date];
+//    item.dtEndDate = [item.dtStartDate dateByAddingTimeInterval:60*60*2]
+}
+
+- (void)didReceiveMemoryWarning
+{
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
 }
 
 #pragma mark -

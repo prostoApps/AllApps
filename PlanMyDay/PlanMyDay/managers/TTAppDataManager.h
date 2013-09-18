@@ -35,7 +35,8 @@
 -(void)loadTTItemFormData;
 
 -(NSMutableArray*)getAllTasks;
-- (UIColor *)colorWithHexString:(NSString *)stringToConvert;
+-(NSMutableArray*)getAllProjects;
+-(NSMutableArray*)getAllClients;
 
 + (TTAppDataManager *)sharedAppDataManager;
 @end
