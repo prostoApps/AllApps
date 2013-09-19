@@ -16,9 +16,7 @@
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
-    
-  //[TTAppDataManager sharedAppDataManager];
-    //TTTasksViewController *mainController = [[TTTasksViewController alloc] init];
+
     TTMainClockViewController *mainController = [[TTMainClockViewController alloc] init];
     UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:mainController];
     
@@ -27,41 +25,25 @@
                                                [UIColor whiteColor],UITextAttributeTextColor,
                                                nil];
     [[UINavigationBar appearance] setTitleTextAttributes:navbarTitleTextAttributes];
-    //прозрачность UINavigationBar
-   // UIImage *portraitImage = [UIImage imageNamed:@"icon_button_arrow.png"];
-   // [[UINavigationBar appearance] setBackgroundImage:portraitImage forBarMetrics:UIBarMetricsDefault];
-    [[UINavigationBar appearance] setBackgroundColor:[[TTAppDataManager sharedAppDataManager] colorWithHexString:@"#404a53"]];
-    [[UINavigationBar appearance] setBarStyle:UIBarStyleBlack];
     
+    //прозрачность UINavigationBar
+ //   UIImage *portraitImage = [UIImage imageNamed:@"icon_button_arrow.png"];
+   // [[UINavigationBar appearance] setBackgroundImage:portraitImage forBarMetrics:UIBarMetricsDefault];
+    
+    //[[UINavigationBar appearance] setBackgroundColor:[[TTAppDataManager sharedAppDataManager] colorWithHexString:@"#ffffff"]];
+    //[[UINavigationBar appearance] setBarTintColor:[UIColor whiteColor]];
+  //  self.window.backgroundColor = [UIColor colorWithRed:0.78f green:0.13f blue:0.11f alpha:1];
+   //[[UINavigationBar appearance] setBarStyle:UIBarStyleBlack];
+    //[[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];
+    
+   
     DDMenuController *rootController = [[DDMenuController alloc] initWithRootViewController:navController];
     _menuController = rootController;
     
     TTMenuViewController *leftController = [[TTMenuViewController alloc] init];
     rootController.leftViewController = leftController;
-    
     self.window.rootViewController = rootController;
     
-    
-    
-    
-    /*
-    
-    [TTAppDataManager sharedAppDataManager];
-    
-    self.viewController = [[TTMainClockViewController alloc] initWithNibName:@"TTMainClockViewController" bundle:nil];
-    
-    TTMainClockViewController *clockView = [[TTMainClockViewController alloc] initWithNibName:@"TTMainClockViewController" bundle:nil];
-    
-    UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:clockView];
-    navController.delegate = self;
-    
-  //  navController.navigationBarHidden = NO;
-    
-    //    self.window.rootViewController = self.viewController;
-    self.window.rootViewController = navController;
-    
-//    navController.tabBarController
-  */
     [self.window makeKeyAndVisible];
     return YES;
 }

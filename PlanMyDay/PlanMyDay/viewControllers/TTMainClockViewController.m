@@ -35,7 +35,10 @@
     //вытаскиваем все таски, которые есть в localData
     NSArray *arrAllTasks = [[NSMutableArray alloc] initWithArray:[[TTAppDataManager sharedAppDataManager] getAllTasks]];
     
-    self.view.backgroundColor = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"background.png"]];
+    UIColor * back = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"background.png"]];
+    self.view.backgroundColor = back;
+    
+   // UIView * backView =
 
     // Do any additional setup after loading the view from its nib.
 //    pageControl.numberOfPages = 2; 

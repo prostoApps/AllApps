@@ -42,7 +42,7 @@
     
     //Внешний вид
     [searchBar setSearchFieldBackgroundImage:[UIImage imageNamed:@"bgUiSearch.png"] forState:UIControlStateNormal];
-    [tablePropertiesList setBackgroundColor:[[TTAppDataManager sharedAppDataManager] colorWithHexString:@"#54616f"]];
+   // [tablePropertiesList setBackgroundColor:[[TTAppDataManager sharedAppDataManager] colorWithHexString:@"#54616f"]];
 }
 
 #pragma mark UITableViewDataSource
