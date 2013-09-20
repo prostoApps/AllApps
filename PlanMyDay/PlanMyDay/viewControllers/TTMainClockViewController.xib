@@ -103,8 +103,6 @@
                 <constraint firstItem="bS1-4U-O3J" firstAttribute="leading" secondItem="1" secondAttribute="leading" constant="10" id="eoq-5J-sua"/>
                 <constraint firstItem="bS1-4U-O3J" firstAttribute="trailing" secondItem="XYn-Zj-3lb" secondAttribute="trailing" id="qfV-Fe-bHK"/>
             </constraints>
-            <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
-            <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
         </view>
     </objects>

@@ -102,7 +102,7 @@ NSString *const VIEW_SETTINGS               = @"viewSettings";
     UIView * backNavigate = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 64)];
     backNavigate.backgroundColor = [[TTAppDataManager sharedAppDataManager] colorWithHexString:@"#404a54"];
    // [backNavigate set[UINavigationBar appearance]:NO];
-    backNavigate.alpha = 0.1f;
+    backNavigate.alpha = 0.9f;
     [targetViewController.view addSubview:backNavigate];
     return targetViewController;
     
