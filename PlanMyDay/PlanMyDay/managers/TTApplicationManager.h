@@ -31,6 +31,8 @@ extern NSString *const VIEW_CUSTOM_TRACKER;
 extern NSString *const VIEW_MAIN_CLOCK;
 extern NSString *const VIEW_SETTINGS;
 
+extern NSString *const STR_NEW_PROJECT_CELLS;
+
 + (TTApplicationManager *)sharedApplicationManager;
 -(void) pushViewTo:(NSString*) strNewView forNavigationController:(UINavigationController*) navController;
 -(void) switchViewTo:(NSString*) strNewView forNavigationController:(UINavigationController*) navController;

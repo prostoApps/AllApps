@@ -70,7 +70,7 @@ static TTLocalDataManager *localDataManager;
       //
 }
 -(NSObject*)getValueFormData:(NSString*)value ByIndexPath:(NSIndexPath*)indexPath{
-    return [[[[[addTTItemDataDictionary objectForKey:titleNewProject] objectAtIndex:[indexPath section]] objectForKey:@"cells"] objectAtIndex:[indexPath row]] objectForKey:value];
+    return [[[[[addTTItemDataDictionary objectForKey:titleNewProject] objectAtIndex:[indexPath section]] objectForKey:STR_NEW_PROJECT_CELLS] objectAtIndex:[indexPath row]] objectForKey:value];
 }
 
 -(NSArray*)getAddTTItemFormData{
@@ -80,12 +80,20 @@ static TTLocalDataManager *localDataManager;
 }
 -(void)saveTTItemAddDataValue:(NSObject*)object valueSection:(NSInteger)section valueRow:(NSInteger)row{
     
-    [[[[[addTTItemDataDictionary objectForKey:titleNewProject] objectAtIndex:section] objectForKey:@"cells"] objectAtIndex:row] setObject:object forKey:@"value"];
+    [[[[[addTTItemDataDictionary objectForKey:titleNewProject] objectAtIndex:section] objectForKey:STR_NEW_PROJECT_CELLS] objectAtIndex:row] setObject:object forKey:@"value"];
     
 }
 //Save Item to Device
--(void)saveTTItem:(TTItem*)item
+-(void)saveTTItem
 {
+     TTItem * item = [[TTItem alloc] init];
+    
+  
+   
+    
+    
+   
+    
     [localDataManager saveItemData:[self serializeData:item]];
     [localDataManager writeData:[localDataManager dictLocalData]
                          toFile:[self getProjectsFilePath] ];

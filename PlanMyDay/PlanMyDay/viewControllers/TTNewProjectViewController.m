@@ -13,10 +13,8 @@
 {
    
     NSDictionary * rootFormPropertyDictionary;
-    NSArray *currentFormPropertyArray;
+    NSArray * currentFormPropertyArray;
     NSArray * currentFormDataArray;
-    
-    
 }
 
 @end
@@ -39,7 +37,7 @@
 {
     [super viewDidLoad];
      TTAppDataManager * appDataManager = [TTAppDataManager sharedAppDataManager];
-    
+
 	// Do any additional setup after loading the view.
     if (appDataManager.titleNewProject == nil)
     {
@@ -159,7 +157,21 @@
     UITableViewCell * cell = [tableView cellForRowAtIndexPath:indexPath];
     NSLog(@"%d",cell.accessoryType);
     if (cell.accessoryType == 1){
-        [[TTApplicationManager sharedApplicationManager] pushViewTo:VIEW_SELECT_PROPERTY forNavigationController:self.navigationController];
+        
+      [[TTApplicationManager sharedApplicationManager] pushViewTo:VIEW_SELECT_PROPERTY forNavigationController:self.navigationController];
+    
+//    NSMutableArray *arrClients = [[NSMutableArray alloc] initWithArray:[[TTAppDataManager sharedAppDataManager] getAllClients]];
+//        //еcли есть клиенты - переходим на вью выбора клиента
+//        //если нету клиентов - переходим на вью создания нового клиента
+//        if (arrClients.count > 0)
+//        {
+//           [[TTApplicationManager sharedApplicationManager] pushViewTo:VIEW_SELECT_PROPERTY forNavigationController:self.navigationController];
+//        }
+//        else
+//        {
+//            [[TTApplicationManager sharedApplicationManager] switchViewTo:VIEW_CREATE_PROPERTY forNavigationController:self.navigationController];
+//        }
+       
     }
 }
 
@@ -192,26 +204,6 @@
     
  }
 
-//
-//-(IBAction)btnSelectClientTouchHandler:(id)sender
-//{
-//    NSLog(@"btnSelectClientTouchHandler");
-//    NSMutableArray *arrClients = [[NSMutableArray alloc] initWithArray:[[TTAppDataManager sharedAppDataManager] getAllClients]];
-//    //еcли есть клиенты - переходим на вью выбора клиента
-//    //если нету клиентов - переходим на вью создания нового клиента
-//    if (arrClients.count > 0)
-//    {
-//        NSMutableDictionary *dictData = [[NSMutableDictionary alloc] initWithObjectsAndKeys:arrClients, STR_ALL_CLIENTS, nil];
-//        [[TTApplicationManager sharedApplicationManager] switchViewTo:VIEW_SELECT_PROPERTY
-//                                              forNavigationController:self.navigationController
-//                                                           withParams:dictData];
-//    }
-//    else
-//    {
-//        [[TTApplicationManager sharedApplicationManager] switchViewTo:VIEW_CREATE_PROPERTY forNavigationController:self.navigationController];
-//    }
-//}
-
 #pragma mark -
 #pragma mark segmentedControl methods
 -(IBAction) segmentedControlIndexChanged
@@ -236,6 +228,12 @@
     [self loadPropertyForView];
 }
 
+
+-(IBAction) btnSaveTouchHandler:(id)sender{
+    
+    [[TTAppDataManager sharedAppDataManager] addTTItemData];
+    
+}
 
 - (void)didReceiveMemoryWarning
 {

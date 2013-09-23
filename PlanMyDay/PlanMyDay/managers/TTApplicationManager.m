@@ -22,6 +22,9 @@ NSString *const VIEW_CUSTOM_TRACKER         = @"viewCustomTracker";
 NSString *const VIEW_MAIN_CLOCK             = @"viewMainClock";
 NSString *const VIEW_SETTINGS               = @"viewSettings";
 
+NSString *const STR_NEW_PROJECT_CELLS        = @"cells";
+
+
 
 + (TTApplicationManager *)sharedApplicationManager
 {

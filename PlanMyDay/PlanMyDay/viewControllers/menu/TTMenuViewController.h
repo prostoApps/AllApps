@@ -23,7 +23,6 @@
 
 -(IBAction) btnMainClockTouchHandler:(id)sender;
 -(IBAction) btnSettingsTouchHandler:(id)sender;
--(IBAction) btnNewTaskTouchHandler:(id)sender;
 -(IBAction) btnStatisticsTouchHandler:(id)sender;
 -(IBAction) btnCustomTrackerTouchHandler:(id)sender;
 -(IBAction) btnProfileTouchHandler:(id)sender;

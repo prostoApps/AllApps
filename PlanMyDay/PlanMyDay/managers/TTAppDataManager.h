@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "TTItem.h"
 #import "TTLocalDataManager.h"
+#import "TTApplicationManager.h"
 
 @interface TTAppDataManager : NSObject
 {
@@ -32,7 +33,7 @@
 -(NSObject*)getValueFormData:(NSString*)value ByIndexPath:(NSIndexPath*)indexPath;
 
 -(NSDictionary*)readDataFromFile:(NSString*)pathToFile;
--(void)saveTTItem:(TTItem*)item;
+-(void)saveTTItem;
 -(void)saveTTItemAddDataValue:(NSObject*)object valueSection:(NSInteger)section valueRow:(NSInteger)row;
 -(void)loadTTItemFormData;
 
