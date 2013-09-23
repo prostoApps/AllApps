@@ -7,18 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "TTMainClockViewController.h"
 #import "TTApplicationManager.h"
 #import "DDMenuController.h"
-#import "TTMenuViewController.h"
 
-@class TTMainClockViewController;
-
-@interface TTAppDelegate : UIResponder <UIApplicationDelegate , UINavigationControllerDelegate>
-
-@property (strong, nonatomic) UIWindow *window;
+@class DDMenuController;
+@interface TTAppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) DDMenuController *menuController;
-@property (strong, nonatomic) TTMainClockViewController *viewController;
+@property (strong, nonatomic) UIWindow *window;
 
 @end

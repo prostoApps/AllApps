@@ -879,6 +879,7 @@
 				05103CD517EA0EAB008C9D81 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		DDB4A82317849C3F007C7F15 /* Build configuration list for PBXProject "PlanMyDay" */ = {
 			isa = XCConfigurationList;

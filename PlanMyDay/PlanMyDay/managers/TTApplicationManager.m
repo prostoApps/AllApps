@@ -99,7 +99,11 @@ NSString *const VIEW_SETTINGS               = @"viewSettings";
     
     //Ставим стандартный background вьюшке
     targetViewController.view.backgroundColor = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"background.png"]];
-    
+    UIView * backNavigate = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 64)];
+    backNavigate.backgroundColor = [[TTAppDataManager sharedAppDataManager] colorWithHexString:@"#404a54"];
+   // [backNavigate set[UINavigationBar appearance]:NO];
+    backNavigate.alpha = 0.9f;
+    [targetViewController.view addSubview:backNavigate];
     return targetViewController;
     
 }
