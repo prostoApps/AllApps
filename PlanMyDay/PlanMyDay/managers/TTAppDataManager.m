@@ -12,11 +12,10 @@
 
 static TTLocalDataManager *localDataManager;
 //@synthesize localDataManager;
-@synthesize addTTItemData;
 
-@synthesize selectPropertyIndexPath;
-@synthesize titleNewProject;
-@synthesize newProjectSegmentIndex;
+@synthesize indexPathNewProject;
+@synthesize nameNewProject;
+@synthesize segmentIndexNewProject;
 
 + (TTAppDataManager *)sharedAppDataManager
 {
@@ -60,27 +59,27 @@ static TTLocalDataManager *localDataManager;
 {
     return [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject] stringByAppendingPathComponent:@"projectData.plist"];
 }
--(void)loadTTItemFormData{
+-(void)loadNewProjectFormData{
     // загружаем стили ячеек для формы
-    if (addTTItemDataDictionary.count == 0) {
+    if (dictNewProjectFormData.count == 0) {
         NSString* plistPath = [[NSBundle mainBundle] pathForResource:@"PropertyListOfViewForms" ofType:@"plist"];
-        addTTItemDataDictionary = [[NSMutableDictionary alloc] initWithContentsOfFile:plistPath];
+        dictNewProjectFormData = [[NSMutableDictionary alloc] initWithContentsOfFile:plistPath];
 
     }
       //
 }
--(NSObject*)getValueFormData:(NSString*)value ByIndexPath:(NSIndexPath*)indexPath{
-    return [[[[[addTTItemDataDictionary objectForKey:titleNewProject] objectAtIndex:[indexPath section]] objectForKey:STR_NEW_PROJECT_CELLS] objectAtIndex:[indexPath row]] objectForKey:value];
+-(NSObject*)getNewProjectFormDataValue:(NSString*)value byIndexPath:(NSIndexPath*)indexPath{
+    return [[[[[dictNewProjectFormData objectForKey:nameNewProject] objectAtIndex:[indexPath section]] objectForKey:STR_NEW_PROJECT_CELLS] objectAtIndex:[indexPath row]] objectForKey:value];
 }
 
--(NSArray*)getAddTTItemFormData{
+-(NSArray*)getNewProjectFormData{
     
-    return [addTTItemDataDictionary objectForKey:titleNewProject];
+    return [dictNewProjectFormData objectForKey:nameNewProject];
     
 }
 -(void)saveTTItemAddDataValue:(NSObject*)object valueSection:(NSInteger)section valueRow:(NSInteger)row{
     
-    [[[[[addTTItemDataDictionary objectForKey:titleNewProject] objectAtIndex:section] objectForKey:STR_NEW_PROJECT_CELLS] objectAtIndex:row] setObject:object forKey:@"value"];
+    [[[[[dictNewProjectFormData objectForKey:nameNewProject] objectAtIndex:section] objectForKey:STR_NEW_PROJECT_CELLS] objectAtIndex:row] setObject:object forKey:STR_NEW_PROJECT_VALUE];
     
 }
 //Save Item to Device

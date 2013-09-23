@@ -15,27 +15,27 @@
 {
 //    TTLocalDataManager *myLocalDataManager;
 //    TTLocalDataManager *localDataManager;
-    NSMutableDictionary * addTTItemDataDictionary;
+    NSMutableDictionary * dictNewProjectFormData;
    
     
 }
 
 //@property (nonatomic, retain) TTLocalDataManager *localDataManager;
-@property (nonatomic,retain) NSMutableDictionary * addTTItemData;
-
-@property (nonatomic,copy) NSIndexPath * selectPropertyIndexPath;
-@property (nonatomic,copy) NSString * titleNewProject;
-@property (nonatomic,readwrite) int newProjectSegmentIndex;
+@property (nonatomic,copy) NSIndexPath * indexPathNewProject;
+@property (nonatomic,copy) NSString * nameNewProject;
+@property (nonatomic,readwrite) int segmentIndexNewProject;
 
 -(NSString*)getDocumentsPath;
 -(NSString*)getProjectsFilePath;
--(NSArray*)getAddTTItemFormData;
--(NSObject*)getValueFormData:(NSString*)value ByIndexPath:(NSIndexPath*)indexPath;
+-(NSArray*) getNewProjectFormData;
+-(NSObject*)getNewProjectFormDataValue:(NSString*)value byIndexPath:(NSIndexPath*)indexPath;
 
 -(NSDictionary*)readDataFromFile:(NSString*)pathToFile;
+
 -(void)saveTTItem;
--(void)saveTTItemAddDataValue:(NSObject*)object valueSection:(NSInteger)section valueRow:(NSInteger)row;
--(void)loadTTItemFormData;
+-(void)saveNewProjectFormDataValue:(NSObject*)value onSection:(NSInteger)section onRow:(NSInteger)row;
+
+-(void)loadNewProjectFormData;
 
 -(NSMutableArray*)getAllTasks;
 -(NSMutableArray*)getAllProjects;

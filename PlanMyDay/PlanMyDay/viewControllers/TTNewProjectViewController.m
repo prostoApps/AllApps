@@ -39,11 +39,11 @@
      TTAppDataManager * appDataManager = [TTAppDataManager sharedAppDataManager];
 
 	// Do any additional setup after loading the view.
-    if (appDataManager.titleNewProject == nil)
+    if (appDataManager.nameNewProject == nil)
     {
-        appDataManager.titleNewProject = @"Task";
+        appDataManager.nameNewProject = STR_NEW_PROJECT_TASK;
     }
-    [appDataManager loadTTItemFormData];
+    [appDataManager loadNewProjectFormData];
     
     [self loadPropertyForView];
 }
@@ -51,21 +51,21 @@
 - (void) loadPropertyForView {
     
     TTAppDataManager * appDataManager = [TTAppDataManager sharedAppDataManager];
-    NSString * nameStr = appDataManager.titleNewProject;
+    NSString * nameStr = appDataManager.nameNewProject;
     
     [self setTitle:[NSString stringWithFormat:@"Add %@",nameStr]];
     [btnSave setTitle:[NSString stringWithFormat:@"Add %@",nameStr] forState:UIControlStateNormal];
-    [scTaskProjectClient setSelectedSegmentIndex:appDataManager.newProjectSegmentIndex];
+    [scTaskProjectClient setSelectedSegmentIndex:appDataManager.segmentIndexNewProject];
     
-    currentFormPropertyArray = [appDataManager getAddTTItemFormData];
-    [TaskTableView reloadData];
+    currentFormPropertyArray = [appDataManager getNewProjectFormData];
+    [tableViewNewProject reloadData];
     
 }
 
 #pragma mark UITableViewDataSource
 - (NSInteger)tableView:(UITableView *)table
  numberOfRowsInSection:(NSInteger)section {
-    NSArray *listData =[[currentFormPropertyArray objectAtIndex:section] objectForKey:@"cells"];
+    NSArray *listData =[[currentFormPropertyArray objectAtIndex:section] objectForKey:STR_NEW_PROJECT_CELLS];
     return [listData count];
 }
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
@@ -75,11 +75,11 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath    *)indexPath {
     static NSString *CellIdentifier = @"Cell";
     
-    NSArray *listData = [[currentFormPropertyArray objectAtIndex:[indexPath section]] objectForKey:@"cells"];
+    NSArray *listData = [[currentFormPropertyArray objectAtIndex:[indexPath section]] objectForKey:STR_NEW_PROJECT_CELLS];
     
     
     NSUInteger row = [indexPath row];
-    int typeCell = [[[listData objectAtIndex:row] objectForKey:@"type"] intValue];
+    int typeCell = [[[listData objectAtIndex:row] objectForKey:STR_NEW_PROJECT_TYPE] intValue];
     
     
     
@@ -107,7 +107,7 @@
    if (typeCell == 0)
    {
             cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-            cell.detailTextLabel.text = [[listData objectAtIndex:row] objectForKey:@"value"];
+            cell.detailTextLabel.text = [[listData objectAtIndex:row] objectForKey:STR_NEW_PROJECT_VALUE];
    }
     // если ячейчка с инпутом
    else if (typeCell == 1)
@@ -117,7 +117,7 @@
             inputField.textColor = [UIColor whiteColor];
             inputField.tag = 1;
             inputField.delegate = self;
-            inputField.text = [[listData objectAtIndex:row] objectForKey:@"value"];
+            inputField.text = [[listData objectAtIndex:row] objectForKey:STR_NEW_PROJECT_VALUE];
            
             [cell addSubview:inputField];
     }
@@ -126,11 +126,11 @@
     {
             UISwitch * swithField = [[UISwitch alloc] initWithFrame:CGRectZero];
             [swithField addTarget:self action:@selector(switchChanged:) forControlEvents:UIControlEventValueChanged];
-            [swithField setOn:[[[listData objectAtIndex:row] objectForKey:@"value"] boolValue]];
+            [swithField setOn:[[[listData objectAtIndex:row] objectForKey:STR_NEW_PROJECT_VALUE] boolValue]];
             [cell setAccessoryView:swithField];
     }
     
-    cell.textLabel.text = [[listData objectAtIndex:row] objectForKey:@"name"];
+    cell.textLabel.text = [[listData objectAtIndex:row] objectForKey:STR_NEW_PROJECT_NAME];
     return cell;
 }
 
@@ -142,7 +142,7 @@
     UILabel *tempLabel=[[UILabel alloc]initWithFrame:CGRectMake(15,0,305,30)];
     tempLabel.textColor = [UIColor whiteColor];
     
-    tempLabel.text = [[currentFormPropertyArray objectAtIndex:section] objectForKey:@"name"];
+    tempLabel.text = [[currentFormPropertyArray objectAtIndex:section] objectForKey:STR_NEW_PROJECT_NAME];
     tempLabel.font = [UIFont fontWithName:@"Helvetica Neue Light" size:13];
     [tempView addSubview:tempLabel];
     return tempView;
@@ -153,7 +153,7 @@
 
 // Tap on table Row
 - (void) tableView: (UITableView *) tableView didSelectRowAtIndexPath: (NSIndexPath *) indexPath {
-    [[TTAppDataManager sharedAppDataManager] setSelectPropertyIndexPath:indexPath];
+    [[TTAppDataManager sharedAppDataManager] setIndexPathNewProject:indexPath];
     UITableViewCell * cell = [tableView cellForRowAtIndexPath:indexPath];
     NSLog(@"%d",cell.accessoryType);
     if (cell.accessoryType == 1){
@@ -183,7 +183,7 @@
     UISwitch* switchControl = sender;
     NSIndexPath *indexPath = [TaskTableView indexPathForCell:(UITableViewCell*)[[switchControl superview] superview]]; // this should return you
     TTAppDataManager * appDataManager = [TTAppDataManager sharedAppDataManager];
-    [appDataManager saveTTItemAddDataValue:switchControl.on ? @"YES" : @"NO" valueSection:[indexPath section] valueRow:[indexPath row]];
+    [appDataManager saveNewProjectFormDataValue:switchControl.on ? @"YES" : @"NO" onSection:[indexPath section] onRow:[indexPath row]];
 }
 
 #pragma mark -
@@ -200,7 +200,7 @@
 	 NSIndexPath *indexPath = [TaskTableView indexPathForCell:(UITableViewCell*)[[textField superview] superview]]; // this should return you your current indexPath
     TTAppDataManager * appDataManager = [TTAppDataManager sharedAppDataManager];
     
-    [appDataManager saveTTItemAddDataValue:textField.text valueSection:[indexPath section] valueRow:[indexPath row]];
+    [appDataManager saveNewProjectFormDataValue:textField.text onSection:[indexPath section] onRow:[indexPath row]];
     
  }
 
@@ -209,17 +209,17 @@
 -(IBAction) segmentedControlIndexChanged
 {
     [self.view endEditing:YES];
-    [[TTAppDataManager sharedAppDataManager] setNewProjectSegmentIndex:scTaskProjectClient.selectedSegmentIndex];
+    [[TTAppDataManager sharedAppDataManager] setSegmentIndexNewProject:scTaskProjectClient.selectedSegmentIndex];
     
 	switch (self.scTaskProjectClient.selectedSegmentIndex) {
 		case 0:
-            [[TTAppDataManager sharedAppDataManager] setTitleNewProject:@"Task"];
+            [[TTAppDataManager sharedAppDataManager] setNameNewProject:STR_NEW_PROJECT_TASK];
 			break;
 		case 1:
-            [[TTAppDataManager sharedAppDataManager] setTitleNewProject:@"Project"];
+            [[TTAppDataManager sharedAppDataManager] setNameNewProject:STR_NEW_PROJECT_PROJECT];
 			break;
 		case 2:
-            [[TTAppDataManager sharedAppDataManager] setTitleNewProject:@"Client"];
+            [[TTAppDataManager sharedAppDataManager] setNameNewProject:STR_NEW_PROJECT_CLIENT];
 			break;
 		default:
             break;
@@ -231,7 +231,7 @@
 
 -(IBAction) btnSaveTouchHandler:(id)sender{
     
-    [[TTAppDataManager sharedAppDataManager] addTTItemData];
+ //   [[TTAppDataManager sharedAppDataManager] addTTItemData];
     
 }
 

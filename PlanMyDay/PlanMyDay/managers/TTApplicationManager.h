@@ -32,6 +32,12 @@ extern NSString *const VIEW_MAIN_CLOCK;
 extern NSString *const VIEW_SETTINGS;
 
 extern NSString *const STR_NEW_PROJECT_CELLS;
+extern NSString *const STR_NEW_PROJECT_VALUE;
+extern NSString *const STR_NEW_PROJECT_NAME;
+extern NSString *const STR_NEW_PROJECT_TYPE;
+extern NSString *const STR_NEW_PROJECT_TASK;
+extern NSString *const STR_NEW_PROJECT_PROJECT;
+extern NSString *const STR_NEW_PROJECT_CLIENT;
 
 + (TTApplicationManager *)sharedApplicationManager;
 -(void) pushViewTo:(NSString*) strNewView forNavigationController:(UINavigationController*) navController;

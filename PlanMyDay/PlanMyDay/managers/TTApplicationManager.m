@@ -22,10 +22,13 @@ NSString *const VIEW_CUSTOM_TRACKER         = @"viewCustomTracker";
 NSString *const VIEW_MAIN_CLOCK             = @"viewMainClock";
 NSString *const VIEW_SETTINGS               = @"viewSettings";
 
-NSString *const STR_NEW_PROJECT_CELLS        = @"cells";
-
-
-
+NSString *const STR_NEW_PROJECT_CELLS       = @"cells";
+NSString *const STR_NEW_PROJECT_VALUE       = @"value";
+NSString *const STR_NEW_PROJECT_NAME        = @"name";
+NSString *const STR_NEW_PROJECT_TYPE        = @"type";
+NSString *const STR_NEW_PROJECT_TASK        = @"Task";
+NSString *const STR_NEW_PROJECT_PROJECT     = @"Project";
+NSString *const STR_NEW_PROJECT_CLIENT      = @"Client";
 + (TTApplicationManager *)sharedApplicationManager
 {
     static TTApplicationManager *sharedApplicationManager;

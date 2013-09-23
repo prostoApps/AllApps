@@ -15,6 +15,9 @@
 @interface TTNewProjectViewController : UIViewController <UITextFieldDelegate>
 {
     IBOutlet UITableView *TaskTableView;
+    
+    
+    IBOutlet UITableView * tableViewNewProject;
     IBOutlet UISegmentedControl *scTaskProjectClient;
     IBOutlet UIButton * btnSave;
     IBOutlet UIScrollView * scrvScrollView;

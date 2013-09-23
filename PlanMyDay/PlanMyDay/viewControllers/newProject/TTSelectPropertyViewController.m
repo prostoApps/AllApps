@@ -33,8 +33,8 @@
  
     TTAppDataManager * appDataManager = [TTAppDataManager sharedAppDataManager];
     
-    selectIP = appDataManager.selectPropertyIndexPath;
-    selectStr = [NSString stringWithFormat:@"%@",[appDataManager getValueFormData:@"name" ByIndexPath:selectIP]];
+    selectIP = appDataManager.indexPathNewProject;
+    selectStr = [NSString stringWithFormat:@"%@",[appDataManager getNewProjectFormDataValue:STR_NEW_PROJECT_NAME byIndexPath:selectIP]];
     [self setTitle:[NSString stringWithFormat:@"Choose %@",selectStr]];
     
     arrProperties = [[TTAppDataManager sharedAppDataManager] getAllClients];

@@ -54,7 +54,7 @@
     [itemToSave setStrProjectName:[cell.getTableCellData objectForKey:@"projectName"]];
     [itemToSave setStrTaskName:[cell.getTableCellData objectForKey:@"taskName"]];
     NSLog(@"isCheck: %@",[cell.getTableCellData objectForKey:@"isCheck"]);
-    [[TTAppDataManager sharedAppDataManager] saveTTItem:itemToSave];
+  //  [[TTAppDataManager sharedAppDataManager] saveTTItem:itemToSave];
     
     TTAppDataManager * Mydata = [TTAppDataManager sharedAppDataManager];
     cellsDataArray = [Mydata getAllTasks];
