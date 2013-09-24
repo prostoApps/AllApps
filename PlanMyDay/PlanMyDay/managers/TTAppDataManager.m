@@ -77,22 +77,40 @@ static TTLocalDataManager *localDataManager;
     return [dictNewProjectFormData objectForKey:nameNewProject];
     
 }
--(void)saveTTItemAddDataValue:(NSObject*)object valueSection:(NSInteger)section valueRow:(NSInteger)row{
+-(void)saveNewProjectFormDataValue:(NSObject*)object onSection:(NSInteger)section onRow:(NSInteger)row{
     
     [[[[[dictNewProjectFormData objectForKey:nameNewProject] objectAtIndex:section] objectForKey:STR_NEW_PROJECT_CELLS] objectAtIndex:row] setObject:object forKey:STR_NEW_PROJECT_VALUE];
     
 }
+
 //Save Item to Device
 -(void)saveTTItem
 {
-     TTItem * item = [[TTItem alloc] init];
+    TTItem * item = [[TTItem alloc] init];
+    if ([nameNewProject isEqualToString:STR_NEW_PROJECT_TASK])
+    {
+       // item.strTaskName = [[dictNewProjectFormData objectForKey:nameNewProject] sea;
+        for (id section in dictNewProjectFormData)
+        {
+            for (id row in [section objectForKey:STR_NEW_PROJECT_CELLS])
+            {
+                if ([[row objectForKey:STR_NEW_PROJECT_NAME] isEqualToString:@"Task"])
+                {
+                    item.strTaskName = [row objectForKey:STR_NEW_PROJECT_VALUE];
+                }
+            }
+        }
+    }
+    else if( [nameNewProject isEqualToString:STR_NEW_PROJECT_PROJECT])
+    {
+        
+    }
+    else if( [nameNewProject isEqualToString:STR_NEW_PROJECT_CLIENT])
+    {
+        
+    }
     
-  
    
-    
-    
-   
-    
     [localDataManager saveItemData:[self serializeData:item]];
     [localDataManager writeData:[localDataManager dictLocalData]
                          toFile:[self getProjectsFilePath] ];

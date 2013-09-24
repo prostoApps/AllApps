@@ -49,11 +49,11 @@
 -(void)checkCellFromTTTasksTableView:(TTTasksTableViewCell*)cell{
     
     TTItem * itemToSave = [[TTItem alloc] init];
-    [itemToSave setStrCheck:[cell.getTableCellData objectForKey:@"isCheck"]];
-    [itemToSave setStrClientName:[cell.getTableCellData objectForKey:@"clientName"]];
-    [itemToSave setStrProjectName:[cell.getTableCellData objectForKey:@"projectName"]];
-    [itemToSave setStrTaskName:[cell.getTableCellData objectForKey:@"taskName"]];
-    NSLog(@"isCheck: %@",[cell.getTableCellData objectForKey:@"isCheck"]);
+    [itemToSave setStrCheck:[cell.getTableCellData objectForKey:STR_TASK_CHECK]];
+    [itemToSave setStrClientName:[cell.getTableCellData objectForKey:STR_CLIENT_NAME]];
+    [itemToSave setStrProjectName:[cell.getTableCellData objectForKey:STR_PROJECT_NAME]];
+    [itemToSave setStrTaskName:[cell.getTableCellData objectForKey:STR_TASK_NAME]];
+    NSLog(@"isCheck: %@",[cell.getTableCellData objectForKey:STR_TASK_CHECK]);
   //  [[TTAppDataManager sharedAppDataManager] saveTTItem:itemToSave];
     
     TTAppDataManager * Mydata = [TTAppDataManager sharedAppDataManager];

@@ -58,7 +58,7 @@
     [scTaskProjectClient setSelectedSegmentIndex:appDataManager.segmentIndexNewProject];
     
     currentFormPropertyArray = [appDataManager getNewProjectFormData];
-    [tableViewNewProject reloadData];
+    [TaskTableView reloadData];
     
 }
 
@@ -118,7 +118,6 @@
             inputField.tag = 1;
             inputField.delegate = self;
             inputField.text = [[listData objectAtIndex:row] objectForKey:STR_NEW_PROJECT_VALUE];
-           
             [cell addSubview:inputField];
     }
     // если ячейчка с переключателем
@@ -231,7 +230,7 @@
 
 -(IBAction) btnSaveTouchHandler:(id)sender{
     
- //   [[TTAppDataManager sharedAppDataManager] addTTItemData];
+   [[TTAppDataManager sharedAppDataManager] saveTTItem];
     
 }
 
