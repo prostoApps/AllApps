@@ -29,6 +29,8 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
+      //  NSArray * nibbArray = [[NSBundle mainBundle] loadNibNamed:@"TTNewProjectViewController" owner:self options:nil];
+      //  self = [nibbArray objectAtIndex:0];
     }
     return self;
 }
@@ -36,6 +38,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+
+
+    
      TTAppDataManager * appDataManager = [TTAppDataManager sharedAppDataManager];
 
 	// Do any additional setup after loading the view.
@@ -76,19 +81,18 @@
     static NSString *CellIdentifier = @"Cell";
     
     NSArray *listData = [[currentFormPropertyArray objectAtIndex:[indexPath section]] objectForKey:STR_NEW_PROJECT_CELLS];
-    
-    
     NSUInteger row = [indexPath row];
     int typeCell = [[[listData objectAtIndex:row] objectForKey:STR_NEW_PROJECT_TYPE] intValue];
     
+    TTAppDataManager * appDataManager = [TTAppDataManager sharedAppDataManager];
+    //сохраняем в Дикшионари Дата менеджера  Индекс ячейки. с ключем -> Названиe ячейки
+    [[appDataManager.dictNewProjectIndexPaths objectForKey:appDataManager.nameNewProject] setObject:indexPath forKey:[[listData objectAtIndex:row] objectForKey:STR_NEW_PROJECT_NAME]];
     
-    
-    
-    TTNewProjectTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
     if (!cell)
     {
-        cell = [[TTNewProjectTableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:CellIdentifier];
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:CellIdentifier];
         [cell.detailTextLabel setFrame:CGRectMake(80, 0, 180, 44)];
         cell.backgroundColor = [[TTAppDataManager sharedAppDataManager] colorWithHexString:@"#333b43"];
         cell.textLabel.textColor = [UIColor whiteColor];

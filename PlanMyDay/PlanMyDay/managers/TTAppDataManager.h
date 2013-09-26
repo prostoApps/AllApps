@@ -24,6 +24,7 @@
 @property (nonatomic,copy) NSIndexPath * indexPathNewProject;
 @property (nonatomic,copy) NSString * nameNewProject;
 @property (nonatomic,readwrite) int segmentIndexNewProject;
+@property (nonatomic,readwrite) NSMutableDictionary * dictNewProjectIndexPaths;
 
 -(NSString*)getDocumentsPath;
 -(NSString*)getProjectsFilePath;

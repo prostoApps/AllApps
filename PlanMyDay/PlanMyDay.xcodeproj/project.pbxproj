@@ -15,9 +15,9 @@
 		05103CDA17EA1EAF008C9D81 /* bgTaskInfoLabel@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 05103CD917EA1EAF008C9D81 /* bgTaskInfoLabel@2x.png */; };
 		05103CDD17EA2015008C9D81 /* bgUiSearch.png in Resources */ = {isa = PBXBuildFile; fileRef = 05103CDB17EA2015008C9D81 /* bgUiSearch.png */; };
 		05103CDE17EA2015008C9D81 /* bgUiSearch@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 05103CDC17EA2015008C9D81 /* bgUiSearch@2x.png */; };
-		05941E9417E9E0110079C571 /* TTNewProjectTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 05941E9317E9E0110079C571 /* TTNewProjectTableViewCell.m */; };
 		0596765117D0CAD000653A60 /* DDMenuController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0596765017D0CAD000653A60 /* DDMenuController.m */; };
 		05BAA80417E1F586003D7498 /* PropertyListOfViewForms.plist in Resources */ = {isa = PBXBuildFile; fileRef = 05BAA80317E1F586003D7498 /* PropertyListOfViewForms.plist */; };
+		05C454AB17F45B0100FD566C /* TTNewProjectViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05941E9117E9BFCE0079C571 /* TTNewProjectViewController.xib */; };
 		05C8136E17C6283E00E90B2F /* icon_button_arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 05C8136C17C6283E00E90B2F /* icon_button_arrow.png */; };
 		05C8136F17C6283E00E90B2F /* icon_button_arrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 05C8136D17C6283E00E90B2F /* icon_button_arrow@2x.png */; };
 		05EF3DCE17C24FB0000005E8 /* clock-hour-background_TT.png in Resources */ = {isa = PBXBuildFile; fileRef = 05EF3DCD17C24FB0000005E8 /* clock-hour-background_TT.png */; };
@@ -104,8 +104,6 @@
 		055A5DC417D4E16200A0FE85 /* background_clear.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background_clear.png; sourceTree = "<group>"; };
 		055A5DC517D4E2AE00A0FE85 /* background_clear@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "background_clear@2x.png"; sourceTree = "<group>"; };
 		05941E9117E9BFCE0079C571 /* TTNewProjectViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = TTNewProjectViewController.xib; path = viewControllers/TTNewProjectViewController.xib; sourceTree = "<group>"; };
-		05941E9217E9E0110079C571 /* TTNewProjectTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TTNewProjectTableViewCell.h; path = viewControllers/newProject/TTNewProjectTableViewCell.h; sourceTree = "<group>"; };
-		05941E9317E9E0110079C571 /* TTNewProjectTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TTNewProjectTableViewCell.m; path = viewControllers/newProject/TTNewProjectTableViewCell.m; sourceTree = "<group>"; };
 		0596764F17D0CAD000653A60 /* DDMenuController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDMenuController.h; sourceTree = "<group>"; };
 		0596765017D0CAD000653A60 /* DDMenuController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDMenuController.m; sourceTree = "<group>"; };
 		05BAA80317E1F586003D7498 /* PropertyListOfViewForms.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = PropertyListOfViewForms.plist; sourceTree = "<group>"; };
@@ -401,8 +399,6 @@
 		DDA17444178CEB9E0000132D /* newProjectView */ = {
 			isa = PBXGroup;
 			children = (
-				05941E9217E9E0110079C571 /* TTNewProjectTableViewCell.h */,
-				05941E9317E9E0110079C571 /* TTNewProjectTableViewCell.m */,
 				DDB4A887178523B2007C7F15 /* TTNewProjectViewController.h */,
 				DDB4A886178523B2007C7F15 /* TTNewProjectViewController.m */,
 				05941E9117E9BFCE0079C571 /* TTNewProjectViewController.xib */,
@@ -622,6 +618,7 @@
 				DD7BAE4E17A5C24600CACFB2 /* TTCustomTrackerViewController.xib in Resources */,
 				DD90BF5517A9FEB50064233C /* TTCurrentTaskNextTaskIndicatorViewController.xib in Resources */,
 				DD90BF6017AA06210064233C /* -clock-face.png in Resources */,
+				05C454AB17F45B0100FD566C /* TTNewProjectViewController.xib in Resources */,
 				DD90BF6117AA06210064233C /* bliss-roman-aluminium-clock.jpg in Resources */,
 				DD90BF6217AA06210064233C /* clock-background.png in Resources */,
 				DD90BF6317AA06210064233C /* clock-hour-background.png in Resources */,
@@ -660,7 +657,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				05941E9417E9E0110079C571 /* TTNewProjectTableViewCell.m in Sources */,
 				DDB4A83817849C3F007C7F15 /* main.m in Sources */,
 				DDB4A83C17849C3F007C7F15 /* TTAppDelegate.m in Sources */,
 				DDB4A85117850BCE007C7F15 /* TTMainClockViewController.m in Sources */,

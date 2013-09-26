@@ -16,6 +16,7 @@ static TTLocalDataManager *localDataManager;
 @synthesize indexPathNewProject;
 @synthesize nameNewProject;
 @synthesize segmentIndexNewProject;
+@synthesize dictNewProjectIndexPaths;
 
 + (TTAppDataManager *)sharedAppDataManager
 {
@@ -64,6 +65,15 @@ static TTLocalDataManager *localDataManager;
     if (dictNewProjectFormData.count == 0) {
         NSString* plistPath = [[NSBundle mainBundle] pathForResource:@"PropertyListOfViewForms" ofType:@"plist"];
         dictNewProjectFormData = [[NSMutableDictionary alloc] initWithContentsOfFile:plistPath];
+        
+        //создаем пустые дикшионари для Индекс значений со структурой (Task,Project,Client)
+        dictNewProjectIndexPaths = [[NSMutableDictionary alloc] init];
+        for(id key in [dictNewProjectFormData allKeys]){
+            [dictNewProjectIndexPaths setObject:[[NSMutableDictionary alloc] init] forKey:key];
+        }
+        
+
+        
 
     }
       //
@@ -89,17 +99,12 @@ static TTLocalDataManager *localDataManager;
     TTItem * item = [[TTItem alloc] init];
     if ([nameNewProject isEqualToString:STR_NEW_PROJECT_TASK])
     {
-       // item.strTaskName = [[dictNewProjectFormData objectForKey:nameNewProject] sea;
-        for (id section in dictNewProjectFormData)
-        {
-            for (id row in [section objectForKey:STR_NEW_PROJECT_CELLS])
-            {
-                if ([[row objectForKey:STR_NEW_PROJECT_NAME] isEqualToString:@"Task"])
-                {
-                    item.strTaskName = [row objectForKey:STR_NEW_PROJECT_VALUE];
-                }
-            }
-        }
+
+        item.strTaskName = [NSString stringWithFormat:@"%@",[self getNewProjectFormDataValue:STR_NEW_PROJECT_VALUE byIndexPath:[[dictNewProjectIndexPaths objectForKey:nameNewProject] objectForKey:STR_NEW_PROJECT_NAME]]];
+        item.strProjectName = [NSString stringWithFormat:@"%@",[self getNewProjectFormDataValue:STR_NEW_PROJECT_VALUE byIndexPath:[[dictNewProjectIndexPaths objectForKey:nameNewProject] objectForKey:STR_NEW_PROJECT_NAME]]];
+        item.strClientName = [NSString stringWithFormat:@"%@",[self getNewProjectFormDataValue:STR_NEW_PROJECT_VALUE byIndexPath:[[dictNewProjectIndexPaths objectForKey:nameNewProject] objectForKey:STR_NEW_PROJECT_NAME]]];
+ 
+        
     }
     else if( [nameNewProject isEqualToString:STR_NEW_PROJECT_PROJECT])
     {
@@ -134,6 +139,7 @@ static TTLocalDataManager *localDataManager;
 -(TTItem*)deserializeData:(NSDictionary*)data
 {
     TTItem *item;
+   // [item setItemData:data];
     return item;
 }
 

@@ -10,7 +10,7 @@
 #import "TTApplicationManager.h"
 #import "TTCreatePropertyViewController.h"
 #import "TTSelectPropertyViewController.h"
-#import "TTNewProjectTableViewCell.h"
+
 
 @interface TTNewProjectViewController : UIViewController <UITextFieldDelegate>
 {
