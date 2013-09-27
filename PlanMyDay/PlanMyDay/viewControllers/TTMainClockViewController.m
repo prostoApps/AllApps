@@ -35,7 +35,7 @@
     //вытаскиваем все таски, которые есть в localData
     NSArray *arrAllTasks = [[NSMutableArray alloc] initWithArray:[[TTAppDataManager sharedAppDataManager] getAllTasks]];
     
-    UIColor * back = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"background.png"]];
+    UIColor * back = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"background.jpg"]];
     self.view.backgroundColor = back;
     
    // UIView * backView =

@@ -43,8 +43,15 @@
     TTAppDataManager * appDataManager = [TTAppDataManager sharedAppDataManager];
     
     [appDataManager makeButtonStyled:btnSave];
-    [tableViewNewProject setTableHeaderView:headerTableViewNewProject];
+
+    headerTableViewNewProject.layer.borderColor = [[TTAppDataManager sharedAppDataManager] colorWithHexString:@"#a8adb3"].CGColor;
+    headerTableViewNewProject.layer.borderWidth = 1.0f;
     [tableViewNewProject setTableFooterView:footerTableViewNewProject];
+    
+    //[scTaskProjectClient.tintColor ]
+    [scTaskProjectClient setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:
+                                          [UIColor whiteColor], UITextAttributeTextColor,
+                                          nil] forState:UIControlStateSelected];
     
 	// Do any additional setup after loading the view.
     if (appDataManager.nameNewProject == nil)
@@ -105,7 +112,13 @@
         [cell.detailTextLabel setFrame:CGRectMake(80, 0, 180, 44)];
         cell.backgroundColor = [[TTAppDataManager sharedAppDataManager] colorWithHexString:@"#333b43"];
         cell.textLabel.textColor = [UIColor whiteColor];
+        cell.textLabel.font = [UIFont fontWithName:FONT_HELVETICA_NEUE_LIGHT size:17];
+        cell.textLabel.textColor = [[TTAppDataManager sharedAppDataManager] colorWithHexString:@"#a7acb2"];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        cell.detailTextLabel.textColor = [UIColor whiteColor];
+        cell.detailTextLabel.font = [UIFont fontWithName:FONT_HELVETICA_NEUE_LIGHT size:17];
+        
+        
     }
     else
     {
@@ -114,6 +127,7 @@
         cell.accessoryView = nil;
         cell.detailTextLabel.text = nil;
         [[cell viewWithTag:1] removeFromSuperview];
+        
     }
     
     // если ячейчка с выбором
@@ -125,9 +139,10 @@
     // если ячейчка с инпутом
    else if (typeCell == 1)
    {
-            UITextField * inputField = [[UITextField alloc] initWithFrame:CGRectMake(80,0,220,44)];
+            UITextField * inputField = [[UITextField alloc] initWithFrame:CGRectMake(100,0,220,44)];
             inputField.adjustsFontSizeToFitWidth = YES;
             inputField.textColor = [UIColor whiteColor];
+            inputField.font = [UIFont fontWithName:FONT_HELVETICA_NEUE_LIGHT size:17];
             inputField.tag = 1;
             inputField.delegate = self;
             inputField.text = [[listData objectAtIndex:row] objectForKey:STR_NEW_PROJECT_VALUE];
@@ -143,6 +158,7 @@
     }
     
     cell.textLabel.text = [[listData objectAtIndex:row] objectForKey:STR_NEW_PROJECT_NAME];
+   
     return cell;
 }
 
@@ -155,7 +171,7 @@
     tempLabel.textColor = [UIColor whiteColor];
     
     tempLabel.text = [[currentFormPropertyArray objectAtIndex:section] objectForKey:STR_NEW_PROJECT_NAME];
-    tempLabel.font = [UIFont fontWithName:@"Helvetica Neue Light" size:13];
+    tempLabel.font = [UIFont fontWithName:FONT_HELVETICA_NEUE_REGULAR size:14];
     [tempView addSubview:tempLabel];
     return tempView;
 }

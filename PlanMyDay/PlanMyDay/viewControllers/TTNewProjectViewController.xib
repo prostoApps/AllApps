@@ -17,15 +17,35 @@
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view contentMode="scaleToFill" id="1">
+        <view clipsSubviews="YES" contentMode="scaleToFill" id="1">
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
+                <view clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qTX-4U-ndn" userLabel="headerTableViewNewProject">
+                    <rect key="frame" x="-1" y="63" width="322" height="44"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <subviews>
+                        <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="466">
+                            <rect key="frame" x="12" y="8" width="298" height="29"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <segments>
+                                <segment title="Task"/>
+                                <segment title="Project"/>
+                                <segment title="Client"/>
+                            </segments>
+                            <color key="tintColor" red="0.6588235294117647" green="0.67843137254901964" blue="0.70196078431372544" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="segmentedControlIndexChanged" destination="-1" eventType="valueChanged" id="491"/>
+                            </connections>
+                        </segmentedControl>
+                    </subviews>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                </view>
                 <tableView clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" style="grouped" separatorStyle="default" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="44" sectionHeaderHeight="1" sectionFooterHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="m0w-MT-nVK">
-                    <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                    <rect key="frame" x="0.0" y="107" width="320" height="461"/>
                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" heightSizable="YES"/>
-                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                    <color key="separatorColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <color key="backgroundColor" red="0.32941176470588235" green="0.38039215686274508" blue="0.43529411764705883" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="separatorColor" red="0.6588235294117647" green="0.67843137254901964" blue="0.70196078431372544" alpha="1" colorSpace="calibratedRGB"/>
                     <color key="sectionIndexColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <connections>
                         <outlet property="dataSource" destination="-1" id="x3R-fu-MJC"/>
@@ -35,35 +55,14 @@
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstAttribute="centerY" secondItem="m0w-MT-nVK" secondAttribute="centerY" id="64A-8b-7jQ"/>
-                <constraint firstItem="m0w-MT-nVK" firstAttribute="top" secondItem="1" secondAttribute="top" id="HQ9-QF-9I4"/>
+                <constraint firstAttribute="centerY" secondItem="m0w-MT-nVK" secondAttribute="centerY" constant="-53.5" id="64A-8b-7jQ"/>
+                <constraint firstItem="m0w-MT-nVK" firstAttribute="top" secondItem="1" secondAttribute="top" constant="107" id="HQ9-QF-9I4"/>
                 <constraint firstItem="m0w-MT-nVK" firstAttribute="leading" secondItem="1" secondAttribute="leading" id="Qpa-FA-HgF"/>
                 <constraint firstAttribute="trailing" secondItem="m0w-MT-nVK" secondAttribute="trailing" id="rMp-b7-VWP"/>
             </constraints>
             <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
             <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
-        </view>
-        <view contentMode="scaleToFill" id="qTX-4U-ndn" userLabel="headerTableViewNewProject">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="30"/>
-            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-            <subviews>
-                <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="466">
-                    <rect key="frame" x="11" y="0.0" width="298" height="29"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <segments>
-                        <segment title="Task"/>
-                        <segment title="Project"/>
-                        <segment title="Client"/>
-                    </segments>
-                    <color key="tintColor" red="0.6588235294117647" green="0.67843137254901964" blue="0.70196078431372544" alpha="1" colorSpace="calibratedRGB"/>
-                    <connections>
-                        <action selector="segmentedControlIndexChanged" destination="-1" eventType="valueChanged" id="491"/>
-                    </connections>
-                </segmentedControl>
-            </subviews>
-            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
         </view>
         <view contentMode="scaleToFill" id="DHF-fz-ipS" userLabel="footerTableViewNewProject">
             <rect key="frame" x="0.0" y="0.0" width="320" height="76"/>

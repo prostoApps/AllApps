@@ -10,14 +10,13 @@
 		05103CC617EA0EAB008C9D81 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05103CC517EA0EAB008C9D81 /* XCTest.framework */; };
 		05103CC717EA0EAB008C9D81 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDB4A82D17849C3F007C7F15 /* Foundation.framework */; };
 		05103CC817EA0EAB008C9D81 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDB4A82B17849C3F007C7F15 /* UIKit.framework */; };
-		05103CCE17EA0EAB008C9D81 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 05103CCC17EA0EAB008C9D81 /* InfoPlist.strings */; };
-		05103CD017EA0EAB008C9D81 /* PlanMyDay_Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 05103CCF17EA0EAB008C9D81 /* PlanMyDay_Tests.m */; };
 		05103CDA17EA1EAF008C9D81 /* bgTaskInfoLabel@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 05103CD917EA1EAF008C9D81 /* bgTaskInfoLabel@2x.png */; };
 		05103CDD17EA2015008C9D81 /* bgUiSearch.png in Resources */ = {isa = PBXBuildFile; fileRef = 05103CDB17EA2015008C9D81 /* bgUiSearch.png */; };
 		05103CDE17EA2015008C9D81 /* bgUiSearch@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 05103CDC17EA2015008C9D81 /* bgUiSearch@2x.png */; };
-		055A402517F5A5BB004E0617 /* background_clear.png in Resources */ = {isa = PBXBuildFile; fileRef = 055A5DC417D4E16200A0FE85 /* background_clear.png */; };
-		055A402617F5A5C0004E0617 /* background_clear@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 055A5DC517D4E2AE00A0FE85 /* background_clear@2x.png */; };
-		055A402C17F5A869004E0617 /* bgUiBar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 055A402A17F5A869004E0617 /* bgUiBar@2x.png */; };
+		055A402F17F5E5A7004E0617 /* background.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 055A402D17F5E5A7004E0617 /* background.jpg */; };
+		055A403017F5E5A7004E0617 /* background@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 055A402E17F5E5A7004E0617 /* background@2x.jpg */; };
+		055A403317F5E616004E0617 /* bgUiBar.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 055A403117F5E616004E0617 /* bgUiBar.jpg */; };
+		055A403417F5E616004E0617 /* bgUiBar@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 055A403217F5E616004E0617 /* bgUiBar@2x.jpg */; };
 		0596765117D0CAD000653A60 /* DDMenuController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0596765017D0CAD000653A60 /* DDMenuController.m */; };
 		05BAA80417E1F586003D7498 /* PropertyListOfViewForms.plist in Resources */ = {isa = PBXBuildFile; fileRef = 05BAA80317E1F586003D7498 /* PropertyListOfViewForms.plist */; };
 		05C454AB17F45B0100FD566C /* TTNewProjectViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05941E9117E9BFCE0079C571 /* TTNewProjectViewController.xib */; };
@@ -26,14 +25,12 @@
 		05EF3DCE17C24FB0000005E8 /* clock-hour-background_TT.png in Resources */ = {isa = PBXBuildFile; fileRef = 05EF3DCD17C24FB0000005E8 /* clock-hour-background_TT.png */; };
 		05EF3DD117C25125000005E8 /* clock-min-background_TT.png in Resources */ = {isa = PBXBuildFile; fileRef = 05EF3DCF17C25125000005E8 /* clock-min-background_TT.png */; };
 		05EF3DD217C25125000005E8 /* clock-sec-background_TT.png in Resources */ = {isa = PBXBuildFile; fileRef = 05EF3DD017C25125000005E8 /* clock-sec-background_TT.png */; };
-		05EF3DD417C25DED000005E8 /* background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 05EF3DD317C25DEC000005E8 /* background@2x.png */; };
 		DD2B9B8117B06E1F00E37DA8 /* TTMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD2B9B7F17B06E1F00E37DA8 /* TTMenuViewController.m */; };
 		DD2B9B8217B06E1F00E37DA8 /* TTMenuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DD2B9B8017B06E1F00E37DA8 /* TTMenuViewController.xib */; };
 		DD7BAE3117A5BDCA00CACFB2 /* TTTasksTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DD7BAE2E17A5BDCA00CACFB2 /* TTTasksTableViewCell.xib */; };
 		DD7BAE3217A5BDCA00CACFB2 /* TTTasksTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DD7BAE2F17A5BDCA00CACFB2 /* TTTasksTableViewCell.m */; };
 		DD7BAE3617A5BDDB00CACFB2 /* TTTasksViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD7BAE3317A5BDDB00CACFB2 /* TTTasksViewController.m */; };
 		DD7BAE3717A5BDDB00CACFB2 /* TTTasksViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DD7BAE3517A5BDDB00CACFB2 /* TTTasksViewController.xib */; };
-		DD7BAE4017A5BE4400CACFB2 /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = DD7BAE3A17A5BE4400CACFB2 /* background.png */; };
 		DD7BAE4117A5BE4400CACFB2 /* ckeck_cell_icons.png in Resources */ = {isa = PBXBuildFile; fileRef = DD7BAE3B17A5BE4400CACFB2 /* ckeck_cell_icons.png */; };
 		DD7BAE4217A5BE4400CACFB2 /* delete_cell_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = DD7BAE3C17A5BE4400CACFB2 /* delete_cell_icon.png */; };
 		DD7BAE4317A5BE4400CACFB2 /* one_task_back@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DD7BAE3D17A5BE4400CACFB2 /* one_task_back@2x.png */; };
@@ -97,16 +94,13 @@
 /* Begin PBXFileReference section */
 		05103CC417EA0EAB008C9D81 /* PlanMyDay Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "PlanMyDay Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		05103CC517EA0EAB008C9D81 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
-		05103CCB17EA0EAB008C9D81 /* PlanMyDay Tests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "PlanMyDay Tests-Info.plist"; sourceTree = "<group>"; };
-		05103CCD17EA0EAB008C9D81 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		05103CCF17EA0EAB008C9D81 /* PlanMyDay_Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PlanMyDay_Tests.m; sourceTree = "<group>"; };
-		05103CD117EA0EAB008C9D81 /* PlanMyDay Tests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PlanMyDay Tests-Prefix.pch"; sourceTree = "<group>"; };
 		05103CD917EA1EAF008C9D81 /* bgTaskInfoLabel@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bgTaskInfoLabel@2x.png"; sourceTree = "<group>"; };
 		05103CDB17EA2015008C9D81 /* bgUiSearch.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bgUiSearch.png; sourceTree = "<group>"; };
 		05103CDC17EA2015008C9D81 /* bgUiSearch@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bgUiSearch@2x.png"; sourceTree = "<group>"; };
-		055A402A17F5A869004E0617 /* bgUiBar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bgUiBar@2x.png"; sourceTree = "<group>"; };
-		055A5DC417D4E16200A0FE85 /* background_clear.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background_clear.png; sourceTree = "<group>"; };
-		055A5DC517D4E2AE00A0FE85 /* background_clear@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "background_clear@2x.png"; sourceTree = "<group>"; };
+		055A402D17F5E5A7004E0617 /* background.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = background.jpg; sourceTree = "<group>"; };
+		055A402E17F5E5A7004E0617 /* background@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "background@2x.jpg"; sourceTree = "<group>"; };
+		055A403117F5E616004E0617 /* bgUiBar.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = bgUiBar.jpg; sourceTree = "<group>"; };
+		055A403217F5E616004E0617 /* bgUiBar@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "bgUiBar@2x.jpg"; sourceTree = "<group>"; };
 		05941E9117E9BFCE0079C571 /* TTNewProjectViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = TTNewProjectViewController.xib; path = viewControllers/TTNewProjectViewController.xib; sourceTree = "<group>"; };
 		0596764F17D0CAD000653A60 /* DDMenuController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDMenuController.h; sourceTree = "<group>"; };
 		0596765017D0CAD000653A60 /* DDMenuController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDMenuController.m; sourceTree = "<group>"; };
@@ -117,7 +111,6 @@
 		05EF3DCD17C24FB0000005E8 /* clock-hour-background_TT.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "clock-hour-background_TT.png"; path = "mainClock/clock-hour-background_TT.png"; sourceTree = "<group>"; };
 		05EF3DCF17C25125000005E8 /* clock-min-background_TT.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "clock-min-background_TT.png"; path = "mainClock/clock-min-background_TT.png"; sourceTree = "<group>"; };
 		05EF3DD017C25125000005E8 /* clock-sec-background_TT.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "clock-sec-background_TT.png"; path = "mainClock/clock-sec-background_TT.png"; sourceTree = "<group>"; };
-		05EF3DD317C25DEC000005E8 /* background@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "background@2x.png"; sourceTree = "<group>"; };
 		DD2B9B7E17B06E1F00E37DA8 /* TTMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TTMenuViewController.h; path = viewControllers/menu/TTMenuViewController.h; sourceTree = "<group>"; };
 		DD2B9B7F17B06E1F00E37DA8 /* TTMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TTMenuViewController.m; path = viewControllers/menu/TTMenuViewController.m; sourceTree = "<group>"; };
 		DD2B9B8017B06E1F00E37DA8 /* TTMenuViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TTMenuViewController.xib; path = viewControllers/menu/TTMenuViewController.xib; sourceTree = "<group>"; };
@@ -127,7 +120,6 @@
 		DD7BAE3317A5BDDB00CACFB2 /* TTTasksViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TTTasksViewController.m; path = viewControllers/tasksView/TTTasksViewController.m; sourceTree = "<group>"; };
 		DD7BAE3417A5BDDB00CACFB2 /* TTTasksViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TTTasksViewController.h; path = viewControllers/tasksView/TTTasksViewController.h; sourceTree = "<group>"; };
 		DD7BAE3517A5BDDB00CACFB2 /* TTTasksViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TTTasksViewController.xib; path = viewControllers/tasksView/TTTasksViewController.xib; sourceTree = "<group>"; };
-		DD7BAE3A17A5BE4400CACFB2 /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background.png; sourceTree = "<group>"; };
 		DD7BAE3B17A5BE4400CACFB2 /* ckeck_cell_icons.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ckeck_cell_icons.png; sourceTree = "<group>"; };
 		DD7BAE3C17A5BE4400CACFB2 /* delete_cell_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = delete_cell_icon.png; sourceTree = "<group>"; };
 		DD7BAE3D17A5BE4400CACFB2 /* one_task_back@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "one_task_back@2x.png"; sourceTree = "<group>"; };
@@ -223,25 +215,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		05103CC917EA0EAB008C9D81 /* PlanMyDay Tests */ = {
-			isa = PBXGroup;
-			children = (
-				05103CCF17EA0EAB008C9D81 /* PlanMyDay_Tests.m */,
-				05103CCA17EA0EAB008C9D81 /* Supporting Files */,
-			);
-			path = "PlanMyDay Tests";
-			sourceTree = "<group>";
-		};
-		05103CCA17EA0EAB008C9D81 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				05103CCB17EA0EAB008C9D81 /* PlanMyDay Tests-Info.plist */,
-				05103CCC17EA0EAB008C9D81 /* InfoPlist.strings */,
-				05103CD117EA0EAB008C9D81 /* PlanMyDay Tests-Prefix.pch */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
 		0596765217D0CAD700653A60 /* DDMenuController */ = {
 			isa = PBXGroup;
 			children = (
@@ -273,18 +246,17 @@
 		DD7BAE3917A5BE4400CACFB2 /* images */ = {
 			isa = PBXGroup;
 			children = (
-				055A402A17F5A869004E0617 /* bgUiBar@2x.png */,
+				055A403117F5E616004E0617 /* bgUiBar.jpg */,
+				055A403217F5E616004E0617 /* bgUiBar@2x.jpg */,
+				055A402D17F5E5A7004E0617 /* background.jpg */,
+				055A402E17F5E5A7004E0617 /* background@2x.jpg */,
 				05103CDB17EA2015008C9D81 /* bgUiSearch.png */,
 				05103CDC17EA2015008C9D81 /* bgUiSearch@2x.png */,
 				05103CD917EA1EAF008C9D81 /* bgTaskInfoLabel@2x.png */,
-				055A5DC517D4E2AE00A0FE85 /* background_clear@2x.png */,
-				055A5DC417D4E16200A0FE85 /* background_clear.png */,
 				05C8136C17C6283E00E90B2F /* icon_button_arrow.png */,
 				05C8136D17C6283E00E90B2F /* icon_button_arrow@2x.png */,
 				05C8136B17C622C700E90B2F /* bgTaskInfoLabel.png */,
 				DD90BF5717AA05FE0064233C /* mainClock */,
-				DD7BAE3A17A5BE4400CACFB2 /* background.png */,
-				05EF3DD317C25DEC000005E8 /* background@2x.png */,
 				DD7BAE3B17A5BE4400CACFB2 /* ckeck_cell_icons.png */,
 				DD7BAE3C17A5BE4400CACFB2 /* delete_cell_icon.png */,
 				DD7BAE3D17A5BE4400CACFB2 /* one_task_back@2x.png */,
@@ -422,7 +394,6 @@
 			children = (
 				DD7BAE5317A5C4FE00CACFB2 /* QuartzCore.framework */,
 				DDB4A83117849C3F007C7F15 /* PlanMyDay */,
-				05103CC917EA0EAB008C9D81 /* PlanMyDay Tests */,
 				DDB4A82A17849C3F007C7F15 /* Frameworks */,
 				DDB4A82917849C3F007C7F15 /* Products */,
 			);
@@ -595,7 +566,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				05103CCE17EA0EAB008C9D81 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -606,30 +576,30 @@
 				DDB4A83617849C3F007C7F15 /* InfoPlist.strings in Resources */,
 				DDB4A83E17849C3F007C7F15 /* Default.png in Resources */,
 				DDB4A84017849C3F007C7F15 /* Default@2x.png in Resources */,
+				055A403417F5E616004E0617 /* bgUiBar@2x.jpg in Resources */,
 				DDB4A84217849C3F007C7F15 /* Default-568h@2x.png in Resources */,
 				DDB4A84817849C3F007C7F15 /* TTViewController.xib in Resources */,
 				DDB4A85217850BCE007C7F15 /* TTMainClockViewController.xib in Resources */,
 				DDB4A889178523B2007C7F15 /* TTSettingsViewController.xib in Resources */,
 				DDB4A88A178523B2007C7F15 /* TTStatisticsViewController.xib in Resources */,
 				DD7BAE3117A5BDCA00CACFB2 /* TTTasksTableViewCell.xib in Resources */,
-				055A402617F5A5C0004E0617 /* background_clear@2x.png in Resources */,
 				DD7BAE3717A5BDDB00CACFB2 /* TTTasksViewController.xib in Resources */,
-				DD7BAE4017A5BE4400CACFB2 /* background.png in Resources */,
+				055A403017F5E5A7004E0617 /* background@2x.jpg in Resources */,
 				05103CDE17EA2015008C9D81 /* bgUiSearch@2x.png in Resources */,
 				DD7BAE4117A5BE4400CACFB2 /* ckeck_cell_icons.png in Resources */,
-				055A402C17F5A869004E0617 /* bgUiBar@2x.png in Resources */,
 				DD7BAE4217A5BE4400CACFB2 /* delete_cell_icon.png in Resources */,
 				DD7BAE4317A5BE4400CACFB2 /* one_task_back@2x.png in Resources */,
 				DD7BAE4417A5BE4400CACFB2 /* task_icons.png in Resources */,
 				DD7BAE4517A5BE4400CACFB2 /* bgTaskInfoLabel.png in Resources */,
-				055A402517F5A5BB004E0617 /* background_clear.png in Resources */,
 				DD7BAE4E17A5C24600CACFB2 /* TTCustomTrackerViewController.xib in Resources */,
 				DD90BF5517A9FEB50064233C /* TTCurrentTaskNextTaskIndicatorViewController.xib in Resources */,
 				DD90BF6017AA06210064233C /* -clock-face.png in Resources */,
 				05C454AB17F45B0100FD566C /* TTNewProjectViewController.xib in Resources */,
 				DD90BF6117AA06210064233C /* bliss-roman-aluminium-clock.jpg in Resources */,
+				055A403317F5E616004E0617 /* bgUiBar.jpg in Resources */,
 				DD90BF6217AA06210064233C /* clock-background.png in Resources */,
 				DD90BF6317AA06210064233C /* clock-hour-background.png in Resources */,
+				055A402F17F5E5A7004E0617 /* background.jpg in Resources */,
 				05BAA80417E1F586003D7498 /* PropertyListOfViewForms.plist in Resources */,
 				05103CDA17EA1EAF008C9D81 /* bgTaskInfoLabel@2x.png in Resources */,
 				DD90BF6417AA06210064233C /* clock-min-background_.png in Resources */,
@@ -646,7 +616,6 @@
 				05EF3DCE17C24FB0000005E8 /* clock-hour-background_TT.png in Resources */,
 				05EF3DD117C25125000005E8 /* clock-min-background_TT.png in Resources */,
 				05EF3DD217C25125000005E8 /* clock-sec-background_TT.png in Resources */,
-				05EF3DD417C25DED000005E8 /* background@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -657,7 +626,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				05103CD017EA0EAB008C9D81 /* PlanMyDay_Tests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -701,14 +669,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		05103CCC17EA0EAB008C9D81 /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				05103CCD17EA0EAB008C9D81 /* en */,
-			);
-			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
 		DDB4A83417849C3F007C7F15 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (

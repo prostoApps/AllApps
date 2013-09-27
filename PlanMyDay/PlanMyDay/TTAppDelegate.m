@@ -39,6 +39,12 @@
     [[UINavigationBar appearance] setBarStyle:UIBarStyleBlackTranslucent];
     UIImage *portraitImage = [UIImage imageNamed:@"bgUiBar.png"];
     [[UINavigationBar appearance] setBackgroundImage:portraitImage forBarMetrics:UIBarMetricsDefault];
+    [[UINavigationBar appearance] setShadowImage:[[UIImage alloc] init]];
+    [[UINavigationBar appearance] setTitleTextAttributes:
+     [NSDictionary dictionaryWithObjectsAndKeys:
+      [UIColor whiteColor], UITextAttributeTextColor,
+      [UIFont fontWithName:FONT_HELVETICA_NEUE_LIGHT size:17.0], UITextAttributeFont,nil]];
+    
     //[navController.navigationBar setBackgroundColor:[[TTAppDataManager sharedAppDataManager] colorWithHexString:@"ffffff"]];
   //  [[UIApplication sharedApplication] set:YES];
     return YES;

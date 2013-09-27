@@ -29,6 +29,10 @@ NSString *const STR_NEW_PROJECT_TYPE        = @"type";
 NSString *const STR_NEW_PROJECT_TASK        = @"Task";
 NSString *const STR_NEW_PROJECT_PROJECT     = @"Project";
 NSString *const STR_NEW_PROJECT_CLIENT      = @"Client";
+
+NSString *const FONT_HELVETICA_NEUE_LIGHT      = @"HelveticaNeue-Light";
+NSString *const FONT_HELVETICA_NEUE_REGULAR    = @"HelveticaNeue-Regular";
+
 + (TTApplicationManager *)sharedApplicationManager
 {
     static TTApplicationManager *sharedApplicationManager;
@@ -104,7 +108,7 @@ NSString *const STR_NEW_PROJECT_CLIENT      = @"Client";
     }
     
     //Ставим стандартный background вьюшке
-    targetViewController.view.backgroundColor = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"background.png"]];
+    targetViewController.view.backgroundColor = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"background.jpg"]];
     UIView * backNavigate = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 64)];
     backNavigate.backgroundColor = [[TTAppDataManager sharedAppDataManager] colorWithHexString:@"#404a54"];
    // [backNavigate set[UINavigationBar appearance]:NO];
