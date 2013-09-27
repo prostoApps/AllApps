@@ -33,12 +33,17 @@
  
     TTAppDataManager * appDataManager = [TTAppDataManager sharedAppDataManager];
     
-    selectIP = appDataManager.indexPathNewProject;
+    selectIP = appDataManager.ipNewProjectSelectProperty;
     selectStr = [NSString stringWithFormat:@"%@",[appDataManager getNewProjectFormDataValue:STR_NEW_PROJECT_NAME byIndexPath:selectIP]];
     [self setTitle:[NSString stringWithFormat:@"Choose %@",selectStr]];
     
-    arrProperties = [[TTAppDataManager sharedAppDataManager] getAllClients];
-    [self.view setBackgroundColor:[UIColor redColor]];
+    if ([selectStr isEqualToString:STR_NEW_PROJECT_CLIENT]){
+       arrProperties = [appDataManager getAllClients];
+    }
+    else if ([selectStr isEqualToString:STR_NEW_PROJECT_PROJECT]){
+         arrProperties = [appDataManager getAllProjects];
+    }
+    
     
     //Внешний вид
     [searchBar setSearchFieldBackgroundImage:[UIImage imageNamed:@"bgUiSearch.png"] forState:UIControlStateNormal];
@@ -65,10 +70,22 @@
         cell.textLabel.textColor = [UIColor whiteColor];
         
     }
+    if ([selectStr isEqualToString:STR_NEW_PROJECT_CLIENT]){
+        cell.textLabel.text = [[arrProperties objectAtIndex:[indexPath row]] objectForKey:STR_CLIENT_NAME];
+    }
+    else if ([selectStr isEqualToString:STR_NEW_PROJECT_PROJECT]){
+        cell.textLabel.text = [[arrProperties objectAtIndex:[indexPath row]] objectForKey:STR_PROJECT_NAME];
+    }
     
-    cell.textLabel.text = [[arrProperties objectAtIndex:[indexPath row]] objectForKey:@"projectName"];
     
     return cell;
+}
+// Tap on table Row
+- (void) tableView: (UITableView *) tableView didSelectRowAtIndexPath: (NSIndexPath *) indexPath {
+      TTAppDataManager * appDataManager = [TTAppDataManager sharedAppDataManager];
+    UITableViewCell * cell = [tableView cellForRowAtIndexPath:indexPath];
+    [appDataManager saveNewProjectFormDataValue:cell.textLabel.text byIndexPath:appDataManager.ipNewProjectSelectProperty];
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath

@@ -13,7 +13,7 @@
 static TTLocalDataManager *localDataManager;
 //@synthesize localDataManager;
 
-@synthesize indexPathNewProject;
+@synthesize ipNewProjectSelectProperty;
 @synthesize nameNewProject;
 @synthesize segmentIndexNewProject;
 @synthesize dictNewProjectIndexPaths;
@@ -87,10 +87,16 @@ static TTLocalDataManager *localDataManager;
     return [dictNewProjectFormData objectForKey:nameNewProject];
     
 }
--(void)saveNewProjectFormDataValue:(NSObject*)object onSection:(NSInteger)section onRow:(NSInteger)row{
+-(void)saveNewProjectFormDataValue:(NSObject*)object byIndexPath:(NSIndexPath*)indexPath{
     
-    [[[[[dictNewProjectFormData objectForKey:nameNewProject] objectAtIndex:section] objectForKey:STR_NEW_PROJECT_CELLS] objectAtIndex:row] setObject:object forKey:STR_NEW_PROJECT_VALUE];
+    [[[[[dictNewProjectFormData objectForKey:nameNewProject] objectAtIndex:[indexPath section]]objectForKey:STR_NEW_PROJECT_CELLS]
+            objectAtIndex:[indexPath row]] setObject:object forKey:STR_NEW_PROJECT_VALUE];
     
+}
+-(void) clearNewProjectFormData{
+    NSString* plistPath = [[NSBundle mainBundle] pathForResource:@"PropertyListOfViewForms" ofType:@"plist"];
+    NSDictionary * clearDictionary = [[NSDictionary alloc] initWithContentsOfFile:plistPath];
+    [dictNewProjectFormData setObject:[clearDictionary objectForKey:nameNewProject] forKey:nameNewProject];
 }
 
 //Save Item to Device
@@ -101,8 +107,8 @@ static TTLocalDataManager *localDataManager;
     {
 
         item.strTaskName = [NSString stringWithFormat:@"%@",[self getNewProjectFormDataValue:STR_NEW_PROJECT_VALUE byIndexPath:[[dictNewProjectIndexPaths objectForKey:nameNewProject] objectForKey:STR_NEW_PROJECT_NAME]]];
-        item.strProjectName = [NSString stringWithFormat:@"%@",[self getNewProjectFormDataValue:STR_NEW_PROJECT_VALUE byIndexPath:[[dictNewProjectIndexPaths objectForKey:nameNewProject] objectForKey:STR_NEW_PROJECT_NAME]]];
-        item.strClientName = [NSString stringWithFormat:@"%@",[self getNewProjectFormDataValue:STR_NEW_PROJECT_VALUE byIndexPath:[[dictNewProjectIndexPaths objectForKey:nameNewProject] objectForKey:STR_NEW_PROJECT_NAME]]];
+        item.strProjectName = [NSString stringWithFormat:@"%@",[self getNewProjectFormDataValue:STR_NEW_PROJECT_VALUE byIndexPath:[[dictNewProjectIndexPaths objectForKey:nameNewProject] objectForKey:STR_NEW_PROJECT_PROJECT]]];
+        item.strClientName = [NSString stringWithFormat:@"%@",[self getNewProjectFormDataValue:STR_NEW_PROJECT_VALUE byIndexPath:[[dictNewProjectIndexPaths objectForKey:nameNewProject] objectForKey:STR_NEW_PROJECT_CLIENT]]];
  
         
     }
@@ -182,6 +188,11 @@ static TTLocalDataManager *localDataManager;
     int g = (hex >> 8) & 0xFF;
     int b = (hex) & 0xFF;
     return [UIColor colorWithRed:r / 255.0f green:g / 255.0f blue:b / 255.0f alpha:1.0f];
+}
+- (UIButton*)makeButtonStyled:(UIButton*)button{
+    button.layer.cornerRadius = 3;
+    button.layer.masksToBounds = YES;
+    return button;
 }
 
 

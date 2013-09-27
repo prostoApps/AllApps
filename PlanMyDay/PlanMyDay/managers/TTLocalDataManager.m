@@ -379,7 +379,7 @@
     }//end if
     else
     {
-        [self initTestData];
+    //    [self initTestData];
     }
     
     return arrAllTasks;
@@ -387,6 +387,7 @@
 
 -(NSMutableArray*)getAllTasksForToday
 {
+    arrAllTasks = [[NSMutableArray alloc] init];
     NSDate *dtDateToday = [NSDate date];
     //  [self initTestData];
     
@@ -425,7 +426,7 @@
     }//end if
     else
     {
-        [self initTestData];
+    //    [self initTestData];
     }
     
     return arrAllTasks;
@@ -433,7 +434,7 @@
 
 -(NSMutableArray*)getAllProjects
 {
-    
+     arrAllProjects = [[NSMutableArray alloc] init];
     
     if (arrAllProjects.count > 0) {
         [arrAllProjects removeAllObjects];
@@ -477,4 +478,6 @@
     NSLog(@"%@",arrAllClients);
     return arrAllClients;
 }
+
+
 @end

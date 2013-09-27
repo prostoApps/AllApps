@@ -21,7 +21,7 @@
 }
 
 //@property (nonatomic, retain) TTLocalDataManager *localDataManager;
-@property (nonatomic,copy) NSIndexPath * indexPathNewProject;
+@property (nonatomic,copy) NSIndexPath * ipNewProjectSelectProperty;
 @property (nonatomic,copy) NSString * nameNewProject;
 @property (nonatomic,readwrite) int segmentIndexNewProject;
 @property (nonatomic,readwrite) NSMutableDictionary * dictNewProjectIndexPaths;
@@ -34,15 +34,17 @@
 -(NSDictionary*)readDataFromFile:(NSString*)pathToFile;
 
 -(void)saveTTItem;
--(void)saveNewProjectFormDataValue:(NSObject*)value onSection:(NSInteger)section onRow:(NSInteger)row;
-
+-(void)saveNewProjectFormDataValue:(NSObject*)value byIndexPath:(NSIndexPath*)indexPath;
 -(void)loadNewProjectFormData;
 
 -(NSMutableArray*)getAllTasks;
 -(NSMutableArray*)getAllProjects;
 -(NSMutableArray*)getAllClients;
 -(NSMutableArray*)getAllTasksForToday;
+
+-(void) clearNewProjectFormData;
 - (UIColor *)colorWithHexString:(NSString *)stringToConvert;
+- (UIButton*)makeButtonStyled:(UIButton *)button;
 
 + (TTAppDataManager *)sharedAppDataManager;
 @end

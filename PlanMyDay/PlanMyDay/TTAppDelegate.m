@@ -18,8 +18,12 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
     
+    
+
+    
     TTMainClockViewController *mainController = [[TTMainClockViewController alloc] init];
     UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:mainController];
+    
     
     DDMenuController * rootController = [[DDMenuController alloc] initWithRootViewController:navController];
     _menuController = rootController;
@@ -29,7 +33,13 @@
 
     [self.window setRootViewController:_menuController];
     [self.window makeKeyAndVisible];
-  //  [[UINavigationBar appearance] setBarStyle:UIBarStyleBlackTranslucent];
+    
+    
+  // UINavigationBar
+    [[UINavigationBar appearance] setBarStyle:UIBarStyleBlackTranslucent];
+    UIImage *portraitImage = [UIImage imageNamed:@"bgUiBar.png"];
+    [[UINavigationBar appearance] setBackgroundImage:portraitImage forBarMetrics:UIBarMetricsDefault];
+    //[navController.navigationBar setBackgroundColor:[[TTAppDataManager sharedAppDataManager] colorWithHexString:@"ffffff"]];
   //  [[UIApplication sharedApplication] set:YES];
     return YES;
 }

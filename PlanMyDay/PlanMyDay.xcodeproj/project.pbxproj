@@ -15,6 +15,9 @@
 		05103CDA17EA1EAF008C9D81 /* bgTaskInfoLabel@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 05103CD917EA1EAF008C9D81 /* bgTaskInfoLabel@2x.png */; };
 		05103CDD17EA2015008C9D81 /* bgUiSearch.png in Resources */ = {isa = PBXBuildFile; fileRef = 05103CDB17EA2015008C9D81 /* bgUiSearch.png */; };
 		05103CDE17EA2015008C9D81 /* bgUiSearch@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 05103CDC17EA2015008C9D81 /* bgUiSearch@2x.png */; };
+		055A402517F5A5BB004E0617 /* background_clear.png in Resources */ = {isa = PBXBuildFile; fileRef = 055A5DC417D4E16200A0FE85 /* background_clear.png */; };
+		055A402617F5A5C0004E0617 /* background_clear@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 055A5DC517D4E2AE00A0FE85 /* background_clear@2x.png */; };
+		055A402C17F5A869004E0617 /* bgUiBar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 055A402A17F5A869004E0617 /* bgUiBar@2x.png */; };
 		0596765117D0CAD000653A60 /* DDMenuController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0596765017D0CAD000653A60 /* DDMenuController.m */; };
 		05BAA80417E1F586003D7498 /* PropertyListOfViewForms.plist in Resources */ = {isa = PBXBuildFile; fileRef = 05BAA80317E1F586003D7498 /* PropertyListOfViewForms.plist */; };
 		05C454AB17F45B0100FD566C /* TTNewProjectViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05941E9117E9BFCE0079C571 /* TTNewProjectViewController.xib */; };
@@ -101,6 +104,7 @@
 		05103CD917EA1EAF008C9D81 /* bgTaskInfoLabel@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bgTaskInfoLabel@2x.png"; sourceTree = "<group>"; };
 		05103CDB17EA2015008C9D81 /* bgUiSearch.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bgUiSearch.png; sourceTree = "<group>"; };
 		05103CDC17EA2015008C9D81 /* bgUiSearch@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bgUiSearch@2x.png"; sourceTree = "<group>"; };
+		055A402A17F5A869004E0617 /* bgUiBar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bgUiBar@2x.png"; sourceTree = "<group>"; };
 		055A5DC417D4E16200A0FE85 /* background_clear.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background_clear.png; sourceTree = "<group>"; };
 		055A5DC517D4E2AE00A0FE85 /* background_clear@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "background_clear@2x.png"; sourceTree = "<group>"; };
 		05941E9117E9BFCE0079C571 /* TTNewProjectViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = TTNewProjectViewController.xib; path = viewControllers/TTNewProjectViewController.xib; sourceTree = "<group>"; };
@@ -269,6 +273,7 @@
 		DD7BAE3917A5BE4400CACFB2 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				055A402A17F5A869004E0617 /* bgUiBar@2x.png */,
 				05103CDB17EA2015008C9D81 /* bgUiSearch.png */,
 				05103CDC17EA2015008C9D81 /* bgUiSearch@2x.png */,
 				05103CD917EA1EAF008C9D81 /* bgTaskInfoLabel@2x.png */,
@@ -607,14 +612,17 @@
 				DDB4A889178523B2007C7F15 /* TTSettingsViewController.xib in Resources */,
 				DDB4A88A178523B2007C7F15 /* TTStatisticsViewController.xib in Resources */,
 				DD7BAE3117A5BDCA00CACFB2 /* TTTasksTableViewCell.xib in Resources */,
+				055A402617F5A5C0004E0617 /* background_clear@2x.png in Resources */,
 				DD7BAE3717A5BDDB00CACFB2 /* TTTasksViewController.xib in Resources */,
 				DD7BAE4017A5BE4400CACFB2 /* background.png in Resources */,
 				05103CDE17EA2015008C9D81 /* bgUiSearch@2x.png in Resources */,
 				DD7BAE4117A5BE4400CACFB2 /* ckeck_cell_icons.png in Resources */,
+				055A402C17F5A869004E0617 /* bgUiBar@2x.png in Resources */,
 				DD7BAE4217A5BE4400CACFB2 /* delete_cell_icon.png in Resources */,
 				DD7BAE4317A5BE4400CACFB2 /* one_task_back@2x.png in Resources */,
 				DD7BAE4417A5BE4400CACFB2 /* task_icons.png in Resources */,
 				DD7BAE4517A5BE4400CACFB2 /* bgTaskInfoLabel.png in Resources */,
+				055A402517F5A5BB004E0617 /* background_clear.png in Resources */,
 				DD7BAE4E17A5C24600CACFB2 /* TTCustomTrackerViewController.xib in Resources */,
 				DD90BF5517A9FEB50064233C /* TTCurrentTaskNextTaskIndicatorViewController.xib in Resources */,
 				DD90BF6017AA06210064233C /* -clock-face.png in Resources */,

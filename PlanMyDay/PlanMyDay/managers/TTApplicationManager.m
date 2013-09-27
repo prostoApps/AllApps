@@ -109,7 +109,7 @@ NSString *const STR_NEW_PROJECT_CLIENT      = @"Client";
     backNavigate.backgroundColor = [[TTAppDataManager sharedAppDataManager] colorWithHexString:@"#404a54"];
    // [backNavigate set[UINavigationBar appearance]:NO];
     backNavigate.alpha = 0.9f;
-    [targetViewController.view addSubview:backNavigate];
+   // [targetViewController.view addSubview:backNavigate];
     return targetViewController;
     
 }

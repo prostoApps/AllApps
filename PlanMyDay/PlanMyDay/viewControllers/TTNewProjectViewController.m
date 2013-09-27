@@ -37,12 +37,15 @@
 
 - (void)viewDidLoad
 {
-    [super viewDidLoad];
-
-
     
-     TTAppDataManager * appDataManager = [TTAppDataManager sharedAppDataManager];
-
+    [super viewDidLoad];
+    
+    TTAppDataManager * appDataManager = [TTAppDataManager sharedAppDataManager];
+    
+    [appDataManager makeButtonStyled:btnSave];
+    [tableViewNewProject setTableHeaderView:headerTableViewNewProject];
+    [tableViewNewProject setTableFooterView:footerTableViewNewProject];
+    
 	// Do any additional setup after loading the view.
     if (appDataManager.nameNewProject == nil)
     {
@@ -53,6 +56,12 @@
     [self loadPropertyForView];
 }
 
+-(void) viewWillAppear:(BOOL)animated{
+    
+    if (tableViewNewProject != nil){
+        [tableViewNewProject reloadData];
+    }
+}
 - (void) loadPropertyForView {
     
     TTAppDataManager * appDataManager = [TTAppDataManager sharedAppDataManager];
@@ -63,7 +72,7 @@
     [scTaskProjectClient setSelectedSegmentIndex:appDataManager.segmentIndexNewProject];
     
     currentFormPropertyArray = [appDataManager getNewProjectFormData];
-    [TaskTableView reloadData];
+    [tableViewNewProject reloadData];
     
 }
 
@@ -156,7 +165,7 @@
 
 // Tap on table Row
 - (void) tableView: (UITableView *) tableView didSelectRowAtIndexPath: (NSIndexPath *) indexPath {
-    [[TTAppDataManager sharedAppDataManager] setIndexPathNewProject:indexPath];
+    [[TTAppDataManager sharedAppDataManager] setIpNewProjectSelectProperty:indexPath];
     UITableViewCell * cell = [tableView cellForRowAtIndexPath:indexPath];
     NSLog(@"%d",cell.accessoryType);
     if (cell.accessoryType == 1){
@@ -184,9 +193,9 @@
 - (void) switchChanged:(id)sender
 {
     UISwitch* switchControl = sender;
-    NSIndexPath *indexPath = [TaskTableView indexPathForCell:(UITableViewCell*)[[switchControl superview] superview]]; // this should return you
+    NSIndexPath *indexPath = [tableViewNewProject indexPathForCell:(UITableViewCell*)[[switchControl superview] superview]]; // this should return you
     TTAppDataManager * appDataManager = [TTAppDataManager sharedAppDataManager];
-    [appDataManager saveNewProjectFormDataValue:switchControl.on ? @"YES" : @"NO" onSection:[indexPath section] onRow:[indexPath row]];
+    [appDataManager saveNewProjectFormDataValue:switchControl.on ? @"YES" : @"NO" byIndexPath:indexPath];
 }
 
 #pragma mark -
@@ -200,10 +209,10 @@
 
 - (void)textFieldDidEndEditing:(UITextField *)textField
 {
-	 NSIndexPath *indexPath = [TaskTableView indexPathForCell:(UITableViewCell*)[[textField superview] superview]]; // this should return you your current indexPath
+	 NSIndexPath *indexPath = [tableViewNewProject indexPathForCell:(UITableViewCell*)[[textField superview] superview]]; // this should return you your current indexPath
     TTAppDataManager * appDataManager = [TTAppDataManager sharedAppDataManager];
     
-    [appDataManager saveNewProjectFormDataValue:textField.text onSection:[indexPath section] onRow:[indexPath row]];
+    [appDataManager saveNewProjectFormDataValue:textField.text byIndexPath:indexPath];
     
  }
 
@@ -235,6 +244,8 @@
 -(IBAction) btnSaveTouchHandler:(id)sender{
     
    [[TTAppDataManager sharedAppDataManager] saveTTItem];
+    [[TTAppDataManager sharedAppDataManager] clearNewProjectFormData];
+   [self.navigationController popViewControllerAnimated:YES];
     
 }
 

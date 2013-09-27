@@ -14,10 +14,11 @@
 
 @interface TTNewProjectViewController : UIViewController <UITextFieldDelegate>
 {
-    IBOutlet UITableView *TaskTableView;
-    
+    IBOutlet UITableView * TaskTableView;
     
     IBOutlet UITableView * tableViewNewProject;
+    IBOutlet UIView * headerTableViewNewProject;
+    IBOutlet UIView * footerTableViewNewProject;
     IBOutlet UISegmentedControl *scTaskProjectClient;
     IBOutlet UIButton * btnSave;
     IBOutlet UIScrollView * scrvScrollView;
