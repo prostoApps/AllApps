@@ -23,13 +23,16 @@
     IBOutlet UIButton * btnSave;
     IBOutlet UIScrollView * scrvScrollView;
     
+    IBOutlet UIDatePicker * dpTaskDatePicker;
+    
 }
 
+-(IBAction) datePickerPickHandler:(id)sender;
 -(IBAction) btnSaveTouchHandler:(id)sender;
 
 
 @property(nonatomic,retain) IBOutlet UISegmentedControl *scTaskProjectClient;
-
+@property(nonatomic,retain) IBOutlet UIDatePicker * dpTaskDatePicker;
 -(IBAction) segmentedControlIndexChanged;
 
 @end

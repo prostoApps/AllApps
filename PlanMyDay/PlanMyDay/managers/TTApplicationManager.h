@@ -42,6 +42,8 @@ extern NSString *const STR_NEW_PROJECT_CLIENT;
 extern NSString *const FONT_HELVETICA_NEUE_LIGHT;
 extern NSString *const FONT_HELVETICA_NEUE_REGULAR;
 
+//@property (nonatomic, retain) 
+
 + (TTApplicationManager *)sharedApplicationManager;
 -(void) pushViewTo:(NSString*) strNewView forNavigationController:(UINavigationController*) navController;
 -(void) switchViewTo:(NSString*) strNewView forNavigationController:(UINavigationController*) navController;

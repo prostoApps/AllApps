@@ -21,7 +21,7 @@
 
 @implementation TTNewProjectViewController
 
-@synthesize scTaskProjectClient;
+@synthesize scTaskProjectClient,dpTaskDatePicker;
 
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -182,6 +182,8 @@
 // Tap on table Row
 - (void) tableView: (UITableView *) tableView didSelectRowAtIndexPath: (NSIndexPath *) indexPath {
     [[TTAppDataManager sharedAppDataManager] setIpNewProjectSelectProperty:indexPath];
+    
+//    [[TTApplicationManager sharedApplicationManager] ];
     UITableViewCell * cell = [tableView cellForRowAtIndexPath:indexPath];
     NSLog(@"%d",cell.accessoryType);
     if (cell.accessoryType == 1){
@@ -263,6 +265,11 @@
     [[TTAppDataManager sharedAppDataManager] clearNewProjectFormData];
    [self.navigationController popViewControllerAnimated:YES];
     
+}
+
+-(IBAction) datePickerPickHandler:(id)sender
+{
+    NSLog(@"datePicked: %@",[[dpTaskDatePicker date] description]);
 }
 
 - (void)didReceiveMemoryWarning
