@@ -25,6 +25,7 @@ extern NSString *const VIEW_STATISTICS;
 extern NSString *const VIEW_CURRENT_TASKS;
 extern NSString *const VIEW_NEW_TASK;
 extern NSString *const VIEW_SELECT_PROPERTY;
+extern NSString *const VIEW_SELECT_COLOR;
 extern NSString *const VIEW_CREATE_PROPERTY;
 extern NSString *const VIEW_PROFILE;
 extern NSString *const VIEW_CUSTOM_TRACKER;
@@ -38,6 +39,7 @@ extern NSString *const STR_NEW_PROJECT_TYPE;
 extern NSString *const STR_NEW_PROJECT_TASK;
 extern NSString *const STR_NEW_PROJECT_PROJECT;
 extern NSString *const STR_NEW_PROJECT_CLIENT;
+extern NSString *const STR_NEW_PROJECT_COLOR;
 
 extern NSString *const FONT_HELVETICA_NEUE_LIGHT;
 extern NSString *const FONT_HELVETICA_NEUE_REGULAR;

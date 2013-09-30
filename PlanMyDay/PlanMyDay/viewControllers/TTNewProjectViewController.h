@@ -10,6 +10,7 @@
 #import "TTApplicationManager.h"
 #import "TTCreatePropertyViewController.h"
 #import "TTSelectPropertyViewController.h"
+#import "TTSelectColorViewController.h"
 #import <QuartzCore/QuartzCore.h>
 
 @interface TTNewProjectViewController : UIViewController <UITextFieldDelegate>
@@ -22,7 +23,6 @@
     IBOutlet UISegmentedControl *scTaskProjectClient;
     IBOutlet UIButton * btnSave;
     IBOutlet UIScrollView * scrvScrollView;
-    
 }
 
 -(IBAction) btnSaveTouchHandler:(id)sender;

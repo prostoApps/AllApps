@@ -18,17 +18,14 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
     
-    
-
-    
     TTMainClockViewController *mainController = [[TTMainClockViewController alloc] init];
     UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:mainController];
-    
     
     DDMenuController * rootController = [[DDMenuController alloc] initWithRootViewController:navController];
     _menuController = rootController;
     
     TTMenuViewController *leftController = [[TTMenuViewController alloc] init];
+    
     rootController.leftViewController = leftController;
 
     [self.window setRootViewController:_menuController];
@@ -37,16 +34,18 @@
     
   // UINavigationBar
     [[UINavigationBar appearance] setBarStyle:UIBarStyleBlackTranslucent];
+    // бекграунд бара
     UIImage *portraitImage = [UIImage imageNamed:@"bgUiBar.png"];
     [[UINavigationBar appearance] setBackgroundImage:portraitImage forBarMetrics:UIBarMetricsDefault];
+    // убираем полоску 1px под баром
     [[UINavigationBar appearance] setShadowImage:[[UIImage alloc] init]];
+    // текстовые атрибуты бара
     [[UINavigationBar appearance] setTitleTextAttributes:
-     [NSDictionary dictionaryWithObjectsAndKeys:
-      [UIColor whiteColor], UITextAttributeTextColor,
-      [UIFont fontWithName:FONT_HELVETICA_NEUE_LIGHT size:17.0], UITextAttributeFont,nil]];
-    
-    //[navController.navigationBar setBackgroundColor:[[TTAppDataManager sharedAppDataManager] colorWithHexString:@"ffffff"]];
-  //  [[UIApplication sharedApplication] set:YES];
+    [NSDictionary dictionaryWithObjectsAndKeys:
+        [UIColor whiteColor], UITextAttributeTextColor,
+        [UIFont fontWithName:FONT_HELVETICA_NEUE_LIGHT size:17.0], UITextAttributeFont,nil]
+    ];
+
     return YES;
 }
 

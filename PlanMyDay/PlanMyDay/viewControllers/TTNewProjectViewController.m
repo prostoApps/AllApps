@@ -117,8 +117,6 @@
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         cell.detailTextLabel.textColor = [UIColor whiteColor];
         cell.detailTextLabel.font = [UIFont fontWithName:FONT_HELVETICA_NEUE_LIGHT size:17];
-        
-        
     }
     else
     {
@@ -182,11 +180,22 @@
 // Tap on table Row
 - (void) tableView: (UITableView *) tableView didSelectRowAtIndexPath: (NSIndexPath *) indexPath {
     [[TTAppDataManager sharedAppDataManager] setIpNewProjectSelectProperty:indexPath];
+    
+    NSString * selectStr = [NSString stringWithFormat:@"%@",[[TTAppDataManager sharedAppDataManager] getNewProjectFormDataValue:STR_NEW_PROJECT_NAME byIndexPath:indexPath]];
+    
     UITableViewCell * cell = [tableView cellForRowAtIndexPath:indexPath];
     NSLog(@"%d",cell.accessoryType);
     if (cell.accessoryType == 1){
         
-      [[TTApplicationManager sharedApplicationManager] pushViewTo:VIEW_SELECT_PROPERTY forNavigationController:self.navigationController];
+        if( [selectStr isEqualToString:STR_NEW_PROJECT_COLOR])
+        {
+            [[TTApplicationManager sharedApplicationManager] pushViewTo:VIEW_SELECT_COLOR forNavigationController:self.navigationController];
+        }
+        else
+        {
+          [[TTApplicationManager sharedApplicationManager] pushViewTo:VIEW_SELECT_PROPERTY forNavigationController:self.navigationController];
+        }
+      
     
 //    NSMutableArray *arrClients = [[NSMutableArray alloc] initWithArray:[[TTAppDataManager sharedAppDataManager] getAllClients]];
 //        //еcли есть клиенты - переходим на вью выбора клиента

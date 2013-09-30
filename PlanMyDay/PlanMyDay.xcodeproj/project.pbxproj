@@ -22,6 +22,10 @@
 		05C454AB17F45B0100FD566C /* TTNewProjectViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05941E9117E9BFCE0079C571 /* TTNewProjectViewController.xib */; };
 		05C8136E17C6283E00E90B2F /* icon_button_arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 05C8136C17C6283E00E90B2F /* icon_button_arrow.png */; };
 		05C8136F17C6283E00E90B2F /* icon_button_arrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 05C8136D17C6283E00E90B2F /* icon_button_arrow@2x.png */; };
+		05CD803B17F9A4D00014B980 /* button_new_project.png in Resources */ = {isa = PBXBuildFile; fileRef = 05CD803917F9A4D00014B980 /* button_new_project.png */; };
+		05CD803C17F9A4D00014B980 /* button_new_project@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 05CD803A17F9A4D00014B980 /* button_new_project@2x.png */; };
+		05CD804017F9EB6C0014B980 /* TTSelectColorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05CD803E17F9EB6C0014B980 /* TTSelectColorViewController.m */; };
+		05CD804117F9EB6C0014B980 /* TTSelectColorViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05CD803F17F9EB6C0014B980 /* TTSelectColorViewController.xib */; };
 		05EF3DCE17C24FB0000005E8 /* clock-hour-background_TT.png in Resources */ = {isa = PBXBuildFile; fileRef = 05EF3DCD17C24FB0000005E8 /* clock-hour-background_TT.png */; };
 		05EF3DD117C25125000005E8 /* clock-min-background_TT.png in Resources */ = {isa = PBXBuildFile; fileRef = 05EF3DCF17C25125000005E8 /* clock-min-background_TT.png */; };
 		05EF3DD217C25125000005E8 /* clock-sec-background_TT.png in Resources */ = {isa = PBXBuildFile; fileRef = 05EF3DD017C25125000005E8 /* clock-sec-background_TT.png */; };
@@ -108,6 +112,11 @@
 		05C8136B17C622C700E90B2F /* bgTaskInfoLabel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bgTaskInfoLabel.png; sourceTree = "<group>"; };
 		05C8136C17C6283E00E90B2F /* icon_button_arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_button_arrow.png; sourceTree = "<group>"; };
 		05C8136D17C6283E00E90B2F /* icon_button_arrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_button_arrow@2x.png"; sourceTree = "<group>"; };
+		05CD803917F9A4D00014B980 /* button_new_project.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_new_project.png; sourceTree = "<group>"; };
+		05CD803A17F9A4D00014B980 /* button_new_project@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "button_new_project@2x.png"; sourceTree = "<group>"; };
+		05CD803D17F9EB6C0014B980 /* TTSelectColorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TTSelectColorViewController.h; path = viewControllers/newProject/TTSelectColorViewController.h; sourceTree = "<group>"; };
+		05CD803E17F9EB6C0014B980 /* TTSelectColorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TTSelectColorViewController.m; path = viewControllers/newProject/TTSelectColorViewController.m; sourceTree = "<group>"; };
+		05CD803F17F9EB6C0014B980 /* TTSelectColorViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TTSelectColorViewController.xib; path = viewControllers/newProject/TTSelectColorViewController.xib; sourceTree = "<group>"; };
 		05EF3DCD17C24FB0000005E8 /* clock-hour-background_TT.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "clock-hour-background_TT.png"; path = "mainClock/clock-hour-background_TT.png"; sourceTree = "<group>"; };
 		05EF3DCF17C25125000005E8 /* clock-min-background_TT.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "clock-min-background_TT.png"; path = "mainClock/clock-min-background_TT.png"; sourceTree = "<group>"; };
 		05EF3DD017C25125000005E8 /* clock-sec-background_TT.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "clock-sec-background_TT.png"; path = "mainClock/clock-sec-background_TT.png"; sourceTree = "<group>"; };
@@ -246,6 +255,8 @@
 		DD7BAE3917A5BE4400CACFB2 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				05CD803917F9A4D00014B980 /* button_new_project.png */,
+				05CD803A17F9A4D00014B980 /* button_new_project@2x.png */,
 				055A403117F5E616004E0617 /* bgUiBar.jpg */,
 				055A403217F5E616004E0617 /* bgUiBar@2x.jpg */,
 				055A402D17F5E5A7004E0617 /* background.jpg */,
@@ -385,6 +396,9 @@
 				DD968BA217B7BC1C008D583F /* TTCreatePropertyViewController.h */,
 				DD968BA317B7BC1C008D583F /* TTCreatePropertyViewController.m */,
 				DD968BA417B7BC1C008D583F /* TTCreatePropertyViewController.xib */,
+				05CD803D17F9EB6C0014B980 /* TTSelectColorViewController.h */,
+				05CD803E17F9EB6C0014B980 /* TTSelectColorViewController.m */,
+				05CD803F17F9EB6C0014B980 /* TTSelectColorViewController.xib */,
 			);
 			name = newProjectView;
 			sourceTree = "<group>";
@@ -573,10 +587,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				05CD803B17F9A4D00014B980 /* button_new_project.png in Resources */,
 				DDB4A83617849C3F007C7F15 /* InfoPlist.strings in Resources */,
 				DDB4A83E17849C3F007C7F15 /* Default.png in Resources */,
 				DDB4A84017849C3F007C7F15 /* Default@2x.png in Resources */,
 				055A403417F5E616004E0617 /* bgUiBar@2x.jpg in Resources */,
+				05CD803C17F9A4D00014B980 /* button_new_project@2x.png in Resources */,
 				DDB4A84217849C3F007C7F15 /* Default-568h@2x.png in Resources */,
 				DDB4A84817849C3F007C7F15 /* TTViewController.xib in Resources */,
 				DDB4A85217850BCE007C7F15 /* TTMainClockViewController.xib in Resources */,
@@ -603,6 +619,7 @@
 				05BAA80417E1F586003D7498 /* PropertyListOfViewForms.plist in Resources */,
 				05103CDA17EA1EAF008C9D81 /* bgTaskInfoLabel@2x.png in Resources */,
 				DD90BF6417AA06210064233C /* clock-min-background_.png in Resources */,
+				05CD804117F9EB6C0014B980 /* TTSelectColorViewController.xib in Resources */,
 				05C8136F17C6283E00E90B2F /* icon_button_arrow@2x.png in Resources */,
 				DD90BF6517AA06210064233C /* clock-min-background.png in Resources */,
 				05103CDD17EA2015008C9D81 /* bgUiSearch.png in Resources */,
@@ -646,6 +663,7 @@
 				DDA17431178A38F40000132D /* TTApplicationManager.m in Sources */,
 				DD7BAE3217A5BDCA00CACFB2 /* TTTasksTableViewCell.m in Sources */,
 				DD7BAE3617A5BDDB00CACFB2 /* TTTasksViewController.m in Sources */,
+				05CD804017F9EB6C0014B980 /* TTSelectColorViewController.m in Sources */,
 				DD7BAE4D17A5C24600CACFB2 /* TTCustomTrackerViewController.m in Sources */,
 				DD7BAE5217A5C3A500CACFB2 /* DACircularProgressView.m in Sources */,
 				DD90BF5417A9FEB50064233C /* TTCurrentTaskNextTaskIndicatorViewController.m in Sources */,

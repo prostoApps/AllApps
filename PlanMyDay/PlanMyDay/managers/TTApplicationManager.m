@@ -16,6 +16,7 @@ NSString *const VIEW_STATISTICS             = @"viewStatistics";
 NSString *const VIEW_CURRENT_TASKS          = @"viewCurrentTasks";
 NSString *const VIEW_NEW_TASK               = @"viewNewTask";
 NSString *const VIEW_SELECT_PROPERTY        = @"viewSelectProperty";
+NSString *const VIEW_SELECT_COLOR           = @"viewSelectColor";
 NSString *const VIEW_CREATE_PROPERTY        = @"viewCreateProperty";
 NSString *const VIEW_PROFILE                = @"viewProfile";
 NSString *const VIEW_CUSTOM_TRACKER         = @"viewCustomTracker";
@@ -29,6 +30,7 @@ NSString *const STR_NEW_PROJECT_TYPE        = @"type";
 NSString *const STR_NEW_PROJECT_TASK        = @"Task";
 NSString *const STR_NEW_PROJECT_PROJECT     = @"Project";
 NSString *const STR_NEW_PROJECT_CLIENT      = @"Client";
+NSString *const STR_NEW_PROJECT_COLOR       = @"Color";
 
 NSString *const FONT_HELVETICA_NEUE_LIGHT      = @"HelveticaNeue-Light";
 NSString *const FONT_HELVETICA_NEUE_REGULAR    = @"HelveticaNeue-Regular";
@@ -95,6 +97,12 @@ NSString *const FONT_HELVETICA_NEUE_REGULAR    = @"HelveticaNeue-Regular";
         targetViewController = [[TTSelectPropertyViewController alloc]
                                 initWithNibName:@"TTSelectPropertyViewController" bundle:nil];
     }
+    else if (strViewController == VIEW_SELECT_COLOR)
+    {
+        NSLog(@"open  VIEW_SELECT_COLOR view ");
+        targetViewController = [[TTSelectColorViewController alloc]
+                                initWithNibName:@"TTSelectColorViewController" bundle:nil];
+    }
     else if (strViewController == VIEW_PROFILE)
     {
         NSLog(@"open  VIEW_PROFILE view");
@@ -121,6 +129,9 @@ NSString *const FONT_HELVETICA_NEUE_REGULAR    = @"HelveticaNeue-Regular";
 {
     // определяем новый вью контроллер
     UIViewController* targetViewController  = [self getUIViewControllerFromString:strNewView];
+    
+    UIBarButtonItem *backButton=[[UIBarButtonItem alloc]initWithTitle:@"" style:UIBarButtonItemStyleBordered  target:self action:nil];
+    [targetViewController.navigationItem setBackBarButtonItem:backButton];
     
     [navController pushViewController:targetViewController animated:YES];
     

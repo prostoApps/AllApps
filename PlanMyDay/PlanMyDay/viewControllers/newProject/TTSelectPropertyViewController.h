@@ -14,6 +14,8 @@
     NSIndexPath * selectIP;
     NSString * selectStr;
     IBOutlet UISearchBar * searchBar;
+    IBOutlet UIButton * btnAddFirst;
+    IBOutlet UILabel * lbAddFirst;
 }
 
 @property (nonatomic, retain) NSMutableArray *arrProperties;
