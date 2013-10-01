@@ -7,17 +7,18 @@
 //
 
 #import <UIKit/UIKit.h>
+
 @protocol TTTasksTableViewCellDelegate <NSObject>
 
 -(void)allowTTTasksTableViewScroll:(BOOL)variable;
 -(void)deleteCellFromTTTasksTableView:(id)cell;
 -(void)checkCellFromTTTasksTableView:(id)cell;
-
+-(void)iconTaskWasTaped:(UITableViewCell*)cell;
 @end
 
 @interface TTTasksTableViewCell : UITableViewCell {
     IBOutlet UIImageView *taskCheckBackground;
-    UIImageView *taskIcon;
+    UIButton *taskIcon;
     IBOutlet UILabel *curentTaskTime;
     IBOutlet UIImageView *taskColor;
     IBOutlet UIView *taskContentView;

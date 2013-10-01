@@ -69,6 +69,10 @@
     
     [tasksTableView reloadData];
 }
+-(void)iconTaskWasTaped:(UITableViewCell*)cell{
+    [[TTApplicationManager sharedApplicationManager] switchViewTo:VIEW_CUSTOM_TRACKER forNavigationController:self.navigationController];
+    
+}
 
 #pragma mark UITableViewDataSource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section

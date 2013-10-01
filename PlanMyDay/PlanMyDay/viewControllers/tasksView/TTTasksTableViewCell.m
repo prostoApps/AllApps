@@ -43,10 +43,12 @@
         
         // add icon
         CGRect taskIconFrame = CGRectMake(18, 25, 22, 22);
-        taskIcon = [[UIImageView alloc] initWithFrame:taskIconFrame];
-        [taskIcon setImage:[UIImage imageNamed:@"task_icons.png"]];
+        //taskIcon = [[UIImageView alloc] initWithFrame:taskIconFrame];
+        taskIcon = [[UIButton alloc] initWithFrame:taskIconFrame];
+        [taskIcon setImage:[UIImage imageNamed:@"task_icons.png"] forState:UIControlStateNormal];
         [taskIcon setContentMode:UIViewContentModeTop];
         [taskIcon setClipsToBounds:YES];
+        [taskIcon addTarget:self action:@selector(iconTaskWasTaped) forControlEvents:UIControlEventTouchUpInside];
         [taskContentView addSubview:taskIcon];
         isCheck = false;
         
@@ -68,6 +70,16 @@
     }
     return self;
 }
+
+//Событие по клику на иконку
+-(void)iconTaskWasTaped{
+    if (!isCheck){
+        [self.delegate iconTaskWasTaped:self];
+    }
+    
+}
+
+
 // Включаем тольго горизонтальные перетаскивания
 
 
