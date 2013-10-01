@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "TTApplicationManager.h"
 
-@interface TTSelectColorViewController : UIViewController
+@interface TTSelectColorViewController : UIViewController <UICollectionViewDataSource ,UICollectionViewDelegate>
+
+@property (strong, nonatomic) IBOutlet UICollectionView *collectionViewOfColors;
 
 @end

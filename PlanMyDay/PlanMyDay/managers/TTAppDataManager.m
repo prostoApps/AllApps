@@ -109,6 +109,7 @@ static TTLocalDataManager *localDataManager;
         item.strTaskName = [NSString stringWithFormat:@"%@",[self getNewProjectFormDataValue:STR_NEW_PROJECT_VALUE byIndexPath:[[dictNewProjectIndexPaths objectForKey:nameNewProject] objectForKey:STR_NEW_PROJECT_NAME]]];
         item.strProjectName = [NSString stringWithFormat:@"%@",[self getNewProjectFormDataValue:STR_NEW_PROJECT_VALUE byIndexPath:[[dictNewProjectIndexPaths objectForKey:nameNewProject] objectForKey:STR_NEW_PROJECT_PROJECT]]];
         item.strClientName = [NSString stringWithFormat:@"%@",[self getNewProjectFormDataValue:STR_NEW_PROJECT_VALUE byIndexPath:[[dictNewProjectIndexPaths objectForKey:nameNewProject] objectForKey:STR_NEW_PROJECT_CLIENT]]];
+        item.strColor = [NSString stringWithFormat:@"%@",[self getNewProjectFormDataValue:STR_NEW_PROJECT_VALUE byIndexPath:[[dictNewProjectIndexPaths objectForKey:nameNewProject] objectForKey:STR_NEW_PROJECT_COLOR]]];
  
         
     }
@@ -121,7 +122,7 @@ static TTLocalDataManager *localDataManager;
         
     }
     
-   
+  
     [localDataManager saveItemData:[self serializeData:item]];
     [localDataManager writeData:[localDataManager dictLocalData]
                          toFile:[self getProjectsFilePath] ];
@@ -135,6 +136,7 @@ static TTLocalDataManager *localDataManager;
                               item.strProjectName,STR_PROJECT_NAME,
                               item.strTaskName,   STR_TASK_NAME,
                               item.strCheck,      STR_TASK_CHECK,
+                              item.strColor,      STR_TASK_COLOR,
                               item.dtStartDate,   STR_START_DATE,
                               item.dtEndDate,     STR_END_DATE,
                               nil];

@@ -125,6 +125,7 @@
         cell.accessoryView = nil;
         cell.detailTextLabel.text = nil;
         [[cell viewWithTag:1] removeFromSuperview];
+        [[cell viewWithTag:3] removeFromSuperview];
         
     }
     
@@ -153,6 +154,16 @@
             [swithField addTarget:self action:@selector(switchChanged:) forControlEvents:UIControlEventValueChanged];
             [swithField setOn:[[[listData objectAtIndex:row] objectForKey:STR_NEW_PROJECT_VALUE] boolValue]];
             [cell setAccessoryView:swithField];
+    }
+    // если ячейчка выбора цвета
+    else if (typeCell == 3)
+    {
+        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+        UIImageView * imageColor = [[UIImageView alloc] initWithFrame:CGRectMake(100, 8, 25, 25)];
+        UIColor * color = [appDataManager colorWithHexString:[[listData objectAtIndex:row] objectForKey:STR_NEW_PROJECT_VALUE]];
+        imageColor.backgroundColor = color;
+        imageColor.tag = 3;
+        [cell addSubview:imageColor];
     }
     
     cell.textLabel.text = [[listData objectAtIndex:row] objectForKey:STR_NEW_PROJECT_NAME];
@@ -195,20 +206,6 @@
         {
           [[TTApplicationManager sharedApplicationManager] pushViewTo:VIEW_SELECT_PROPERTY forNavigationController:self.navigationController];
         }
-      
-    
-//    NSMutableArray *arrClients = [[NSMutableArray alloc] initWithArray:[[TTAppDataManager sharedAppDataManager] getAllClients]];
-//        //еcли есть клиенты - переходим на вью выбора клиента
-//        //если нету клиентов - переходим на вью создания нового клиента
-//        if (arrClients.count > 0)
-//        {
-//           [[TTApplicationManager sharedApplicationManager] pushViewTo:VIEW_SELECT_PROPERTY forNavigationController:self.navigationController];
-//        }
-//        else
-//        {
-//            [[TTApplicationManager sharedApplicationManager] switchViewTo:VIEW_CREATE_PROPERTY forNavigationController:self.navigationController];
-//        }
-       
     }
 }
 
