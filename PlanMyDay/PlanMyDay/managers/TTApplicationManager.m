@@ -134,7 +134,6 @@ NSString *const FONT_HELVETICA_NEUE_REGULAR    = @"HelveticaNeue-Regular";
     [targetViewController.navigationItem setBackBarButtonItem:backButton];
     
     [navController pushViewController:targetViewController animated:YES];
-    
 }
 
 -(void) switchViewTo:(NSString*) strNewView forNavigationController:(UINavigationController*) navController
