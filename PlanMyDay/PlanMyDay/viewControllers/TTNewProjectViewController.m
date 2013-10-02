@@ -182,7 +182,6 @@
 }
 
 // Tap on table Row
-- (void) tableView: (UITableView *) tableView didSelectRowAtIndexPath: (NSIndexPath *) indexPath {
 - (void) tableView: (UITableView *) tableView didSelectRowAtIndexPath: (NSIndexPath *) indexPath
 {
     ipCurrentIndexPath = indexPath;
@@ -227,8 +226,6 @@
 {
     UISwitch* switchControl = sender;
     NSIndexPath *indexPath = [tableViewNewProject indexPathForCell:(UITableViewCell*)[[switchControl superview] superview]]; // this should return you
-    TTAppDataManager * appDataManager = [TTAppDataManager sharedAppDataManager];
-    [appDataManager saveNewProjectFormDataValue:switchControl.on ? @"YES" : @"NO" byIndexPath:indexPath];
     [[TTAppDataManager sharedAppDataManager] saveNewProjectFormDataValue:switchControl.on ? @"YES" : @"NO" byIndexPath:indexPath];
 }
 
@@ -286,11 +283,6 @@
 -(IBAction) datePickerPickHandler:(id)sender
 {
     NSLog(@"datePicked: %@",[[dpTaskDatePicker date] description]);
-    UITableViewCell *cell = [tableViewNewProject cellForRowAtIndexPath:ipCurrentIndexPath];
-    if (cell)
-    {
-        cell.detailTextLabel.text = [[dpTaskDatePicker date] description];
-    }
     [[TTAppDataManager sharedAppDataManager] saveNewProjectFormDataValue:[[dpTaskDatePicker date] description] byIndexPath:ipCurrentIndexPath];
     [tableViewNewProject reloadData];
 //    [tableViewNewProject cellForRowAtIndexPath:ipCurrentIndexPath].detailTextLabel.text =
