@@ -48,19 +48,13 @@
 			<array>
 				<dict>
 					<key>type</key>
-					<integer>0</integer>
-					<key>name</key>
-					<string>Date</string>
-				</dict>
-				<dict>
-					<key>type</key>
-					<integer>0</integer>
+					<integer>4</integer>
 					<key>name</key>
 					<string>Start</string>
 				</dict>
 				<dict>
 					<key>type</key>
-					<integer>0</integer>
+					<integer>4</integer>
 					<key>name</key>
 					<string>Finish</string>
 				</dict>
