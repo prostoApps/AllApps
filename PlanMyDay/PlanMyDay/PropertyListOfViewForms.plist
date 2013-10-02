@@ -33,12 +33,6 @@
 					<key>name</key>
 					<string>Color</string>
 				</dict>
-				<dict>
-					<key>type</key>
-					<integer>2</integer>
-					<key>name</key>
-					<string>Billeble</string>
-				</dict>
 			</array>
 		</dict>
 		<dict>
@@ -79,18 +73,6 @@
 					<integer>0</integer>
 					<key>name</key>
 					<string>Client</string>
-				</dict>
-				<dict>
-					<key>type</key>
-					<integer>2</integer>
-					<key>name</key>
-					<string>Billeble</string>
-				</dict>
-				<dict>
-					<key>type</key>
-					<integer>1</integer>
-					<key>name</key>
-					<string>Rate</string>
 				</dict>
 			</array>
 		</dict>

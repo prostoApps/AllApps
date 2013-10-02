@@ -27,6 +27,7 @@ NSString *const STR_NEW_PROJECT_CELLS       = @"cells";
 NSString *const STR_NEW_PROJECT_VALUE       = @"value";
 NSString *const STR_NEW_PROJECT_NAME        = @"name";
 NSString *const STR_NEW_PROJECT_TYPE        = @"type";
+NSString *const STR_NEW_PROJECT_DISPLAY        = @"display";
 NSString *const STR_NEW_PROJECT_TASK        = @"Task";
 NSString *const STR_NEW_PROJECT_PROJECT     = @"Project";
 NSString *const STR_NEW_PROJECT_CLIENT      = @"Client";

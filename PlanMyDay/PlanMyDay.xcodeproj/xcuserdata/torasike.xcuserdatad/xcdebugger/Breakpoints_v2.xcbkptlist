@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "PlanMyDay/viewControllers/TTNewProjectViewController.m"
-            timestampString = "402430299.083261"
+            timestampString = "402430874.481628"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "249"
-            endingLineNumber = "249"
+            startingLineNumber = "257"
+            endingLineNumber = "257"
             landmarkName = "@implementation TTNewProjectViewController"
             landmarkType = "3">
          </BreakpointContent>
@@ -266,11 +266,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "PlanMyDay/viewControllers/TTNewProjectViewController.m"
-            timestampString = "402430299.083261"
+            timestampString = "402430874.481628"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "252"
-            endingLineNumber = "252"
+            startingLineNumber = "260"
+            endingLineNumber = "260"
             landmarkName = "-segmentedControlIndexChanged"
             landmarkType = "5">
          </BreakpointContent>
@@ -282,11 +282,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "PlanMyDay/viewControllers/TTNewProjectViewController.m"
-            timestampString = "402430299.083261"
+            timestampString = "402430874.481628"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "245"
-            endingLineNumber = "245"
+            startingLineNumber = "253"
+            endingLineNumber = "253"
             landmarkName = "-textFieldDidEndEditing:"
             landmarkType = "5">
          </BreakpointContent>
@@ -330,11 +330,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "PlanMyDay/viewControllers/TTNewProjectViewController.m"
-            timestampString = "402430299.083261"
+            timestampString = "402430874.481628"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "267"
-            endingLineNumber = "267"
+            startingLineNumber = "275"
+            endingLineNumber = "275"
             landmarkName = "-segmentedControlIndexChanged"
             landmarkType = "5">
          </BreakpointContent>
@@ -378,7 +378,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "PlanMyDay/viewControllers/TTNewProjectViewController.m"
-            timestampString = "401993396.769679"
+            timestampString = "402430874.481628"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "105"
