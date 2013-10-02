@@ -21,7 +21,7 @@
 
 @implementation TTNewProjectViewController
 
-@synthesize scTaskProjectClient,dpTaskDatePicker;
+@synthesize scTaskProjectClient,dpTaskDatePicker,ipCurrentIndexPath;
 
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -61,6 +61,8 @@
     [appDataManager loadNewProjectFormData];
     
     [self loadPropertyForView];
+    
+    [dpTaskDatePicker setAlpha:0];
 }
 
 -(void) viewWillAppear:(BOOL)animated{
@@ -186,10 +188,19 @@
 //    [[TTApplicationManager sharedApplicationManager] ];
     UITableViewCell * cell = [tableView cellForRowAtIndexPath:indexPath];
     NSLog(@"%d",cell.accessoryType);
+        NSLog(@"%@",indexPath);
     if (cell.accessoryType == 1){
-        
-      [[TTApplicationManager sharedApplicationManager] pushViewTo:VIEW_SELECT_PROPERTY forNavigationController:self.navigationController];
-    
+        if ((indexPath.section == 1 && indexPath.row == 0) || (indexPath.section == 1 && indexPath.row == 1))
+        {
+            [dpTaskDatePicker setAlpha:1];
+        }
+        else
+        {
+            [dpTaskDatePicker setAlpha:0];
+            [[TTApplicationManager sharedApplicationManager] pushViewTo:VIEW_SELECT_PROPERTY forNavigationController:self.navigationController];
+            
+        }
+      
 //    NSMutableArray *arrClients = [[NSMutableArray alloc] initWithArray:[[TTAppDataManager sharedAppDataManager] getAllClients]];
 //        //еcли есть клиенты - переходим на вью выбора клиента
 //        //если нету клиентов - переходим на вью создания нового клиента
@@ -270,6 +281,13 @@
 -(IBAction) datePickerPickHandler:(id)sender
 {
     NSLog(@"datePicked: %@",[[dpTaskDatePicker date] description]);
+    UITableViewCell *cell = [tableViewNewProject cellForRowAtIndexPath:ipCurrentIndexPath];
+    if (cell)
+    {
+        cell.detailTextLabel.text = [[dpTaskDatePicker date] description];
+    }
+//    [tableViewNewProject cellForRowAtIndexPath:ipCurrentIndexPath].detailTextLabel.text =
+//    [[TTAppDataManager sharedAppDataManager] saveNewProjectFormDataValue:[[dpTaskDatePicker date] description] byIndexPath:ipCurrentIndexPath];
 }
 
 - (void)didReceiveMemoryWarning
