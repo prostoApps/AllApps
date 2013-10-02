@@ -43,10 +43,12 @@
         
         // add icon
         CGRect taskIconFrame = CGRectMake(18, 25, 22, 22);
-        taskIcon = [[UIImageView alloc] initWithFrame:taskIconFrame];
-        [taskIcon setImage:[UIImage imageNamed:@"task_icons.png"]];
-        [taskIcon setContentMode:UIViewContentModeTop];
+        //taskIcon = [[UIImageView alloc] initWithFrame:taskIconFrame];
+        taskIcon = [[UIButton alloc] initWithFrame:taskIconFrame];
+        [taskIcon setImage:[UIImage imageNamed:@"task_icons.png"] forState:UIControlStateNormal];
+        [[taskIcon imageView] setContentMode:UIViewContentModeTop];
         [taskIcon setClipsToBounds:YES];
+        [taskIcon addTarget:self action:@selector(iconTaskWasTaped) forControlEvents:UIControlEventTouchUpInside];
         [taskContentView addSubview:taskIcon];
         isCheck = false;
         
@@ -68,6 +70,16 @@
     }
     return self;
 }
+
+//Событие по клику на иконку
+-(void)iconTaskWasTaped{
+    if (!isCheck){
+        [self.delegate iconTaskWasTaped:self];
+    }
+    
+}
+
+
 // Включаем тольго горизонтальные перетаскивания
 
 
@@ -118,7 +130,7 @@
         [curentTaskTime setHidden:false];
         if ([[data objectForKey:@"durationReal"] integerValue] > [[data objectForKey:@"durationPlan"] integerValue])
         {
-            [taskIcon setContentMode:UIViewContentModeCenter];
+            [[taskIcon imageView] setContentMode:UIViewContentModeCenter];
             isOvertime = true;
             curentTaskTime.textColor = [self colorWithHexString:@"fc3e39"];
         }
@@ -173,17 +185,17 @@
                         {
                             if (!isOvertime)
                              {
-                                    [taskIcon setContentMode:UIViewContentModeTop];
+                                    [[taskIcon imageView] setContentMode:UIViewContentModeTop];
                              }
                              else
                                 {
-                                    [taskIcon setContentMode:UIViewContentModeCenter];
+                                    [[taskIcon imageView] setContentMode:UIViewContentModeCenter];
                                 }
                                 taskIcon.alpha = 1-(translation.x / CHECK_MOVE_DISTANSE);
                         }
                         else
                         {
-                                [taskIcon setContentMode:UIViewContentModeBottom];
+                                [[taskIcon imageView] setContentMode:UIViewContentModeBottom];
                                 taskIcon.alpha = (translation.x / CHECK_MOVE_DISTANSE)-1;
                         }
                         // двигаем бекграунд
@@ -289,7 +301,7 @@
     [taskName setAlpha:0.5];
     [clientName setAlpha:0.5];
     [taskIcon setAlpha: 1];
-    [taskIcon setContentMode:UIViewContentModeBottom];
+    [[taskIcon imageView] setContentMode:UIViewContentModeBottom];
    
     [taskIcon.layer setPosition:CGPointMake(18+taskIcon.frame.size.width/2, 25+taskIcon.frame.size.height/2)];
     [curentTaskTime setHidden:true];
@@ -306,7 +318,7 @@
     [taskName setAlpha:1];
     [clientName setAlpha:1];
     [taskIcon setAlpha: 1];
-    [taskIcon setContentMode:UIViewContentModeTop];
+    [[taskIcon imageView] setContentMode:UIViewContentModeTop];
     
     [taskCheckBackground.layer setPosition:CGPointMake(_startPositionCheck.x,_startPositionCheck.y)];
     [taskCheckBackground setHidden:false];

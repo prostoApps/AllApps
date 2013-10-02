@@ -24,10 +24,10 @@
 @property(nonatomic,strong) UIViewController *rootViewController;
 
 @property(nonatomic,readonly) UITapGestureRecognizer *tap;
-@property(nonatomic,assign) Class barButtonItemClass;
+@property(nonatomic,assign) Class barButtonItemClass; 
 
 - (void)setRootController:(UIViewController *)controller animated:(BOOL)animated; // used to push a new controller on the stack
-- (void)showRootController:(BOOL)animated; // reset to "home" view controller
+- (void)showRootController:(BOOL)animated; // reset to "home" view controlle´r
 - (void)showLeftController:(BOOL)animated;  // show left
 
 @end

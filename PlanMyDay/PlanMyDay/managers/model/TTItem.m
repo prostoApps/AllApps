@@ -33,6 +33,7 @@ NSString *const STR_END_DATE     = @"endDate";
     strProjectName=nil;
     strTaskName=nil;
     strCheck=nil;
+    strColor=nil;
     dtStartDate=nil;
     dtStartTime=nil;
     dtEndDate=nil;

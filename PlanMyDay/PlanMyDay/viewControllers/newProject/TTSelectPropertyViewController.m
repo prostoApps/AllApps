@@ -44,6 +44,17 @@
          arrProperties = [appDataManager getAllProjects];
     }
     
+    if (arrProperties.count <= 0)
+    {
+        tablePropertiesList.hidden = true;
+        btnAddFirst.hidden = false;
+        [btnAddFirst setTitle:[NSString stringWithFormat:@"Add First %@",selectStr] forState:UIControlStateNormal];
+        lbAddFirst.hidden = false;
+        lbAddFirst.text = [NSString stringWithFormat:@"There are no any %@s yet",selectStr];
+        [[TTAppDataManager sharedAppDataManager] makeButtonStyled:btnAddFirst];
+    }
+    
+    
     
     //Внешний вид
     [searchBar setSearchFieldBackgroundImage:[UIImage imageNamed:@"bgUiSearch.png"] forState:UIControlStateNormal];

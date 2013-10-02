@@ -107,8 +107,17 @@
             </tableViewCellContentView>
             <color key="backgroundColor" red="0.23137254900000001" green="0.27450980390000002" blue="0.31372549020000001" alpha="1" colorSpace="calibratedRGB"/>
         </tableViewCell>
+        <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="IxH-7b-ClN">
+            <rect key="frame" x="0.0" y="0.0" width="68" height="66"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+            <state key="normal" title="Button" image="task_icons.png">
+                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+            </state>
+        </button>
     </objects>
     <resources>
         <image name="delete_cell_icon.png" width="22" height="22"/>
+        <image name="task_icons.png" width="22" height="66"/>
     </resources>
 </document>
