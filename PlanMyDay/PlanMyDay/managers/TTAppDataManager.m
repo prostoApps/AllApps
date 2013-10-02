@@ -13,7 +13,6 @@
 static TTLocalDataManager *localDataManager;
 //@synthesize localDataManager;
 
-@synthesize ipNewProjectSelectProperty;
 @synthesize nameNewProject;
 @synthesize segmentIndexNewProject;
 @synthesize dictNewProjectIndexPaths;

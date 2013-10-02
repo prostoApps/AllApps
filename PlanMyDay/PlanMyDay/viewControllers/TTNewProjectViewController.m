@@ -205,7 +205,7 @@
 {
     ipCurrentIndexPath = indexPath;
 
-    [[TTAppDataManager sharedAppDataManager] setIpNewProjectSelectProperty:indexPath];
+    [[TTApplicationManager sharedApplicationManager] setIpNewProjectSelectProperty:indexPath];
     
     NSArray *listData = [[currentFormPropertyArray objectAtIndex:[indexPath section]] objectForKey:STR_NEW_PROJECT_CELLS];
     int typeCell = [[[listData objectAtIndex:indexPath.row] objectForKey:STR_NEW_PROJECT_TYPE] intValue];
@@ -279,8 +279,20 @@
 }
 
 
--(IBAction) btnSaveTouchHandler:(id)sender{
-    
+-(IBAction) btnSaveTouchHandler:(id)sender
+{
+    if ([scTaskProjectClient selectedSegmentIndex] == NUM_NEW_PROJECT_SELECTED_SEGMENT_CLIENT)
+    {
+        NSLog(@"save client!!!");
+    }
+    else if ([scTaskProjectClient selectedSegmentIndex] == NUM_NEW_PROJECT_SELECTED_SEGMENT_PROJECT)
+    {
+        NSLog(@"save project!!!");
+    }
+    else if ([scTaskProjectClient selectedSegmentIndex] == NUM_NEW_PROJECT_SELECTED_SEGMENT_TASK)
+    {
+        NSLog(@"save task!!!");
+    }
    [[TTAppDataManager sharedAppDataManager] saveTTItem];
     [[TTAppDataManager sharedAppDataManager] clearNewProjectFormData];
    [self.navigationController popViewControllerAnimated:YES];

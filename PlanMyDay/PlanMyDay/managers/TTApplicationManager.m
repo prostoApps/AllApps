@@ -27,14 +27,20 @@ NSString *const STR_NEW_PROJECT_CELLS       = @"cells";
 NSString *const STR_NEW_PROJECT_VALUE       = @"value";
 NSString *const STR_NEW_PROJECT_NAME        = @"name";
 NSString *const STR_NEW_PROJECT_TYPE        = @"type";
-NSString *const STR_NEW_PROJECT_DISPLAY        = @"display";
+NSString *const STR_NEW_PROJECT_DISPLAY     = @"display";
 NSString *const STR_NEW_PROJECT_TASK        = @"Task";
 NSString *const STR_NEW_PROJECT_PROJECT     = @"Project";
 NSString *const STR_NEW_PROJECT_CLIENT      = @"Client";
 NSString *const STR_NEW_PROJECT_COLOR       = @"Color";
 
+NSInteger *const NUM_NEW_PROJECT_SELECTED_SEGMENT_CLIENT  = 2;
+NSInteger *const NUM_NEW_PROJECT_SELECTED_SEGMENT_PROJECT = 1;
+NSInteger *const NUM_NEW_PROJECT_SELECTED_SEGMENT_TASK    = 0;
+
 NSString *const FONT_HELVETICA_NEUE_LIGHT      = @"HelveticaNeue-Light";
 NSString *const FONT_HELVETICA_NEUE_REGULAR    = @"HelveticaNeue-Regular";
+
+@synthesize ipNewProjectSelectProperty;
 
 + (TTApplicationManager *)sharedApplicationManager
 {
