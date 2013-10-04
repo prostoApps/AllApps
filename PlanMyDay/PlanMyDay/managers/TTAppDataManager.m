@@ -111,7 +111,6 @@ static TTLocalDataManager *localDataManager;
         item.strClientName = [NSString stringWithFormat:@"%@",[self getNewProjectFormDataValue:STR_NEW_PROJECT_VALUE byIndexPath:[[dictNewProjectIndexPaths objectForKey:nameNewProject] objectForKey:STR_NEW_PROJECT_CLIENT]]];
         item.strColor = [NSString stringWithFormat:@"%@",[self getNewProjectFormDataValue:STR_NEW_PROJECT_VALUE byIndexPath:[[dictNewProjectIndexPaths objectForKey:nameNewProject] objectForKey:STR_NEW_PROJECT_COLOR]]];
  
-        
     }
     else if( [nameNewProject isEqualToString:STR_NEW_PROJECT_PROJECT])
     {
@@ -196,6 +195,12 @@ static TTLocalDataManager *localDataManager;
     button.layer.cornerRadius = 3;
     button.layer.masksToBounds = YES;
     return button;
+}
+- (NSString *)convertDate:(NSDate *)date withFormat:(NSString *)format {
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:format];
+    NSString *dt = [formatter stringFromDate:date];
+    return dt;
 }
 
 

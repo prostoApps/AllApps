@@ -45,6 +45,7 @@
 -(void) clearNewProjectFormData;
 - (UIColor *)colorWithHexString:(NSString *)stringToConvert;
 - (UIButton*)makeButtonStyled:(UIButton *)button;
+- (NSString *)convertDate:(NSDate *)date withFormat:(NSString *)format;
 
 + (TTAppDataManager *)sharedAppDataManager;
 @end

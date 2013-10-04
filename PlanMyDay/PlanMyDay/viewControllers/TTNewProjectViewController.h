@@ -25,6 +25,7 @@
     IBOutlet UIScrollView * scrvScrollView;
     
     IBOutlet UIDatePicker * dpTaskDatePicker;
+    IBOutlet UIView * dpView;
     
 
 }
