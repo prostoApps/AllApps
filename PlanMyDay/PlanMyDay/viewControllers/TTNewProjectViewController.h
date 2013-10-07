@@ -25,14 +25,8 @@
     IBOutlet UIScrollView * scrvScrollView;
     
     IBOutlet UIDatePicker * dpTaskDatePicker;
-<<<<<<< HEAD
 
-    UITextField * tfCurrentTextFieldUnderEdit;
-=======
     IBOutlet UIView * dpView;
-    
->>>>>>> bdca1212fec02fbe62b0b3cb9b6350d6dfc43175
-
 }
 
 -(IBAction) datePickerPickHandler:(id)sender;

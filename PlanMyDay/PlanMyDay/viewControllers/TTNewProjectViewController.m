@@ -214,12 +214,7 @@
 {
    // ipCurrentIndexPath = indexPath;
 
-<<<<<<< HEAD
     [[TTApplicationManager sharedApplicationManager] setIpNewProjectSelectedProperty:indexPath];
-=======
-    [[TTApplicationManager sharedApplicationManager] setIpNewProjectSelectProperty:indexPath];
-
->>>>>>> bdca1212fec02fbe62b0b3cb9b6350d6dfc43175
     
     NSArray *listData = [[currentFormPropertyArray objectAtIndex:[indexPath section]] objectForKey:STR_NEW_PROJECT_CELLS];
     int typeCell = [[[listData objectAtIndex:indexPath.row] objectForKey:STR_NEW_PROJECT_TYPE] intValue];
@@ -255,13 +250,11 @@
 // когда Текстовое поле завершило редакирование
 - (void)textFieldDidEndEditing:(UITextField *)textField
 {
-<<<<<<< HEAD
-	 NSIndexPath *indexPath = [tableViewNewProject indexPathForCell:(UITableViewCell*)[[textField superview] superview]]; // this should return you your current indexPath
-    
-    [[TTAppDataManager sharedAppDataManager] saveNewProjectFormDataValue:textField.text byIndexPath:indexPath];
-=======
     // индекс ячейки в котором вызвали Инпут
-	 NSIndexPath *indexPath = [tableViewNewProject indexPathForCell:(UITableViewCell*)[[textField superview] superview]];     NSArray *listData = [[currentFormPropertyArray objectAtIndex:[indexPath section]] objectForKey:STR_NEW_PROJECT_CELLS];
+    NSIndexPath *indexPath = [tableViewNewProject indexPathForCell:(UITableViewCell*)[[textField superview] superview]]; // this should return you your current indexPath
+    
+    // индекс ячейки в котором вызвали Инпут
+    NSArray *listData = [[currentFormPropertyArray objectAtIndex:[indexPath section]] objectForKey:STR_NEW_PROJECT_CELLS];
     //тип ячеки
     int typeCell = [[[listData objectAtIndex:indexPath.row] objectForKey:STR_NEW_PROJECT_TYPE] intValue];
     if (typeCell == INT_NEW_PROJECT_TYPE_INPUT)
@@ -269,17 +262,23 @@
         [[TTAppDataManager sharedAppDataManager] saveNewProjectFormDataValue:textField.text byIndexPath:indexPath];
        
     }
->>>>>>> bdca1212fec02fbe62b0b3cb9b6350d6dfc43175
  }
--(void)textFieldDidBeginEditing:(UITextField *)textField{
+
+-(void)textFieldDidBeginEditing:(UITextField *)textField
+{
     // индекс ячейки в котором вызвали Инпут
+    NSLog(@"startEditing trace");
+
     NSIndexPath *indexPath = [tableViewNewProject indexPathForCell:(UITableViewCell*)[[textField superview] superview]];
+    
+    [[TTApplicationManager sharedApplicationManager] setIpNewProjectSelectedProperty:indexPath];
+    
     NSArray *listData = [[currentFormPropertyArray objectAtIndex:[indexPath section]] objectForKey:STR_NEW_PROJECT_CELLS];
     //тип ячеки
     int typeCell = [[[listData objectAtIndex:indexPath.row] objectForKey:STR_NEW_PROJECT_TYPE] intValue];
     if (typeCell == INT_NEW_PROJECT_TYPE_PICKER)
     {
-       [[TTApplicationManager sharedApplicationManager] setIpNewProjectSelectProperty:indexPath];
+       [[TTApplicationManager sharedApplicationManager] setIpNewProjectSelectedProperty:indexPath];
         NSDate * date = [[TTAppDataManager sharedAppDataManager] getNewProjectFormDataValue:STR_NEW_PROJECT_VALUE byIndexPath:indexPath];
         if (date != nil) {
             [dpTaskDatePicker setDate:date];
@@ -287,13 +286,6 @@
     }
 }
 
--(void)textFieldDidBeginEditing:(UITextField *)textField
-{
-    NSLog(@"startEditing trace");
-    tfCurrentTextFieldUnderEdit = textField;
-}
-
-#pragma mark -
 #pragma mark segmentedControl methods
 -(IBAction) segmentedControlIndexChanged
 {
@@ -321,8 +313,9 @@
 -(IBAction) btnSaveTouchHandler:(id)sender
 {
     //сохраняем имя проекта перед созданием проекта
+    [self.view endEditing:YES];
+    
     NSIndexPath *indexPath = [tableViewNewProject indexPathForSelectedRow];
-    [[TTAppDataManager sharedAppDataManager] saveNewProjectFormDataValue:tfCurrentTextFieldUnderEdit.text byIndexPath:indexPath];
     
    if ([[TTAppDataManager sharedAppDataManager] saveTTItem])
    {
@@ -355,7 +348,7 @@
 
 -(IBAction) datePickerPickHandlerDone:(id)sender
 {
-    [[TTAppDataManager sharedAppDataManager] saveNewProjectFormDataValue:[dpTaskDatePicker date] byIndexPath:[[TTApplicationManager sharedApplicationManager] ipNewProjectSelectProperty] ];
+    [[TTAppDataManager sharedAppDataManager] saveNewProjectFormDataValue:[dpTaskDatePicker date] byIndexPath:[[TTApplicationManager sharedApplicationManager] ipNewProjectSelectedProperty] ];
     [tableViewNewProject reloadData];
 }
 -(IBAction) datePickerPickHandlerCancel:(id)sender

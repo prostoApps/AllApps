@@ -36,15 +36,13 @@ extern NSString *const STR_NEW_PROJECT_CELLS;
 extern NSString *const STR_NEW_PROJECT_VALUE;
 extern NSString *const STR_NEW_PROJECT_NAME;
 extern NSString *const STR_NEW_PROJECT_TYPE;
+
 extern int const INT_NEW_PROJECT_TYPE_SELECT;
 extern int const INT_NEW_PROJECT_TYPE_INPUT;
 extern int const INT_NEW_PROJECT_TYPE_SWITCH;
 extern int const INT_NEW_PROJECT_TYPE_COLOR;
 extern int const INT_NEW_PROJECT_TYPE_PICKER;
-extern NSString *const STR_NEW_PROJECT_TYPE;
-extern NSString *const STR_NEW_PROJECT_TYPE;
-extern NSString *const STR_NEW_PROJECT_TYPE;
-extern NSString *const STR_NEW_PROJECT_DISPLAY;
+
 extern NSString *const STR_NEW_PROJECT_TASK;
 extern NSString *const STR_NEW_PROJECT_PROJECT;
 
@@ -53,9 +51,7 @@ extern NSString *const STR_NEW_PROJECT_CLIENT_PHONE;
 extern NSString *const STR_NEW_PROJECT_CLIENT_SKYPE;
 extern NSString *const STR_NEW_PROJECT_CLIENT_MAIL;
 extern NSString *const STR_NEW_PROJECT_CLIENT_NOTE;
-
 extern NSString *const STR_NEW_PROJECT_COLOR;
-
 extern NSString *const STR_NEW_PROJECT_START_DATE;
 extern NSString *const STR_NEW_PROJECT_END_DATE;
 

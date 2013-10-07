@@ -133,15 +133,9 @@ static TTLocalDataManager *localDataManager;
         
         dictData = [self serializeTaskData:item];
         bReadyToWriteData = [localDataManager saveItemData:dictData];
- 
-<<<<<<< HEAD
         
     }    //Если выбрана категория "создать проект", сохраняем только проект с клиентом
     else if( [[[TTApplicationManager sharedApplicationManager] strNewProjectSelectedCategory] isEqualToString:STR_NEW_PROJECT_PROJECT])
-=======
-    }
-    else if( [nameNewProject isEqualToString:STR_NEW_PROJECT_PROJECT])
->>>>>>> bdca1212fec02fbe62b0b3cb9b6350d6dfc43175
     {
         item.strProjectName = [NSString stringWithFormat:@"%@",[self getNewProjectFormDataValue:STR_NEW_PROJECT_VALUE
                                                                               byIndexPath:[[dictNewProjectIndexPaths objectForKey:[[TTApplicationManager sharedApplicationManager] strNewProjectSelectedCategory]] objectForKey:STR_NEW_PROJECT_PROJECT]]];

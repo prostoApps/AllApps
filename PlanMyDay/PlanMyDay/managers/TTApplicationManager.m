@@ -23,7 +23,6 @@ NSString *const VIEW_CUSTOM_TRACKER         = @"viewCustomTracker";
 NSString *const VIEW_MAIN_CLOCK             = @"viewMainClock";
 NSString *const VIEW_SETTINGS               = @"viewSettings";
 
-<<<<<<< HEAD
 NSString *const STR_NEW_PROJECT_CELLS               = @"cells";
 NSString *const STR_NEW_PROJECT_VALUE               = @"value";
 NSString *const STR_NEW_PROJECT_NAME                = @"name";
@@ -38,24 +37,12 @@ NSString *const STR_NEW_PROJECT_CLIENT_NOTE         = @"Notes";
 NSString *const STR_NEW_PROJECT_COLOR               = @"Color";
 NSString *const STR_NEW_PROJECT_START_DATE          = @"Start";
 NSString *const STR_NEW_PROJECT_END_DATE            = @"End";
-=======
-NSString *const STR_NEW_PROJECT_CELLS       = @"cells";
-NSString *const STR_NEW_PROJECT_VALUE       = @"value";
-NSString *const STR_NEW_PROJECT_NAME        = @"name";
-NSString *const STR_NEW_PROJECT_TYPE        = @"type";
 
 int const INT_NEW_PROJECT_TYPE_SELECT      = 0;
 int const INT_NEW_PROJECT_TYPE_INPUT       = 1;
 int const INT_NEW_PROJECT_TYPE_SWITCH      = 2;
 int const INT_NEW_PROJECT_TYPE_COLOR       = 3;
 int const INT_NEW_PROJECT_TYPE_PICKER      = 4;
-
-NSString *const STR_NEW_PROJECT_DISPLAY     = @"display";
-NSString *const STR_NEW_PROJECT_TASK        = @"Task";
-NSString *const STR_NEW_PROJECT_PROJECT     = @"Project";
-NSString *const STR_NEW_PROJECT_CLIENT      = @"Client";
-NSString *const STR_NEW_PROJECT_COLOR       = @"Color";
->>>>>>> bdca1212fec02fbe62b0b3cb9b6350d6dfc43175
 
 NSInteger *const NUM_NEW_PROJECT_SELECTED_SEGMENT_CLIENT  = 2;
 NSInteger *const NUM_NEW_PROJECT_SELECTED_SEGMENT_PROJECT = 1;
