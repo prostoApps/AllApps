@@ -214,13 +214,10 @@
 // Tap on table Row
 - (void) tableView: (UITableView *) tableView didSelectRowAtIndexPath: (NSIndexPath *) indexPath
 {
-<<<<<<< HEAD
-    [[TTAppDataManager sharedAppDataManager] setIpNewProjectSelectProperty:indexPath];
-=======
-    ipCurrentIndexPath = indexPath;
+   // ipCurrentIndexPath = indexPath;
 
     [[TTApplicationManager sharedApplicationManager] setIpNewProjectSelectProperty:indexPath];
->>>>>>> 0c407950e90d49776590719aea54d8af504249ab
+
     
     NSArray *listData = [[currentFormPropertyArray objectAtIndex:[indexPath section]] objectForKey:STR_NEW_PROJECT_CELLS];
     int typeCell = [[[listData objectAtIndex:indexPath.row] objectForKey:STR_NEW_PROJECT_TYPE] intValue];
@@ -268,12 +265,13 @@
  }
 -(void)textFieldDidBeginEditing:(UITextField *)textField{
     // индекс ячейки в котором вызвали Инпут
-    NSIndexPath *indexPath = [tableViewNewProject indexPathForCell:(UITableViewCell*)[[textField superview] superview]];     NSArray *listData = [[currentFormPropertyArray objectAtIndex:[indexPath section]] objectForKey:STR_NEW_PROJECT_CELLS];
+    NSIndexPath *indexPath = [tableViewNewProject indexPathForCell:(UITableViewCell*)[[textField superview] superview]];
+    NSArray *listData = [[currentFormPropertyArray objectAtIndex:[indexPath section]] objectForKey:STR_NEW_PROJECT_CELLS];
     //тип ячеки
     int typeCell = [[[listData objectAtIndex:indexPath.row] objectForKey:STR_NEW_PROJECT_TYPE] intValue];
     if (typeCell == INT_NEW_PROJECT_TYPE_PICKER)
     {
-       [[TTAppDataManager sharedAppDataManager] setIpNewProjectSelectProperty:indexPath];
+       [[TTApplicationManager sharedApplicationManager] setIpNewProjectSelectProperty:indexPath];
         NSDate * date = [[TTAppDataManager sharedAppDataManager] getNewProjectFormDataValue:STR_NEW_PROJECT_VALUE byIndexPath:indexPath];
         if (date != nil) {
             [dpTaskDatePicker setDate:date];
@@ -334,7 +332,7 @@
 
 -(IBAction) datePickerPickHandlerDone:(id)sender
 {
-    [[TTAppDataManager sharedAppDataManager] saveNewProjectFormDataValue:[dpTaskDatePicker date] byIndexPath:[[TTAppDataManager sharedAppDataManager] ipNewProjectSelectProperty] ];
+    [[TTAppDataManager sharedAppDataManager] saveNewProjectFormDataValue:[dpTaskDatePicker date] byIndexPath:[[TTApplicationManager sharedApplicationManager] ipNewProjectSelectProperty] ];
     [tableViewNewProject reloadData];
 }
 -(IBAction) datePickerPickHandlerCancel:(id)sender

@@ -27,14 +27,13 @@ NSString *const STR_NEW_PROJECT_CELLS       = @"cells";
 NSString *const STR_NEW_PROJECT_VALUE       = @"value";
 NSString *const STR_NEW_PROJECT_NAME        = @"name";
 NSString *const STR_NEW_PROJECT_TYPE        = @"type";
-<<<<<<< HEAD
+
 int const INT_NEW_PROJECT_TYPE_SELECT      = 0;
 int const INT_NEW_PROJECT_TYPE_INPUT       = 1;
 int const INT_NEW_PROJECT_TYPE_SWITCH      = 2;
 int const INT_NEW_PROJECT_TYPE_COLOR       = 3;
 int const INT_NEW_PROJECT_TYPE_PICKER      = 4;
-=======
->>>>>>> 0c407950e90d49776590719aea54d8af504249ab
+
 NSString *const STR_NEW_PROJECT_DISPLAY     = @"display";
 NSString *const STR_NEW_PROJECT_TASK        = @"Task";
 NSString *const STR_NEW_PROJECT_PROJECT     = @"Project";
