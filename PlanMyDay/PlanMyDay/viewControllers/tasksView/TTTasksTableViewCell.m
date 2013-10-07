@@ -253,9 +253,10 @@
                     //вернуть в исходное положение
                     else
                     {
-                        _taskAnimation.fromValue = [NSNumber numberWithFloat:0];
-                        _taskAnimation.toValue = [NSNumber numberWithFloat:-translation.x];
-                        [_taskAnimation setValue:@"DontDeleteTask" forKey:@"taskCellAnimation"];
+                       // _taskAnimation.fromValue = [NSNumber numberWithFloat:0];
+                       // _taskAnimation.toValue = [NSNumber numberWithFloat:-translation.x];
+                       // [_taskAnimation setValue:@"DontDeleteTask" forKey:@"taskCellAnimation"];
+                        [self.delegate editCellFromTTTasksTableView:self];
                     }
                     [taskContentView.layer addAnimation:_taskAnimation forKey:nil];
                 }

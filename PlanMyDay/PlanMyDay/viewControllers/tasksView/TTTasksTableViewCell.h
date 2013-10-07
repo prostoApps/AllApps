@@ -13,6 +13,7 @@
 -(void)allowTTTasksTableViewScroll:(BOOL)variable;
 -(void)deleteCellFromTTTasksTableView:(id)cell;
 -(void)checkCellFromTTTasksTableView:(id)cell;
+-(void)editCellFromTTTasksTableView:(id)cell;
 -(void)iconTaskWasTaped:(UITableViewCell*)cell;
 @end
 

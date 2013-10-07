@@ -69,7 +69,7 @@
 -(void) viewWillAppear:(BOOL)animated{
     
     if (tableViewNewProject != nil){
-        [tableViewNewProject reloadData];
+        [self loadPropertyForView];
     }
 }
 - (void) loadPropertyForView {
