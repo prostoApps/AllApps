@@ -53,6 +53,7 @@ extern NSString *const STR_SORT_PARAMETER_TASK_DURATION;
 -(void) clearNewProjectFormData;
 - (UIColor *)colorWithHexString:(NSString *)stringToConvert;
 - (UIButton*)makeButtonStyled:(UIButton *)button;
+- (NSString *)convertDate:(NSDate *)date withFormat:(NSString *)format;
 
 + (TTAppDataManager *)sharedAppDataManager;
 
