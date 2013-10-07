@@ -50,10 +50,15 @@ extern NSString *const STR_NEW_PROJECT_PROJECT;
 extern NSString *const STR_NEW_PROJECT_CLIENT;
 extern NSString *const STR_NEW_PROJECT_COLOR;
 
+extern NSInteger *const NUM_NEW_PROJECT_SELECTED_SEGMENT_TASK;
+extern NSInteger *const NUM_NEW_PROJECT_SELECTED_SEGMENT_CLIENT;
+extern NSInteger *const NUM_NEW_PROJECT_SELECTED_SEGMENT_PROJECT;
+
 extern NSString *const FONT_HELVETICA_NEUE_LIGHT;
 extern NSString *const FONT_HELVETICA_NEUE_REGULAR;
 
-//@property (nonatomic, retain) 
+//@property (nonatomic, retain)
+@property (nonatomic,copy) NSIndexPath * ipNewProjectSelectProperty;
 
 + (TTApplicationManager *)sharedApplicationManager;
 -(void) pushViewTo:(NSString*) strNewView forNavigationController:(UINavigationController*) navController;

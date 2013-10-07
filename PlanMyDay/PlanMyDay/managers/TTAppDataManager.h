@@ -21,7 +21,7 @@
 }
 
 //@property (nonatomic, retain) TTLocalDataManager *localDataManager;
-@property (nonatomic,copy) NSIndexPath * ipNewProjectSelectProperty;
+
 @property (nonatomic,copy) NSString * nameNewProject;
 @property (nonatomic,readwrite) int segmentIndexNewProject;
 @property (nonatomic,readwrite) NSMutableDictionary * dictNewProjectIndexPaths;

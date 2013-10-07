@@ -60,11 +60,9 @@
     
     return cell;
 }
--(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
-    
-    TTAppDataManager * appDataManager = [TTAppDataManager sharedAppDataManager];
-    
-    [appDataManager saveNewProjectFormDataValue:[arrayOfColors objectAtIndex:indexPath.item] byIndexPath:appDataManager.ipNewProjectSelectProperty];
+-(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    [[TTAppDataManager sharedAppDataManager] saveNewProjectFormDataValue:[arrayOfColors objectAtIndex:indexPath.item] byIndexPath:[[TTApplicationManager sharedApplicationManager] ipNewProjectSelectProperty]];
     [self.navigationController popViewControllerAnimated:YES];
 }
 

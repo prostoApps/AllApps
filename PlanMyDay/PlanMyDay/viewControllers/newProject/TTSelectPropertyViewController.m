@@ -33,7 +33,7 @@
  
     TTAppDataManager * appDataManager = [TTAppDataManager sharedAppDataManager];
     
-    selectIP = appDataManager.ipNewProjectSelectProperty;
+    selectIP = [[TTApplicationManager sharedApplicationManager] ipNewProjectSelectProperty];
     selectStr = [NSString stringWithFormat:@"%@",[appDataManager getNewProjectFormDataValue:STR_NEW_PROJECT_NAME byIndexPath:selectIP]];
     [self setTitle:[NSString stringWithFormat:@"Choose %@",selectStr]];
     
@@ -93,9 +93,9 @@
 }
 // Tap on table Row
 - (void) tableView: (UITableView *) tableView didSelectRowAtIndexPath: (NSIndexPath *) indexPath {
-      TTAppDataManager * appDataManager = [TTAppDataManager sharedAppDataManager];
     UITableViewCell * cell = [tableView cellForRowAtIndexPath:indexPath];
-    [appDataManager saveNewProjectFormDataValue:cell.textLabel.text byIndexPath:appDataManager.ipNewProjectSelectProperty];
+    [[TTAppDataManager sharedAppDataManager] saveNewProjectFormDataValue:cell.textLabel.text
+                                                             byIndexPath:[[TTApplicationManager sharedApplicationManager] ipNewProjectSelectProperty]];
     [self.navigationController popViewControllerAnimated:YES];
 }
 
