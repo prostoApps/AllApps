@@ -47,6 +47,7 @@
     headerTableViewNewProject.layer.borderColor = [[TTAppDataManager sharedAppDataManager] colorWithHexString:@"#a8adb3"].CGColor;
     headerTableViewNewProject.layer.borderWidth = 1.0f;
     [tableViewNewProject setTableFooterView:footerTableViewNewProject];
+  
     
     //[scTaskProjectClient.tintColor ]
     [scTaskProjectClient setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:
@@ -63,6 +64,7 @@
     [self loadPropertyForView];
     
     [dpTaskDatePicker setAlpha:0];
+    
 }
 
 -(void) viewWillAppear:(BOOL)animated{
@@ -225,8 +227,12 @@
     ipCurrentIndexPath = indexPath;
    // ipCurrentIndexPath = indexPath;
 
+<<<<<<< HEAD
     [[TTApplicationManager sharedApplicationManager] setIpNewProjectSelectedProperty:indexPath];
+=======
     [[TTApplicationManager sharedApplicationManager] setIpNewProjectSelectProperty:indexPath];
+
+>>>>>>> bdca1212fec02fbe62b0b3cb9b6350d6dfc43175
     
     NSArray *listData = [[currentFormPropertyArray objectAtIndex:[indexPath section]] objectForKey:STR_NEW_PROJECT_CELLS];
     int typeCell = [[[listData objectAtIndex:indexPath.row] objectForKey:STR_NEW_PROJECT_TYPE] intValue];
@@ -271,9 +277,11 @@
 // когда Текстовое поле завершило редакирование
 - (void)textFieldDidEndEditing:(UITextField *)textField
 {
+<<<<<<< HEAD
 	 NSIndexPath *indexPath = [tableViewNewProject indexPathForCell:(UITableViewCell*)[[textField superview] superview]]; // this should return you your current indexPath
     
     [[TTAppDataManager sharedAppDataManager] saveNewProjectFormDataValue:textField.text byIndexPath:indexPath];
+=======
     // индекс ячейки в котором вызвали Инпут
 	 NSIndexPath *indexPath = [tableViewNewProject indexPathForCell:(UITableViewCell*)[[textField superview] superview]];     NSArray *listData = [[currentFormPropertyArray objectAtIndex:[indexPath section]] objectForKey:STR_NEW_PROJECT_CELLS];
     //тип ячеки
@@ -283,6 +291,7 @@
         [[TTAppDataManager sharedAppDataManager] saveNewProjectFormDataValue:textField.text byIndexPath:indexPath];
        
     }
+>>>>>>> bdca1212fec02fbe62b0b3cb9b6350d6dfc43175
  }
 -(void)textFieldDidBeginEditing:(UITextField *)textField{
     // индекс ячейки в котором вызвали Инпут

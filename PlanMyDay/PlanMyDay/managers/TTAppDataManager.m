@@ -134,6 +134,7 @@ static TTLocalDataManager *localDataManager;
         dictData = [self serializeTaskData:item];
         bReadyToWriteData = [localDataManager saveItemData:dictData];
  
+<<<<<<< HEAD
         
     }    //Если выбрана категория "создать проект", сохраняем только проект с клиентом
     else if( [[[TTApplicationManager sharedApplicationManager] strNewProjectSelectedCategory] isEqualToString:STR_NEW_PROJECT_PROJECT])
