@@ -137,6 +137,10 @@ static TTLocalDataManager *localDataManager;
         
     }    //Если выбрана категория "создать проект", сохраняем только проект с клиентом
     else if( [[[TTApplicationManager sharedApplicationManager] strNewProjectSelectedCategory] isEqualToString:STR_NEW_PROJECT_PROJECT])
+=======
+    }
+    else if( [nameNewProject isEqualToString:STR_NEW_PROJECT_PROJECT])
+>>>>>>> bdca1212fec02fbe62b0b3cb9b6350d6dfc43175
     {
         item.strProjectName = [NSString stringWithFormat:@"%@",[self getNewProjectFormDataValue:STR_NEW_PROJECT_VALUE
                                                                               byIndexPath:[[dictNewProjectIndexPaths objectForKey:[[TTApplicationManager sharedApplicationManager] strNewProjectSelectedCategory]] objectForKey:STR_NEW_PROJECT_PROJECT]]];
@@ -393,6 +397,12 @@ static TTLocalDataManager *localDataManager;
     button.layer.cornerRadius = 3;
     button.layer.masksToBounds = YES;
     return button;
+}
+- (NSString *)convertDate:(NSDate *)date withFormat:(NSString *)format {
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:format];
+    NSString *dt = [formatter stringFromDate:date];
+    return dt;
 }
 
 

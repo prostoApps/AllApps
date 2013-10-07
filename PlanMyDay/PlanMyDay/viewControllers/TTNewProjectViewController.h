@@ -27,6 +27,7 @@
     IBOutlet UIDatePicker * dpTaskDatePicker;
 
     UITextField * tfCurrentTextFieldUnderEdit;
+    IBOutlet UIView * dpView;
 
 }
 

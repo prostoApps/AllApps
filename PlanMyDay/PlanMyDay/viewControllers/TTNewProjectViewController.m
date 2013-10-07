@@ -128,29 +128,36 @@
         cell.detailTextLabel.text = nil;
         [[cell viewWithTag:1] removeFromSuperview];
         [[cell viewWithTag:3] removeFromSuperview];
+        [[cell viewWithTag:INT_NEW_PROJECT_TYPE_INPUT] removeFromSuperview];
+        [[cell viewWithTag:INT_NEW_PROJECT_TYPE_COLOR] removeFromSuperview];
+        [[cell viewWithTag:INT_NEW_PROJECT_TYPE_PICKER] removeFromSuperview];
         
     }
     
     // если ячейчка с выбором
    if (typeCell == 0)
+   if (typeCell == INT_NEW_PROJECT_TYPE_SELECT)
    {
             cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
             cell.detailTextLabel.text = [[listData objectAtIndex:row] objectForKey:STR_NEW_PROJECT_VALUE];
    }
     // если ячейчка с инпутом
    else if (typeCell == 1)
+   else if (typeCell == INT_NEW_PROJECT_TYPE_INPUT)
    {
             UITextField * inputField = [[UITextField alloc] initWithFrame:CGRectMake(100,0,220,44)];
             inputField.adjustsFontSizeToFitWidth = YES;
             inputField.textColor = [UIColor whiteColor];
             inputField.font = [UIFont fontWithName:FONT_HELVETICA_NEUE_LIGHT size:17];
             inputField.tag = 1;
+            inputField.tag = INT_NEW_PROJECT_TYPE_INPUT;
             inputField.delegate = self;
             inputField.text = [[listData objectAtIndex:row] objectForKey:STR_NEW_PROJECT_VALUE];
             [cell addSubview:inputField];
     }
     // если ячейчка с переключателем
     else if (typeCell == 2)
+    else if (typeCell == INT_NEW_PROJECT_TYPE_SWITCH)
     {
             UISwitch * swithField = [[UISwitch alloc] initWithFrame:CGRectZero];
             [swithField addTarget:self action:@selector(switchChanged:) forControlEvents:UIControlEventValueChanged];
@@ -159,19 +166,33 @@
     }
     // если ячейчка выбора цвета
     else if (typeCell == 3)
+    else if (typeCell == INT_NEW_PROJECT_TYPE_COLOR)
     {
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
         UIImageView * imageColor = [[UIImageView alloc] initWithFrame:CGRectMake(100, 8, 25, 25)];
         UIColor * color = [appDataManager colorWithHexString:[[listData objectAtIndex:row] objectForKey:STR_NEW_PROJECT_VALUE]];
         imageColor.backgroundColor = color;
         imageColor.tag = 3;
+        imageColor.tag = INT_NEW_PROJECT_TYPE_COLOR;
         [cell addSubview:imageColor];
     }
     // если ячейчка выбора цвета
     else if (typeCell == 4)
+    else if (typeCell == INT_NEW_PROJECT_TYPE_PICKER)
     {
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
         cell.detailTextLabel.text = [[listData objectAtIndex:row] objectForKey:STR_NEW_PROJECT_VALUE];
+        UITextField * inputField = [[UITextField alloc] initWithFrame:CGRectMake(80,0,240,44)];
+        inputField.adjustsFontSizeToFitWidth = YES;
+        inputField.textColor = [UIColor whiteColor];
+        inputField.font = [UIFont fontWithName:FONT_HELVETICA_NEUE_LIGHT size:17];
+        inputField.tag = INT_NEW_PROJECT_TYPE_PICKER;
+        inputField.delegate = self;
+        inputField.inputView = dpView;
+        
+        NSDate * date = [[listData objectAtIndex:row] objectForKey:STR_NEW_PROJECT_VALUE];
+        inputField.text = [[TTAppDataManager sharedAppDataManager] convertDate:date withFormat:@"EEEE, MMMM dd,yyyy hh:mm a"];
+        [cell addSubview:inputField];
 
     }
 
@@ -202,8 +223,10 @@
 - (void) tableView: (UITableView *) tableView didSelectRowAtIndexPath: (NSIndexPath *) indexPath
 {
     ipCurrentIndexPath = indexPath;
+   // ipCurrentIndexPath = indexPath;
 
     [[TTApplicationManager sharedApplicationManager] setIpNewProjectSelectedProperty:indexPath];
+    [[TTApplicationManager sharedApplicationManager] setIpNewProjectSelectProperty:indexPath];
     
     NSArray *listData = [[currentFormPropertyArray objectAtIndex:[indexPath section]] objectForKey:STR_NEW_PROJECT_CELLS];
     int typeCell = [[[listData objectAtIndex:indexPath.row] objectForKey:STR_NEW_PROJECT_TYPE] intValue];
@@ -212,10 +235,12 @@
     [dpTaskDatePicker setAlpha:0];
     
     if (typeCell == 0)
+    if (typeCell == INT_NEW_PROJECT_TYPE_SELECT)
     {
          [[TTApplicationManager sharedApplicationManager] pushViewTo:VIEW_SELECT_PROPERTY forNavigationController:self.navigationController];
     }
     else if (typeCell == 3)
+    else if (typeCell == INT_NEW_PROJECT_TYPE_COLOR)
     {
         [[TTApplicationManager sharedApplicationManager] pushViewTo:VIEW_SELECT_COLOR forNavigationController:self.navigationController];
      }
@@ -243,12 +268,37 @@
     return true;
 }
 
+// когда Текстовое поле завершило редакирование
 - (void)textFieldDidEndEditing:(UITextField *)textField
 {
 	 NSIndexPath *indexPath = [tableViewNewProject indexPathForCell:(UITableViewCell*)[[textField superview] superview]]; // this should return you your current indexPath
     
     [[TTAppDataManager sharedAppDataManager] saveNewProjectFormDataValue:textField.text byIndexPath:indexPath];
+    // индекс ячейки в котором вызвали Инпут
+	 NSIndexPath *indexPath = [tableViewNewProject indexPathForCell:(UITableViewCell*)[[textField superview] superview]];     NSArray *listData = [[currentFormPropertyArray objectAtIndex:[indexPath section]] objectForKey:STR_NEW_PROJECT_CELLS];
+    //тип ячеки
+    int typeCell = [[[listData objectAtIndex:indexPath.row] objectForKey:STR_NEW_PROJECT_TYPE] intValue];
+    if (typeCell == INT_NEW_PROJECT_TYPE_INPUT)
+    {
+        [[TTAppDataManager sharedAppDataManager] saveNewProjectFormDataValue:textField.text byIndexPath:indexPath];
+       
+    }
  }
+-(void)textFieldDidBeginEditing:(UITextField *)textField{
+    // индекс ячейки в котором вызвали Инпут
+    NSIndexPath *indexPath = [tableViewNewProject indexPathForCell:(UITableViewCell*)[[textField superview] superview]];
+    NSArray *listData = [[currentFormPropertyArray objectAtIndex:[indexPath section]] objectForKey:STR_NEW_PROJECT_CELLS];
+    //тип ячеки
+    int typeCell = [[[listData objectAtIndex:indexPath.row] objectForKey:STR_NEW_PROJECT_TYPE] intValue];
+    if (typeCell == INT_NEW_PROJECT_TYPE_PICKER)
+    {
+       [[TTApplicationManager sharedApplicationManager] setIpNewProjectSelectProperty:indexPath];
+        NSDate * date = [[TTAppDataManager sharedAppDataManager] getNewProjectFormDataValue:STR_NEW_PROJECT_VALUE byIndexPath:indexPath];
+        if (date != nil) {
+            [dpTaskDatePicker setDate:date];
+        }
+    }
+}
 
 -(void)textFieldDidBeginEditing:(UITextField *)textField
 {
@@ -312,6 +362,25 @@
 
 -(IBAction) datePickerPickHandler:(id)sender
 {
+  //  [dpTaskDatePicker becomeFirstResponder];
+    
+}
+
+-(IBAction) datePickerPickHandlerDone:(id)sender
+{
+    [[TTAppDataManager sharedAppDataManager] saveNewProjectFormDataValue:[dpTaskDatePicker date] byIndexPath:[[TTApplicationManager sharedApplicationManager] ipNewProjectSelectProperty] ];
+    [tableViewNewProject reloadData];
+}
+-(IBAction) datePickerPickHandlerCancel:(id)sender
+{
+    [self.view endEditing:YES];
+}
+ 
+
+/*
+
+-(IBAction) datePickerPickHandler:(id)sender
+{
     NSLog(@"datePicked: %@",[[dpTaskDatePicker date] description]);
     [[TTAppDataManager sharedAppDataManager] saveNewProjectFormDataValue:[[dpTaskDatePicker date] description] byIndexPath:ipCurrentIndexPath];
     [tableViewNewProject reloadData];
@@ -319,6 +388,7 @@
 //    [[TTAppDataManager sharedAppDataManager] saveNewProjectFormDataValue:[[dpTaskDatePicker date] description] byIndexPath:ipCurrentIndexPath];
 }
 
+*/
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
