@@ -27,19 +27,28 @@ NSString *const STR_NEW_PROJECT_CELLS       = @"cells";
 NSString *const STR_NEW_PROJECT_VALUE       = @"value";
 NSString *const STR_NEW_PROJECT_NAME        = @"name";
 NSString *const STR_NEW_PROJECT_TYPE        = @"type";
+<<<<<<< HEAD
 int const INT_NEW_PROJECT_TYPE_SELECT      = 0;
 int const INT_NEW_PROJECT_TYPE_INPUT       = 1;
 int const INT_NEW_PROJECT_TYPE_SWITCH      = 2;
 int const INT_NEW_PROJECT_TYPE_COLOR       = 3;
 int const INT_NEW_PROJECT_TYPE_PICKER      = 4;
+=======
+>>>>>>> 0c407950e90d49776590719aea54d8af504249ab
 NSString *const STR_NEW_PROJECT_DISPLAY     = @"display";
 NSString *const STR_NEW_PROJECT_TASK        = @"Task";
 NSString *const STR_NEW_PROJECT_PROJECT     = @"Project";
 NSString *const STR_NEW_PROJECT_CLIENT      = @"Client";
 NSString *const STR_NEW_PROJECT_COLOR       = @"Color";
 
+NSInteger *const NUM_NEW_PROJECT_SELECTED_SEGMENT_CLIENT  = 2;
+NSInteger *const NUM_NEW_PROJECT_SELECTED_SEGMENT_PROJECT = 1;
+NSInteger *const NUM_NEW_PROJECT_SELECTED_SEGMENT_TASK    = 0;
+
 NSString *const FONT_HELVETICA_NEUE_LIGHT      = @"HelveticaNeue-Light";
 NSString *const FONT_HELVETICA_NEUE_REGULAR    = @"HelveticaNeue-Regular";
+
+@synthesize ipNewProjectSelectProperty;
 
 + (TTApplicationManager *)sharedApplicationManager
 {
