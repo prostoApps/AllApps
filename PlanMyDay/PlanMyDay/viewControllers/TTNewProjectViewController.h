@@ -2,7 +2,7 @@
 //  TTNewProjectViewController.h
 //  TimeTracker
 //
-//  Created by Yegor Karpechenkov on 6/21/13.
+//  Created by ProstoApps* on 6/21/13.
 //  Copyright (c) 2013 prosto*. All rights reserved.
 //
 
@@ -25,7 +25,8 @@
     IBOutlet UIScrollView * scrvScrollView;
     
     IBOutlet UIDatePicker * dpTaskDatePicker;
-    
+
+    UITextField * tfCurrentTextFieldUnderEdit;
 
 }
 

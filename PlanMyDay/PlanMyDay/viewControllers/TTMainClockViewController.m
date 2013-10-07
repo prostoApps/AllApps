@@ -2,7 +2,7 @@
 //  TTMainClockViewController.m
 //  PlanMyDay
 //
-//  Created by Yegor Karpechenkov on 7/4/13.
+//  Created by ProstoApps* on 7/4/13.
 //  Copyright (c) 2013 prosto*. All rights reserved.
 //
 
@@ -38,17 +38,6 @@
     UIColor * back = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"background.jpg"]];
     self.view.backgroundColor = back;
     
-   // UIView * backView =
-
-    // Do any additional setup after loading the view from its nib.
-//    pageControl.numberOfPages = 2; 
-//    [svScrollView setContentSize:CGSizeMake(svScrollView.frame.size.width * pageControl.numberOfPages, svScrollView.frame.size.height)];
-//    svScrollView.delegate = self;
-//    svScrollView.pagingEnabled = YES;
-//    svScrollView.showsHorizontalScrollIndicator = NO;
-//    svScrollView.showsVerticalScrollIndicator = NO;
-//    svScrollView.scrollsToTop = NO;
-//    pageControl.currentPage = 0;
 
     //добавляем основные часы
     ClockViewController *clock = [[ClockViewController alloc] initWithNibName:@"ClockViewController" bundle:nil];

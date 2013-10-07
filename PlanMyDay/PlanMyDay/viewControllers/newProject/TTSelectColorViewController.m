@@ -62,7 +62,7 @@
 }
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    [[TTAppDataManager sharedAppDataManager] saveNewProjectFormDataValue:[arrayOfColors objectAtIndex:indexPath.item] byIndexPath:[[TTApplicationManager sharedApplicationManager] ipNewProjectSelectProperty]];
+    [[TTAppDataManager sharedAppDataManager] saveNewProjectFormDataValue:[arrayOfColors objectAtIndex:indexPath.item] byIndexPath:[[TTApplicationManager sharedApplicationManager] ipNewProjectSelectedProperty]];
     [self.navigationController popViewControllerAnimated:YES];
 }
 

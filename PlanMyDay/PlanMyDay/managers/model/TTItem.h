@@ -2,7 +2,7 @@
 //  TTItem.h
 //  TimeTracker
 //
-//  Created by Yegor Karpechenkov on 5/24/13.
+//  Created by ProstoApps* on 5/24/13.
 //  Copyright (c) 2013 prosto*. All rights reserved.
 //
 
@@ -13,6 +13,10 @@ extern NSString *const STR_ALL_PROJECTS;
 extern NSString *const STR_ALL_TASKS;
 
 extern NSString *const STR_CLIENT_NAME;
+extern NSString *const STR_CLIENT_SKYPE;
+extern NSString *const STR_CLIENT_PHONE;
+extern NSString *const STR_CLIENT_MAIL;
+extern NSString *const STR_CLIENT_NOTES;
 extern NSString *const STR_PROJECT_NAME;
 extern NSString *const STR_TASK_NAME;
 extern NSString *const STR_TASK_COLOR;
@@ -20,6 +24,9 @@ extern NSString *const STR_TASK_CHECK;
 extern NSString *const STR_START_DATE;
 extern NSString *const STR_END_DATE;
 
+extern NSString *const STR_COLOR_RED;
+extern NSString *const STR_COLOR_GREEN;
+extern NSString *const STR_COLOR_BLUE;
 //extern NSString *const VIEW_STATISTICS;
 //extern NSString *const VIEW_STATISTICS;
 //extern NSString *const VIEW_STATISTICS;
@@ -39,6 +46,10 @@ extern NSString *const STR_END_DATE;
     NSString *strCheck;
 }
 @property(nonatomic, retain) NSString *strClientName;
+@property(nonatomic, retain) NSString *strClientMail;
+@property(nonatomic, retain) NSString *strClientSkype;
+@property(nonatomic, retain) NSString *strClientPhone;
+@property(nonatomic, retain) NSString *strClientNotes;
 @property(nonatomic, retain) NSString *strProjectName;
 @property(nonatomic, retain) NSString *strTaskName;
 @property(nonatomic, retain) NSDate   *dtStartTime;

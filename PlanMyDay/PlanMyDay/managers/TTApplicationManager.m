@@ -2,7 +2,7 @@
 //  TTApplicationManager
 //  PlanMyDay
 //
-//  Created by Yegor Karpechenkov on 7/8/13.
+//  Created by ProstoApps* on 7/8/13.
 //  Copyright (c) 2013 prosto*. All rights reserved.
 //
 
@@ -23,15 +23,20 @@ NSString *const VIEW_CUSTOM_TRACKER         = @"viewCustomTracker";
 NSString *const VIEW_MAIN_CLOCK             = @"viewMainClock";
 NSString *const VIEW_SETTINGS               = @"viewSettings";
 
-NSString *const STR_NEW_PROJECT_CELLS       = @"cells";
-NSString *const STR_NEW_PROJECT_VALUE       = @"value";
-NSString *const STR_NEW_PROJECT_NAME        = @"name";
-NSString *const STR_NEW_PROJECT_TYPE        = @"type";
-NSString *const STR_NEW_PROJECT_DISPLAY     = @"display";
-NSString *const STR_NEW_PROJECT_TASK        = @"Task";
-NSString *const STR_NEW_PROJECT_PROJECT     = @"Project";
-NSString *const STR_NEW_PROJECT_CLIENT      = @"Client";
-NSString *const STR_NEW_PROJECT_COLOR       = @"Color";
+NSString *const STR_NEW_PROJECT_CELLS               = @"cells";
+NSString *const STR_NEW_PROJECT_VALUE               = @"value";
+NSString *const STR_NEW_PROJECT_NAME                = @"name";
+NSString *const STR_NEW_PROJECT_TYPE                = @"type";
+NSString *const STR_NEW_PROJECT_TASK                = @"Task";
+NSString *const STR_NEW_PROJECT_PROJECT             = @"Project";
+NSString *const STR_NEW_PROJECT_CLIENT              = @"Client";
+NSString *const STR_NEW_PROJECT_CLIENT_SKYPE        = @"Skype";
+NSString *const STR_NEW_PROJECT_CLIENT_MAIL         = @"E-mail";
+NSString *const STR_NEW_PROJECT_CLIENT_PHONE        = @"Phone";
+NSString *const STR_NEW_PROJECT_CLIENT_NOTE         = @"Notes";
+NSString *const STR_NEW_PROJECT_COLOR               = @"Color";
+NSString *const STR_NEW_PROJECT_START_DATE          = @"Start";
+NSString *const STR_NEW_PROJECT_END_DATE            = @"End";
 
 NSInteger *const NUM_NEW_PROJECT_SELECTED_SEGMENT_CLIENT  = 2;
 NSInteger *const NUM_NEW_PROJECT_SELECTED_SEGMENT_PROJECT = 1;
@@ -40,7 +45,7 @@ NSInteger *const NUM_NEW_PROJECT_SELECTED_SEGMENT_TASK    = 0;
 NSString *const FONT_HELVETICA_NEUE_LIGHT      = @"HelveticaNeue-Light";
 NSString *const FONT_HELVETICA_NEUE_REGULAR    = @"HelveticaNeue-Regular";
 
-@synthesize ipNewProjectSelectProperty;
+@synthesize ipNewProjectSelectedProperty,strNewProjectSelectedCategory;
 
 + (TTApplicationManager *)sharedApplicationManager
 {

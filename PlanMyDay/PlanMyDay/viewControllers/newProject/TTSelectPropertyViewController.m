@@ -2,7 +2,7 @@
 //  TTSelectPropertyViewController.m
 //  PlanMyDay
 //
-//  Created by Yegor Karpechenkov on 8/11/13.
+//  Created by ProstoApps* on 8/11/13.
 //  Copyright (c) 2013 prosto*. All rights reserved.
 //
 
@@ -30,11 +30,10 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
- 
     TTAppDataManager * appDataManager = [TTAppDataManager sharedAppDataManager];
     
-    selectIP = [[TTApplicationManager sharedApplicationManager] ipNewProjectSelectProperty];
-    selectStr = [NSString stringWithFormat:@"%@",[appDataManager getNewProjectFormDataValue:STR_NEW_PROJECT_NAME byIndexPath:selectIP]];
+    selectStr = [NSString stringWithFormat:@"%@",[appDataManager getNewProjectFormDataValue:STR_NEW_PROJECT_NAME
+                                                                                byIndexPath:[[TTApplicationManager sharedApplicationManager] ipNewProjectSelectedProperty]]];
     [self setTitle:[NSString stringWithFormat:@"Choose %@",selectStr]];
     
     if ([selectStr isEqualToString:STR_NEW_PROJECT_CLIENT]){
@@ -53,8 +52,6 @@
         lbAddFirst.text = [NSString stringWithFormat:@"There are no any %@s yet",selectStr];
         [[TTAppDataManager sharedAppDataManager] makeButtonStyled:btnAddFirst];
     }
-    
-    
     
     //Внешний вид
     [searchBar setSearchFieldBackgroundImage:[UIImage imageNamed:@"bgUiSearch.png"] forState:UIControlStateNormal];
@@ -95,7 +92,7 @@
 - (void) tableView: (UITableView *) tableView didSelectRowAtIndexPath: (NSIndexPath *) indexPath {
     UITableViewCell * cell = [tableView cellForRowAtIndexPath:indexPath];
     [[TTAppDataManager sharedAppDataManager] saveNewProjectFormDataValue:cell.textLabel.text
-                                                             byIndexPath:[[TTApplicationManager sharedApplicationManager] ipNewProjectSelectProperty]];
+                                                             byIndexPath:[[TTApplicationManager sharedApplicationManager] ipNewProjectSelectedProperty]];
     [self.navigationController popViewControllerAnimated:YES];
 }
 

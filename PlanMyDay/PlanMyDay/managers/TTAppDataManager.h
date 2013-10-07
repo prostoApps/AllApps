@@ -2,7 +2,7 @@
 //  TTAppDataManager.h
 //  TimeTracker
 //
-//  Created by Yegor Karpechenkov on 6/28/13.
+//  Created by ProstoApps* on 6/28/13.
 //  Copyright (c) 2013 prosto*. All rights reserved.
 //
 
@@ -20,9 +20,17 @@
     
 }
 
+extern NSString *const STR_SORT_PARAMETER_TASK_NAME;
+extern NSString *const STR_SORT_PARAMETER_CLIENT_NAME;
+extern NSString *const STR_SORT_PARAMETER_PROJECT_NAME;
+extern NSString *const STR_END_DATE;
+extern NSString *const STR_SORT_PARAMETER_COLOR;
+extern NSString *const STR_SORT_PARAMETER_TASK_COMPLETED;
+extern NSString *const STR_SORT_PARAMETER_TASK_DURATION;
+
+
 //@property (nonatomic, retain) TTLocalDataManager *localDataManager;
 
-@property (nonatomic,copy) NSString * nameNewProject;
 @property (nonatomic,readwrite) int segmentIndexNewProject;
 @property (nonatomic,readwrite) NSMutableDictionary * dictNewProjectIndexPaths;
 
@@ -33,7 +41,7 @@
 
 -(NSDictionary*)readDataFromFile:(NSString*)pathToFile;
 
--(void)saveTTItem;
+-(BOOL)saveTTItem;
 -(void)saveNewProjectFormDataValue:(NSObject*)value byIndexPath:(NSIndexPath*)indexPath;
 -(void)loadNewProjectFormData;
 
@@ -47,4 +55,19 @@
 - (UIButton*)makeButtonStyled:(UIButton *)button;
 
 + (TTAppDataManager *)sharedAppDataManager;
+
++(NSMutableArray*)sortTasks:(NSMutableArray*)arrTasksToSort byParameter:(NSString*)strSortParameter withValue:(NSString*) strSortParameterValue;
+
+-(NSMutableDictionary*) editTask:(NSMutableDictionary*) dictTaskToEdit withNewData:(NSMutableDictionary*) dictNewData;
+-(NSMutableDictionary*) clearTask:(NSMutableDictionary*) dictTaskToClear;
+-(BOOL) removeTask:(NSMutableDictionary*) dictTaskToRemove;
+-(BOOL) removeProject:(NSMutableDictionary*) dictProjectToRemove;
+-(BOOL) removeClient:(NSMutableDictionary*) dictClientToRemove;
+-(BOOL) removeAllTask:(NSMutableDictionary*) dictTaskToRemove;
+
+-(NSMutableDictionary*)serializeClientData:(TTItem*)item;
+-(NSMutableDictionary*)serializeProjectData:(TTItem*)item;
+-(NSMutableDictionary*)serializeTaskData:(TTItem*)item;
+
+-(TTItem*)deserializeData:(NSDictionary*)data;
 @end

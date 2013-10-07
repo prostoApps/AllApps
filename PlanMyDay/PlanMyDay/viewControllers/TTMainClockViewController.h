@@ -2,7 +2,7 @@
 //  TTMainClockViewController.h
 //  PlanMyDay
 //
-//  Created by Yegor Karpechenkov on 7/4/13.
+//  Created by ProstoApps* on 7/4/13.
 //  Copyright (c) 2013 prosto*. All rights reserved.
 //
 

@@ -2,7 +2,7 @@
 //  TTLocalDataManager.h
 //  TimeTracker
 //
-//  Created by Yegor Karpechenkov on 5/25/13.
+//  Created by ProstoApps* on 5/25/13.
 //  Copyright (c) 2013 prosto*. All rights reserved.
 //
 
@@ -29,14 +29,27 @@
 
 -(void)writeData:(NSMutableDictionary*) data toFile:(NSString*)path ;
 -(NSMutableDictionary*)readLocalData;
--(void)saveItemData:(NSMutableDictionary*)itemData;
+-(BOOL)saveItemData:(NSMutableDictionary*)itemData;
+-(BOOL)saveProjectData:(NSMutableDictionary*)itemData;
+-(BOOL)saveClientData:(NSMutableDictionary*)itemData;
 
 //-(NSDictionary*) serializeProjectData:(NSDictionary*)taskData;
 -(NSMutableDictionary*)createProjectWithTasks:(NSMutableArray*) arrTasks;
 -(NSMutableDictionary*)createClientWithProjects:(NSMutableArray*)arrProjects;
+
 -(NSMutableArray*)getAllTasks;
 -(NSMutableArray*)getAllProjects;
 -(NSMutableArray*)getAllClients;
 -(NSMutableArray*)getAllTasksForToday;
+
 -(void)initTestData;
+
+-(NSMutableDictionary*) editTask:(NSMutableDictionary*) dictTaskToEdit withNewData:(NSMutableDictionary*) dictNewData;
+-(NSMutableDictionary*) editProject:(NSMutableDictionary*) dictProjectToEdit withNewData:(NSMutableDictionary*) dictNewData;
+-(NSMutableDictionary*) editClient:(NSMutableDictionary*) dictClientToEdit withNewData:(NSMutableDictionary*) dictNewData;
+
+-(BOOL) removeTask:(NSMutableDictionary*) dictTaskToRemove;
+-(BOOL) removeProject:(NSMutableDictionary*) dictProjectToRemove;
+-(BOOL) removeClient:(NSMutableDictionary*) dictClientToRemove;
+-(BOOL) removeAllTasks;
 @end

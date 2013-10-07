@@ -2,7 +2,7 @@
 //  TTNewProjectViewController.m
 //  TimeTracker
 //
-//  Created by Yegor Karpechenkov on 6/21/13.
+//  Created by ProstoApps* on 6/21/13.
 //  Copyright (c) 2013 prosto*. All rights reserved.
 //
 
@@ -54,9 +54,9 @@
                                           nil] forState:UIControlStateSelected];
     
 	// Do any additional setup after loading the view.
-    if (appDataManager.nameNewProject == nil)
+    if ([[TTApplicationManager sharedApplicationManager] strNewProjectSelectedCategory] == nil)
     {
-        appDataManager.nameNewProject = STR_NEW_PROJECT_TASK;
+        [[TTApplicationManager sharedApplicationManager] setStrNewProjectSelectedCategory:STR_NEW_PROJECT_TASK];
     }
     [appDataManager loadNewProjectFormData];
     
@@ -74,7 +74,7 @@
 - (void) loadPropertyForView {
     
     TTAppDataManager * appDataManager = [TTAppDataManager sharedAppDataManager];
-    NSString * nameStr = appDataManager.nameNewProject;
+    NSString * nameStr = [[TTApplicationManager sharedApplicationManager] strNewProjectSelectedCategory];
     
     [self setTitle:[NSString stringWithFormat:@"Add %@",nameStr]];
     [btnSave setTitle:[NSString stringWithFormat:@"Add %@",nameStr] forState:UIControlStateNormal];
@@ -104,7 +104,7 @@
     
     TTAppDataManager * appDataManager = [TTAppDataManager sharedAppDataManager];
     //сохраняем в Дикшионари Дата менеджера  Индекс ячейки. с ключем -> Названиe ячейки
-    [[appDataManager.dictNewProjectIndexPaths objectForKey:appDataManager.nameNewProject] setObject:indexPath forKey:[[listData objectAtIndex:row] objectForKey:STR_NEW_PROJECT_NAME]];
+    [[appDataManager.dictNewProjectIndexPaths objectForKey:[[TTApplicationManager sharedApplicationManager] strNewProjectSelectedCategory]] setObject:indexPath forKey:[[listData objectAtIndex:row] objectForKey:STR_NEW_PROJECT_NAME]];
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
@@ -119,8 +119,6 @@
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         cell.detailTextLabel.textColor = [UIColor whiteColor];
         cell.detailTextLabel.font = [UIFont fontWithName:FONT_HELVETICA_NEUE_LIGHT size:17];
-        
-        
     }
     else
     {
@@ -205,7 +203,7 @@
 {
     ipCurrentIndexPath = indexPath;
 
-    [[TTApplicationManager sharedApplicationManager] setIpNewProjectSelectProperty:indexPath];
+    [[TTApplicationManager sharedApplicationManager] setIpNewProjectSelectedProperty:indexPath];
     
     NSArray *listData = [[currentFormPropertyArray objectAtIndex:[indexPath section]] objectForKey:STR_NEW_PROJECT_CELLS];
     int typeCell = [[[listData objectAtIndex:indexPath.row] objectForKey:STR_NEW_PROJECT_TYPE] intValue];
@@ -248,11 +246,15 @@
 - (void)textFieldDidEndEditing:(UITextField *)textField
 {
 	 NSIndexPath *indexPath = [tableViewNewProject indexPathForCell:(UITableViewCell*)[[textField superview] superview]]; // this should return you your current indexPath
-    TTAppDataManager * appDataManager = [TTAppDataManager sharedAppDataManager];
     
-    [appDataManager saveNewProjectFormDataValue:textField.text byIndexPath:indexPath];
-    
+    [[TTAppDataManager sharedAppDataManager] saveNewProjectFormDataValue:textField.text byIndexPath:indexPath];
  }
+
+-(void)textFieldDidBeginEditing:(UITextField *)textField
+{
+    NSLog(@"startEditing trace");
+    tfCurrentTextFieldUnderEdit = textField;
+}
 
 #pragma mark -
 #pragma mark segmentedControl methods
@@ -263,13 +265,13 @@
     
 	switch (self.scTaskProjectClient.selectedSegmentIndex) {
 		case 0:
-            [[TTAppDataManager sharedAppDataManager] setNameNewProject:STR_NEW_PROJECT_TASK];
+            [[TTApplicationManager sharedApplicationManager] setStrNewProjectSelectedCategory:STR_NEW_PROJECT_TASK];
 			break;
 		case 1:
-            [[TTAppDataManager sharedAppDataManager] setNameNewProject:STR_NEW_PROJECT_PROJECT];
+            [[TTApplicationManager sharedApplicationManager] setStrNewProjectSelectedCategory:STR_NEW_PROJECT_PROJECT];
 			break;
 		case 2:
-            [[TTAppDataManager sharedAppDataManager] setNameNewProject:STR_NEW_PROJECT_CLIENT];
+            [[TTApplicationManager sharedApplicationManager] setStrNewProjectSelectedCategory:STR_NEW_PROJECT_CLIENT];
 			break;
 		default:
             break;
@@ -281,21 +283,30 @@
 
 -(IBAction) btnSaveTouchHandler:(id)sender
 {
-    if ([scTaskProjectClient selectedSegmentIndex] == NUM_NEW_PROJECT_SELECTED_SEGMENT_CLIENT)
-    {
-        NSLog(@"save client!!!");
-    }
-    else if ([scTaskProjectClient selectedSegmentIndex] == NUM_NEW_PROJECT_SELECTED_SEGMENT_PROJECT)
-    {
-        NSLog(@"save project!!!");
-    }
-    else if ([scTaskProjectClient selectedSegmentIndex] == NUM_NEW_PROJECT_SELECTED_SEGMENT_TASK)
-    {
-        NSLog(@"save task!!!");
-    }
-   [[TTAppDataManager sharedAppDataManager] saveTTItem];
-    [[TTAppDataManager sharedAppDataManager] clearNewProjectFormData];
-   [self.navigationController popViewControllerAnimated:YES];
+    //сохраняем имя проекта перед созданием проекта
+    NSIndexPath *indexPath = [tableViewNewProject indexPathForSelectedRow];
+    [[TTAppDataManager sharedAppDataManager] saveNewProjectFormDataValue:tfCurrentTextFieldUnderEdit.text byIndexPath:indexPath];
+    
+   if ([[TTAppDataManager sharedAppDataManager] saveTTItem])
+   {
+       if (scTaskProjectClient.selectedSegmentIndex == NUM_NEW_PROJECT_SELECTED_SEGMENT_CLIENT)
+       {
+           scTaskProjectClient.selectedSegmentIndex = NUM_NEW_PROJECT_SELECTED_SEGMENT_PROJECT;
+           [self segmentedControlIndexChanged];
+       }
+       else if (scTaskProjectClient.selectedSegmentIndex == NUM_NEW_PROJECT_SELECTED_SEGMENT_PROJECT)
+       {
+           scTaskProjectClient.selectedSegmentIndex = NUM_NEW_PROJECT_SELECTED_SEGMENT_TASK;
+           [self segmentedControlIndexChanged];
+       }
+       else if (scTaskProjectClient.selectedSegmentIndex == NUM_NEW_PROJECT_SELECTED_SEGMENT_TASK)
+       {
+           [[TTAppDataManager sharedAppDataManager] clearNewProjectFormData];
+           [self.navigationController popViewControllerAnimated:YES];
+       }
+
+   }
+
     
 }
 

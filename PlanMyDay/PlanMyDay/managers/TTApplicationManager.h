@@ -2,7 +2,7 @@
 //  TTApplicationManager
 //  PlanMyDay
 //
-//  Created by Yegor Karpechenkov on 7/8/13.
+//  Created by ProstoApps* on 7/8/13.
 //  Copyright (c) 2013 prosto*. All rights reserved.
 //
 
@@ -39,8 +39,17 @@ extern NSString *const STR_NEW_PROJECT_TYPE;
 extern NSString *const STR_NEW_PROJECT_DISPLAY;
 extern NSString *const STR_NEW_PROJECT_TASK;
 extern NSString *const STR_NEW_PROJECT_PROJECT;
+
 extern NSString *const STR_NEW_PROJECT_CLIENT;
+extern NSString *const STR_NEW_PROJECT_CLIENT_PHONE;
+extern NSString *const STR_NEW_PROJECT_CLIENT_SKYPE;
+extern NSString *const STR_NEW_PROJECT_CLIENT_MAIL;
+extern NSString *const STR_NEW_PROJECT_CLIENT_NOTE;
+
 extern NSString *const STR_NEW_PROJECT_COLOR;
+
+extern NSString *const STR_NEW_PROJECT_START_DATE;
+extern NSString *const STR_NEW_PROJECT_END_DATE;
 
 extern NSInteger *const NUM_NEW_PROJECT_SELECTED_SEGMENT_TASK;
 extern NSInteger *const NUM_NEW_PROJECT_SELECTED_SEGMENT_CLIENT;
@@ -50,7 +59,10 @@ extern NSString *const FONT_HELVETICA_NEUE_LIGHT;
 extern NSString *const FONT_HELVETICA_NEUE_REGULAR;
 
 //@property (nonatomic, retain)
-@property (nonatomic,copy) NSIndexPath * ipNewProjectSelectProperty;
+//Создание нового таска. индекс ячейки, которую редактируем.
+@property (nonatomic,copy) NSIndexPath * ipNewProjectSelectedProperty;
+//Создание нового таска. название раздела Task/Project/Client.
+@property (nonatomic,copy) NSString * strNewProjectSelectedCategory;
 
 + (TTApplicationManager *)sharedApplicationManager;
 -(void) pushViewTo:(NSString*) strNewView forNavigationController:(UINavigationController*) navController;

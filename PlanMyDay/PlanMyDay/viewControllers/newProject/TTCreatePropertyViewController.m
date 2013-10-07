@@ -2,7 +2,7 @@
 //  TTCreatePropertyViewController.m
 //  PlanMyDay
 //
-//  Created by Yegor Karpechenkov on 8/11/13.
+//  Created by ProstoApps* on 8/11/13.
 //  Copyright (c) 2013 prosto*. All rights reserved.
 //
 
