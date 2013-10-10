@@ -18,6 +18,9 @@
 		055A403017F5E5A7004E0617 /* background@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 055A402E17F5E5A7004E0617 /* background@2x.jpg */; };
 		055A403317F5E616004E0617 /* bgUiBar.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 055A403117F5E616004E0617 /* bgUiBar.jpg */; };
 		055A403417F5E616004E0617 /* bgUiBar@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 055A403217F5E616004E0617 /* bgUiBar@2x.jpg */; };
+		0568876D1805C77800EDBBB6 /* button_menu.png in Resources */ = {isa = PBXBuildFile; fileRef = 0568876B1805C77800EDBBB6 /* button_menu.png */; };
+		0568876E1805C77800EDBBB6 /* button_menu@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0568876C1805C77800EDBBB6 /* button_menu@2x.png */; };
+		056887701805C93200EDBBB6 /* PropertyListColors.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0568876F1805C93200EDBBB6 /* PropertyListColors.plist */; };
 		0596765117D0CAD000653A60 /* DDMenuController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0596765017D0CAD000653A60 /* DDMenuController.m */; };
 		05BAA80417E1F586003D7498 /* PropertyListOfViewForms.plist in Resources */ = {isa = PBXBuildFile; fileRef = 05BAA80317E1F586003D7498 /* PropertyListOfViewForms.plist */; };
 		05C454AB17F45B0100FD566C /* TTNewProjectViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05941E9117E9BFCE0079C571 /* TTNewProjectViewController.xib */; };
@@ -106,6 +109,9 @@
 		055A402E17F5E5A7004E0617 /* background@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "background@2x.jpg"; sourceTree = "<group>"; };
 		055A403117F5E616004E0617 /* bgUiBar.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = bgUiBar.jpg; sourceTree = "<group>"; };
 		055A403217F5E616004E0617 /* bgUiBar@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "bgUiBar@2x.jpg"; sourceTree = "<group>"; };
+		0568876B1805C77800EDBBB6 /* button_menu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_menu.png; sourceTree = "<group>"; };
+		0568876C1805C77800EDBBB6 /* button_menu@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "button_menu@2x.png"; sourceTree = "<group>"; };
+		0568876F1805C93200EDBBB6 /* PropertyListColors.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = PropertyListColors.plist; sourceTree = "<group>"; };
 		05941E9117E9BFCE0079C571 /* TTNewProjectViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = TTNewProjectViewController.xib; path = viewControllers/TTNewProjectViewController.xib; sourceTree = "<group>"; };
 		0596764F17D0CAD000653A60 /* DDMenuController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDMenuController.h; sourceTree = "<group>"; };
 		0596765017D0CAD000653A60 /* DDMenuController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDMenuController.m; sourceTree = "<group>"; };
@@ -224,6 +230,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		056887691805C74D00EDBBB6 /* buttons */ = {
+			isa = PBXGroup;
+			children = (
+				0568876A1805C75A00EDBBB6 /* menu */,
+			);
+			name = buttons;
+			sourceTree = "<group>";
+		};
+		0568876A1805C75A00EDBBB6 /* menu */ = {
+			isa = PBXGroup;
+			children = (
+				0568876B1805C77800EDBBB6 /* button_menu.png */,
+				0568876C1805C77800EDBBB6 /* button_menu@2x.png */,
+				05CD803917F9A4D00014B980 /* button_new_project.png */,
+				05CD803A17F9A4D00014B980 /* button_new_project@2x.png */,
+			);
+			name = menu;
+			sourceTree = "<group>";
+		};
 		0596765217D0CAD700653A60 /* DDMenuController */ = {
 			isa = PBXGroup;
 			children = (
@@ -255,8 +280,7 @@
 		DD7BAE3917A5BE4400CACFB2 /* images */ = {
 			isa = PBXGroup;
 			children = (
-				05CD803917F9A4D00014B980 /* button_new_project.png */,
-				05CD803A17F9A4D00014B980 /* button_new_project@2x.png */,
+				056887691805C74D00EDBBB6 /* buttons */,
 				055A403117F5E616004E0617 /* bgUiBar.jpg */,
 				055A403217F5E616004E0617 /* bgUiBar@2x.jpg */,
 				055A402D17F5E5A7004E0617 /* background.jpg */,
@@ -451,6 +475,7 @@
 			isa = PBXGroup;
 			children = (
 				05BAA80317E1F586003D7498 /* PropertyListOfViewForms.plist */,
+				0568876F1805C93200EDBBB6 /* PropertyListColors.plist */,
 				DDB4A83317849C3F007C7F15 /* PlanMyDay-Info.plist */,
 				DDB4A83417849C3F007C7F15 /* InfoPlist.strings */,
 				DDB4A83717849C3F007C7F15 /* main.m */,
@@ -588,6 +613,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				05CD803B17F9A4D00014B980 /* button_new_project.png in Resources */,
+				0568876D1805C77800EDBBB6 /* button_menu.png in Resources */,
+				056887701805C93200EDBBB6 /* PropertyListColors.plist in Resources */,
 				DDB4A83617849C3F007C7F15 /* InfoPlist.strings in Resources */,
 				DDB4A83E17849C3F007C7F15 /* Default.png in Resources */,
 				DDB4A84017849C3F007C7F15 /* Default@2x.png in Resources */,
@@ -633,6 +660,7 @@
 				05EF3DCE17C24FB0000005E8 /* clock-hour-background_TT.png in Resources */,
 				05EF3DD117C25125000005E8 /* clock-min-background_TT.png in Resources */,
 				05EF3DD217C25125000005E8 /* clock-sec-background_TT.png in Resources */,
+				0568876E1805C77800EDBBB6 /* button_menu@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

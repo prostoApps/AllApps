@@ -35,6 +35,8 @@ NSString *const STR_NEW_PROJECT_CLIENT_MAIL         = @"E-mail";
 NSString *const STR_NEW_PROJECT_CLIENT_PHONE        = @"Phone";
 NSString *const STR_NEW_PROJECT_CLIENT_NOTE         = @"Notes";
 NSString *const STR_NEW_PROJECT_COLOR               = @"Color";
+NSString *const STR_NEW_PROJECT_COLOR_NAME          = @"name";
+NSString *const STR_NEW_PROJECT_COLOR_COLOR         = @"color";
 NSString *const STR_NEW_PROJECT_START_DATE          = @"Start";
 NSString *const STR_NEW_PROJECT_END_DATE            = @"End";
 
@@ -50,8 +52,13 @@ int const NUM_NEW_PROJECT_SELECTED_SEGMENT_TASK    = 0;
 
 NSString *const FONT_HELVETICA_NEUE_LIGHT      = @"HelveticaNeue-Light";
 NSString *const FONT_HELVETICA_NEUE_REGULAR    = @"HelveticaNeue-Regular";
+NSString *const FONT_HELVETICA_NEUE_MEDIUM    = @"HelveticaNeue-Medium";
 
-@synthesize ipNewProjectSelectedProperty,strNewProjectSelectedCategory;
+@synthesize ipNewProjectSelectedProperty,strNewProjectSelectedCategory,arrTaskColors;
+@synthesize ipNewProjectSelectedColor;
+
+
+
 
 + (TTApplicationManager *)sharedApplicationManager
 {
@@ -67,6 +74,40 @@ NSString *const FONT_HELVETICA_NEUE_REGULAR    = @"HelveticaNeue-Regular";
     }
 }
 
+
+-(NSArray*)arrTaskColors{
+    if (!arrTaskColors)
+    {
+        arrTaskColors = [[NSArray alloc] initWithObjects:
+                         [[NSDictionary alloc] initWithObjectsAndKeys:
+                                    @"Strawberry",@"name",
+                                    @"fc3e39",@"color",
+                          nil],
+                         [[NSDictionary alloc] initWithObjectsAndKeys:
+                          @"Plum",@"name",
+                          @"1e7cf4",@"color",
+                          nil],
+                         [[NSDictionary alloc] initWithObjectsAndKeys:
+                          @"Cucumber",@"name",
+                          @"53d769",@"color",
+                          nil],
+                         [[NSDictionary alloc] initWithObjectsAndKeys:
+                          @"Strawberry",@"name",
+                          @"fc3e39",@"color",
+                          nil],
+                         [[NSDictionary alloc] initWithObjectsAndKeys:
+                          @"Plum",@"name",
+                          @"1e7cf4",@"color",
+                          nil],
+                         [[NSDictionary alloc] initWithObjectsAndKeys:
+                          @"Cucumber",@"name",
+                          @"53d769",@"color",
+                          nil],
+                         
+                         nil];
+    }
+    return arrTaskColors;
+}
 
 -(UIViewController*) getUIViewControllerFromString: (NSString*)strViewController
 {
