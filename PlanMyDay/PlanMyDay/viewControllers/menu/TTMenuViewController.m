@@ -21,7 +21,7 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
-          self.view.backgroundColor = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"background.jpg"]];
+        //  self.view.backgroundColor = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"background.jpg"]];
         
     }
     return self;
@@ -32,6 +32,9 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     [self setTitle:@"Menu"];
+    UIColor * back = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"background.jpg"]];
+    self.view.backgroundColor = back;
+
     
 
 }

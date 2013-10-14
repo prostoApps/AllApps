@@ -6,13 +6,14 @@
 #import "TTApplicationManager.h"
 
 #define kMenuFullWidth 320.0f
-#define kMenuDisplayedWidth 90.0f
+#define kMenuDisplayedWidth 68.0f
 #define kMenuOverlayWidth (self.view.bounds.size.width - kMenuDisplayedWidth)
 #define kMenuBounceOffset 0.0f
 #define kMenuBounceDuration .0f
 #define kMenuSlideDuration .0f
 
 @interface DDMenuController (Internal)
+- (void)showShadow:(BOOL)val;
 @end
 
 @implementation DDMenuController
@@ -171,6 +172,7 @@
         [self.delegate menuController:self willShowViewController:self.leftViewController];
     }
     _menuFlags.showingLeftView = YES;
+     [self showShadow:YES];
 
     UIView *view = self.leftViewController.view;
 	CGRect frame = self.view.bounds;
@@ -280,11 +282,24 @@
         [self showRootController:animated];
     }
 }
+- (void)showShadow:(BOOL)val {
+    if (!_root) return;
+    
+    _root.view.layer.shadowOpacity = val ? 0.8f : 0.0f;
+    if (val) {
+        _root.view.layer.cornerRadius = 4.0f;
+        _root.view.layer.shadowOffset = CGSizeZero;
+        _root.view.layer.shadowRadius = 4.0f;
+        _root.view.layer.shadowPath = [UIBezierPath bezierPathWithRect:self.view.bounds].CGPath;
+    }
+    
+}
 
 #pragma mark - Actions
 
 - (void)showLeft:(id)sender
 {
+    
     [self showLeftController:YES];
 }
 
