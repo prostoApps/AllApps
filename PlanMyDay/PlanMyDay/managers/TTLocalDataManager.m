@@ -64,6 +64,8 @@
             }//end of if
         }
     }
+    
+    [itemData setObject:[[NSMutableArray alloc] initWithCapacity:0] forKey:STR_ALL_PROJECTS];
 
     [[dictLocalData objectForKey:STR_ALL_CLIENTS] addObject:itemData];
     return YES;
@@ -103,6 +105,7 @@
                     NSMutableDictionary *tmpPoject = [[NSMutableDictionary alloc]  initWithObjectsAndKeys:
                                                       [itemData objectForKey:STR_CLIENT_NAME], STR_CLIENT_NAME,
                                                       [itemData objectForKey:STR_PROJECT_NAME], STR_PROJECT_NAME,
+                                                      [[NSMutableArray alloc] init], STR_ALL_TASKS,
                                                       nil ];
 
                     if (![dictClientData objectForKey:STR_ALL_PROJECTS])
@@ -111,7 +114,7 @@
                     }
                     else
                     {
-                        [[dictClientData objectForKey:STR_ALL_PROJECTS] addObject:tmpPoject];
+                        [dictClientData setObject:[[NSMutableArray alloc] initWithObjects: tmpPoject,nil ] forKey:STR_ALL_PROJECTS];
                     }
 
                     return YES;
@@ -120,6 +123,7 @@
                 NSMutableDictionary *tmpPoject = [[NSMutableDictionary alloc]  initWithObjectsAndKeys:
                                                   [itemData objectForKey:STR_CLIENT_NAME], STR_CLIENT_NAME,
                                                   [itemData objectForKey:STR_PROJECT_NAME], STR_PROJECT_NAME,
+                                                  [[NSMutableArray alloc] init], STR_ALL_TASKS,
                                                   nil ];
                 
                 if (![dictClientData objectForKey:STR_ALL_PROJECTS])
@@ -202,6 +206,7 @@
                                         [dictProjectData setObject:[[NSMutableDictionary alloc] init] forKey:STR_ALL_TASKS];
                                     }
                                     
+//                                    [dictClientData setObject:[[NSMutableArray alloc] initWithObjects: tmpPoject,nil ] forKey:STR_ALL_PROJECTS];
                                     [[dictProjectData objectForKey:STR_ALL_TASKS] addObject:[itemData copy]];
                                     //TODO go to the tasks list
                                     return YES;
@@ -215,7 +220,8 @@
                                     [dictProjectData setObject:[[NSMutableDictionary alloc] init] forKey:STR_ALL_TASKS];
                                 }
                                 
-                                [[dictProjectData objectForKey:STR_ALL_TASKS] addObject:[itemData copy]];
+                                
+                                [dictProjectData setObject:[[NSMutableArray alloc] initWithObjects: [itemData copy],nil ] forKey:STR_ALL_TASKS];
                                 //TODO go to the tasks list
                                 break;
                             }
@@ -361,6 +367,10 @@
 
 -(NSMutableArray*)getAllTasksForToday
 {
+    
+    NSCalendar *cal = [NSCalendar currentCalendar];
+//    NSDateComponents *components = [cal components:( NSHourCalendarUnit | NSMinuteCalendarUnit | NSSecondCalendarUnit ) fromDate:[[NSDate alloc] init]];
+    
     arrAllTasks = [[NSMutableArray alloc] init];
     NSDate *dtDateToday = [NSDate date];
     //  [self initTestData];

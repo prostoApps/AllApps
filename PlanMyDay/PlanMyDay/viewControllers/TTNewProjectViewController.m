@@ -149,6 +149,7 @@
             inputField.tag = INT_NEW_PROJECT_TYPE_INPUT;
             inputField.delegate = self;
             inputField.text = [[listData objectAtIndex:row] objectForKey:STR_NEW_PROJECT_VALUE];
+       
             [cell addSubview:inputField];
     }
     // если ячейчка с переключателем
@@ -214,8 +215,9 @@
 {
    // ipCurrentIndexPath = indexPath;
 
+            NSLog(@"NEW_PROJECT_VIEW_CONT::tableView didSelectRowAtIndexPath:: ipNewProjectSelectedProperty1: %@ , indexPath:%@",[[TTApplicationManager sharedApplicationManager] ipNewProjectSelectedProperty],indexPath);
     [[TTApplicationManager sharedApplicationManager] setIpNewProjectSelectedProperty:indexPath];
-    
+            NSLog(@"NEW_PROJECT_VIEW_CONT::tableView didSelectRowAtIndexPath:: ipNewProjectSelectedProperty2: %@ , indexPath:%@",[[TTApplicationManager sharedApplicationManager] ipNewProjectSelectedProperty],indexPath);
     NSArray *listData = [[currentFormPropertyArray objectAtIndex:[indexPath section]] objectForKey:STR_NEW_PROJECT_CELLS];
     int typeCell = [[[listData objectAtIndex:indexPath.row] objectForKey:STR_NEW_PROJECT_TYPE] intValue];
     
@@ -271,8 +273,9 @@
 
     NSIndexPath *indexPath = [tableViewNewProject indexPathForCell:(UITableViewCell*)[[textField superview] superview]];
     
-    [[TTApplicationManager sharedApplicationManager] setIpNewProjectSelectedProperty:indexPath];
-    
+    NSLog(@"NEW_PROJECT_VIEW_CONT::textFieldDidBeginEditing:: ipNewProjectSelectedProperty %@, indexPath:%@",[[TTApplicationManager sharedApplicationManager] ipNewProjectSelectedProperty],indexPath);
+//    [[TTApplicationManager sharedApplicationManager] setIpNewProjectSelectedProperty:indexPath];
+
     NSArray *listData = [[currentFormPropertyArray objectAtIndex:[indexPath section]] objectForKey:STR_NEW_PROJECT_CELLS];
     //тип ячеки
     int typeCell = [[[listData objectAtIndex:indexPath.row] objectForKey:STR_NEW_PROJECT_TYPE] intValue];
@@ -348,6 +351,7 @@
 
 -(IBAction) datePickerPickHandlerDone:(id)sender
 {
+    NSLog(@"datePickerPickHandlerDone::ipNewProjectSelectedProperty: %d ",[[[TTApplicationManager sharedApplicationManager] ipNewProjectSelectedProperty] section] );
     [[TTAppDataManager sharedAppDataManager] saveNewProjectFormDataValue:[dpTaskDatePicker date] byIndexPath:[[TTApplicationManager sharedApplicationManager] ipNewProjectSelectedProperty] ];
     [tableViewNewProject reloadData];
 }

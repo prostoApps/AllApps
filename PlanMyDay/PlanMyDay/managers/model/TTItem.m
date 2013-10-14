@@ -25,11 +25,18 @@ NSString *const STR_TASK_CHECK   = @"isCheck";
 NSString *const STR_START_DATE   = @"startDate";
 NSString *const STR_END_DATE     = @"endDate";
 
-NSString *const STR_COLOR_RED    = @"ff0000";
-NSString *const STR_COLOR_GREEN  = @"00ff00";
-NSString *const STR_COLOR_BLUE   = @"0000ff";
+NSString *const STR_ARC          = @"arc";
 
+NSString *const STR_COLOR_CARROT     = @"fd9426";
+NSString *const STR_COLOR_CUCUMBER   = @"53d769";
+NSString *const STR_COLOR_PLUM       = @"1c7efb";
+NSString *const STR_COLOR_STRAWBERRY = @"fc3e39";
 
+/*Carrot fd9426
+Cucumber 53d769
+Plum 1c7efb
+Strawberry fc3e39
+*/
 @implementation TTItem
 
 @synthesize   strClientName, strClientMail, strClientNotes,strClientPhone,strClientSkype;

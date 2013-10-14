@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "TTAppDataManager.h"
 #import "ClockViewController.h"
-#import "TTCurrentTaskNextTaskIndicatorViewController.h"
+#import "TTTasksIndicatorViewController.h"
 #import "TTApplicationManager.h"
 
 
@@ -23,15 +23,15 @@
 -(IBAction) btnNewTaskTouchHandler:(id)sender;
 -(IBAction) btnMenuTouchHandler:(id)sender;
 
-
 -(IBAction) changePage:(UIPageControl*) sender;
-
 
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView;
 - (void)gotoPage:(BOOL)animated;
 
 @property (nonatomic,retain) IBOutlet UIPageControl *pageControl;
 @property (nonatomic,retain) IBOutlet UIScrollView  *svScrollView;
+
+@property (nonatomic,retain) TTTasksIndicatorViewController *tasksIndicator;
 
 @property (nonatomic,retain) IBOutlet UIButton *btnMenu;
 @property (nonatomic,retain) IBOutlet UIButton *btnNewTask;

@@ -63,7 +63,8 @@
 - (NSInteger)tableView:(UITableView *)table numberOfRowsInSection:(NSInteger)section {
     return [arrProperties count];
 }
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
     return 1;
 }
 
@@ -90,7 +91,10 @@
 }
 // Tap on table Row
 - (void) tableView: (UITableView *) tableView didSelectRowAtIndexPath: (NSIndexPath *) indexPath {
+
     UITableViewCell * cell = [tableView cellForRowAtIndexPath:indexPath];
+        NSLog(@"tableView didSelectRowAtIndexPath:: indexPath %@, with text: %@",indexPath,cell.textLabel.text);
+        NSLog(@"tableView didSelectRowAtIndexPath:: ipNewProjectSelectedProperty %@,",[[TTApplicationManager sharedApplicationManager] ipNewProjectSelectedProperty]);
     [[TTAppDataManager sharedAppDataManager] saveNewProjectFormDataValue:cell.textLabel.text
                                                              byIndexPath:[[TTApplicationManager sharedApplicationManager] ipNewProjectSelectedProperty]];
     [self.navigationController popViewControllerAnimated:YES];
