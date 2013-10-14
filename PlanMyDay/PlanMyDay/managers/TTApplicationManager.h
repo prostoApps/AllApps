@@ -52,21 +52,26 @@ extern NSString *const STR_NEW_PROJECT_CLIENT_SKYPE;
 extern NSString *const STR_NEW_PROJECT_CLIENT_MAIL;
 extern NSString *const STR_NEW_PROJECT_CLIENT_NOTE;
 extern NSString *const STR_NEW_PROJECT_COLOR;
+extern NSString *const STR_NEW_PROJECT_COLOR_NAME;
+extern NSString *const STR_NEW_PROJECT_COLOR_COLOR;
 extern NSString *const STR_NEW_PROJECT_START_DATE;
 extern NSString *const STR_NEW_PROJECT_END_DATE;
 
-extern NSInteger *const NUM_NEW_PROJECT_SELECTED_SEGMENT_TASK;
-extern NSInteger *const NUM_NEW_PROJECT_SELECTED_SEGMENT_CLIENT;
-extern NSInteger *const NUM_NEW_PROJECT_SELECTED_SEGMENT_PROJECT;
+extern int const NUM_NEW_PROJECT_SELECTED_SEGMENT_TASK;
+extern int const NUM_NEW_PROJECT_SELECTED_SEGMENT_CLIENT;
+extern int const NUM_NEW_PROJECT_SELECTED_SEGMENT_PROJECT;
 
 extern NSString *const FONT_HELVETICA_NEUE_LIGHT;
 extern NSString *const FONT_HELVETICA_NEUE_REGULAR;
+extern NSString *const FONT_HELVETICA_NEUE_MEDIUM;
 
 //@property (nonatomic, retain)
 //Создание нового таска. индекс ячейки, которую редактируем.
 @property (nonatomic,copy) NSIndexPath * ipNewProjectSelectedProperty;
+@property (nonatomic,copy) NSIndexPath * ipNewProjectSelectedColor;
 //Создание нового таска. название раздела Task/Project/Client.
 @property (nonatomic,copy) NSString * strNewProjectSelectedCategory;
+@property (nonatomic,copy) NSArray * arrTaskColors;
 
 + (TTApplicationManager *)sharedApplicationManager;
 -(void) pushViewTo:(NSString*) strNewView forNavigationController:(UINavigationController*) navController;

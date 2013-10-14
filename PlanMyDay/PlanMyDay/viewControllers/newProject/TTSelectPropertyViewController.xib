@@ -8,10 +8,12 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TTSelectPropertyViewController">
             <connections>
                 <outlet property="btnAddFirst" destination="Dbg-Ux-ccs" id="BDD-R0-MsC"/>
+                <outlet property="btnAddSelection" destination="c5K-pk-3Hg" id="fRa-5f-gHX"/>
                 <outlet property="lbAddFirst" destination="Ei8-Wg-P1p" id="Qle-fP-Xdq"/>
                 <outlet property="searchBar" destination="2dU-4j-zvy" id="dZL-ji-jTL"/>
                 <outlet property="tablePropertiesList" destination="pRM-sz-Cfe" id="Glp-GA-K2e"/>
                 <outlet property="view" destination="1" id="3"/>
+                <outlet property="viewTableFooter" destination="dU1-xN-5SL" id="fuj-cc-ojC"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -58,6 +60,30 @@
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+        </view>
+        <view contentMode="scaleToFill" id="dU1-xN-5SL" userLabel="footerTableViewNewProject">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="76"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c5K-pk-3Hg">
+                    <rect key="frame" x="20" y="16" width="280" height="44"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" red="0.20784313730000001" green="0.82352941180000006" blue="0.31372549020000001" alpha="1" colorSpace="calibratedRGB"/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue-UltraLight" family="Helvetica Neue" pointSize="26"/>
+                    <state key="normal" title="Add Selection">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <state key="highlighted">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="AddNewSelectionItemHehdler:" destination="-1" eventType="touchUpInside" id="uGK-tU-KWb"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
         </view>
     </objects>
 </document>

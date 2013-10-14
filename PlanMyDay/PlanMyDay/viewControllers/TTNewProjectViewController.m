@@ -69,7 +69,7 @@
 -(void) viewWillAppear:(BOOL)animated{
     
     if (tableViewNewProject != nil){
-        [tableViewNewProject reloadData];
+        [self loadPropertyForView];
     }
 }
 - (void) loadPropertyForView {
@@ -163,14 +163,22 @@
     // если ячейчка выбора цвета
     else if (typeCell == INT_NEW_PROJECT_TYPE_COLOR)
     {
+        TTApplicationManager * aplicationDM = [TTApplicationManager sharedApplicationManager];
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-        UIImageView * imageColor = [[UIImageView alloc] initWithFrame:CGRectMake(100, 8, 25, 25)];
-        UIColor * color = [appDataManager colorWithHexString:[[listData objectAtIndex:row] objectForKey:STR_NEW_PROJECT_VALUE]];
-        imageColor.backgroundColor = color;
-        imageColor.tag = INT_NEW_PROJECT_TYPE_COLOR;
-        [cell addSubview:imageColor];
+        if (aplicationDM.ipNewProjectSelectedColor)
+        {
+            NSString * colorName = [[aplicationDM.arrTaskColors objectAtIndex:aplicationDM.ipNewProjectSelectedColor.row] objectForKey:STR_NEW_PROJECT_COLOR_NAME];
+            cell.detailTextLabel.text = colorName;
+        UIView *circle = [[UIView alloc] initWithFrame:CGRectMake(100, 8, 2 * 12.5, 2 * 12.5)] ;
+        circle.layer.borderColor = [appDataManager colorWithHexString:[[listData objectAtIndex:row] objectForKey:STR_NEW_PROJECT_VALUE]].CGColor;
+        circle.layer.borderWidth = 1.f;
+        circle.layer.cornerRadius = 12.5;
+        circle.layer.masksToBounds = YES;
+        circle.tag = INT_NEW_PROJECT_TYPE_COLOR;
+        [cell addSubview:circle];
+        }
     }
-    // если ячейчка выбора цвета
+    // если ячейчка выбора даты
     else if (typeCell == INT_NEW_PROJECT_TYPE_PICKER)
     {
         UITextField * inputField = [[UITextField alloc] initWithFrame:CGRectMake(80,0,240,44)];

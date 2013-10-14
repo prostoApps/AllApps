@@ -69,6 +69,12 @@
     
     [tasksTableView reloadData];
 }
+-(void)editCellFromTTTasksTableView:(TTTasksTableViewCell*)cell{
+    
+    NSString * taskName = [cell.getTableCellData objectForKey:STR_TASK_NAME];
+
+    [[TTApplicationManager sharedApplicationManager] pushViewTo:VIEW_NEW_TASK forNavigationController:self.navigationController];
+}
 -(void)iconTaskWasTaped:(UITableViewCell*)cell{
     [[TTApplicationManager sharedApplicationManager] switchViewTo:VIEW_CUSTOM_TRACKER forNavigationController:self.navigationController];
     

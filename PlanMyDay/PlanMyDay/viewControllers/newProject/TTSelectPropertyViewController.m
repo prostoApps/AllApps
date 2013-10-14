@@ -30,11 +30,15 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
+    [tablePropertiesList setTableFooterView:viewTableFooter];
+    
     TTAppDataManager * appDataManager = [TTAppDataManager sharedAppDataManager];
     
     selectStr = [NSString stringWithFormat:@"%@",[appDataManager getNewProjectFormDataValue:STR_NEW_PROJECT_NAME
                                                                                 byIndexPath:[[TTApplicationManager sharedApplicationManager] ipNewProjectSelectedProperty]]];
     [self setTitle:[NSString stringWithFormat:@"Choose %@",selectStr]];
+    btnAddSelection.titleLabel.text = [NSString stringWithFormat:@"Add %@",selectStr];
+    [[TTAppDataManager sharedAppDataManager] makeButtonStyled:btnAddSelection];
     
     if ([selectStr isEqualToString:STR_NEW_PROJECT_CLIENT]){
        arrProperties = [appDataManager getAllClients];
@@ -105,10 +109,25 @@
     return NO;
 }
 
+-(IBAction)AddNewSelectionItemHehdler:(id)sender{
+    
+    [[TTApplicationManager sharedApplicationManager] setStrNewProjectSelectedCategory:selectStr];
+    
+    if ([selectStr isEqualToString:STR_NEW_PROJECT_PROJECT]){
+        [[TTAppDataManager sharedAppDataManager] setSegmentIndexNewProject:NUM_NEW_PROJECT_SELECTED_SEGMENT_PROJECT];
+    }
+    else if([selectStr isEqualToString:STR_NEW_PROJECT_CLIENT]){
+         [[TTAppDataManager sharedAppDataManager] setSegmentIndexNewProject:NUM_NEW_PROJECT_SELECTED_SEGMENT_CLIENT];
+    }
+    [self.navigationController popViewControllerAnimated:YES];
+    
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
 
 @end

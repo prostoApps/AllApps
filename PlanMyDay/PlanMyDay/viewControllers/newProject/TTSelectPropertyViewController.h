@@ -15,9 +15,13 @@
     IBOutlet UISearchBar * searchBar;
     IBOutlet UIButton * btnAddFirst;
     IBOutlet UILabel * lbAddFirst;
+    
+    IBOutlet UIView * viewTableFooter;
+    IBOutlet UIButton * btnAddSelection;
 }
 
 @property (nonatomic, retain) NSMutableArray *arrProperties;
 @property (nonatomic, retain) IBOutlet UITableView *tablePropertiesList;
 
+-(IBAction)AddNewSelectionItemHehdler:(id)sender;
 @end

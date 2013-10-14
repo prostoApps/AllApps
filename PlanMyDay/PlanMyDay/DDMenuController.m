@@ -117,14 +117,12 @@
     {
         topController = _root;
     }
-
-    UIBarButtonItem *infoButtonItem=[[UIBarButtonItem alloc]initWithTitle:@"=" style:UIBarButtonItemStyleBordered  target:self action:@selector(showLeft:)];
-    
-  //  UIBarButtonItem *infoButtonItem2=[[UIBarButtonItem alloc]initWithTitle:@"+" style:UIBarButtonItemStyleBordered  target:self action:@selector(showRight:)];
-    UIBarButtonItem *infoButtonItem2=[[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"button_new_project.png"] style:UIBarButtonItemStyleBordered target:self action:@selector(showRight:)];
+    UIBarButtonItem *RightBarButtonItem=[[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"button_new_project.png"] style:UIBarButtonItemStyleBordered target:self action:@selector(showRight:)];
+    UIBarButtonItem *LeftBarButtonItem=[[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"button_menu.png"] style:UIBarButtonItemStyleBordered target:self action:@selector(showLeft:)];
+   
                                       
-    [topController.navigationItem setLeftBarButtonItem:infoButtonItem];
-    [topController.navigationItem setRightBarButtonItem:infoButtonItem2];
+    [topController.navigationItem setLeftBarButtonItem:LeftBarButtonItem];
+    [topController.navigationItem setRightBarButtonItem:RightBarButtonItem];
     [topController.navigationController.navigationBar setTintColor:[UIColor whiteColor]];
     
     UIBarButtonItem *backButton=[[UIBarButtonItem alloc]initWithTitle:@"" style:UIBarButtonItemStyleBordered  target:self action:nil];

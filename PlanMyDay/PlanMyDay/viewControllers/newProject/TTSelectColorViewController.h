@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <QuartzCore/QuartzCore.h>
 #import "TTApplicationManager.h"
 
 @interface TTSelectColorViewController : UIViewController <UICollectionViewDataSource ,UICollectionViewDelegate>
