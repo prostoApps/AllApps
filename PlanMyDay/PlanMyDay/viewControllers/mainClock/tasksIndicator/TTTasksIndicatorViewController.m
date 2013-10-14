@@ -1,18 +1,21 @@
 //
-//  TTStatisticsViewController.m
-//  TimeTracker
+//  TTTasksIndicatorViewController.m
+//  PlanMyDay
 //
-//  Created by ProstoApps* on 6/29/13.
+//  Created by Yegor Karpechenkov on 10/8/13.
 //  Copyright (c) 2013 prosto*. All rights reserved.
 //
 
-#import "TTStatisticsViewController.h"
+#import "TTTasksIndicatorViewController.h"
 
-@interface TTStatisticsViewController ()
+@interface TTTasksIndicatorViewController ()
 
 @end
 
-@implementation TTStatisticsViewController
+float const NUM_ONE_HOUR_DURATION = 0.083f;
+float const NUM_ONE_HOUR_ROTATION = 0.523f;
+
+@implementation TTTasksIndicatorViewController
 
 @synthesize largeProgressView = _largeProgressView;
 
@@ -21,6 +24,15 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
+    }
+    return self;
+}
+
+-(id)initWithTasks:(NSMutableArray*)arrTasks;
+{
+    self = [super init];
+    if (self) {
+        arrTasksForToday = [[NSMutableArray alloc] initWithArray:arrTasks];
     }
     return self;
 }
@@ -36,28 +48,53 @@
     [self.view addSubview:self.largeProgressView];
     [self.largeProgressView setThicknessRatio:0.066];
     
-    [self drawTasksToView:[[TTAppDataManager sharedAppDataManager] getAllTasks]];
+    [self.largeProgressView setProgress:0.75f];
+    [self drawTasksToView];
+    // Запланированый старт (текущая дата - час)
+    NSDate *taskStartTime1 = [NSDate dateWithTimeInterval:-2 sinceDate:[NSDate date]];
+    // Запланированый Финиш (текущая дата + час)
+    NSDate *taskStartTime2 = [NSDate dateWithTimeInterval:2 sinceDate:[NSDate date]];
+    float timeDifference100 = [taskStartTime2 timeIntervalSinceDate:taskStartTime1];
+    NSLog(@"timeDifference100:%f",timeDifference100);
 }
 
--(void)drawTasksToView:(NSMutableArray*)arrTasks
+-(void)drawTasksToView
 {
     NSCalendar *calendar = [NSCalendar currentCalendar];
-    
+
     int numDuration = 0;
+    int numTotalDuration = 0;
+    float fDurationRatio = 0;
     NSDate *dtStartDate;
     NSDate *dtEndDate;
     NSString *strColor;
-    
-    for (NSMutableDictionary *dictTask in arrTasks)
+
+//    NSString *strNewString = [strColor substringToIndex:2];
+//    flo *strNewString = [strColor substringWithRange:NSMakeRange(0, 2)];
+//    [strColor floatValue];
+
+    for (NSMutableDictionary *dictTmpTask in arrTasksForToday)
+    {
+        dtStartDate = [dictTmpTask objectForKey:STR_START_DATE];
+        dtEndDate   = [dictTmpTask objectForKey:STR_END_DATE];
+        numDuration = [dtEndDate timeIntervalSinceDate:dtStartDate]/3600;
+   
+        numTotalDuration += numDuration;
+    }
+        
+    for (NSMutableDictionary *dictTask in arrTasksForToday)
     {
         strColor    = [dictTask objectForKey:STR_TASK_COLOR];
+
         dtStartDate = [dictTask objectForKey:STR_START_DATE];
         dtEndDate   = [dictTask objectForKey:STR_END_DATE];
         numDuration = [dtEndDate timeIntervalSinceDate:dtStartDate]/3600;
         
+        fDurationRatio = numDuration / numTotalDuration;
+        
         NSDateComponents *tmpDateComponents = [calendar components:(NSHourCalendarUnit) fromDate:dtStartDate];
         NSInteger numHourOfTaskStarts = [tmpDateComponents hour];
-
+        
         NSString *strRedString = [NSString stringWithFormat:@"%@", [strColor substringWithRange:NSMakeRange(0, 2)]];
         float fRed = [[TTTools hexFromStr:strRedString] floatValue];
         NSString *strGreenString = [NSString stringWithFormat:@"%@", [strColor substringWithRange:NSMakeRange(2, 2)]];
@@ -69,7 +106,7 @@
         largeProgressViewTMP.layer.anchorPoint = CGPointMake(0.5, 0.5);
         [largeProgressViewTMP setTrackTintColor:[[UIColor alloc] initWithRed:0xfc/255.0 green:0x3e/255.0 blue:0xff/255.0 alpha:0]];
         [largeProgressViewTMP setProgressTintColor:[[UIColor alloc] initWithRed:fRed/6666.0 green:fGreen/6666.0 blue:fBlue/6666.0 alpha:1]];
-        
+
         largeProgressViewTMP.roundedCorners = NO;
         [self.view addSubview:largeProgressViewTMP];
         [largeProgressViewTMP setThicknessRatio:0.066];
@@ -84,8 +121,8 @@
         rota.fromValue = [NSNumber numberWithFloat: 0];
         rota.toValue = [NSNumber numberWithFloat:  numHourOfTaskStarts*NUM_ONE_HOUR_ROTATION ];
         [largeProgressViewTMP.layer addAnimation: rota forKey: @"rotation"];
-        //        return;
-        //        [dictTask setObject:largeProgressViewTMP forKey:STR_ARC];
+//        return;
+//        [dictTask setObject:largeProgressViewTMP forKey:STR_ARC];
     }
 }
 

@@ -16,7 +16,7 @@
 
 @synthesize btnNewTask,btnMenu;
 
-@synthesize pageControl,svScrollView;
+@synthesize pageControl,svScrollView,tasksIndicator;
 @synthesize customTrackerViewController;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -33,7 +33,7 @@
     [super viewDidLoad];
     
     //вытаскиваем все таски, которые есть в localData
-    NSArray *arrAllTasks = [[NSMutableArray alloc] initWithArray:[[TTAppDataManager sharedAppDataManager] getAllTasks]];
+    NSMutableArray *arrAllTasks = [[NSMutableArray alloc] initWithArray:[[TTAppDataManager sharedAppDataManager] getAllTasks]];
     
     UIColor * back = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"background.jpg"]];
     self.view.backgroundColor = back;
@@ -44,6 +44,10 @@
     clock.view.frame = CGRectMake(0, 0, svScrollView.frame.size.width, svScrollView.frame.size.height);
     //[svScrollView addSubview:clock.view];
     [self.view addSubview:clock.view];
+    
+    //добавляем цветной индикатор тасков вокруг часов
+    tasksIndicator = [[TTTasksIndicatorViewController alloc] initWithTasks:arrAllTasks];
+    [self.view addSubview:tasksIndicator.view];
     
     //добавляем индикатор под основные часы
    // TTCurrentTaskNextTaskIndicatorViewController *indicator = [[TTCurrentTaskNextTaskIndicatorViewController alloc] initWithNibName:@"TTCurrentTaskNextTaskIndicatorViewController" bundle:nil];
