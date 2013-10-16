@@ -1,0 +1,915 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		05103CC617EA0EAB008C9D81 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05103CC517EA0EAB008C9D81 /* XCTest.framework */; };
+		05103CC717EA0EAB008C9D81 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDB4A82D17849C3F007C7F15 /* Foundation.framework */; };
+		05103CC817EA0EAB008C9D81 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDB4A82B17849C3F007C7F15 /* UIKit.framework */; };
+		05103CDA17EA1EAF008C9D81 /* bgTaskInfoLabel@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 05103CD917EA1EAF008C9D81 /* bgTaskInfoLabel@2x.png */; };
+		05103CDD17EA2015008C9D81 /* bgUiSearch.png in Resources */ = {isa = PBXBuildFile; fileRef = 05103CDB17EA2015008C9D81 /* bgUiSearch.png */; };
+		05103CDE17EA2015008C9D81 /* bgUiSearch@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 05103CDC17EA2015008C9D81 /* bgUiSearch@2x.png */; };
+		0549C2F117FAEE6B0097B002 /* TTSelectColorViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0549C2F017FAEE6B0097B002 /* TTSelectColorViewController.xib */; };
+		055A402F17F5E5A7004E0617 /* background.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 055A402D17F5E5A7004E0617 /* background.jpg */; };
+		055A403017F5E5A7004E0617 /* background@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 055A402E17F5E5A7004E0617 /* background@2x.jpg */; };
+		0568876D1805C77800EDBBB6 /* button_menu.png in Resources */ = {isa = PBXBuildFile; fileRef = 0568876B1805C77800EDBBB6 /* button_menu.png */; };
+		0568876E1805C77800EDBBB6 /* button_menu@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0568876C1805C77800EDBBB6 /* button_menu@2x.png */; };
+		056887701805C93200EDBBB6 /* PropertyListColors.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0568876F1805C93200EDBBB6 /* PropertyListColors.plist */; };
+		0596765117D0CAD000653A60 /* DDMenuController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0596765017D0CAD000653A60 /* DDMenuController.m */; };
+		05BAA80417E1F586003D7498 /* PropertyListOfViewForms.plist in Resources */ = {isa = PBXBuildFile; fileRef = 05BAA80317E1F586003D7498 /* PropertyListOfViewForms.plist */; };
+		05C454AB17F45B0100FD566C /* TTNewProjectViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05941E9117E9BFCE0079C571 /* TTNewProjectViewController.xib */; };
+		05C8136E17C6283E00E90B2F /* icon_button_arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 05C8136C17C6283E00E90B2F /* icon_button_arrow.png */; };
+		05C8136F17C6283E00E90B2F /* icon_button_arrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 05C8136D17C6283E00E90B2F /* icon_button_arrow@2x.png */; };
+		05CD803B17F9A4D00014B980 /* button_new_project.png in Resources */ = {isa = PBXBuildFile; fileRef = 05CD803917F9A4D00014B980 /* button_new_project.png */; };
+		05CD803C17F9A4D00014B980 /* button_new_project@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 05CD803A17F9A4D00014B980 /* button_new_project@2x.png */; };
+		05CD804017F9EB6C0014B980 /* TTSelectColorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05CD803E17F9EB6C0014B980 /* TTSelectColorViewController.m */; };
+		05EF3DCE17C24FB0000005E8 /* clock-hour-background_TT.png in Resources */ = {isa = PBXBuildFile; fileRef = 05EF3DCD17C24FB0000005E8 /* clock-hour-background_TT.png */; };
+		05EF3DD117C25125000005E8 /* clock-min-background_TT.png in Resources */ = {isa = PBXBuildFile; fileRef = 05EF3DCF17C25125000005E8 /* clock-min-background_TT.png */; };
+		05EF3DD217C25125000005E8 /* clock-sec-background_TT.png in Resources */ = {isa = PBXBuildFile; fileRef = 05EF3DD017C25125000005E8 /* clock-sec-background_TT.png */; };
+		05F2AA5F1808327700C6E96A /* bgUiBar.png in Resources */ = {isa = PBXBuildFile; fileRef = 05F2AA5D1808327700C6E96A /* bgUiBar.png */; };
+		05F2AA601808327700C6E96A /* bgUiBar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 05F2AA5E1808327700C6E96A /* bgUiBar@2x.png */; };
+		DD2B9B8117B06E1F00E37DA8 /* TTMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD2B9B7F17B06E1F00E37DA8 /* TTMenuViewController.m */; };
+		DD2B9B8217B06E1F00E37DA8 /* TTMenuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DD2B9B8017B06E1F00E37DA8 /* TTMenuViewController.xib */; };
+		DD7BAE3117A5BDCA00CACFB2 /* TTTasksTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DD7BAE2E17A5BDCA00CACFB2 /* TTTasksTableViewCell.xib */; };
+		DD7BAE3217A5BDCA00CACFB2 /* TTTasksTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DD7BAE2F17A5BDCA00CACFB2 /* TTTasksTableViewCell.m */; };
+		DD7BAE3617A5BDDB00CACFB2 /* TTTasksViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD7BAE3317A5BDDB00CACFB2 /* TTTasksViewController.m */; };
+		DD7BAE3717A5BDDB00CACFB2 /* TTTasksViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DD7BAE3517A5BDDB00CACFB2 /* TTTasksViewController.xib */; };
+		DD7BAE4117A5BE4400CACFB2 /* ckeck_cell_icons.png in Resources */ = {isa = PBXBuildFile; fileRef = DD7BAE3B17A5BE4400CACFB2 /* ckeck_cell_icons.png */; };
+		DD7BAE4217A5BE4400CACFB2 /* delete_cell_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = DD7BAE3C17A5BE4400CACFB2 /* delete_cell_icon.png */; };
+		DD7BAE4317A5BE4400CACFB2 /* one_task_back@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DD7BAE3D17A5BE4400CACFB2 /* one_task_back@2x.png */; };
+		DD7BAE4417A5BE4400CACFB2 /* task_icons.png in Resources */ = {isa = PBXBuildFile; fileRef = DD7BAE3E17A5BE4400CACFB2 /* task_icons.png */; };
+		DD7BAE4517A5BE4400CACFB2 /* bgTaskInfoLabel.png in Resources */ = {isa = PBXBuildFile; fileRef = DD7BAE3F17A5BE4400CACFB2 /* bgTaskInfoLabel.png */; };
+		DD7BAE4D17A5C24600CACFB2 /* TTCustomTrackerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD7BAE4B17A5C24600CACFB2 /* TTCustomTrackerViewController.m */; };
+		DD7BAE4E17A5C24600CACFB2 /* TTCustomTrackerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DD7BAE4C17A5C24600CACFB2 /* TTCustomTrackerViewController.xib */; };
+		DD7BAE5217A5C3A500CACFB2 /* DACircularProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = DD7BAE5117A5C3A500CACFB2 /* DACircularProgressView.m */; };
+		DD7BAE5417A5C4FE00CACFB2 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD7BAE5317A5C4FE00CACFB2 /* QuartzCore.framework */; };
+		DD90BF5417A9FEB50064233C /* TTCurrentTaskNextTaskIndicatorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD90BF5217A9FEB50064233C /* TTCurrentTaskNextTaskIndicatorViewController.m */; };
+		DD90BF5517A9FEB50064233C /* TTCurrentTaskNextTaskIndicatorViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DD90BF5317A9FEB50064233C /* TTCurrentTaskNextTaskIndicatorViewController.xib */; };
+		DD90BF6017AA06210064233C /* -clock-face.png in Resources */ = {isa = PBXBuildFile; fileRef = DD90BF5817AA06210064233C /* -clock-face.png */; };
+		DD90BF6117AA06210064233C /* bliss-roman-aluminium-clock.jpg in Resources */ = {isa = PBXBuildFile; fileRef = DD90BF5917AA06210064233C /* bliss-roman-aluminium-clock.jpg */; };
+		DD90BF6217AA06210064233C /* clock-background.png in Resources */ = {isa = PBXBuildFile; fileRef = DD90BF5A17AA06210064233C /* clock-background.png */; };
+		DD90BF6317AA06210064233C /* clock-hour-background.png in Resources */ = {isa = PBXBuildFile; fileRef = DD90BF5B17AA06210064233C /* clock-hour-background.png */; };
+		DD90BF6417AA06210064233C /* clock-min-background_.png in Resources */ = {isa = PBXBuildFile; fileRef = DD90BF5C17AA06210064233C /* clock-min-background_.png */; };
+		DD90BF6517AA06210064233C /* clock-min-background.png in Resources */ = {isa = PBXBuildFile; fileRef = DD90BF5D17AA06210064233C /* clock-min-background.png */; };
+		DD90BF6617AA06210064233C /* clock-sec-background.png in Resources */ = {isa = PBXBuildFile; fileRef = DD90BF5E17AA06210064233C /* clock-sec-background.png */; };
+		DD90BF6717AA06210064233C /* OutputSample.png in Resources */ = {isa = PBXBuildFile; fileRef = DD90BF5F17AA06210064233C /* OutputSample.png */; };
+		DD90BF6E17AA06530064233C /* ClockView.m in Sources */ = {isa = PBXBuildFile; fileRef = DD90BF6A17AA06530064233C /* ClockView.m */; };
+		DD90BF6F17AA06530064233C /* ClockViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD90BF6C17AA06530064233C /* ClockViewController.m */; };
+		DD90BF7017AA06530064233C /* ClockViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DD90BF6D17AA06530064233C /* ClockViewController.xib */; };
+		DD968BA017B7BBE8008D583F /* TTSelectPropertyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD968B9E17B7BBE8008D583F /* TTSelectPropertyViewController.m */; };
+		DD968BA117B7BBE8008D583F /* TTSelectPropertyViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DD968B9F17B7BBE8008D583F /* TTSelectPropertyViewController.xib */; };
+		DD968BA517B7BC1C008D583F /* TTCreatePropertyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD968BA317B7BC1C008D583F /* TTCreatePropertyViewController.m */; };
+		DD968BA617B7BC1C008D583F /* TTCreatePropertyViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DD968BA417B7BC1C008D583F /* TTCreatePropertyViewController.xib */; };
+		DDA17431178A38F40000132D /* TTApplicationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = DDA17430178A38F40000132D /* TTApplicationManager.m */; };
+		DDB4A82C17849C3F007C7F15 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDB4A82B17849C3F007C7F15 /* UIKit.framework */; };
+		DDB4A82E17849C3F007C7F15 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDB4A82D17849C3F007C7F15 /* Foundation.framework */; };
+		DDB4A83017849C3F007C7F15 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDB4A82F17849C3F007C7F15 /* CoreGraphics.framework */; };
+		DDB4A83617849C3F007C7F15 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = DDB4A83417849C3F007C7F15 /* InfoPlist.strings */; };
+		DDB4A83817849C3F007C7F15 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = DDB4A83717849C3F007C7F15 /* main.m */; };
+		DDB4A83C17849C3F007C7F15 /* TTAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DDB4A83B17849C3F007C7F15 /* TTAppDelegate.m */; };
+		DDB4A83E17849C3F007C7F15 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = DDB4A83D17849C3F007C7F15 /* Default.png */; };
+		DDB4A84017849C3F007C7F15 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DDB4A83F17849C3F007C7F15 /* Default@2x.png */; };
+		DDB4A84217849C3F007C7F15 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DDB4A84117849C3F007C7F15 /* Default-568h@2x.png */; };
+		DDB4A84817849C3F007C7F15 /* TTViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DDB4A84617849C3F007C7F15 /* TTViewController.xib */; };
+		DDB4A85117850BCE007C7F15 /* TTMainClockViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DDB4A84F17850BCE007C7F15 /* TTMainClockViewController.m */; };
+		DDB4A85217850BCE007C7F15 /* TTMainClockViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DDB4A85017850BCE007C7F15 /* TTMainClockViewController.xib */; };
+		DDB4A85B178521F5007C7F15 /* TTAppDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = DDB4A856178521F5007C7F15 /* TTAppDataManager.m */; };
+		DDB4A85C178521F5007C7F15 /* TTICloudDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = DDB4A858178521F5007C7F15 /* TTICloudDataManager.m */; };
+		DDB4A85D178521F5007C7F15 /* TTLocalDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = DDB4A85A178521F5007C7F15 /* TTLocalDataManager.m */; };
+		DDB4A861178522AE007C7F15 /* TTItem.m in Sources */ = {isa = PBXBuildFile; fileRef = DDB4A860178522AE007C7F15 /* TTItem.m */; };
+		DDB4A889178523B2007C7F15 /* TTSettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DDB4A87D178523B1007C7F15 /* TTSettingsViewController.xib */; };
+		DDB4A88A178523B2007C7F15 /* TTStatisticsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DDB4A87E178523B1007C7F15 /* TTStatisticsViewController.xib */; };
+		DDB4A88C178523B2007C7F15 /* TTSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DDB4A882178523B2007C7F15 /* TTSettingsViewController.m */; };
+		DDB4A88D178523B2007C7F15 /* TTStatisticsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DDB4A884178523B2007C7F15 /* TTStatisticsViewController.m */; };
+		DDB4A88F178523B2007C7F15 /* TTNewProjectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DDB4A886178523B2007C7F15 /* TTNewProjectViewController.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		05103CD217EA0EAB008C9D81 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DDB4A82017849C3F007C7F15 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DDB4A82717849C3F007C7F15;
+			remoteInfo = PlanMyDay;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		05103CC417EA0EAB008C9D81 /* PlanMyDay Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "PlanMyDay Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		05103CC517EA0EAB008C9D81 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		05103CD917EA1EAF008C9D81 /* bgTaskInfoLabel@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bgTaskInfoLabel@2x.png"; sourceTree = "<group>"; };
+		05103CDB17EA2015008C9D81 /* bgUiSearch.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bgUiSearch.png; sourceTree = "<group>"; };
+		05103CDC17EA2015008C9D81 /* bgUiSearch@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bgUiSearch@2x.png"; sourceTree = "<group>"; };
+		0549C2F017FAEE6B0097B002 /* TTSelectColorViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TTSelectColorViewController.xib; path = viewControllers/newProject/TTSelectColorViewController.xib; sourceTree = "<group>"; };
+		055A402D17F5E5A7004E0617 /* background.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = background.jpg; sourceTree = "<group>"; };
+		055A402E17F5E5A7004E0617 /* background@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "background@2x.jpg"; sourceTree = "<group>"; };
+		0568876B1805C77800EDBBB6 /* button_menu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_menu.png; sourceTree = "<group>"; };
+		0568876C1805C77800EDBBB6 /* button_menu@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "button_menu@2x.png"; sourceTree = "<group>"; };
+		0568876F1805C93200EDBBB6 /* PropertyListColors.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = PropertyListColors.plist; sourceTree = "<group>"; };
+		05941E9117E9BFCE0079C571 /* TTNewProjectViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = TTNewProjectViewController.xib; path = viewControllers/TTNewProjectViewController.xib; sourceTree = "<group>"; };
+		0596764F17D0CAD000653A60 /* DDMenuController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDMenuController.h; sourceTree = "<group>"; };
+		0596765017D0CAD000653A60 /* DDMenuController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDMenuController.m; sourceTree = "<group>"; };
+		05BAA80317E1F586003D7498 /* PropertyListOfViewForms.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = PropertyListOfViewForms.plist; sourceTree = "<group>"; };
+		05C8136B17C622C700E90B2F /* bgTaskInfoLabel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bgTaskInfoLabel.png; sourceTree = "<group>"; };
+		05C8136C17C6283E00E90B2F /* icon_button_arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_button_arrow.png; sourceTree = "<group>"; };
+		05C8136D17C6283E00E90B2F /* icon_button_arrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_button_arrow@2x.png"; sourceTree = "<group>"; };
+		05CD803917F9A4D00014B980 /* button_new_project.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_new_project.png; sourceTree = "<group>"; };
+		05CD803A17F9A4D00014B980 /* button_new_project@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "button_new_project@2x.png"; sourceTree = "<group>"; };
+		05CD803D17F9EB6C0014B980 /* TTSelectColorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TTSelectColorViewController.h; path = viewControllers/newProject/TTSelectColorViewController.h; sourceTree = "<group>"; };
+		05CD803E17F9EB6C0014B980 /* TTSelectColorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TTSelectColorViewController.m; path = viewControllers/newProject/TTSelectColorViewController.m; sourceTree = "<group>"; };
+		05EF3DCD17C24FB0000005E8 /* clock-hour-background_TT.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "clock-hour-background_TT.png"; path = "mainClock/clock-hour-background_TT.png"; sourceTree = "<group>"; };
+		05EF3DCF17C25125000005E8 /* clock-min-background_TT.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "clock-min-background_TT.png"; path = "mainClock/clock-min-background_TT.png"; sourceTree = "<group>"; };
+		05EF3DD017C25125000005E8 /* clock-sec-background_TT.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "clock-sec-background_TT.png"; path = "mainClock/clock-sec-background_TT.png"; sourceTree = "<group>"; };
+		05F2AA5D1808327700C6E96A /* bgUiBar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bgUiBar.png; sourceTree = "<group>"; };
+		05F2AA5E1808327700C6E96A /* bgUiBar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bgUiBar@2x.png"; sourceTree = "<group>"; };
+		DD2B9B7E17B06E1F00E37DA8 /* TTMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TTMenuViewController.h; path = viewControllers/menu/TTMenuViewController.h; sourceTree = "<group>"; };
+		DD2B9B7F17B06E1F00E37DA8 /* TTMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TTMenuViewController.m; path = viewControllers/menu/TTMenuViewController.m; sourceTree = "<group>"; };
+		DD2B9B8017B06E1F00E37DA8 /* TTMenuViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TTMenuViewController.xib; path = viewControllers/menu/TTMenuViewController.xib; sourceTree = "<group>"; };
+		DD7BAE2E17A5BDCA00CACFB2 /* TTTasksTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TTTasksTableViewCell.xib; path = viewControllers/tasksView/TTTasksTableViewCell.xib; sourceTree = "<group>"; };
+		DD7BAE2F17A5BDCA00CACFB2 /* TTTasksTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TTTasksTableViewCell.m; path = viewControllers/tasksView/TTTasksTableViewCell.m; sourceTree = "<group>"; };
+		DD7BAE3017A5BDCA00CACFB2 /* TTTasksTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TTTasksTableViewCell.h; path = viewControllers/tasksView/TTTasksTableViewCell.h; sourceTree = "<group>"; };
+		DD7BAE3317A5BDDB00CACFB2 /* TTTasksViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TTTasksViewController.m; path = viewControllers/tasksView/TTTasksViewController.m; sourceTree = "<group>"; };
+		DD7BAE3417A5BDDB00CACFB2 /* TTTasksViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TTTasksViewController.h; path = viewControllers/tasksView/TTTasksViewController.h; sourceTree = "<group>"; };
+		DD7BAE3517A5BDDB00CACFB2 /* TTTasksViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TTTasksViewController.xib; path = viewControllers/tasksView/TTTasksViewController.xib; sourceTree = "<group>"; };
+		DD7BAE3B17A5BE4400CACFB2 /* ckeck_cell_icons.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ckeck_cell_icons.png; sourceTree = "<group>"; };
+		DD7BAE3C17A5BE4400CACFB2 /* delete_cell_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = delete_cell_icon.png; sourceTree = "<group>"; };
+		DD7BAE3D17A5BE4400CACFB2 /* one_task_back@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "one_task_back@2x.png"; sourceTree = "<group>"; };
+		DD7BAE3E17A5BE4400CACFB2 /* task_icons.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = task_icons.png; sourceTree = "<group>"; };
+		DD7BAE3F17A5BE4400CACFB2 /* bgTaskInfoLabel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bgTaskInfoLabel.png; sourceTree = "<group>"; };
+		DD7BAE4A17A5C24600CACFB2 /* TTCustomTrackerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TTCustomTrackerViewController.h; path = viewControllers/customTracker/TTCustomTrackerViewController.h; sourceTree = "<group>"; };
+		DD7BAE4B17A5C24600CACFB2 /* TTCustomTrackerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TTCustomTrackerViewController.m; path = viewControllers/customTracker/TTCustomTrackerViewController.m; sourceTree = "<group>"; };
+		DD7BAE4C17A5C24600CACFB2 /* TTCustomTrackerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TTCustomTrackerViewController.xib; path = viewControllers/customTracker/TTCustomTrackerViewController.xib; sourceTree = "<group>"; };
+		DD7BAE5017A5C3A500CACFB2 /* DACircularProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DACircularProgressView.h; sourceTree = "<group>"; };
+		DD7BAE5117A5C3A500CACFB2 /* DACircularProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DACircularProgressView.m; sourceTree = "<group>"; };
+		DD7BAE5317A5C4FE00CACFB2 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		DD90BF5117A9FEB50064233C /* TTCurrentTaskNextTaskIndicatorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TTCurrentTaskNextTaskIndicatorViewController.h; path = viewControllers/mainClock/TTCurrentTaskNextTaskIndicatorViewController.h; sourceTree = "<group>"; };
+		DD90BF5217A9FEB50064233C /* TTCurrentTaskNextTaskIndicatorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TTCurrentTaskNextTaskIndicatorViewController.m; path = viewControllers/mainClock/TTCurrentTaskNextTaskIndicatorViewController.m; sourceTree = "<group>"; };
+		DD90BF5317A9FEB50064233C /* TTCurrentTaskNextTaskIndicatorViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TTCurrentTaskNextTaskIndicatorViewController.xib; path = viewControllers/mainClock/TTCurrentTaskNextTaskIndicatorViewController.xib; sourceTree = "<group>"; };
+		DD90BF5817AA06210064233C /* -clock-face.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "-clock-face.png"; path = "mainClock/-clock-face.png"; sourceTree = "<group>"; };
+		DD90BF5917AA06210064233C /* bliss-roman-aluminium-clock.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "bliss-roman-aluminium-clock.jpg"; path = "mainClock/bliss-roman-aluminium-clock.jpg"; sourceTree = "<group>"; };
+		DD90BF5A17AA06210064233C /* clock-background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "clock-background.png"; path = "mainClock/clock-background.png"; sourceTree = "<group>"; };
+		DD90BF5B17AA06210064233C /* clock-hour-background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "clock-hour-background.png"; path = "mainClock/clock-hour-background.png"; sourceTree = "<group>"; };
+		DD90BF5C17AA06210064233C /* clock-min-background_.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "clock-min-background_.png"; path = "mainClock/clock-min-background_.png"; sourceTree = "<group>"; };
+		DD90BF5D17AA06210064233C /* clock-min-background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "clock-min-background.png"; path = "mainClock/clock-min-background.png"; sourceTree = "<group>"; };
+		DD90BF5E17AA06210064233C /* clock-sec-background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "clock-sec-background.png"; path = "mainClock/clock-sec-background.png"; sourceTree = "<group>"; };
+		DD90BF5F17AA06210064233C /* OutputSample.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = OutputSample.png; path = mainClock/OutputSample.png; sourceTree = "<group>"; };
+		DD90BF6917AA06530064233C /* ClockView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ClockView.h; path = viewControllers/mainClock/clock/ClockView.h; sourceTree = "<group>"; };
+		DD90BF6A17AA06530064233C /* ClockView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ClockView.m; path = viewControllers/mainClock/clock/ClockView.m; sourceTree = "<group>"; };
+		DD90BF6B17AA06530064233C /* ClockViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ClockViewController.h; path = viewControllers/mainClock/clock/ClockViewController.h; sourceTree = "<group>"; };
+		DD90BF6C17AA06530064233C /* ClockViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ClockViewController.m; path = viewControllers/mainClock/clock/ClockViewController.m; sourceTree = "<group>"; };
+		DD90BF6D17AA06530064233C /* ClockViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ClockViewController.xib; path = viewControllers/mainClock/clock/ClockViewController.xib; sourceTree = "<group>"; };
+		DD968B9D17B7BBE8008D583F /* TTSelectPropertyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TTSelectPropertyViewController.h; path = viewControllers/newProject/TTSelectPropertyViewController.h; sourceTree = "<group>"; };
+		DD968B9E17B7BBE8008D583F /* TTSelectPropertyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TTSelectPropertyViewController.m; path = viewControllers/newProject/TTSelectPropertyViewController.m; sourceTree = "<group>"; };
+		DD968B9F17B7BBE8008D583F /* TTSelectPropertyViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TTSelectPropertyViewController.xib; path = viewControllers/newProject/TTSelectPropertyViewController.xib; sourceTree = "<group>"; };
+		DD968BA217B7BC1C008D583F /* TTCreatePropertyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TTCreatePropertyViewController.h; path = viewControllers/newProject/TTCreatePropertyViewController.h; sourceTree = "<group>"; };
+		DD968BA317B7BC1C008D583F /* TTCreatePropertyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TTCreatePropertyViewController.m; path = viewControllers/newProject/TTCreatePropertyViewController.m; sourceTree = "<group>"; };
+		DD968BA417B7BC1C008D583F /* TTCreatePropertyViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TTCreatePropertyViewController.xib; path = viewControllers/newProject/TTCreatePropertyViewController.xib; sourceTree = "<group>"; };
+		DDA1742F178A38F40000132D /* TTApplicationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTApplicationManager.h; sourceTree = "<group>"; };
+		DDA17430178A38F40000132D /* TTApplicationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTApplicationManager.m; sourceTree = "<group>"; };
+		DDB4A82817849C3F007C7F15 /* PlanMyDay.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PlanMyDay.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		DDB4A82B17849C3F007C7F15 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		DDB4A82D17849C3F007C7F15 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		DDB4A82F17849C3F007C7F15 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		DDB4A83317849C3F007C7F15 /* PlanMyDay-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "PlanMyDay-Info.plist"; sourceTree = "<group>"; };
+		DDB4A83517849C3F007C7F15 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		DDB4A83717849C3F007C7F15 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		DDB4A83917849C3F007C7F15 /* PlanMyDay-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PlanMyDay-Prefix.pch"; sourceTree = "<group>"; };
+		DDB4A83A17849C3F007C7F15 /* TTAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TTAppDelegate.h; sourceTree = "<group>"; };
+		DDB4A83B17849C3F007C7F15 /* TTAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TTAppDelegate.m; sourceTree = "<group>"; };
+		DDB4A83D17849C3F007C7F15 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		DDB4A83F17849C3F007C7F15 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		DDB4A84117849C3F007C7F15 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		DDB4A84717849C3F007C7F15 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/TTViewController.xib; sourceTree = "<group>"; };
+		DDB4A84E17850BCE007C7F15 /* TTMainClockViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TTMainClockViewController.h; path = viewControllers/TTMainClockViewController.h; sourceTree = "<group>"; };
+		DDB4A84F17850BCE007C7F15 /* TTMainClockViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TTMainClockViewController.m; path = viewControllers/TTMainClockViewController.m; sourceTree = "<group>"; };
+		DDB4A85017850BCE007C7F15 /* TTMainClockViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TTMainClockViewController.xib; path = viewControllers/TTMainClockViewController.xib; sourceTree = "<group>"; };
+		DDB4A855178521F5007C7F15 /* TTAppDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTAppDataManager.h; sourceTree = "<group>"; };
+		DDB4A856178521F5007C7F15 /* TTAppDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTAppDataManager.m; sourceTree = "<group>"; };
+		DDB4A857178521F5007C7F15 /* TTICloudDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTICloudDataManager.h; sourceTree = "<group>"; };
+		DDB4A858178521F5007C7F15 /* TTICloudDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTICloudDataManager.m; sourceTree = "<group>"; };
+		DDB4A859178521F5007C7F15 /* TTLocalDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTLocalDataManager.h; sourceTree = "<group>"; };
+		DDB4A85A178521F5007C7F15 /* TTLocalDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTLocalDataManager.m; sourceTree = "<group>"; };
+		DDB4A85F178522AE007C7F15 /* TTItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTItem.h; sourceTree = "<group>"; };
+		DDB4A860178522AE007C7F15 /* TTItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTItem.m; sourceTree = "<group>"; };
+		DDB4A87D178523B1007C7F15 /* TTSettingsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TTSettingsViewController.xib; path = viewControllers/TTSettingsViewController.xib; sourceTree = "<group>"; };
+		DDB4A87E178523B1007C7F15 /* TTStatisticsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TTStatisticsViewController.xib; path = viewControllers/TTStatisticsViewController.xib; sourceTree = "<group>"; };
+		DDB4A881178523B2007C7F15 /* TTSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TTSettingsViewController.h; path = viewControllers/TTSettingsViewController.h; sourceTree = "<group>"; };
+		DDB4A882178523B2007C7F15 /* TTSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TTSettingsViewController.m; path = viewControllers/TTSettingsViewController.m; sourceTree = "<group>"; };
+		DDB4A883178523B2007C7F15 /* TTStatisticsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TTStatisticsViewController.h; path = viewControllers/TTStatisticsViewController.h; sourceTree = "<group>"; };
+		DDB4A884178523B2007C7F15 /* TTStatisticsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TTStatisticsViewController.m; path = viewControllers/TTStatisticsViewController.m; sourceTree = "<group>"; };
+		DDB4A886178523B2007C7F15 /* TTNewProjectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TTNewProjectViewController.m; path = viewControllers/TTNewProjectViewController.m; sourceTree = "<group>"; };
+		DDB4A887178523B2007C7F15 /* TTNewProjectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TTNewProjectViewController.h; path = viewControllers/TTNewProjectViewController.h; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		05103CC117EA0EAB008C9D81 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				05103CC617EA0EAB008C9D81 /* XCTest.framework in Frameworks */,
+				05103CC817EA0EAB008C9D81 /* UIKit.framework in Frameworks */,
+				05103CC717EA0EAB008C9D81 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DDB4A82517849C3F007C7F15 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DD7BAE5417A5C4FE00CACFB2 /* QuartzCore.framework in Frameworks */,
+				DDB4A82C17849C3F007C7F15 /* UIKit.framework in Frameworks */,
+				DDB4A82E17849C3F007C7F15 /* Foundation.framework in Frameworks */,
+				DDB4A83017849C3F007C7F15 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		056887691805C74D00EDBBB6 /* buttons */ = {
+			isa = PBXGroup;
+			children = (
+				0568876A1805C75A00EDBBB6 /* menu */,
+			);
+			name = buttons;
+			sourceTree = "<group>";
+		};
+		0568876A1805C75A00EDBBB6 /* menu */ = {
+			isa = PBXGroup;
+			children = (
+				0568876B1805C77800EDBBB6 /* button_menu.png */,
+				0568876C1805C77800EDBBB6 /* button_menu@2x.png */,
+				05CD803917F9A4D00014B980 /* button_new_project.png */,
+				05CD803A17F9A4D00014B980 /* button_new_project@2x.png */,
+			);
+			name = menu;
+			sourceTree = "<group>";
+		};
+		0596765217D0CAD700653A60 /* DDMenuController */ = {
+			isa = PBXGroup;
+			children = (
+				0596764F17D0CAD000653A60 /* DDMenuController.h */,
+				0596765017D0CAD000653A60 /* DDMenuController.m */,
+			);
+			name = DDMenuController;
+			sourceTree = "<group>";
+		};
+		DD2B9B8317B06E2600E37DA8 /* menu */ = {
+			isa = PBXGroup;
+			children = (
+				0596765217D0CAD700653A60 /* DDMenuController */,
+				DD2B9B7E17B06E1F00E37DA8 /* TTMenuViewController.h */,
+				DD2B9B7F17B06E1F00E37DA8 /* TTMenuViewController.m */,
+				DD2B9B8017B06E1F00E37DA8 /* TTMenuViewController.xib */,
+			);
+			name = menu;
+			sourceTree = "<group>";
+		};
+		DD7BAE3817A5BE3A00CACFB2 /* assets */ = {
+			isa = PBXGroup;
+			children = (
+				DD7BAE3917A5BE4400CACFB2 /* images */,
+			);
+			name = assets;
+			sourceTree = "<group>";
+		};
+		DD7BAE3917A5BE4400CACFB2 /* images */ = {
+			isa = PBXGroup;
+			children = (
+				05F2AA5D1808327700C6E96A /* bgUiBar.png */,
+				05F2AA5E1808327700C6E96A /* bgUiBar@2x.png */,
+				056887691805C74D00EDBBB6 /* buttons */,
+				055A402D17F5E5A7004E0617 /* background.jpg */,
+				055A402E17F5E5A7004E0617 /* background@2x.jpg */,
+				05103CDB17EA2015008C9D81 /* bgUiSearch.png */,
+				05103CDC17EA2015008C9D81 /* bgUiSearch@2x.png */,
+				05103CD917EA1EAF008C9D81 /* bgTaskInfoLabel@2x.png */,
+				05C8136C17C6283E00E90B2F /* icon_button_arrow.png */,
+				05C8136D17C6283E00E90B2F /* icon_button_arrow@2x.png */,
+				05C8136B17C622C700E90B2F /* bgTaskInfoLabel.png */,
+				DD90BF5717AA05FE0064233C /* mainClock */,
+				DD7BAE3B17A5BE4400CACFB2 /* ckeck_cell_icons.png */,
+				DD7BAE3C17A5BE4400CACFB2 /* delete_cell_icon.png */,
+				DD7BAE3D17A5BE4400CACFB2 /* one_task_back@2x.png */,
+				DD7BAE3E17A5BE4400CACFB2 /* task_icons.png */,
+				DD7BAE3F17A5BE4400CACFB2 /* bgTaskInfoLabel.png */,
+			);
+			name = images;
+			path = assets/images;
+			sourceTree = "<group>";
+		};
+		DD7BAE4617A5BE8600CACFB2 /* settingsView */ = {
+			isa = PBXGroup;
+			children = (
+				DDB4A881178523B2007C7F15 /* TTSettingsViewController.h */,
+				DDB4A882178523B2007C7F15 /* TTSettingsViewController.m */,
+				DDB4A87D178523B1007C7F15 /* TTSettingsViewController.xib */,
+			);
+			name = settingsView;
+			sourceTree = "<group>";
+		};
+		DD7BAE4717A5BE9800CACFB2 /* statisticsView */ = {
+			isa = PBXGroup;
+			children = (
+				DDB4A883178523B2007C7F15 /* TTStatisticsViewController.h */,
+				DDB4A884178523B2007C7F15 /* TTStatisticsViewController.m */,
+				DDB4A87E178523B1007C7F15 /* TTStatisticsViewController.xib */,
+			);
+			name = statisticsView;
+			sourceTree = "<group>";
+		};
+		DD7BAE4817A5BEA600CACFB2 /* mainClockView */ = {
+			isa = PBXGroup;
+			children = (
+				DD90BF6817AA06410064233C /* clock */,
+				DDB4A84E17850BCE007C7F15 /* TTMainClockViewController.h */,
+				DDB4A84F17850BCE007C7F15 /* TTMainClockViewController.m */,
+				DDB4A85017850BCE007C7F15 /* TTMainClockViewController.xib */,
+				DD90BF5617A9FEBC0064233C /* currentTaskNextTaskIndicator */,
+			);
+			name = mainClockView;
+			sourceTree = "<group>";
+		};
+		DD7BAE4917A5BF7600CACFB2 /* customTrackerView */ = {
+			isa = PBXGroup;
+			children = (
+				DD7BAE4F17A5C3A500CACFB2 /* DACircularProgress */,
+				DD7BAE4A17A5C24600CACFB2 /* TTCustomTrackerViewController.h */,
+				DD7BAE4B17A5C24600CACFB2 /* TTCustomTrackerViewController.m */,
+				DD7BAE4C17A5C24600CACFB2 /* TTCustomTrackerViewController.xib */,
+			);
+			name = customTrackerView;
+			sourceTree = "<group>";
+		};
+		DD7BAE4F17A5C3A500CACFB2 /* DACircularProgress */ = {
+			isa = PBXGroup;
+			children = (
+				DD7BAE5017A5C3A500CACFB2 /* DACircularProgressView.h */,
+				DD7BAE5117A5C3A500CACFB2 /* DACircularProgressView.m */,
+			);
+			name = DACircularProgress;
+			path = viewControllers/customTracker/DACircularProgress;
+			sourceTree = "<group>";
+		};
+		DD90BF5617A9FEBC0064233C /* currentTaskNextTaskIndicator */ = {
+			isa = PBXGroup;
+			children = (
+				DD90BF5117A9FEB50064233C /* TTCurrentTaskNextTaskIndicatorViewController.h */,
+				DD90BF5217A9FEB50064233C /* TTCurrentTaskNextTaskIndicatorViewController.m */,
+				DD90BF5317A9FEB50064233C /* TTCurrentTaskNextTaskIndicatorViewController.xib */,
+			);
+			name = currentTaskNextTaskIndicator;
+			sourceTree = "<group>";
+		};
+		DD90BF5717AA05FE0064233C /* mainClock */ = {
+			isa = PBXGroup;
+			children = (
+				05EF3DCF17C25125000005E8 /* clock-min-background_TT.png */,
+				05EF3DD017C25125000005E8 /* clock-sec-background_TT.png */,
+				05EF3DCD17C24FB0000005E8 /* clock-hour-background_TT.png */,
+				DD90BF5817AA06210064233C /* -clock-face.png */,
+				DD90BF5917AA06210064233C /* bliss-roman-aluminium-clock.jpg */,
+				DD90BF5A17AA06210064233C /* clock-background.png */,
+				DD90BF5B17AA06210064233C /* clock-hour-background.png */,
+				DD90BF5C17AA06210064233C /* clock-min-background_.png */,
+				DD90BF5D17AA06210064233C /* clock-min-background.png */,
+				DD90BF5E17AA06210064233C /* clock-sec-background.png */,
+				DD90BF5F17AA06210064233C /* OutputSample.png */,
+			);
+			name = mainClock;
+			sourceTree = "<group>";
+		};
+		DD90BF6817AA06410064233C /* clock */ = {
+			isa = PBXGroup;
+			children = (
+				DD90BF6917AA06530064233C /* ClockView.h */,
+				DD90BF6A17AA06530064233C /* ClockView.m */,
+				DD90BF6B17AA06530064233C /* ClockViewController.h */,
+				DD90BF6C17AA06530064233C /* ClockViewController.m */,
+				DD90BF6D17AA06530064233C /* ClockViewController.xib */,
+			);
+			name = clock;
+			sourceTree = "<group>";
+		};
+		DDA17441178A48860000132D /* currentTasksView */ = {
+			isa = PBXGroup;
+			children = (
+				DD7BAE3417A5BDDB00CACFB2 /* TTTasksViewController.h */,
+				DD7BAE3317A5BDDB00CACFB2 /* TTTasksViewController.m */,
+				DD7BAE3517A5BDDB00CACFB2 /* TTTasksViewController.xib */,
+				DD7BAE3017A5BDCA00CACFB2 /* TTTasksTableViewCell.h */,
+				DD7BAE2F17A5BDCA00CACFB2 /* TTTasksTableViewCell.m */,
+				DD7BAE2E17A5BDCA00CACFB2 /* TTTasksTableViewCell.xib */,
+			);
+			name = currentTasksView;
+			sourceTree = "<group>";
+		};
+		DDA17444178CEB9E0000132D /* newProjectView */ = {
+			isa = PBXGroup;
+			children = (
+				DDB4A887178523B2007C7F15 /* TTNewProjectViewController.h */,
+				DDB4A886178523B2007C7F15 /* TTNewProjectViewController.m */,
+				05941E9117E9BFCE0079C571 /* TTNewProjectViewController.xib */,
+				DD968B9D17B7BBE8008D583F /* TTSelectPropertyViewController.h */,
+				DD968B9E17B7BBE8008D583F /* TTSelectPropertyViewController.m */,
+				DD968B9F17B7BBE8008D583F /* TTSelectPropertyViewController.xib */,
+				DD968BA217B7BC1C008D583F /* TTCreatePropertyViewController.h */,
+				DD968BA317B7BC1C008D583F /* TTCreatePropertyViewController.m */,
+				DD968BA417B7BC1C008D583F /* TTCreatePropertyViewController.xib */,
+				05CD803D17F9EB6C0014B980 /* TTSelectColorViewController.h */,
+				05CD803E17F9EB6C0014B980 /* TTSelectColorViewController.m */,
+				0549C2F017FAEE6B0097B002 /* TTSelectColorViewController.xib */,
+			);
+			name = newProjectView;
+			sourceTree = "<group>";
+		};
+		DDB4A81F17849C3E007C7F15 = {
+			isa = PBXGroup;
+			children = (
+				DD7BAE5317A5C4FE00CACFB2 /* QuartzCore.framework */,
+				DDB4A83117849C3F007C7F15 /* PlanMyDay */,
+				DDB4A82A17849C3F007C7F15 /* Frameworks */,
+				DDB4A82917849C3F007C7F15 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		DDB4A82917849C3F007C7F15 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				DDB4A82817849C3F007C7F15 /* PlanMyDay.app */,
+				05103CC417EA0EAB008C9D81 /* PlanMyDay Tests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		DDB4A82A17849C3F007C7F15 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				DDB4A82B17849C3F007C7F15 /* UIKit.framework */,
+				DDB4A82D17849C3F007C7F15 /* Foundation.framework */,
+				DDB4A82F17849C3F007C7F15 /* CoreGraphics.framework */,
+				05103CC517EA0EAB008C9D81 /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		DDB4A83117849C3F007C7F15 /* PlanMyDay */ = {
+			isa = PBXGroup;
+			children = (
+				DD7BAE3817A5BE3A00CACFB2 /* assets */,
+				DDB4A85317850BE7007C7F15 /* viewControllers */,
+				DDB4A854178521F5007C7F15 /* managers */,
+				DDB4A83A17849C3F007C7F15 /* TTAppDelegate.h */,
+				DDB4A83B17849C3F007C7F15 /* TTAppDelegate.m */,
+				DDB4A84617849C3F007C7F15 /* TTViewController.xib */,
+				DDB4A83217849C3F007C7F15 /* Supporting Files */,
+			);
+			path = PlanMyDay;
+			sourceTree = "<group>";
+		};
+		DDB4A83217849C3F007C7F15 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				05BAA80317E1F586003D7498 /* PropertyListOfViewForms.plist */,
+				0568876F1805C93200EDBBB6 /* PropertyListColors.plist */,
+				DDB4A83317849C3F007C7F15 /* PlanMyDay-Info.plist */,
+				DDB4A83417849C3F007C7F15 /* InfoPlist.strings */,
+				DDB4A83717849C3F007C7F15 /* main.m */,
+				DDB4A83917849C3F007C7F15 /* PlanMyDay-Prefix.pch */,
+				DDB4A83D17849C3F007C7F15 /* Default.png */,
+				DDB4A83F17849C3F007C7F15 /* Default@2x.png */,
+				DDB4A84117849C3F007C7F15 /* Default-568h@2x.png */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		DDB4A85317850BE7007C7F15 /* viewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				DD7BAE4917A5BF7600CACFB2 /* customTrackerView */,
+				DDA17441178A48860000132D /* currentTasksView */,
+				DD7BAE4617A5BE8600CACFB2 /* settingsView */,
+				DD7BAE4717A5BE9800CACFB2 /* statisticsView */,
+				DDA17444178CEB9E0000132D /* newProjectView */,
+				DD7BAE4817A5BEA600CACFB2 /* mainClockView */,
+				DD2B9B8317B06E2600E37DA8 /* menu */,
+			);
+			name = viewControllers;
+			sourceTree = "<group>";
+		};
+		DDB4A854178521F5007C7F15 /* managers */ = {
+			isa = PBXGroup;
+			children = (
+				DDB4A85E178522AE007C7F15 /* model */,
+				DDB4A855178521F5007C7F15 /* TTAppDataManager.h */,
+				DDB4A856178521F5007C7F15 /* TTAppDataManager.m */,
+				DDB4A857178521F5007C7F15 /* TTICloudDataManager.h */,
+				DDB4A858178521F5007C7F15 /* TTICloudDataManager.m */,
+				DDB4A859178521F5007C7F15 /* TTLocalDataManager.h */,
+				DDB4A85A178521F5007C7F15 /* TTLocalDataManager.m */,
+				DDA1742F178A38F40000132D /* TTApplicationManager.h */,
+				DDA17430178A38F40000132D /* TTApplicationManager.m */,
+			);
+			path = managers;
+			sourceTree = "<group>";
+		};
+		DDB4A85E178522AE007C7F15 /* model */ = {
+			isa = PBXGroup;
+			children = (
+				DDB4A85F178522AE007C7F15 /* TTItem.h */,
+				DDB4A860178522AE007C7F15 /* TTItem.m */,
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		05103CC317EA0EAB008C9D81 /* PlanMyDay Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 05103CD617EA0EAB008C9D81 /* Build configuration list for PBXNativeTarget "PlanMyDay Tests" */;
+			buildPhases = (
+				05103CC017EA0EAB008C9D81 /* Sources */,
+				05103CC117EA0EAB008C9D81 /* Frameworks */,
+				05103CC217EA0EAB008C9D81 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				05103CD317EA0EAB008C9D81 /* PBXTargetDependency */,
+			);
+			name = "PlanMyDay Tests";
+			productName = "PlanMyDay Tests";
+			productReference = 05103CC417EA0EAB008C9D81 /* PlanMyDay Tests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		DDB4A82717849C3F007C7F15 /* PlanMyDay */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DDB4A84B17849C3F007C7F15 /* Build configuration list for PBXNativeTarget "PlanMyDay" */;
+			buildPhases = (
+				DDB4A82417849C3F007C7F15 /* Sources */,
+				DDB4A82517849C3F007C7F15 /* Frameworks */,
+				DDB4A82617849C3F007C7F15 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = PlanMyDay;
+			productName = PlanMyDay;
+			productReference = DDB4A82817849C3F007C7F15 /* PlanMyDay.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		DDB4A82017849C3F007C7F15 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = TT;
+				LastUpgradeCheck = 0460;
+				ORGANIZATIONNAME = "prosto*";
+				TargetAttributes = {
+					05103CC317EA0EAB008C9D81 = {
+						TestTargetID = DDB4A82717849C3F007C7F15;
+					};
+					DDB4A82717849C3F007C7F15 = {
+						DevelopmentTeam = 24QCU7VC45;
+					};
+				};
+			};
+			buildConfigurationList = DDB4A82317849C3F007C7F15 /* Build configuration list for PBXProject "PlanMyDay" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = DDB4A81F17849C3E007C7F15;
+			productRefGroup = DDB4A82917849C3F007C7F15 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				DDB4A82717849C3F007C7F15 /* PlanMyDay */,
+				05103CC317EA0EAB008C9D81 /* PlanMyDay Tests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		05103CC217EA0EAB008C9D81 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DDB4A82617849C3F007C7F15 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				05F2AA601808327700C6E96A /* bgUiBar@2x.png in Resources */,
+				05CD803B17F9A4D00014B980 /* button_new_project.png in Resources */,
+				0568876D1805C77800EDBBB6 /* button_menu.png in Resources */,
+				056887701805C93200EDBBB6 /* PropertyListColors.plist in Resources */,
+				DDB4A83617849C3F007C7F15 /* InfoPlist.strings in Resources */,
+				DDB4A83E17849C3F007C7F15 /* Default.png in Resources */,
+				DDB4A84017849C3F007C7F15 /* Default@2x.png in Resources */,
+				05CD803C17F9A4D00014B980 /* button_new_project@2x.png in Resources */,
+				DDB4A84217849C3F007C7F15 /* Default-568h@2x.png in Resources */,
+				DDB4A84817849C3F007C7F15 /* TTViewController.xib in Resources */,
+				DDB4A85217850BCE007C7F15 /* TTMainClockViewController.xib in Resources */,
+				05F2AA5F1808327700C6E96A /* bgUiBar.png in Resources */,
+				DDB4A889178523B2007C7F15 /* TTSettingsViewController.xib in Resources */,
+				DDB4A88A178523B2007C7F15 /* TTStatisticsViewController.xib in Resources */,
+				DD7BAE3117A5BDCA00CACFB2 /* TTTasksTableViewCell.xib in Resources */,
+				DD7BAE3717A5BDDB00CACFB2 /* TTTasksViewController.xib in Resources */,
+				055A403017F5E5A7004E0617 /* background@2x.jpg in Resources */,
+				05103CDE17EA2015008C9D81 /* bgUiSearch@2x.png in Resources */,
+				DD7BAE4117A5BE4400CACFB2 /* ckeck_cell_icons.png in Resources */,
+				DD7BAE4217A5BE4400CACFB2 /* delete_cell_icon.png in Resources */,
+				DD7BAE4317A5BE4400CACFB2 /* one_task_back@2x.png in Resources */,
+				DD7BAE4417A5BE4400CACFB2 /* task_icons.png in Resources */,
+				DD7BAE4517A5BE4400CACFB2 /* bgTaskInfoLabel.png in Resources */,
+				DD7BAE4E17A5C24600CACFB2 /* TTCustomTrackerViewController.xib in Resources */,
+				DD90BF5517A9FEB50064233C /* TTCurrentTaskNextTaskIndicatorViewController.xib in Resources */,
+				DD90BF6017AA06210064233C /* -clock-face.png in Resources */,
+				05C454AB17F45B0100FD566C /* TTNewProjectViewController.xib in Resources */,
+				DD90BF6117AA06210064233C /* bliss-roman-aluminium-clock.jpg in Resources */,
+				DD90BF6217AA06210064233C /* clock-background.png in Resources */,
+				DD90BF6317AA06210064233C /* clock-hour-background.png in Resources */,
+				055A402F17F5E5A7004E0617 /* background.jpg in Resources */,
+				05BAA80417E1F586003D7498 /* PropertyListOfViewForms.plist in Resources */,
+				05103CDA17EA1EAF008C9D81 /* bgTaskInfoLabel@2x.png in Resources */,
+				DD90BF6417AA06210064233C /* clock-min-background_.png in Resources */,
+				0549C2F117FAEE6B0097B002 /* TTSelectColorViewController.xib in Resources */,
+				05C8136F17C6283E00E90B2F /* icon_button_arrow@2x.png in Resources */,
+				DD90BF6517AA06210064233C /* clock-min-background.png in Resources */,
+				05103CDD17EA2015008C9D81 /* bgUiSearch.png in Resources */,
+				DD90BF6617AA06210064233C /* clock-sec-background.png in Resources */,
+				DD90BF6717AA06210064233C /* OutputSample.png in Resources */,
+				DD90BF7017AA06530064233C /* ClockViewController.xib in Resources */,
+				DD2B9B8217B06E1F00E37DA8 /* TTMenuViewController.xib in Resources */,
+				DD968BA117B7BBE8008D583F /* TTSelectPropertyViewController.xib in Resources */,
+				05C8136E17C6283E00E90B2F /* icon_button_arrow.png in Resources */,
+				DD968BA617B7BC1C008D583F /* TTCreatePropertyViewController.xib in Resources */,
+				05EF3DCE17C24FB0000005E8 /* clock-hour-background_TT.png in Resources */,
+				05EF3DD117C25125000005E8 /* clock-min-background_TT.png in Resources */,
+				05EF3DD217C25125000005E8 /* clock-sec-background_TT.png in Resources */,
+				0568876E1805C77800EDBBB6 /* button_menu@2x.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		05103CC017EA0EAB008C9D81 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DDB4A82417849C3F007C7F15 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DDB4A83817849C3F007C7F15 /* main.m in Sources */,
+				DDB4A83C17849C3F007C7F15 /* TTAppDelegate.m in Sources */,
+				DDB4A85117850BCE007C7F15 /* TTMainClockViewController.m in Sources */,
+				DDB4A85B178521F5007C7F15 /* TTAppDataManager.m in Sources */,
+				DDB4A85C178521F5007C7F15 /* TTICloudDataManager.m in Sources */,
+				DDB4A85D178521F5007C7F15 /* TTLocalDataManager.m in Sources */,
+				DDB4A861178522AE007C7F15 /* TTItem.m in Sources */,
+				DDB4A88C178523B2007C7F15 /* TTSettingsViewController.m in Sources */,
+				DDB4A88D178523B2007C7F15 /* TTStatisticsViewController.m in Sources */,
+				DDB4A88F178523B2007C7F15 /* TTNewProjectViewController.m in Sources */,
+				DDA17431178A38F40000132D /* TTApplicationManager.m in Sources */,
+				DD7BAE3217A5BDCA00CACFB2 /* TTTasksTableViewCell.m in Sources */,
+				DD7BAE3617A5BDDB00CACFB2 /* TTTasksViewController.m in Sources */,
+				05CD804017F9EB6C0014B980 /* TTSelectColorViewController.m in Sources */,
+				DD7BAE4D17A5C24600CACFB2 /* TTCustomTrackerViewController.m in Sources */,
+				DD7BAE5217A5C3A500CACFB2 /* DACircularProgressView.m in Sources */,
+				DD90BF5417A9FEB50064233C /* TTCurrentTaskNextTaskIndicatorViewController.m in Sources */,
+				DD90BF6E17AA06530064233C /* ClockView.m in Sources */,
+				DD90BF6F17AA06530064233C /* ClockViewController.m in Sources */,
+				DD2B9B8117B06E1F00E37DA8 /* TTMenuViewController.m in Sources */,
+				DD968BA017B7BBE8008D583F /* TTSelectPropertyViewController.m in Sources */,
+				0596765117D0CAD000653A60 /* DDMenuController.m in Sources */,
+				DD968BA517B7BC1C008D583F /* TTCreatePropertyViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		05103CD317EA0EAB008C9D81 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DDB4A82717849C3F007C7F15 /* PlanMyDay */;
+			targetProxy = 05103CD217EA0EAB008C9D81 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		DDB4A83417849C3F007C7F15 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DDB4A83517849C3F007C7F15 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		DDB4A84617849C3F007C7F15 /* TTViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DDB4A84717849C3F007C7F15 /* en */,
+			);
+			name = TTViewController.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		05103CD417EA0EAB008C9D81 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/PlanMyDay.app/PlanMyDay";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "PlanMyDay Tests/PlanMyDay Tests-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				INFOPLIST_FILE = "PlanMyDay Tests/PlanMyDay Tests-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		05103CD517EA0EAB008C9D81 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/PlanMyDay.app/PlanMyDay";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				ENABLE_NS_ASSERTIONS = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "PlanMyDay Tests/PlanMyDay Tests-Prefix.pch";
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				INFOPLIST_FILE = "PlanMyDay Tests/PlanMyDay Tests-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+		DDB4A84917849C3F007C7F15 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		DDB4A84A17849C3F007C7F15 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		DDB4A84C17849C3F007C7F15 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "PlanMyDay/PlanMyDay-Prefix.pch";
+				INFOPLIST_FILE = "PlanMyDay/PlanMyDay-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		DDB4A84D17849C3F007C7F15 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "PlanMyDay/PlanMyDay-Prefix.pch";
+				INFOPLIST_FILE = "PlanMyDay/PlanMyDay-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		05103CD617EA0EAB008C9D81 /* Build configuration list for PBXNativeTarget "PlanMyDay Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				05103CD417EA0EAB008C9D81 /* Debug */,
+				05103CD517EA0EAB008C9D81 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DDB4A82317849C3F007C7F15 /* Build configuration list for PBXProject "PlanMyDay" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DDB4A84917849C3F007C7F15 /* Debug */,
+				DDB4A84A17849C3F007C7F15 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DDB4A84B17849C3F007C7F15 /* Build configuration list for PBXNativeTarget "PlanMyDay" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DDB4A84C17849C3F007C7F15 /* Debug */,
+				DDB4A84D17849C3F007C7F15 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = DDB4A82017849C3F007C7F15 /* Project object */;
+}

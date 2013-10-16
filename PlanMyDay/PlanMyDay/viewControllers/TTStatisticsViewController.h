@@ -8,7 +8,7 @@
 
 #import "DACircularProgressView.h"
 #import "TTAppDataManager.h"
-#import "TTTools.h"
+//#import "TTTools.h"
 #import <UIKit/UIKit.h>
 
 @interface TTStatisticsViewController : UIViewController

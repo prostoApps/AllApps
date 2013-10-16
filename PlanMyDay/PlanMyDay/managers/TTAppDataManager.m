@@ -65,6 +65,7 @@ static TTLocalDataManager *localDataManager;
 
 -(NSString*)getProjectsFilePath
 {
+    NSString * test =[[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject] stringByAppendingPathComponent:@"projectData.plist"];
     return [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject] stringByAppendingPathComponent:@"projectData.plist"];
 }
 -(void)loadNewProjectFormData{
