@@ -16,9 +16,12 @@
 		0549C2F117FAEE6B0097B002 /* TTSelectColorViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0549C2F017FAEE6B0097B002 /* TTSelectColorViewController.xib */; };
 		055A402F17F5E5A7004E0617 /* background.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 055A402D17F5E5A7004E0617 /* background.jpg */; };
 		055A403017F5E5A7004E0617 /* background@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 055A402E17F5E5A7004E0617 /* background@2x.jpg */; };
+<<<<<<< HEAD
 		0568876D1805C77800EDBBB6 /* button_menu.png in Resources */ = {isa = PBXBuildFile; fileRef = 0568876B1805C77800EDBBB6 /* button_menu.png */; };
 		0568876E1805C77800EDBBB6 /* button_menu@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0568876C1805C77800EDBBB6 /* button_menu@2x.png */; };
 		056887701805C93200EDBBB6 /* PropertyListColors.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0568876F1805C93200EDBBB6 /* PropertyListColors.plist */; };
+=======
+>>>>>>> 50f172c350c408af1d3a4739b788db38089ba061
 		0596765117D0CAD000653A60 /* DDMenuController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0596765017D0CAD000653A60 /* DDMenuController.m */; };
 		059FF5CF180E83EE003744AB /* icon-main@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 059FF5CB180E83EE003744AB /* icon-main@2x.png */; };
 		059FF5D0180E83EE003744AB /* icon-settings@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 059FF5CC180E83EE003744AB /* icon-settings@2x.png */; };
@@ -91,6 +94,15 @@
 		DDB4A88C178523B2007C7F15 /* TTSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DDB4A882178523B2007C7F15 /* TTSettingsViewController.m */; };
 		DDB4A88D178523B2007C7F15 /* TTStatisticsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DDB4A884178523B2007C7F15 /* TTStatisticsViewController.m */; };
 		DDB4A88F178523B2007C7F15 /* TTNewProjectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DDB4A886178523B2007C7F15 /* TTNewProjectViewController.m */; };
+<<<<<<< HEAD
+=======
+		DDF4DC271808B39F00BB1960 /* TTTools.m in Sources */ = {isa = PBXBuildFile; fileRef = DDF4DC261808B39F00BB1960 /* TTTools.m */; };
+		DDF4DC2D180C6CB600BB1960 /* background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DDF4DC28180C6CB600BB1960 /* background@2x.png */; };
+		DDF4DC2E180C6CB600BB1960 /* bgUiBar.png in Resources */ = {isa = PBXBuildFile; fileRef = DDF4DC29180C6CB600BB1960 /* bgUiBar.png */; };
+		DDF4DC2F180C6CB600BB1960 /* bgUiBar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DDF4DC2A180C6CB600BB1960 /* bgUiBar@2x.png */; };
+		DDF4DC30180C6CB600BB1960 /* button_menu.png in Resources */ = {isa = PBXBuildFile; fileRef = DDF4DC2B180C6CB600BB1960 /* button_menu.png */; };
+		DDF4DC31180C6CB600BB1960 /* button_menu@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DDF4DC2C180C6CB600BB1960 /* button_menu@2x.png */; };
+>>>>>>> 50f172c350c408af1d3a4739b788db38089ba061
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -112,9 +124,12 @@
 		0549C2F017FAEE6B0097B002 /* TTSelectColorViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TTSelectColorViewController.xib; path = viewControllers/newProject/TTSelectColorViewController.xib; sourceTree = "<group>"; };
 		055A402D17F5E5A7004E0617 /* background.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = background.jpg; sourceTree = "<group>"; };
 		055A402E17F5E5A7004E0617 /* background@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "background@2x.jpg"; sourceTree = "<group>"; };
+<<<<<<< HEAD
 		0568876B1805C77800EDBBB6 /* button_menu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_menu.png; sourceTree = "<group>"; };
 		0568876C1805C77800EDBBB6 /* button_menu@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "button_menu@2x.png"; sourceTree = "<group>"; };
 		0568876F1805C93200EDBBB6 /* PropertyListColors.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = PropertyListColors.plist; sourceTree = "<group>"; };
+=======
+>>>>>>> 50f172c350c408af1d3a4739b788db38089ba061
 		05941E9117E9BFCE0079C571 /* TTNewProjectViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = TTNewProjectViewController.xib; path = viewControllers/TTNewProjectViewController.xib; sourceTree = "<group>"; };
 		0596764F17D0CAD000653A60 /* DDMenuController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDMenuController.h; sourceTree = "<group>"; };
 		0596765017D0CAD000653A60 /* DDMenuController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDMenuController.m; sourceTree = "<group>"; };
@@ -214,6 +229,16 @@
 		DDB4A884178523B2007C7F15 /* TTStatisticsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TTStatisticsViewController.m; path = viewControllers/TTStatisticsViewController.m; sourceTree = "<group>"; };
 		DDB4A886178523B2007C7F15 /* TTNewProjectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TTNewProjectViewController.m; path = viewControllers/TTNewProjectViewController.m; sourceTree = "<group>"; };
 		DDB4A887178523B2007C7F15 /* TTNewProjectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TTNewProjectViewController.h; path = viewControllers/TTNewProjectViewController.h; sourceTree = "<group>"; };
+<<<<<<< HEAD
+=======
+		DDF4DC251808B39F00BB1960 /* TTTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TTTools.h; path = tools/TTTools.h; sourceTree = "<group>"; };
+		DDF4DC261808B39F00BB1960 /* TTTools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TTTools.m; path = tools/TTTools.m; sourceTree = "<group>"; };
+		DDF4DC28180C6CB600BB1960 /* background@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "background@2x.png"; path = "assets/images/background@2x.png"; sourceTree = "<group>"; };
+		DDF4DC29180C6CB600BB1960 /* bgUiBar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = bgUiBar.png; path = assets/images/bgUiBar.png; sourceTree = "<group>"; };
+		DDF4DC2A180C6CB600BB1960 /* bgUiBar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "bgUiBar@2x.png"; path = "assets/images/bgUiBar@2x.png"; sourceTree = "<group>"; };
+		DDF4DC2B180C6CB600BB1960 /* button_menu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = button_menu.png; path = assets/images/button_menu.png; sourceTree = "<group>"; };
+		DDF4DC2C180C6CB600BB1960 /* button_menu@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "button_menu@2x.png"; path = "assets/images/button_menu@2x.png"; sourceTree = "<group>"; };
+>>>>>>> 50f172c350c408af1d3a4739b788db38089ba061
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -241,6 +266,7 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+<<<<<<< HEAD
 		056887691805C74D00EDBBB6 /* buttons */ = {
 			isa = PBXGroup;
 			children = (
@@ -261,6 +287,8 @@
 			name = menu;
 			sourceTree = "<group>";
 		};
+=======
+>>>>>>> 50f172c350c408af1d3a4739b788db38089ba061
 		0596765217D0CAD700653A60 /* DDMenuController */ = {
 			isa = PBXGroup;
 			children = (
@@ -270,6 +298,7 @@
 			name = DDMenuController;
 			sourceTree = "<group>";
 		};
+<<<<<<< HEAD
 		059FF5D3180E8433003744AB /* tasksIndicator */ = {
 			isa = PBXGroup;
 			children = (
@@ -301,6 +330,8 @@
 			name = icons;
 			sourceTree = "<group>";
 		};
+=======
+>>>>>>> 50f172c350c408af1d3a4739b788db38089ba061
 		DD2B9B8317B06E2600E37DA8 /* menu */ = {
 			isa = PBXGroup;
 			children = (
@@ -315,6 +346,11 @@
 		DD7BAE3817A5BE3A00CACFB2 /* assets */ = {
 			isa = PBXGroup;
 			children = (
+				DDF4DC28180C6CB600BB1960 /* background@2x.png */,
+				DDF4DC29180C6CB600BB1960 /* bgUiBar.png */,
+				DDF4DC2A180C6CB600BB1960 /* bgUiBar@2x.png */,
+				DDF4DC2B180C6CB600BB1960 /* button_menu.png */,
+				DDF4DC2C180C6CB600BB1960 /* button_menu@2x.png */,
 				DD7BAE3917A5BE4400CACFB2 /* images */,
 			);
 			name = assets;
@@ -323,9 +359,14 @@
 		DD7BAE3917A5BE4400CACFB2 /* images */ = {
 			isa = PBXGroup;
 			children = (
+<<<<<<< HEAD
 				05F2AA5D1808327700C6E96A /* bgUiBar.png */,
 				05F2AA5E1808327700C6E96A /* bgUiBar@2x.png */,
 				056887691805C74D00EDBBB6 /* buttons */,
+=======
+				05CD803917F9A4D00014B980 /* button_new_project.png */,
+				05CD803A17F9A4D00014B980 /* button_new_project@2x.png */,
+>>>>>>> 50f172c350c408af1d3a4739b788db38089ba061
 				055A402D17F5E5A7004E0617 /* background.jpg */,
 				055A402E17F5E5A7004E0617 /* background@2x.jpg */,
 				05103CDB17EA2015008C9D81 /* bgUiSearch.png */,
@@ -648,16 +689,28 @@
 			files = (
 				05F2AA601808327700C6E96A /* bgUiBar@2x.png in Resources */,
 				05CD803B17F9A4D00014B980 /* button_new_project.png in Resources */,
+<<<<<<< HEAD
 				0568876D1805C77800EDBBB6 /* button_menu.png in Resources */,
 				056887701805C93200EDBBB6 /* PropertyListColors.plist in Resources */,
 				DDB4A83617849C3F007C7F15 /* InfoPlist.strings in Resources */,
 				DDB4A83E17849C3F007C7F15 /* Default.png in Resources */,
 				DDB4A84017849C3F007C7F15 /* Default@2x.png in Resources */,
 				059FF5D0180E83EE003744AB /* icon-settings@2x.png in Resources */,
+=======
+				DDB1F5FB180460A00057044F /* TTTasksIndicatorViewController.xib in Resources */,
+				DDF4DC2E180C6CB600BB1960 /* bgUiBar.png in Resources */,
+				DDB4A83617849C3F007C7F15 /* InfoPlist.strings in Resources */,
+				DDB4A83E17849C3F007C7F15 /* Default.png in Resources */,
+				DDB4A84017849C3F007C7F15 /* Default@2x.png in Resources */,
+>>>>>>> 50f172c350c408af1d3a4739b788db38089ba061
 				05CD803C17F9A4D00014B980 /* button_new_project@2x.png in Resources */,
 				DDB4A84217849C3F007C7F15 /* Default-568h@2x.png in Resources */,
+				DDF4DC31180C6CB600BB1960 /* button_menu@2x.png in Resources */,
 				DDB4A84817849C3F007C7F15 /* TTViewController.xib in Resources */,
+<<<<<<< HEAD
 				059FF5D2180E83EE003744AB /* icon-tracker@2x.png in Resources */,
+=======
+>>>>>>> 50f172c350c408af1d3a4739b788db38089ba061
 				DDB4A85217850BCE007C7F15 /* TTMainClockViewController.xib in Resources */,
 				05F2AA5F1808327700C6E96A /* bgUiBar.png in Resources */,
 				DDB4A889178523B2007C7F15 /* TTSettingsViewController.xib in Resources */,
@@ -666,10 +719,15 @@
 				DD7BAE3717A5BDDB00CACFB2 /* TTTasksViewController.xib in Resources */,
 				055A403017F5E5A7004E0617 /* background@2x.jpg in Resources */,
 				05103CDE17EA2015008C9D81 /* bgUiSearch@2x.png in Resources */,
+<<<<<<< HEAD
 				059FF5CF180E83EE003744AB /* icon-main@2x.png in Resources */,
+=======
+>>>>>>> 50f172c350c408af1d3a4739b788db38089ba061
 				DD7BAE4117A5BE4400CACFB2 /* ckeck_cell_icons.png in Resources */,
 				DD7BAE4217A5BE4400CACFB2 /* delete_cell_icon.png in Resources */,
+				DDF4DC30180C6CB600BB1960 /* button_menu.png in Resources */,
 				DD7BAE4317A5BE4400CACFB2 /* one_task_back@2x.png in Resources */,
+				DDF4DC2F180C6CB600BB1960 /* bgUiBar@2x.png in Resources */,
 				DD7BAE4417A5BE4400CACFB2 /* task_icons.png in Resources */,
 				DD7BAE4517A5BE4400CACFB2 /* bgTaskInfoLabel.png in Resources */,
 				DD7BAE4E17A5C24600CACFB2 /* TTCustomTrackerViewController.xib in Resources */,
@@ -680,10 +738,14 @@
 				DD90BF6317AA06210064233C /* clock-hour-background.png in Resources */,
 				055A402F17F5E5A7004E0617 /* background.jpg in Resources */,
 				05BAA80417E1F586003D7498 /* PropertyListOfViewForms.plist in Resources */,
+				DDF4DC2D180C6CB600BB1960 /* background@2x.png in Resources */,
 				05103CDA17EA1EAF008C9D81 /* bgTaskInfoLabel@2x.png in Resources */,
 				DD90BF6417AA06210064233C /* clock-min-background_.png in Resources */,
+<<<<<<< HEAD
 				059FF5D8180E8433003744AB /* TTTasksIndicatorViewController.xib in Resources */,
 				059FF5D1180E83EE003744AB /* icon-statistic@2x.png in Resources */,
+=======
+>>>>>>> 50f172c350c408af1d3a4739b788db38089ba061
 				0549C2F117FAEE6B0097B002 /* TTSelectColorViewController.xib in Resources */,
 				05C8136F17C6283E00E90B2F /* icon_button_arrow@2x.png in Resources */,
 				DD90BF6517AA06210064233C /* clock-min-background.png in Resources */,
