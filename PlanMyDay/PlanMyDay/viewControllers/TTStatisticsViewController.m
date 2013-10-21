@@ -15,7 +15,7 @@
 @implementation TTStatisticsViewController
 
 @synthesize largeProgressView = _largeProgressView;
-@synthesize tasksNavigator;
+//@synthesize tasksNavigator;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -40,7 +40,7 @@
     [self.largeProgressView setThicknessRatio:0.066];
     
     [self drawTasksToView:[[TTAppDataManager sharedAppDataManager] getAllTasks]];
-    [tasksNavigator initWithTasks];
+//    [tasksNavigator initWithTasks];
 }
 
 -(void)drawTasksToView:(NSMutableArray*)arrTasks

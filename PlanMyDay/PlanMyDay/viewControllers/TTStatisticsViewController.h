@@ -8,7 +8,7 @@
 
 #import "DACircularProgressView.h"
 #import "TTAppDataManager.h"
-#import "TTTasksNavigator.h"
+//#import "TTTasksNavigator.h"
 //#import "TTTools.h"
 #import <UIKit/UIKit.h>
 
@@ -16,7 +16,7 @@
 
 @property (strong, nonatomic) IBOutlet DACircularProgressView *largeProgressView;
 
-@property (strong, nonatomic) TTTasksNavigator *tasksNavigator;
+//@property (strong, nonatomic) TTTasksNavigator *tasksNavigator;
 
 -(void)drawTasksToView:(NSMutableArray*)arrTasks;
 
