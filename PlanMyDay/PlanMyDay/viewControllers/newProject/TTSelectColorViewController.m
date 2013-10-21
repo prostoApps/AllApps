@@ -94,7 +94,7 @@
 {
     [[TTApplicationManager sharedApplicationManager] setIpNewProjectSelectedColor:indexPath];
     
-    [[TTAppDataManager sharedAppDataManager] saveNewProjectFormDataValue:
+    [[TTAppDataManager sharedAppDataManager] saveNewProjectFieldsValue:
                                     [[arrayOfColors objectAtIndex:indexPath.item] objectForKey:STR_NEW_PROJECT_COLOR_COLOR]
                                                                  byIndexPath:[[TTApplicationManager sharedApplicationManager] ipNewProjectSelectedProperty]];
     

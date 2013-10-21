@@ -46,9 +46,10 @@
 
 -(void)deleteCellFromTTTasksTableView:(TTTasksTableViewCell*)cell{
     // найти какую ячейку удалить из списка
-    // cell.taskName
-    [cellsDataArray removeLastObject];
     
+    [[TTAppDataManager sharedAppDataManager] removeTask:[cellsDataArray objectAtIndex:[[tasksTableView indexPathForCell:cell] row]]];
+    
+    cellsDataArray = [[TTAppDataManager sharedAppDataManager] getAllTasks];
     
     [tasksTableView deleteRowsAtIndexPaths:[[NSArray alloc]
                                             initWithObjects:[tasksTableView indexPathForCell:cell], nil]

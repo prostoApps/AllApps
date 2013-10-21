@@ -34,7 +34,7 @@
     
     TTAppDataManager * appDataManager = [TTAppDataManager sharedAppDataManager];
     
-    selectStr = [NSString stringWithFormat:@"%@",[appDataManager getNewProjectFormDataValue:STR_NEW_PROJECT_NAME
+    selectStr = [NSString stringWithFormat:@"%@",[appDataManager getNewProjectFieldsValue:STR_NEW_PROJECT_NAME
                                                                                 byIndexPath:[[TTApplicationManager sharedApplicationManager] ipNewProjectSelectedProperty]]];
     [self setTitle:[NSString stringWithFormat:@"Choose %@",selectStr]];
     btnAddSelection.titleLabel.text = [NSString stringWithFormat:@"Add %@",selectStr];
@@ -99,7 +99,7 @@
     UITableViewCell * cell = [tableView cellForRowAtIndexPath:indexPath];
         NSLog(@"tableView didSelectRowAtIndexPath:: indexPath %@, with text: %@",indexPath,cell.textLabel.text);
         NSLog(@"tableView didSelectRowAtIndexPath:: ipNewProjectSelectedProperty %@,",[[TTApplicationManager sharedApplicationManager] ipNewProjectSelectedProperty]);
-    [[TTAppDataManager sharedAppDataManager] saveNewProjectFormDataValue:cell.textLabel.text
+    [[TTAppDataManager sharedAppDataManager] saveNewProjectFieldsValue:cell.textLabel.text
                                                              byIndexPath:[[TTApplicationManager sharedApplicationManager] ipNewProjectSelectedProperty]];
     [self.navigationController popViewControllerAnimated:YES];
 }

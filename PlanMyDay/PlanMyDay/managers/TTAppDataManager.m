@@ -24,8 +24,8 @@ static TTLocalDataManager *localDataManager;
 
 @synthesize segmentIndexNewProject;
 @synthesize dictNewProjectIndexPaths;
-@synthesize arraySettingsFormData;
-@synthesize arrayFilterFormData;
+@synthesize arraySettingsFields;
+@synthesize arrayFilterFields;
 
 + (TTAppDataManager *)sharedAppDataManager
 {
@@ -70,53 +70,53 @@ static TTLocalDataManager *localDataManager;
     NSString * test =[[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject] stringByAppendingPathComponent:@"projectData.plist"];
     return [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject] stringByAppendingPathComponent:@"projectData.plist"];
 }
--(void)loadNewProjectFormData{
+-(void)loadNewProjectFields{
     // загружаем стили ячеек для формы
-    if (dictNewProjectFormData.count == 0) {
+    if (dictNewProjectFields.count == 0) {
         NSString* plistPath = [[NSBundle mainBundle] pathForResource:@"PropertyListOfViewForms" ofType:@"plist"];
-        dictNewProjectFormData = [[NSMutableDictionary alloc] initWithContentsOfFile:plistPath];
+        dictNewProjectFields = [[NSMutableDictionary alloc] initWithContentsOfFile:plistPath];
         
         //создаем пустые дикшионари для Индекс значений со структурой (Task,Project,Client)
         dictNewProjectIndexPaths = [[NSMutableDictionary alloc] init];
-        for(id key in [dictNewProjectFormData allKeys]){
+        for(id key in [dictNewProjectFields allKeys]){
             [dictNewProjectIndexPaths setObject:[[NSMutableDictionary alloc] init] forKey:key];
         }
     }
 }
--(void)loadSettingsFormData{
+-(void)loadSettingsFields{
     // загружаем стили ячеек для формы
         NSString* plistPath = [[NSBundle mainBundle] pathForResource:@"PropertyListSettingsView" ofType:@"plist"];
-        self.arraySettingsFormData = [[NSMutableArray alloc] initWithContentsOfFile:plistPath];
+        self.arraySettingsFields = [[NSMutableArray alloc] initWithContentsOfFile:plistPath];
 }
--(void)loadFilterFormData{
+-(void)loadFilterFields{
     // загружаем стили ячеек для формы
         NSString* plistPath = [[NSBundle mainBundle] pathForResource:@"PropertyListFilterView" ofType:@"plist"];
-        self.arrayFilterFormData = [[NSMutableArray alloc] initWithContentsOfFile:plistPath];
+        self.arrayFilterFields = [[NSMutableArray alloc] initWithContentsOfFile:plistPath];
 
 }
--(NSArray*)getNewProjectFormData{
-    return [dictNewProjectFormData objectForKey:[[TTApplicationManager sharedApplicationManager] strNewProjectSelectedCategory]];
+-(NSArray*)getNewProjectFields{
+    return [dictNewProjectFields objectForKey:[[TTApplicationManager sharedApplicationManager] strNewProjectSelectedCategory]];
 }
--(NSMutableArray*)getFilterFormData{
-    return arrayFilterFormData;
+-(NSMutableArray*)getFilterFields{
+    return arrayFilterFields;
 }
 
--(NSObject*)getNewProjectFormDataValue:(NSString*)value byIndexPath:(NSIndexPath*)indexPath{
-    return [[[[[dictNewProjectFormData objectForKey:[[TTApplicationManager sharedApplicationManager] strNewProjectSelectedCategory]]
+-(NSObject*)getNewProjectFieldsValue:(NSString*)value byIndexPath:(NSIndexPath*)indexPath{
+    return [[[[[dictNewProjectFields objectForKey:[[TTApplicationManager sharedApplicationManager] strNewProjectSelectedCategory]]
                objectAtIndex:[indexPath section]] objectForKey:STR_NEW_PROJECT_CELLS] objectAtIndex:[indexPath row]] objectForKey:value];
 }
 
--(void)saveNewProjectFormDataValue:(NSObject*)object byIndexPath:(NSIndexPath*)indexPath{
+-(void)saveNewProjectFieldsValue:(NSObject*)object byIndexPath:(NSIndexPath*)indexPath{
     
-    [[[[[dictNewProjectFormData objectForKey:[[TTApplicationManager sharedApplicationManager] strNewProjectSelectedCategory]]
+    [[[[[dictNewProjectFields objectForKey:[[TTApplicationManager sharedApplicationManager] strNewProjectSelectedCategory]]
         objectAtIndex:[indexPath section]]objectForKey:STR_NEW_PROJECT_CELLS]
             objectAtIndex:[indexPath row]] setObject:object forKey:STR_NEW_PROJECT_VALUE];
     
 }
--(void) clearNewProjectFormData{
+-(void) clearNewProjectFields{
     NSString* plistPath = [[NSBundle mainBundle] pathForResource:@"PropertyListOfViewForms" ofType:@"plist"];
     NSMutableDictionary * clearDictionary = [[NSMutableDictionary alloc] initWithContentsOfFile:plistPath];
-    [dictNewProjectFormData setObject:[clearDictionary objectForKey:[[TTApplicationManager sharedApplicationManager] strNewProjectSelectedCategory]]
+    [dictNewProjectFields setObject:[clearDictionary objectForKey:[[TTApplicationManager sharedApplicationManager] strNewProjectSelectedCategory]]
                                forKey:[[TTApplicationManager sharedApplicationManager] strNewProjectSelectedCategory]];
 }
 
@@ -128,26 +128,26 @@ static TTLocalDataManager *localDataManager;
     
     NSMutableDictionary *dictData = [[NSMutableDictionary alloc] init];
     
-    item.strClientName = [NSString stringWithFormat:@"%@",[self getNewProjectFormDataValue:STR_NEW_PROJECT_VALUE
+    item.strClientName = [NSString stringWithFormat:@"%@",[self getNewProjectFieldsValue:STR_NEW_PROJECT_VALUE
                                                                                byIndexPath:[[dictNewProjectIndexPaths objectForKey:[[TTApplicationManager sharedApplicationManager] strNewProjectSelectedCategory]] objectForKey:STR_NEW_PROJECT_CLIENT]]];
     
     //Если выбрана категория "создать таск", сохраняем таск с проектом и клиентом
     if ([[[TTApplicationManager sharedApplicationManager] strNewProjectSelectedCategory] isEqualToString:STR_NEW_PROJECT_TASK])
     {
 
-        item.strTaskName = [NSString stringWithFormat:@"%@",[self getNewProjectFormDataValue:STR_NEW_PROJECT_VALUE
+        item.strTaskName = [NSString stringWithFormat:@"%@",[self getNewProjectFieldsValue:STR_NEW_PROJECT_VALUE
                                                                                  byIndexPath:[[dictNewProjectIndexPaths objectForKey:[[TTApplicationManager sharedApplicationManager] strNewProjectSelectedCategory]] objectForKey:STR_NEW_PROJECT_NAME]]];
-        item.strProjectName = [NSString stringWithFormat:@"%@",[self getNewProjectFormDataValue:STR_NEW_PROJECT_VALUE
+        item.strProjectName = [NSString stringWithFormat:@"%@",[self getNewProjectFieldsValue:STR_NEW_PROJECT_VALUE
                                                                                     byIndexPath:[[dictNewProjectIndexPaths objectForKey:[[TTApplicationManager sharedApplicationManager] strNewProjectSelectedCategory]] objectForKey:STR_NEW_PROJECT_PROJECT]]];
         
         
-        item.strColor = [NSString stringWithFormat:@"%@",[self getNewProjectFormDataValue:STR_NEW_PROJECT_VALUE
+        item.strColor = [NSString stringWithFormat:@"%@",[self getNewProjectFieldsValue:STR_NEW_PROJECT_VALUE
                                                                               byIndexPath:[[dictNewProjectIndexPaths objectForKey:[[TTApplicationManager sharedApplicationManager] strNewProjectSelectedCategory]] objectForKey:STR_NEW_PROJECT_COLOR]]];
         
         
-        item.dtStartDate = [self getNewProjectFormDataValue:STR_NEW_PROJECT_VALUE
+        item.dtStartDate = [self getNewProjectFieldsValue:STR_NEW_PROJECT_VALUE
                                                                               byIndexPath:[[dictNewProjectIndexPaths objectForKey:[[TTApplicationManager sharedApplicationManager] strNewProjectSelectedCategory]] objectForKey:STR_NEW_PROJECT_START_DATE]];
-        item.dtEndDate = [self getNewProjectFormDataValue:STR_NEW_PROJECT_VALUE
+        item.dtEndDate = [self getNewProjectFieldsValue:STR_NEW_PROJECT_VALUE
                                                                               byIndexPath:[[dictNewProjectIndexPaths objectForKey:[[TTApplicationManager sharedApplicationManager] strNewProjectSelectedCategory]] objectForKey:STR_NEW_PROJECT_END_DATE]];
         
         dictData = [self serializeTaskData:item];
@@ -156,7 +156,7 @@ static TTLocalDataManager *localDataManager;
     }    //Если выбрана категория "создать проект", сохраняем только проект с клиентом
     else if( [[[TTApplicationManager sharedApplicationManager] strNewProjectSelectedCategory] isEqualToString:STR_NEW_PROJECT_PROJECT])
     {
-        item.strProjectName = [NSString stringWithFormat:@"%@",[self getNewProjectFormDataValue:STR_NEW_PROJECT_VALUE
+        item.strProjectName = [NSString stringWithFormat:@"%@",[self getNewProjectFieldsValue:STR_NEW_PROJECT_VALUE
                                                                               byIndexPath:[[dictNewProjectIndexPaths objectForKey:[[TTApplicationManager sharedApplicationManager] strNewProjectSelectedCategory]] objectForKey:STR_NEW_PROJECT_PROJECT]]];
         
         dictData = [self serializeProjectData:item];
@@ -164,16 +164,16 @@ static TTLocalDataManager *localDataManager;
     }    //Если выбрана категория "создать проект", сохраняем только клиента
     else if( [[[TTApplicationManager sharedApplicationManager] strNewProjectSelectedCategory] isEqualToString:STR_NEW_PROJECT_CLIENT])
     {
-        item.strClientSkype = [NSString stringWithFormat:@"%@",[self getNewProjectFormDataValue:STR_NEW_PROJECT_VALUE
+        item.strClientSkype = [NSString stringWithFormat:@"%@",[self getNewProjectFieldsValue:STR_NEW_PROJECT_VALUE
                                                                               byIndexPath:[[dictNewProjectIndexPaths objectForKey:[[TTApplicationManager sharedApplicationManager] strNewProjectSelectedCategory]] objectForKey:STR_NEW_PROJECT_CLIENT_SKYPE]]];
      
-        item.strClientPhone = [NSString stringWithFormat:@"%@",[self getNewProjectFormDataValue:STR_NEW_PROJECT_VALUE
+        item.strClientPhone = [NSString stringWithFormat:@"%@",[self getNewProjectFieldsValue:STR_NEW_PROJECT_VALUE
                                                                                     byIndexPath:[[dictNewProjectIndexPaths objectForKey:[[TTApplicationManager sharedApplicationManager] strNewProjectSelectedCategory]] objectForKey:STR_NEW_PROJECT_CLIENT_PHONE]]];
      
-        item.strClientMail = [NSString stringWithFormat:@"%@",[self getNewProjectFormDataValue:STR_NEW_PROJECT_VALUE
+        item.strClientMail = [NSString stringWithFormat:@"%@",[self getNewProjectFieldsValue:STR_NEW_PROJECT_VALUE
                                                                                     byIndexPath:[[dictNewProjectIndexPaths objectForKey:[[TTApplicationManager sharedApplicationManager] strNewProjectSelectedCategory]] objectForKey:STR_NEW_PROJECT_CLIENT_MAIL]]];
      
-        item.strClientNotes = [NSString stringWithFormat:@"%@",[self getNewProjectFormDataValue:STR_NEW_PROJECT_VALUE
+        item.strClientNotes = [NSString stringWithFormat:@"%@",[self getNewProjectFieldsValue:STR_NEW_PROJECT_VALUE
                                                                                     byIndexPath:[[dictNewProjectIndexPaths objectForKey:[[TTApplicationManager sharedApplicationManager] strNewProjectSelectedCategory]] objectForKey:STR_NEW_PROJECT_CLIENT_NOTE]]];
         dictData = [self serializeClientData:item];
         bReadyToWriteData = [localDataManager saveClientData:dictData];

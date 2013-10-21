@@ -35,9 +35,9 @@
     
     TTAppDataManager * appDataManager = [TTAppDataManager sharedAppDataManager];
     
-    [appDataManager loadSettingsFormData];
+    [appDataManager loadSettingsFields];
     
-    [settingsTableController setArrayTableViewData:appDataManager.arraySettingsFormData];
+    [settingsTableController setArrayTableViewData:appDataManager.arraySettingsFields];
     [settingsTableController setParentViewController:self];
     [settingsTableController setTableViewParametrs:tableSettings];
     

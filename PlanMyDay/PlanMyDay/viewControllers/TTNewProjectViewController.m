@@ -41,11 +41,11 @@
     {
         [[TTApplicationManager sharedApplicationManager] setStrNewProjectSelectedCategory:STR_NEW_PROJECT_TASK];
     }
-     [appDataManager loadNewProjectFormData];
+     [appDataManager loadNewProjectFields];
     
     newProjectTableController = [[TTFieldsTableViewController alloc] init];
     
-    [newProjectTableController setArrayTableViewData:[appDataManager getNewProjectFormData]];
+    [newProjectTableController setArrayTableViewData:[appDataManager getNewProjectFields]];
     [newProjectTableController setParentViewController:self];
     [newProjectTableController setTableViewParametrs:tableViewNewProject];
     
@@ -91,7 +91,7 @@
     [btnSave setTitle:[NSString stringWithFormat:@"Add %@",nameStr] forState:UIControlStateNormal];
     [scTaskProjectClient setSelectedSegmentIndex:appDataManager.segmentIndexNewProject];
 
-    [newProjectTableController setArrayTableViewData:[appDataManager getNewProjectFormData]];
+    [newProjectTableController setArrayTableViewData:[appDataManager getNewProjectFields]];
     
     [tableViewNewProject reloadData];
     
@@ -139,7 +139,7 @@
        }
        else if (scTaskProjectClient.selectedSegmentIndex == NUM_NEW_PROJECT_SELECTED_SEGMENT_TASK)
        {
-           [[TTAppDataManager sharedAppDataManager] clearNewProjectFormData];
+           [[TTAppDataManager sharedAppDataManager] clearNewProjectFields];
            [self.navigationController popViewControllerAnimated:YES];
        }
 

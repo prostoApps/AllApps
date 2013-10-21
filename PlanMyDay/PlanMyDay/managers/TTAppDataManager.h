@@ -15,8 +15,8 @@
 {
 //    TTLocalDataManager *myLocalDataManager;
 //    TTLocalDataManager *localDataManager;
-    NSMutableDictionary * dictNewProjectFormData;
-    NSMutableArray * arrayFilterFormData;
+    NSMutableDictionary * dictNewProjectFields;
+    NSMutableArray * arrayFilterFields;
    
     
 }
@@ -34,29 +34,29 @@ extern NSString *const STR_SORT_PARAMETER_TASK_DURATION;
 
 @property (nonatomic,readwrite) int segmentIndexNewProject;
 @property (nonatomic,readwrite) NSMutableDictionary * dictNewProjectIndexPaths;
-@property (nonatomic,readwrite) NSMutableArray * arraySettingsFormData;
-@property (nonatomic,readwrite) NSMutableArray * arrayFilterFormData;
+@property (nonatomic,readwrite) NSMutableArray * arraySettingsFields;
+@property (nonatomic,readwrite) NSMutableArray * arrayFilterFields;
 
 -(NSString*)getDocumentsPath;
 -(NSString*)getProjectsFilePath;
--(NSArray*) getNewProjectFormData;
--(NSArray*) getFilterFormData;
--(NSObject*)getNewProjectFormDataValue:(NSString*)value byIndexPath:(NSIndexPath*)indexPath;
+-(NSArray*) getNewProjectFields;
+-(NSArray*) getFilterFields;
+-(NSObject*)getNewProjectFieldsValue:(NSString*)value byIndexPath:(NSIndexPath*)indexPath;
 
 -(NSDictionary*)readDataFromFile:(NSString*)pathToFile;
 
 -(BOOL)saveTTItem;
--(void)saveNewProjectFormDataValue:(NSObject*)value byIndexPath:(NSIndexPath*)indexPath;
--(void)loadNewProjectFormData;
--(void)loadSettingsFormData;
--(void)loadFilterFormData;
+-(void)saveNewProjectFieldsValue:(NSObject*)value byIndexPath:(NSIndexPath*)indexPath;
+-(void)loadNewProjectFields;
+-(void)loadSettingsFields;
+-(void)loadFilterFields;
 
 -(NSMutableArray*)getAllTasks;
 -(NSMutableArray*)getAllProjects;
 -(NSMutableArray*)getAllClients;
 -(NSMutableArray*)getAllTasksForToday;
 
--(void) clearNewProjectFormData;
+-(void) clearNewProjectFields;
 - (UIColor *)colorWithHexString:(NSString *)stringToConvert;
 - (UIButton*)makeButtonStyled:(UIButton *)button;
 - (NSString *)convertDate:(NSDate *)date withFormat:(NSString *)format;

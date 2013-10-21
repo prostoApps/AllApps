@@ -37,9 +37,9 @@
     TTAppDataManager * appDataManager = [TTAppDataManager sharedAppDataManager];
     
 
-    [appDataManager loadFilterFormData];
+    [appDataManager loadFilterFields];
     
-    [filterTableController setArrayTableViewData:appDataManager.arrayFilterFormData];
+    [filterTableController setArrayTableViewData:appDataManager.arrayFilterFields];
     [filterTableController setParentViewController:self];
     [filterTableController setTableViewParametrs:tableFilter];
     

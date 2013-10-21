@@ -23,7 +23,7 @@
 {
     self = [super initWithStyle:style];
     if (self) {
-        NSLog(@"%@",self.view);
+        [self.view addSubview:dpView];
     }
     return self;
 }
@@ -204,7 +204,7 @@
 {
     UISwitch* switchControl = sender;
     NSIndexPath *indexPath = [tableViewParametrs indexPathForCell:(UITableViewCell*)[[switchControl superview] superview]]; // this should return you
-    [[TTAppDataManager sharedAppDataManager] saveNewProjectFormDataValue:switchControl.on ? @"YES" : @"NO" byIndexPath:indexPath];
+    [[TTAppDataManager sharedAppDataManager] saveNewProjectFieldsValue:switchControl.on ? @"YES" : @"NO" byIndexPath:indexPath];
 }
 
 #pragma mark -
@@ -227,7 +227,7 @@
     int typeCell = [[[listData objectAtIndex:indexPath.row] objectForKey:STR_NEW_PROJECT_TYPE] intValue];
     if (typeCell == INT_NEW_PROJECT_TYPE_INPUT)
     {
-        [[TTAppDataManager sharedAppDataManager] saveNewProjectFormDataValue:textField.text byIndexPath:indexPath];
+        [[TTAppDataManager sharedAppDataManager] saveNewProjectFieldsValue:textField.text byIndexPath:indexPath];
         
     }
 }
@@ -249,7 +249,7 @@
     if (typeCell == INT_NEW_PROJECT_TYPE_PICKER)
     {
         [[TTApplicationManager sharedApplicationManager] setIpNewProjectSelectedProperty:indexPath];
-        NSDate * date = [[TTAppDataManager sharedAppDataManager] getNewProjectFormDataValue:STR_NEW_PROJECT_VALUE byIndexPath:indexPath];
+        NSDate * date = [[TTAppDataManager sharedAppDataManager] getNewProjectFieldsValue:STR_NEW_PROJECT_VALUE byIndexPath:indexPath];
         if (date != nil) {
             [dpTaskDatePicker setDate:date];
         }
@@ -264,7 +264,7 @@
 {
     NSLog(@"datePickerPickHandlerDone::ipNewProjectSelectedProperty: %d ",[[[TTApplicationManager sharedApplicationManager] ipNewProjectSelectedProperty] section] );
     
-    [[TTAppDataManager sharedAppDataManager] saveNewProjectFormDataValue:[dpTaskDatePicker date] byIndexPath:[[TTApplicationManager sharedApplicationManager] ipNewProjectSelectedProperty] ];
+    [[TTAppDataManager sharedAppDataManager] saveNewProjectFieldsValue:[dpTaskDatePicker date] byIndexPath:[[TTApplicationManager sharedApplicationManager] ipNewProjectSelectedProperty] ];
     [tableViewParametrs reloadData];
 }
 -(IBAction) datePickerPickHandlerCancel:(id)sender
