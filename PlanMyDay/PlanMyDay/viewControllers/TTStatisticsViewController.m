@@ -15,6 +15,7 @@
 @implementation TTStatisticsViewController
 
 @synthesize largeProgressView = _largeProgressView;
+@synthesize tasksNavigator;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -37,27 +38,42 @@
     [self.largeProgressView setThicknessRatio:0.066];
     
     [self drawTasksToView:[[TTAppDataManager sharedAppDataManager] getAllTasks]];
+    [tasksNavigator initWithTasks];
 }
 
 -(void)drawTasksToView:(NSMutableArray*)arrTasks
 {
-    NSCalendar *calendar = [NSCalendar currentCalendar];
-    
-    int numDuration = 0;
+    float numDuration = 0;
+    float numTotalDuration = 0;
+    float fDurationRatio = 0;
+    float numRotationAngle = 0;
     NSDate *dtStartDate;
     NSDate *dtEndDate;
     NSString *strColor;
     
+    //    NSString *strNewString = [strColor substringToIndex:2];
+    //    flo *strNewString = [strColor substringWithRange:NSMakeRange(0, 2)];
+    //    [strColor floatValue];
+    
+    for (NSMutableDictionary *dictTmpTask in arrTasks)
+    {
+        dtStartDate = [dictTmpTask objectForKey:STR_START_DATE];
+        dtEndDate   = [dictTmpTask objectForKey:STR_END_DATE];
+        numDuration = [dtEndDate timeIntervalSinceDate:dtStartDate]/3600;
+        
+        numTotalDuration += numDuration;
+    }
+    
     for (NSMutableDictionary *dictTask in arrTasks)
     {
         strColor    = [dictTask objectForKey:STR_TASK_COLOR];
+        
         dtStartDate = [dictTask objectForKey:STR_START_DATE];
         dtEndDate   = [dictTask objectForKey:STR_END_DATE];
         numDuration = [dtEndDate timeIntervalSinceDate:dtStartDate]/3600;
         
-        NSDateComponents *tmpDateComponents = [calendar components:(NSHourCalendarUnit) fromDate:dtStartDate];
-        NSInteger numHourOfTaskStarts = [tmpDateComponents hour];
-
+        fDurationRatio = numDuration * 12 / numTotalDuration ;
+        
         NSString *strRedString = [NSString stringWithFormat:@"%@", [strColor substringWithRange:NSMakeRange(0, 2)]];
         float fRed = [[TTTools hexFromStr:strRedString] floatValue];
         NSString *strGreenString = [NSString stringWithFormat:@"%@", [strColor substringWithRange:NSMakeRange(2, 2)]];
@@ -74,7 +90,7 @@
         [self.view addSubview:largeProgressViewTMP];
         [largeProgressViewTMP setThicknessRatio:0.066];
         
-        [largeProgressViewTMP setProgress:numDuration*NUM_ONE_HOUR_DURATION];
+        [largeProgressViewTMP setProgress:fDurationRatio*NUM_ONE_HOUR_DURATION];
         
         CABasicAnimation *rota = [CABasicAnimation animationWithKeyPath:@"transform.rotation"];
         rota.duration = 5;
@@ -82,10 +98,9 @@
         rota.removedOnCompletion = NO;
         rota.fillMode = kCAFillModeForwards;
         rota.fromValue = [NSNumber numberWithFloat: 0];
-        rota.toValue = [NSNumber numberWithFloat:  numHourOfTaskStarts*NUM_ONE_HOUR_ROTATION ];
+        rota.toValue = [NSNumber numberWithFloat:  numRotationAngle ];
         [largeProgressViewTMP.layer addAnimation: rota forKey: @"rotation"];
-        //        return;
-        //        [dictTask setObject:largeProgressViewTMP forKey:STR_ARC];
+        numRotationAngle += fDurationRatio*NUM_ONE_HOUR_ROTATION;
     }
 }
 
