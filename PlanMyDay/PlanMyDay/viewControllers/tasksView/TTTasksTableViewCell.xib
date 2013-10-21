@@ -48,7 +48,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="6" height="71"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="delete_cell_icon.png" id="512">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="icon-edit_task.png" id="512">
                                 <rect key="frame" x="338" y="25" width="22" height="22"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -73,6 +73,7 @@
                 <outlet property="backgroundView" destination="96" id="291"/>
                 <outlet property="clientName" destination="28" id="132"/>
                 <outlet property="curentTaskTime" destination="685" id="779"/>
+                <outlet property="iconEditDel" destination="512" id="3qH-mJ-WBn"/>
                 <outlet property="selectedBackgroundView" destination="292" id="446"/>
                 <outlet property="taskCheckBackground" destination="143" id="575"/>
                 <outlet property="taskColor" destination="492" id="781"/>
@@ -86,15 +87,8 @@
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="96" id="g60-4S-VjL">
                 <rect key="frame" x="0.0" y="0.0" width="320" height="63"/>
                 <autoresizingMask key="autoresizingMask"/>
-                <subviews>
-                    <view contentMode="scaleToFill" id="41w-JT-Kdv">
-                        <rect key="frame" x="160" y="0.0" width="160" height="64"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" name="alternateSelectedControlColor" catalog="System" colorSpace="catalog"/>
-                    </view>
-                </subviews>
             </tableViewCellContentView>
-            <color key="backgroundColor" red="0.98823529409999999" green="0.24313725489999999" blue="0.26274509800000001" alpha="1" colorSpace="calibratedRGB"/>
+            <color key="backgroundColor" red="1" green="0.39215686274509803" blue="0.011764705882352941" alpha="1" colorSpace="calibratedRGB"/>
         </tableViewCell>
         <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" id="97">
             <rect key="frame" x="0.0" y="0.0" width="320" height="71"/>
@@ -124,7 +118,7 @@
         </button>
     </objects>
     <resources>
-        <image name="delete_cell_icon.png" width="22" height="22"/>
+        <image name="icon-edit_task.png" width="22" height="22"/>
         <image name="task_icons.png" width="22" height="66"/>
     </resources>
 </document>

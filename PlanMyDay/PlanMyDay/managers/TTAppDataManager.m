@@ -24,6 +24,8 @@ static TTLocalDataManager *localDataManager;
 
 @synthesize segmentIndexNewProject;
 @synthesize dictNewProjectIndexPaths;
+@synthesize arraySettingsFormData;
+@synthesize arrayFilterFormData;
 
 + (TTAppDataManager *)sharedAppDataManager
 {
@@ -81,17 +83,29 @@ static TTLocalDataManager *localDataManager;
         }
     }
 }
+-(void)loadSettingsFormData{
+    // загружаем стили ячеек для формы
+        NSString* plistPath = [[NSBundle mainBundle] pathForResource:@"PropertyListSettingsView" ofType:@"plist"];
+        self.arraySettingsFormData = [[NSMutableArray alloc] initWithContentsOfFile:plistPath];
+}
+-(void)loadFilterFormData{
+    // загружаем стили ячеек для формы
+        NSString* plistPath = [[NSBundle mainBundle] pathForResource:@"PropertyListFilterView" ofType:@"plist"];
+        self.arrayFilterFormData = [[NSMutableArray alloc] initWithContentsOfFile:plistPath];
+
+}
+-(NSArray*)getNewProjectFormData{
+    return [dictNewProjectFormData objectForKey:[[TTApplicationManager sharedApplicationManager] strNewProjectSelectedCategory]];
+}
+-(NSMutableArray*)getFilterFormData{
+    return arrayFilterFormData;
+}
 
 -(NSObject*)getNewProjectFormDataValue:(NSString*)value byIndexPath:(NSIndexPath*)indexPath{
     return [[[[[dictNewProjectFormData objectForKey:[[TTApplicationManager sharedApplicationManager] strNewProjectSelectedCategory]]
                objectAtIndex:[indexPath section]] objectForKey:STR_NEW_PROJECT_CELLS] objectAtIndex:[indexPath row]] objectForKey:value];
 }
 
--(NSArray*)getNewProjectFormData{
-    
-    return [dictNewProjectFormData objectForKey:[[TTApplicationManager sharedApplicationManager] strNewProjectSelectedCategory]];
-    
-}
 -(void)saveNewProjectFormDataValue:(NSObject*)object byIndexPath:(NSIndexPath*)indexPath{
     
     [[[[[dictNewProjectFormData objectForKey:[[TTApplicationManager sharedApplicationManager] strNewProjectSelectedCategory]]

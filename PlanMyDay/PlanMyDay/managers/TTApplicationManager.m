@@ -10,9 +10,10 @@
 
 
 @implementation TTApplicationManager
-
+NSString *const VIEW_TEST                   = @"test";
 NSString *const VIEW_MENU                   = @"viewMenu";
 NSString *const VIEW_STATISTICS             = @"viewStatistics";
+NSString *const VIEW_STATISTICS_FILTER             = @"viewStatisticsFilter";
 NSString *const VIEW_CURRENT_TASKS          = @"viewCurrentTasks";
 NSString *const VIEW_NEW_TASK               = @"viewNewTask";
 NSString *const VIEW_SELECT_PROPERTY        = @"viewSelectProperty";
@@ -58,7 +59,7 @@ NSString *const FONT_HELVETICA_NEUE_MEDIUM    = @"HelveticaNeue-Medium";
 @synthesize ipNewProjectSelectedColor;
 
 
-
+NSString * _menuRightViewController;
 
 + (TTApplicationManager *)sharedApplicationManager
 {
@@ -111,7 +112,8 @@ NSString *const FONT_HELVETICA_NEUE_MEDIUM    = @"HelveticaNeue-Medium";
 
 -(UIViewController*) getUIViewControllerFromString: (NSString*)strViewController
 {
-
+    _menuRightViewController = VIEW_NEW_TASK;
+    
     UIViewController* targetViewController;
     
     if (strViewController == VIEW_CURRENT_TASKS)
@@ -120,23 +122,41 @@ NSString *const FONT_HELVETICA_NEUE_MEDIUM    = @"HelveticaNeue-Medium";
         targetViewController = [[TTTasksViewController alloc]
                                 initWithNibName:@"TTTasksViewController" bundle:nil];
     }
+    else if (strViewController == VIEW_TEST)
+    {
+        NSLog(@"open  VIEW_TEST view");
+        targetViewController = [[TTFieldsTableViewController alloc]
+                                initWithNibName:@"TTFieldsTableViewController" bundle:nil];
+    }
     else if (strViewController == VIEW_STATISTICS)
     {
         NSLog(@"open  STATISTICS view");
         targetViewController = [[TTStatisticsViewController alloc]
                                 initWithNibName:@"TTStatisticsViewController" bundle:nil];
+        _menuRightViewController = VIEW_STATISTICS_FILTER;
+       
+    }
+    else if (strViewController == VIEW_STATISTICS_FILTER)
+    {
+        NSLog(@"open  STATISTICS_FILTER view");
+        targetViewController = [[TTStatisticFilterViewController alloc]
+                                initWithNibName:@"TTStatisticFilterViewController" bundle:nil];
+        
+        
     }
     else if (strViewController == VIEW_SETTINGS)
     {
         NSLog(@"open  VIEW_SETTINGS view");
         targetViewController = [[TTSettingsViewController alloc]
                                 initWithNibName:@"TTSettingsViewController" bundle:nil];
+        
     }
     else if (strViewController == VIEW_MAIN_CLOCK)
     {
         NSLog(@"open  VIEW_MAIN_CLOCK view");
         targetViewController = [[TTMainClockViewController alloc]
                                 initWithNibName:@"TTMainClockViewController" bundle:nil];
+        
     }
     else if (strViewController == VIEW_NEW_TASK)
     {
@@ -176,6 +196,7 @@ NSString *const FONT_HELVETICA_NEUE_MEDIUM    = @"HelveticaNeue-Medium";
     
     //Ставим стандартный background вьюшке
     targetViewController.view.backgroundColor = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"background.jpg"]];
+
     UIView * backNavigate = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 64)];
     backNavigate.backgroundColor = [[TTAppDataManager sharedAppDataManager] colorWithHexString:@"#404a54"];
    // [backNavigate set[UINavigationBar appearance]:NO];
@@ -200,13 +221,13 @@ NSString *const FONT_HELVETICA_NEUE_MEDIUM    = @"HelveticaNeue-Medium";
     DDMenuController *menuController = (DDMenuController*)((TTAppDelegate*)[[UIApplication sharedApplication] delegate]).menuController;
     // определяем новый вью контроллер
     UIViewController* targetViewController  = [self getUIViewControllerFromString:strNewView];
-
+    
+    [menuController setRightViewController:_menuRightViewController];
     
     // set the root controller
     UINavigationController *navControllerRRR = [[UINavigationController alloc] initWithRootViewController:targetViewController];
     
     [menuController setRootController:navControllerRRR animated:YES];
-
 }
 
 @end

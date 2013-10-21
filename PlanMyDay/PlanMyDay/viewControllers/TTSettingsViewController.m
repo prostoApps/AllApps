@@ -8,17 +8,21 @@
 
 #import "TTSettingsViewController.h"
 
-@interface TTSettingsViewController ()
+@interface TTSettingsViewController (){
+    TTFieldsTableViewController * settingsTableController;
+}
 
 @end
 
 @implementation TTSettingsViewController
-
+@synthesize _dataSourceTableSettings;
+@synthesize _delegateTableSettings;
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
+        settingsTableController = [[TTFieldsTableViewController alloc] init];
     }
     return self;
 }
@@ -27,7 +31,21 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];
+
+    
+    TTAppDataManager * appDataManager = [TTAppDataManager sharedAppDataManager];
+    
+    [appDataManager loadSettingsFormData];
+    
+    [settingsTableController setArrayTableViewData:appDataManager.arraySettingsFormData];
+    [settingsTableController setParentViewController:self];
+    [settingsTableController setTableViewParametrs:tableSettings];
+    
+    _delegateTableSettings = settingsTableController;
+    _dataSourceTableSettings = settingsTableController;
+    
+    [tableSettings setDelegate:_delegateTableSettings];
+    [tableSettings setDataSource:_dataSourceTableSettings];
 }
 
 - (void)didReceiveMemoryWarning

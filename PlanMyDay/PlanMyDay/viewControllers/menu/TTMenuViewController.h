@@ -18,6 +18,7 @@
     IBOutlet UIButton *btnCustomTracker;
     IBOutlet UIButton *btnProfile;
     IBOutlet UIButton *btnCurrentTasks;
+    IBOutlet UIView * view2;
 
 }
 

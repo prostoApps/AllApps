@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="4510" systemVersion="12F37" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="4510" systemVersion="12E55" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment defaultVersion="1552" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3742"/>
@@ -7,12 +7,9 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TTNewProjectViewController">
             <connections>
-                <outlet property="TaskTableView" destination="m0w-MT-nVK" id="YNo-Ag-DJU"/>
                 <outlet property="btnSave" destination="868" id="881"/>
-                <outlet property="dpTaskDatePicker" destination="NZs-fd-DfV" id="KCx-Zi-nWL"/>
-                <outlet property="dpView" destination="gHT-JI-zgI" id="okd-cv-f69"/>
                 <outlet property="footerTableViewNewProject" destination="DHF-fz-ipS" id="Bln-95-pqx"/>
-                <outlet property="headerTableViewNewProject" destination="qTX-4U-ndn" id="O6n-ss-eMQ"/>
+                <outlet property="headerNewProject" destination="qTX-4U-ndn" id="Ed4-ED-cAD"/>
                 <outlet property="scTaskProjectClient" destination="466" id="492"/>
                 <outlet property="tableViewNewProject" destination="m0w-MT-nVK" id="YgU-J0-EXH"/>
                 <outlet property="view" destination="1" id="3"/>
@@ -23,7 +20,7 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qTX-4U-ndn" userLabel="headerTableViewNewProject">
+                <view clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qTX-4U-ndn" userLabel="headerNewProject">
                     <rect key="frame" x="-1" y="63" width="322" height="44"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
@@ -49,10 +46,6 @@
                     <color key="backgroundColor" red="0.32941176470588235" green="0.38039215686274508" blue="0.43529411764705883" alpha="1" colorSpace="calibratedRGB"/>
                     <color key="separatorColor" red="0.6588235294117647" green="0.67843137254901964" blue="0.70196078431372544" alpha="1" colorSpace="calibratedRGB"/>
                     <color key="sectionIndexColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    <connections>
-                        <outlet property="dataSource" destination="-1" id="x3R-fu-MJC"/>
-                        <outlet property="delegate" destination="-1" id="m1F-3a-mAH"/>
-                    </connections>
                 </tableView>
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -98,17 +91,9 @@
                     <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                     <items>
-                        <barButtonItem title="Cancel" width="80" id="nGR-2U-Fk2">
-                            <connections>
-                                <action selector="datePickerPickHandlerCancel:" destination="-1" id="KWF-c4-2av"/>
-                            </connections>
-                        </barButtonItem>
+                        <barButtonItem title="Cancel" width="80" id="nGR-2U-Fk2"/>
                         <barButtonItem width="113" style="plain" systemItem="fixedSpace" id="alD-VH-TJM"/>
-                        <barButtonItem title="Done" width="80" id="pvW-h7-Qxv">
-                            <connections>
-                                <action selector="datePickerPickHandlerDone:" destination="-1" id="a1d-tK-A3P"/>
-                            </connections>
-                        </barButtonItem>
+                        <barButtonItem title="Done" width="80" id="pvW-h7-Qxv"/>
                     </items>
                 </toolbar>
                 <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="NZs-fd-DfV">
@@ -138,9 +123,6 @@ AQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEA
 AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
 </data>
                     </timeZone>
-                    <connections>
-                        <action selector="datePickerPickHandler:" destination="-1" eventType="valueChanged" id="4Um-Ku-Hh8"/>
-                    </connections>
                 </datePicker>
             </subviews>
             <color key="backgroundColor" red="0.3294117647" green="0.3803921569" blue="0.43529411759999997" alpha="1" colorSpace="calibratedRGB"/>

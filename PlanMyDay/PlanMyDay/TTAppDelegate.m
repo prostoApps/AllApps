@@ -19,21 +19,21 @@
     // Override point for customization after application launch.
     
     TTMainClockViewController *mainController = [[TTMainClockViewController alloc] init];
+
     UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:mainController];
+    
     
     DDMenuController * rootController = [[DDMenuController alloc] initWithRootViewController:navController];
     _menuController = rootController;
-    
-    TTMenuViewController *leftController = [[TTMenuViewController alloc] init];
-    
-    rootController.leftViewController = leftController;
 
-    [self.window setRootViewController:_menuController];
+    rootController.leftViewController = [[TTMenuViewController alloc] init];
+
+    [self.window setRootViewController:rootController];
     [self.window makeKeyAndVisible];
     
-    
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
   // UINavigationBar
-    [[UINavigationBar appearance] setBarStyle:UIBarStyleBlackTranslucent];
+  //  [[UINavigationBar appearance] setBarStyle:UIBarStyleBlackTranslucent];
     // бекграунд бара
     UIImage *portraitImage = [UIImage imageNamed:@"bgUiBar.png"];
     [[UINavigationBar appearance] setBackgroundImage:portraitImage forBarMetrics:UIBarMetricsDefault];

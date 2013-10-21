@@ -11,5 +11,5 @@
 @interface TTTools : NSObject
 
 +(NSString*)hexFromStr:(NSString*)str;
-
++ (UIColor *)colorWithHexString:(NSString *)stringToConvert;
 @end

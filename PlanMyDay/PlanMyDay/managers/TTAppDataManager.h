@@ -16,6 +16,7 @@
 //    TTLocalDataManager *myLocalDataManager;
 //    TTLocalDataManager *localDataManager;
     NSMutableDictionary * dictNewProjectFormData;
+    NSMutableArray * arrayFilterFormData;
    
     
 }
@@ -33,10 +34,13 @@ extern NSString *const STR_SORT_PARAMETER_TASK_DURATION;
 
 @property (nonatomic,readwrite) int segmentIndexNewProject;
 @property (nonatomic,readwrite) NSMutableDictionary * dictNewProjectIndexPaths;
+@property (nonatomic,readwrite) NSMutableArray * arraySettingsFormData;
+@property (nonatomic,readwrite) NSMutableArray * arrayFilterFormData;
 
 -(NSString*)getDocumentsPath;
 -(NSString*)getProjectsFilePath;
 -(NSArray*) getNewProjectFormData;
+-(NSArray*) getFilterFormData;
 -(NSObject*)getNewProjectFormDataValue:(NSString*)value byIndexPath:(NSIndexPath*)indexPath;
 
 -(NSDictionary*)readDataFromFile:(NSString*)pathToFile;
@@ -44,6 +48,8 @@ extern NSString *const STR_SORT_PARAMETER_TASK_DURATION;
 -(BOOL)saveTTItem;
 -(void)saveNewProjectFormDataValue:(NSObject*)value byIndexPath:(NSIndexPath*)indexPath;
 -(void)loadNewProjectFormData;
+-(void)loadSettingsFormData;
+-(void)loadFilterFormData;
 
 -(NSMutableArray*)getAllTasks;
 -(NSMutableArray*)getAllProjects;

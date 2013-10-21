@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "TTTools.h"
 
 @protocol TTTasksTableViewCellDelegate <NSObject>
 
@@ -20,6 +21,7 @@
 @interface TTTasksTableViewCell : UITableViewCell {
     IBOutlet UIImageView *taskCheckBackground;
     UIButton *taskIcon;
+    IBOutlet UIImageView *iconEditDel;
     IBOutlet UILabel *curentTaskTime;
     IBOutlet UIImageView *taskColor;
     IBOutlet UIView *taskContentView;

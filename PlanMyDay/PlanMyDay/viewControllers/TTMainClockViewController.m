@@ -27,10 +27,14 @@
     }
     return self;
 }
+-(UIStatusBarStyle)preferredStatusBarStyle{
+    return UIStatusBarStyleLightContent;
+}
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+   // [self setNeedsStatusBarAppearanceUpdate];
     
     //вытаскиваем все таски, которые есть в localData
     NSMutableArray *arrAllTasks = [[NSMutableArray alloc] initWithArray:[[TTAppDataManager sharedAppDataManager] getAllTasks]];

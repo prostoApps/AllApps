@@ -29,6 +29,7 @@
     
     self.navigationController.navigationBar.barTintColor = [UIColor redColor];
 }
+
 -(void) viewWillAppear:(BOOL)animated{
     
     if (tasksTableView != nil){

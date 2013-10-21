@@ -10,58 +10,58 @@
 		05103CC617EA0EAB008C9D81 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05103CC517EA0EAB008C9D81 /* XCTest.framework */; };
 		05103CC717EA0EAB008C9D81 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDB4A82D17849C3F007C7F15 /* Foundation.framework */; };
 		05103CC817EA0EAB008C9D81 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDB4A82B17849C3F007C7F15 /* UIKit.framework */; };
-		05103CDA17EA1EAF008C9D81 /* bgTaskInfoLabel@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 05103CD917EA1EAF008C9D81 /* bgTaskInfoLabel@2x.png */; };
-		05103CDD17EA2015008C9D81 /* bgUiSearch.png in Resources */ = {isa = PBXBuildFile; fileRef = 05103CDB17EA2015008C9D81 /* bgUiSearch.png */; };
-		05103CDE17EA2015008C9D81 /* bgUiSearch@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 05103CDC17EA2015008C9D81 /* bgUiSearch@2x.png */; };
 		0549C2F117FAEE6B0097B002 /* TTSelectColorViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0549C2F017FAEE6B0097B002 /* TTSelectColorViewController.xib */; };
-		055A402F17F5E5A7004E0617 /* background.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 055A402D17F5E5A7004E0617 /* background.jpg */; };
-		055A403017F5E5A7004E0617 /* background@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 055A402E17F5E5A7004E0617 /* background@2x.jpg */; };
-		0568876D1805C77800EDBBB6 /* button_menu.png in Resources */ = {isa = PBXBuildFile; fileRef = 0568876B1805C77800EDBBB6 /* button_menu.png */; };
-		0568876E1805C77800EDBBB6 /* button_menu@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0568876C1805C77800EDBBB6 /* button_menu@2x.png */; };
 		056887701805C93200EDBBB6 /* PropertyListColors.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0568876F1805C93200EDBBB6 /* PropertyListColors.plist */; };
+		0578674D1811796E0027605C /* TTFieldsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0578674B1811796E0027605C /* TTFieldsTableViewController.m */; };
+		0578674E1811796E0027605C /* TTFieldsTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0578674C1811796E0027605C /* TTFieldsTableViewController.xib */; };
 		0596765117D0CAD000653A60 /* DDMenuController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0596765017D0CAD000653A60 /* DDMenuController.m */; };
 		05BAA80417E1F586003D7498 /* PropertyListOfViewForms.plist in Resources */ = {isa = PBXBuildFile; fileRef = 05BAA80317E1F586003D7498 /* PropertyListOfViewForms.plist */; };
 		05C454AB17F45B0100FD566C /* TTNewProjectViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05941E9117E9BFCE0079C571 /* TTNewProjectViewController.xib */; };
-		05C8136E17C6283E00E90B2F /* icon_button_arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 05C8136C17C6283E00E90B2F /* icon_button_arrow.png */; };
-		05C8136F17C6283E00E90B2F /* icon_button_arrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 05C8136D17C6283E00E90B2F /* icon_button_arrow@2x.png */; };
-		05C8B628180EC9C10065891D /* icon-main@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 05C8B624180EC9C10065891D /* icon-main@2x.png */; };
-		05C8B629180EC9C10065891D /* icon-settings@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 05C8B625180EC9C10065891D /* icon-settings@2x.png */; };
-		05C8B62A180EC9C10065891D /* icon-statistic@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 05C8B626180EC9C10065891D /* icon-statistic@2x.png */; };
-		05C8B62B180EC9C10065891D /* icon-tracker@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 05C8B627180EC9C10065891D /* icon-tracker@2x.png */; };
 		05C8B630180EC9D40065891D /* TTTasksIndicatorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05C8B62E180EC9D40065891D /* TTTasksIndicatorViewController.m */; };
 		05C8B631180EC9D40065891D /* TTTasksIndicatorViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05C8B62F180EC9D40065891D /* TTTasksIndicatorViewController.xib */; };
 		05C8B635180EC9E00065891D /* TTTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 05C8B634180EC9E00065891D /* TTTools.m */; };
-		05CD803B17F9A4D00014B980 /* button_new_project.png in Resources */ = {isa = PBXBuildFile; fileRef = 05CD803917F9A4D00014B980 /* button_new_project.png */; };
-		05CD803C17F9A4D00014B980 /* button_new_project@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 05CD803A17F9A4D00014B980 /* button_new_project@2x.png */; };
+		05C8B658180ED9860065891D /* background@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 05C8B63B180ED9860065891D /* background@2x.jpg */; };
+		05C8B659180ED9860065891D /* bgTaskInfoLabel@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 05C8B63D180ED9860065891D /* bgTaskInfoLabel@2x.png */; };
+		05C8B65A180ED9860065891D /* bgUiBar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 05C8B63E180ED9860065891D /* bgUiBar@2x.png */; };
+		05C8B65B180ED9860065891D /* bgUiSearch@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 05C8B63F180ED9860065891D /* bgUiSearch@2x.png */; };
+		05C8B65C180ED9860065891D /* icon-main@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 05C8B641180ED9860065891D /* icon-main@2x.png */; };
+		05C8B65D180ED9860065891D /* icon-menu@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 05C8B642180ED9860065891D /* icon-menu@2x.png */; };
+		05C8B65E180ED9860065891D /* icon-plus@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 05C8B643180ED9860065891D /* icon-plus@2x.png */; };
+		05C8B65F180ED9860065891D /* icon-settings@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 05C8B644180ED9860065891D /* icon-settings@2x.png */; };
+		05C8B660180ED9860065891D /* icon-statistic@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 05C8B645180ED9860065891D /* icon-statistic@2x.png */; };
+		05C8B661180ED9860065891D /* icon-tasks-check@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 05C8B646180ED9860065891D /* icon-tasks-check@2x.png */; };
+		05C8B662180ED9860065891D /* icon-tasks-default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 05C8B647180ED9860065891D /* icon-tasks-default@2x.png */; };
+		05C8B663180ED9860065891D /* icon-tasks-delete@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 05C8B648180ED9860065891D /* icon-tasks-delete@2x.png */; };
+		05C8B664180ED9860065891D /* icon-tasks-edit@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 05C8B649180ED9860065891D /* icon-tasks-edit@2x.png */; };
+		05C8B665180ED9860065891D /* icon-tasks-overtime@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 05C8B64A180ED9860065891D /* icon-tasks-overtime@2x.png */; };
+		05C8B666180ED9860065891D /* icon-tracker@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 05C8B64B180ED9860065891D /* icon-tracker@2x.png */; };
+		05C8B667180ED9860065891D /* -clock-face.png in Resources */ = {isa = PBXBuildFile; fileRef = 05C8B64D180ED9860065891D /* -clock-face.png */; };
+		05C8B668180ED9860065891D /* bliss-roman-aluminium-clock.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 05C8B64E180ED9860065891D /* bliss-roman-aluminium-clock.jpg */; };
+		05C8B669180ED9860065891D /* clock-background.png in Resources */ = {isa = PBXBuildFile; fileRef = 05C8B64F180ED9860065891D /* clock-background.png */; };
+		05C8B66A180ED9860065891D /* clock-hour-background.png in Resources */ = {isa = PBXBuildFile; fileRef = 05C8B650180ED9860065891D /* clock-hour-background.png */; };
+		05C8B66B180ED9860065891D /* clock-hour-background_TT.png in Resources */ = {isa = PBXBuildFile; fileRef = 05C8B651180ED9860065891D /* clock-hour-background_TT.png */; };
+		05C8B66C180ED9860065891D /* clock-min-background.png in Resources */ = {isa = PBXBuildFile; fileRef = 05C8B652180ED9860065891D /* clock-min-background.png */; };
+		05C8B66D180ED9860065891D /* clock-min-background_.png in Resources */ = {isa = PBXBuildFile; fileRef = 05C8B653180ED9860065891D /* clock-min-background_.png */; };
+		05C8B66E180ED9860065891D /* clock-min-background_TT.png in Resources */ = {isa = PBXBuildFile; fileRef = 05C8B654180ED9860065891D /* clock-min-background_TT.png */; };
+		05C8B66F180ED9860065891D /* clock-sec-background.png in Resources */ = {isa = PBXBuildFile; fileRef = 05C8B655180ED9860065891D /* clock-sec-background.png */; };
+		05C8B670180ED9860065891D /* clock-sec-background_TT.png in Resources */ = {isa = PBXBuildFile; fileRef = 05C8B656180ED9860065891D /* clock-sec-background_TT.png */; };
+		05C8B671180ED9860065891D /* OutputSample.png in Resources */ = {isa = PBXBuildFile; fileRef = 05C8B657180ED9860065891D /* OutputSample.png */; };
+		05C8B673180EE55C0065891D /* icon-filter@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 05C8B672180EE55C0065891D /* icon-filter@2x.png */; };
+		05C8B678180EE6230065891D /* TTStatisticFilterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05C8B676180EE6230065891D /* TTStatisticFilterViewController.m */; };
+		05C8B679180EE6230065891D /* TTStatisticFilterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05C8B677180EE6230065891D /* TTStatisticFilterViewController.xib */; };
 		05CD804017F9EB6C0014B980 /* TTSelectColorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05CD803E17F9EB6C0014B980 /* TTSelectColorViewController.m */; };
-		05EF3DCE17C24FB0000005E8 /* clock-hour-background_TT.png in Resources */ = {isa = PBXBuildFile; fileRef = 05EF3DCD17C24FB0000005E8 /* clock-hour-background_TT.png */; };
-		05EF3DD117C25125000005E8 /* clock-min-background_TT.png in Resources */ = {isa = PBXBuildFile; fileRef = 05EF3DCF17C25125000005E8 /* clock-min-background_TT.png */; };
-		05EF3DD217C25125000005E8 /* clock-sec-background_TT.png in Resources */ = {isa = PBXBuildFile; fileRef = 05EF3DD017C25125000005E8 /* clock-sec-background_TT.png */; };
-		05F2AA5F1808327700C6E96A /* bgUiBar.png in Resources */ = {isa = PBXBuildFile; fileRef = 05F2AA5D1808327700C6E96A /* bgUiBar.png */; };
-		05F2AA601808327700C6E96A /* bgUiBar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 05F2AA5E1808327700C6E96A /* bgUiBar@2x.png */; };
+		84E1D178181304F500D67AE5 /* PropertyListSettingsView.plist in Resources */ = {isa = PBXBuildFile; fileRef = 84E1D177181304F500D67AE5 /* PropertyListSettingsView.plist */; };
+		84E1D17A1813220E00D67AE5 /* PropertyListFilterView.plist in Resources */ = {isa = PBXBuildFile; fileRef = 84E1D1791813220E00D67AE5 /* PropertyListFilterView.plist */; };
 		DD2B9B8117B06E1F00E37DA8 /* TTMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD2B9B7F17B06E1F00E37DA8 /* TTMenuViewController.m */; };
 		DD2B9B8217B06E1F00E37DA8 /* TTMenuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DD2B9B8017B06E1F00E37DA8 /* TTMenuViewController.xib */; };
 		DD7BAE3117A5BDCA00CACFB2 /* TTTasksTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DD7BAE2E17A5BDCA00CACFB2 /* TTTasksTableViewCell.xib */; };
 		DD7BAE3217A5BDCA00CACFB2 /* TTTasksTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DD7BAE2F17A5BDCA00CACFB2 /* TTTasksTableViewCell.m */; };
 		DD7BAE3617A5BDDB00CACFB2 /* TTTasksViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD7BAE3317A5BDDB00CACFB2 /* TTTasksViewController.m */; };
 		DD7BAE3717A5BDDB00CACFB2 /* TTTasksViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DD7BAE3517A5BDDB00CACFB2 /* TTTasksViewController.xib */; };
-		DD7BAE4117A5BE4400CACFB2 /* ckeck_cell_icons.png in Resources */ = {isa = PBXBuildFile; fileRef = DD7BAE3B17A5BE4400CACFB2 /* ckeck_cell_icons.png */; };
-		DD7BAE4217A5BE4400CACFB2 /* delete_cell_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = DD7BAE3C17A5BE4400CACFB2 /* delete_cell_icon.png */; };
-		DD7BAE4317A5BE4400CACFB2 /* one_task_back@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DD7BAE3D17A5BE4400CACFB2 /* one_task_back@2x.png */; };
-		DD7BAE4417A5BE4400CACFB2 /* task_icons.png in Resources */ = {isa = PBXBuildFile; fileRef = DD7BAE3E17A5BE4400CACFB2 /* task_icons.png */; };
-		DD7BAE4517A5BE4400CACFB2 /* bgTaskInfoLabel.png in Resources */ = {isa = PBXBuildFile; fileRef = DD7BAE3F17A5BE4400CACFB2 /* bgTaskInfoLabel.png */; };
 		DD7BAE4D17A5C24600CACFB2 /* TTCustomTrackerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD7BAE4B17A5C24600CACFB2 /* TTCustomTrackerViewController.m */; };
 		DD7BAE4E17A5C24600CACFB2 /* TTCustomTrackerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DD7BAE4C17A5C24600CACFB2 /* TTCustomTrackerViewController.xib */; };
 		DD7BAE5217A5C3A500CACFB2 /* DACircularProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = DD7BAE5117A5C3A500CACFB2 /* DACircularProgressView.m */; };
 		DD7BAE5417A5C4FE00CACFB2 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD7BAE5317A5C4FE00CACFB2 /* QuartzCore.framework */; };
-		DD90BF6017AA06210064233C /* -clock-face.png in Resources */ = {isa = PBXBuildFile; fileRef = DD90BF5817AA06210064233C /* -clock-face.png */; };
-		DD90BF6117AA06210064233C /* bliss-roman-aluminium-clock.jpg in Resources */ = {isa = PBXBuildFile; fileRef = DD90BF5917AA06210064233C /* bliss-roman-aluminium-clock.jpg */; };
-		DD90BF6217AA06210064233C /* clock-background.png in Resources */ = {isa = PBXBuildFile; fileRef = DD90BF5A17AA06210064233C /* clock-background.png */; };
-		DD90BF6317AA06210064233C /* clock-hour-background.png in Resources */ = {isa = PBXBuildFile; fileRef = DD90BF5B17AA06210064233C /* clock-hour-background.png */; };
-		DD90BF6417AA06210064233C /* clock-min-background_.png in Resources */ = {isa = PBXBuildFile; fileRef = DD90BF5C17AA06210064233C /* clock-min-background_.png */; };
-		DD90BF6517AA06210064233C /* clock-min-background.png in Resources */ = {isa = PBXBuildFile; fileRef = DD90BF5D17AA06210064233C /* clock-min-background.png */; };
-		DD90BF6617AA06210064233C /* clock-sec-background.png in Resources */ = {isa = PBXBuildFile; fileRef = DD90BF5E17AA06210064233C /* clock-sec-background.png */; };
-		DD90BF6717AA06210064233C /* OutputSample.png in Resources */ = {isa = PBXBuildFile; fileRef = DD90BF5F17AA06210064233C /* OutputSample.png */; };
 		DD90BF6E17AA06530064233C /* ClockView.m in Sources */ = {isa = PBXBuildFile; fileRef = DD90BF6A17AA06530064233C /* ClockView.m */; };
 		DD90BF6F17AA06530064233C /* ClockViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD90BF6C17AA06530064233C /* ClockViewController.m */; };
 		DD90BF7017AA06530064233C /* ClockViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DD90BF6D17AA06530064233C /* ClockViewController.xib */; };
@@ -106,40 +106,54 @@
 /* Begin PBXFileReference section */
 		05103CC417EA0EAB008C9D81 /* PlanMyDay Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "PlanMyDay Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		05103CC517EA0EAB008C9D81 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
-		05103CD917EA1EAF008C9D81 /* bgTaskInfoLabel@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bgTaskInfoLabel@2x.png"; sourceTree = "<group>"; };
-		05103CDB17EA2015008C9D81 /* bgUiSearch.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bgUiSearch.png; sourceTree = "<group>"; };
-		05103CDC17EA2015008C9D81 /* bgUiSearch@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bgUiSearch@2x.png"; sourceTree = "<group>"; };
 		0549C2F017FAEE6B0097B002 /* TTSelectColorViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TTSelectColorViewController.xib; path = viewControllers/newProject/TTSelectColorViewController.xib; sourceTree = "<group>"; };
-		055A402D17F5E5A7004E0617 /* background.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = background.jpg; sourceTree = "<group>"; };
-		055A402E17F5E5A7004E0617 /* background@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "background@2x.jpg"; sourceTree = "<group>"; };
-		0568876B1805C77800EDBBB6 /* button_menu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_menu.png; sourceTree = "<group>"; };
-		0568876C1805C77800EDBBB6 /* button_menu@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "button_menu@2x.png"; sourceTree = "<group>"; };
 		0568876F1805C93200EDBBB6 /* PropertyListColors.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = PropertyListColors.plist; sourceTree = "<group>"; };
+		0578674A1811796E0027605C /* TTFieldsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TTFieldsTableViewController.h; path = components/TTFieldsTableViewController.h; sourceTree = "<group>"; };
+		0578674B1811796E0027605C /* TTFieldsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TTFieldsTableViewController.m; path = components/TTFieldsTableViewController.m; sourceTree = "<group>"; };
+		0578674C1811796E0027605C /* TTFieldsTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TTFieldsTableViewController.xib; path = components/TTFieldsTableViewController.xib; sourceTree = "<group>"; };
 		05941E9117E9BFCE0079C571 /* TTNewProjectViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = TTNewProjectViewController.xib; path = viewControllers/TTNewProjectViewController.xib; sourceTree = "<group>"; };
 		0596764F17D0CAD000653A60 /* DDMenuController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDMenuController.h; sourceTree = "<group>"; };
 		0596765017D0CAD000653A60 /* DDMenuController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDMenuController.m; sourceTree = "<group>"; };
 		05BAA80317E1F586003D7498 /* PropertyListOfViewForms.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = PropertyListOfViewForms.plist; sourceTree = "<group>"; };
-		05C8136B17C622C700E90B2F /* bgTaskInfoLabel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bgTaskInfoLabel.png; sourceTree = "<group>"; };
-		05C8136C17C6283E00E90B2F /* icon_button_arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_button_arrow.png; sourceTree = "<group>"; };
-		05C8136D17C6283E00E90B2F /* icon_button_arrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_button_arrow@2x.png"; sourceTree = "<group>"; };
-		05C8B624180EC9C10065891D /* icon-main@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-main@2x.png"; sourceTree = "<group>"; };
-		05C8B625180EC9C10065891D /* icon-settings@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-settings@2x.png"; sourceTree = "<group>"; };
-		05C8B626180EC9C10065891D /* icon-statistic@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-statistic@2x.png"; sourceTree = "<group>"; };
-		05C8B627180EC9C10065891D /* icon-tracker@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-tracker@2x.png"; sourceTree = "<group>"; };
 		05C8B62D180EC9D40065891D /* TTTasksIndicatorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTTasksIndicatorViewController.h; sourceTree = "<group>"; };
 		05C8B62E180EC9D40065891D /* TTTasksIndicatorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTTasksIndicatorViewController.m; sourceTree = "<group>"; };
 		05C8B62F180EC9D40065891D /* TTTasksIndicatorViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TTTasksIndicatorViewController.xib; sourceTree = "<group>"; };
 		05C8B633180EC9E00065891D /* TTTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTTools.h; sourceTree = "<group>"; };
 		05C8B634180EC9E00065891D /* TTTools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTTools.m; sourceTree = "<group>"; };
-		05CD803917F9A4D00014B980 /* button_new_project.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_new_project.png; sourceTree = "<group>"; };
-		05CD803A17F9A4D00014B980 /* button_new_project@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "button_new_project@2x.png"; sourceTree = "<group>"; };
+		05C8B63B180ED9860065891D /* background@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "background@2x.jpg"; sourceTree = "<group>"; };
+		05C8B63D180ED9860065891D /* bgTaskInfoLabel@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bgTaskInfoLabel@2x.png"; sourceTree = "<group>"; };
+		05C8B63E180ED9860065891D /* bgUiBar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bgUiBar@2x.png"; sourceTree = "<group>"; };
+		05C8B63F180ED9860065891D /* bgUiSearch@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bgUiSearch@2x.png"; sourceTree = "<group>"; };
+		05C8B641180ED9860065891D /* icon-main@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-main@2x.png"; sourceTree = "<group>"; };
+		05C8B642180ED9860065891D /* icon-menu@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-menu@2x.png"; sourceTree = "<group>"; };
+		05C8B643180ED9860065891D /* icon-plus@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-plus@2x.png"; sourceTree = "<group>"; };
+		05C8B644180ED9860065891D /* icon-settings@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-settings@2x.png"; sourceTree = "<group>"; };
+		05C8B645180ED9860065891D /* icon-statistic@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-statistic@2x.png"; sourceTree = "<group>"; };
+		05C8B646180ED9860065891D /* icon-tasks-check@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-tasks-check@2x.png"; sourceTree = "<group>"; };
+		05C8B647180ED9860065891D /* icon-tasks-default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-tasks-default@2x.png"; sourceTree = "<group>"; };
+		05C8B648180ED9860065891D /* icon-tasks-delete@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-tasks-delete@2x.png"; sourceTree = "<group>"; };
+		05C8B649180ED9860065891D /* icon-tasks-edit@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-tasks-edit@2x.png"; sourceTree = "<group>"; };
+		05C8B64A180ED9860065891D /* icon-tasks-overtime@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-tasks-overtime@2x.png"; sourceTree = "<group>"; };
+		05C8B64B180ED9860065891D /* icon-tracker@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-tracker@2x.png"; sourceTree = "<group>"; };
+		05C8B64D180ED9860065891D /* -clock-face.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "-clock-face.png"; sourceTree = "<group>"; };
+		05C8B64E180ED9860065891D /* bliss-roman-aluminium-clock.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "bliss-roman-aluminium-clock.jpg"; sourceTree = "<group>"; };
+		05C8B64F180ED9860065891D /* clock-background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "clock-background.png"; sourceTree = "<group>"; };
+		05C8B650180ED9860065891D /* clock-hour-background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "clock-hour-background.png"; sourceTree = "<group>"; };
+		05C8B651180ED9860065891D /* clock-hour-background_TT.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "clock-hour-background_TT.png"; sourceTree = "<group>"; };
+		05C8B652180ED9860065891D /* clock-min-background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "clock-min-background.png"; sourceTree = "<group>"; };
+		05C8B653180ED9860065891D /* clock-min-background_.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "clock-min-background_.png"; sourceTree = "<group>"; };
+		05C8B654180ED9860065891D /* clock-min-background_TT.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "clock-min-background_TT.png"; sourceTree = "<group>"; };
+		05C8B655180ED9860065891D /* clock-sec-background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "clock-sec-background.png"; sourceTree = "<group>"; };
+		05C8B656180ED9860065891D /* clock-sec-background_TT.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "clock-sec-background_TT.png"; sourceTree = "<group>"; };
+		05C8B657180ED9860065891D /* OutputSample.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = OutputSample.png; sourceTree = "<group>"; };
+		05C8B672180EE55C0065891D /* icon-filter@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-filter@2x.png"; sourceTree = "<group>"; };
+		05C8B675180EE6230065891D /* TTStatisticFilterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TTStatisticFilterViewController.h; path = viewControllers/TTStatisticFilterViewController.h; sourceTree = "<group>"; };
+		05C8B676180EE6230065891D /* TTStatisticFilterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TTStatisticFilterViewController.m; path = viewControllers/TTStatisticFilterViewController.m; sourceTree = "<group>"; };
+		05C8B677180EE6230065891D /* TTStatisticFilterViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TTStatisticFilterViewController.xib; path = viewControllers/TTStatisticFilterViewController.xib; sourceTree = "<group>"; };
 		05CD803D17F9EB6C0014B980 /* TTSelectColorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TTSelectColorViewController.h; path = viewControllers/newProject/TTSelectColorViewController.h; sourceTree = "<group>"; };
 		05CD803E17F9EB6C0014B980 /* TTSelectColorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TTSelectColorViewController.m; path = viewControllers/newProject/TTSelectColorViewController.m; sourceTree = "<group>"; };
-		05EF3DCD17C24FB0000005E8 /* clock-hour-background_TT.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "clock-hour-background_TT.png"; path = "mainClock/clock-hour-background_TT.png"; sourceTree = "<group>"; };
-		05EF3DCF17C25125000005E8 /* clock-min-background_TT.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "clock-min-background_TT.png"; path = "mainClock/clock-min-background_TT.png"; sourceTree = "<group>"; };
-		05EF3DD017C25125000005E8 /* clock-sec-background_TT.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "clock-sec-background_TT.png"; path = "mainClock/clock-sec-background_TT.png"; sourceTree = "<group>"; };
-		05F2AA5D1808327700C6E96A /* bgUiBar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bgUiBar.png; sourceTree = "<group>"; };
-		05F2AA5E1808327700C6E96A /* bgUiBar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bgUiBar@2x.png"; sourceTree = "<group>"; };
+		84E1D177181304F500D67AE5 /* PropertyListSettingsView.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = PropertyListSettingsView.plist; path = assets/PropertyListSettingsView.plist; sourceTree = "<group>"; };
+		84E1D1791813220E00D67AE5 /* PropertyListFilterView.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = PropertyListFilterView.plist; path = assets/PropertyListFilterView.plist; sourceTree = "<group>"; };
 		DD2B9B7E17B06E1F00E37DA8 /* TTMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TTMenuViewController.h; path = viewControllers/menu/TTMenuViewController.h; sourceTree = "<group>"; };
 		DD2B9B7F17B06E1F00E37DA8 /* TTMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TTMenuViewController.m; path = viewControllers/menu/TTMenuViewController.m; sourceTree = "<group>"; };
 		DD2B9B8017B06E1F00E37DA8 /* TTMenuViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TTMenuViewController.xib; path = viewControllers/menu/TTMenuViewController.xib; sourceTree = "<group>"; };
@@ -149,25 +163,12 @@
 		DD7BAE3317A5BDDB00CACFB2 /* TTTasksViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TTTasksViewController.m; path = viewControllers/tasksView/TTTasksViewController.m; sourceTree = "<group>"; };
 		DD7BAE3417A5BDDB00CACFB2 /* TTTasksViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TTTasksViewController.h; path = viewControllers/tasksView/TTTasksViewController.h; sourceTree = "<group>"; };
 		DD7BAE3517A5BDDB00CACFB2 /* TTTasksViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TTTasksViewController.xib; path = viewControllers/tasksView/TTTasksViewController.xib; sourceTree = "<group>"; };
-		DD7BAE3B17A5BE4400CACFB2 /* ckeck_cell_icons.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ckeck_cell_icons.png; sourceTree = "<group>"; };
-		DD7BAE3C17A5BE4400CACFB2 /* delete_cell_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = delete_cell_icon.png; sourceTree = "<group>"; };
-		DD7BAE3D17A5BE4400CACFB2 /* one_task_back@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "one_task_back@2x.png"; sourceTree = "<group>"; };
-		DD7BAE3E17A5BE4400CACFB2 /* task_icons.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = task_icons.png; sourceTree = "<group>"; };
-		DD7BAE3F17A5BE4400CACFB2 /* bgTaskInfoLabel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bgTaskInfoLabel.png; sourceTree = "<group>"; };
 		DD7BAE4A17A5C24600CACFB2 /* TTCustomTrackerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TTCustomTrackerViewController.h; path = viewControllers/customTracker/TTCustomTrackerViewController.h; sourceTree = "<group>"; };
 		DD7BAE4B17A5C24600CACFB2 /* TTCustomTrackerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TTCustomTrackerViewController.m; path = viewControllers/customTracker/TTCustomTrackerViewController.m; sourceTree = "<group>"; };
 		DD7BAE4C17A5C24600CACFB2 /* TTCustomTrackerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TTCustomTrackerViewController.xib; path = viewControllers/customTracker/TTCustomTrackerViewController.xib; sourceTree = "<group>"; };
 		DD7BAE5017A5C3A500CACFB2 /* DACircularProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DACircularProgressView.h; sourceTree = "<group>"; };
 		DD7BAE5117A5C3A500CACFB2 /* DACircularProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DACircularProgressView.m; sourceTree = "<group>"; };
 		DD7BAE5317A5C4FE00CACFB2 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
-		DD90BF5817AA06210064233C /* -clock-face.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "-clock-face.png"; path = "mainClock/-clock-face.png"; sourceTree = "<group>"; };
-		DD90BF5917AA06210064233C /* bliss-roman-aluminium-clock.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "bliss-roman-aluminium-clock.jpg"; path = "mainClock/bliss-roman-aluminium-clock.jpg"; sourceTree = "<group>"; };
-		DD90BF5A17AA06210064233C /* clock-background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "clock-background.png"; path = "mainClock/clock-background.png"; sourceTree = "<group>"; };
-		DD90BF5B17AA06210064233C /* clock-hour-background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "clock-hour-background.png"; path = "mainClock/clock-hour-background.png"; sourceTree = "<group>"; };
-		DD90BF5C17AA06210064233C /* clock-min-background_.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "clock-min-background_.png"; path = "mainClock/clock-min-background_.png"; sourceTree = "<group>"; };
-		DD90BF5D17AA06210064233C /* clock-min-background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "clock-min-background.png"; path = "mainClock/clock-min-background.png"; sourceTree = "<group>"; };
-		DD90BF5E17AA06210064233C /* clock-sec-background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "clock-sec-background.png"; path = "mainClock/clock-sec-background.png"; sourceTree = "<group>"; };
-		DD90BF5F17AA06210064233C /* OutputSample.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = OutputSample.png; path = mainClock/OutputSample.png; sourceTree = "<group>"; };
 		DD90BF6917AA06530064233C /* ClockView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ClockView.h; path = viewControllers/mainClock/clock/ClockView.h; sourceTree = "<group>"; };
 		DD90BF6A17AA06530064233C /* ClockView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ClockView.m; path = viewControllers/mainClock/clock/ClockView.m; sourceTree = "<group>"; };
 		DD90BF6B17AA06530064233C /* ClockViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ClockViewController.h; path = viewControllers/mainClock/clock/ClockViewController.h; sourceTree = "<group>"; };
@@ -241,25 +242,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		056887691805C74D00EDBBB6 /* buttons */ = {
-			isa = PBXGroup;
-			children = (
-				0568876A1805C75A00EDBBB6 /* menu */,
-			);
-			name = buttons;
-			sourceTree = "<group>";
-		};
-		0568876A1805C75A00EDBBB6 /* menu */ = {
-			isa = PBXGroup;
-			children = (
-				0568876B1805C77800EDBBB6 /* button_menu.png */,
-				0568876C1805C77800EDBBB6 /* button_menu@2x.png */,
-				05CD803917F9A4D00014B980 /* button_new_project.png */,
-				05CD803A17F9A4D00014B980 /* button_new_project@2x.png */,
-			);
-			name = menu;
-			sourceTree = "<group>";
-		};
 		0596765217D0CAD700653A60 /* DDMenuController */ = {
 			isa = PBXGroup;
 			children = (
@@ -267,6 +249,24 @@
 				0596765017D0CAD000653A60 /* DDMenuController.m */,
 			);
 			name = DDMenuController;
+			sourceTree = "<group>";
+		};
+		05C80AA318115C0A00FD78F7 /* tableViewOfParametrs */ = {
+			isa = PBXGroup;
+			children = (
+				0578674A1811796E0027605C /* TTFieldsTableViewController.h */,
+				0578674B1811796E0027605C /* TTFieldsTableViewController.m */,
+				0578674C1811796E0027605C /* TTFieldsTableViewController.xib */,
+			);
+			name = tableViewOfParametrs;
+			sourceTree = "<group>";
+		};
+		05C80AA418115CA400FD78F7 /* components */ = {
+			isa = PBXGroup;
+			children = (
+				05C80AA318115C0A00FD78F7 /* tableViewOfParametrs */,
+			);
+			name = components;
 			sourceTree = "<group>";
 		};
 		05C8B62C180EC9D40065891D /* tasksIndicator */ = {
@@ -287,6 +287,63 @@
 				05C8B634180EC9E00065891D /* TTTools.m */,
 			);
 			path = tools;
+			sourceTree = "<group>";
+		};
+		05C8B63C180ED9860065891D /* Elements */ = {
+			isa = PBXGroup;
+			children = (
+				05C8B63D180ED9860065891D /* bgTaskInfoLabel@2x.png */,
+				05C8B63E180ED9860065891D /* bgUiBar@2x.png */,
+				05C8B63F180ED9860065891D /* bgUiSearch@2x.png */,
+			);
+			path = Elements;
+			sourceTree = "<group>";
+		};
+		05C8B640180ED9860065891D /* icons */ = {
+			isa = PBXGroup;
+			children = (
+				05C8B672180EE55C0065891D /* icon-filter@2x.png */,
+				05C8B641180ED9860065891D /* icon-main@2x.png */,
+				05C8B642180ED9860065891D /* icon-menu@2x.png */,
+				05C8B643180ED9860065891D /* icon-plus@2x.png */,
+				05C8B644180ED9860065891D /* icon-settings@2x.png */,
+				05C8B645180ED9860065891D /* icon-statistic@2x.png */,
+				05C8B646180ED9860065891D /* icon-tasks-check@2x.png */,
+				05C8B647180ED9860065891D /* icon-tasks-default@2x.png */,
+				05C8B648180ED9860065891D /* icon-tasks-delete@2x.png */,
+				05C8B649180ED9860065891D /* icon-tasks-edit@2x.png */,
+				05C8B64A180ED9860065891D /* icon-tasks-overtime@2x.png */,
+				05C8B64B180ED9860065891D /* icon-tracker@2x.png */,
+			);
+			path = icons;
+			sourceTree = "<group>";
+		};
+		05C8B64C180ED9860065891D /* mainClock */ = {
+			isa = PBXGroup;
+			children = (
+				05C8B64D180ED9860065891D /* -clock-face.png */,
+				05C8B64E180ED9860065891D /* bliss-roman-aluminium-clock.jpg */,
+				05C8B64F180ED9860065891D /* clock-background.png */,
+				05C8B650180ED9860065891D /* clock-hour-background.png */,
+				05C8B651180ED9860065891D /* clock-hour-background_TT.png */,
+				05C8B652180ED9860065891D /* clock-min-background.png */,
+				05C8B653180ED9860065891D /* clock-min-background_.png */,
+				05C8B654180ED9860065891D /* clock-min-background_TT.png */,
+				05C8B655180ED9860065891D /* clock-sec-background.png */,
+				05C8B656180ED9860065891D /* clock-sec-background_TT.png */,
+				05C8B657180ED9860065891D /* OutputSample.png */,
+			);
+			path = mainClock;
+			sourceTree = "<group>";
+		};
+		05C8B674180EE5680065891D /* filterView */ = {
+			isa = PBXGroup;
+			children = (
+				05C8B675180EE6230065891D /* TTStatisticFilterViewController.h */,
+				05C8B676180EE6230065891D /* TTStatisticFilterViewController.m */,
+				05C8B677180EE6230065891D /* TTStatisticFilterViewController.xib */,
+			);
+			name = filterView;
 			sourceTree = "<group>";
 		};
 		DD2B9B8317B06E2600E37DA8 /* menu */ = {
@@ -311,27 +368,10 @@
 		DD7BAE3917A5BE4400CACFB2 /* images */ = {
 			isa = PBXGroup;
 			children = (
-				05C8B624180EC9C10065891D /* icon-main@2x.png */,
-				05C8B625180EC9C10065891D /* icon-settings@2x.png */,
-				05C8B626180EC9C10065891D /* icon-statistic@2x.png */,
-				05C8B627180EC9C10065891D /* icon-tracker@2x.png */,
-				05F2AA5D1808327700C6E96A /* bgUiBar.png */,
-				05F2AA5E1808327700C6E96A /* bgUiBar@2x.png */,
-				056887691805C74D00EDBBB6 /* buttons */,
-				055A402D17F5E5A7004E0617 /* background.jpg */,
-				055A402E17F5E5A7004E0617 /* background@2x.jpg */,
-				05103CDB17EA2015008C9D81 /* bgUiSearch.png */,
-				05103CDC17EA2015008C9D81 /* bgUiSearch@2x.png */,
-				05103CD917EA1EAF008C9D81 /* bgTaskInfoLabel@2x.png */,
-				05C8136C17C6283E00E90B2F /* icon_button_arrow.png */,
-				05C8136D17C6283E00E90B2F /* icon_button_arrow@2x.png */,
-				05C8136B17C622C700E90B2F /* bgTaskInfoLabel.png */,
-				DD90BF5717AA05FE0064233C /* mainClock */,
-				DD7BAE3B17A5BE4400CACFB2 /* ckeck_cell_icons.png */,
-				DD7BAE3C17A5BE4400CACFB2 /* delete_cell_icon.png */,
-				DD7BAE3D17A5BE4400CACFB2 /* one_task_back@2x.png */,
-				DD7BAE3E17A5BE4400CACFB2 /* task_icons.png */,
-				DD7BAE3F17A5BE4400CACFB2 /* bgTaskInfoLabel.png */,
+				05C8B63B180ED9860065891D /* background@2x.jpg */,
+				05C8B63C180ED9860065891D /* Elements */,
+				05C8B640180ED9860065891D /* icons */,
+				05C8B64C180ED9860065891D /* mainClock */,
 			);
 			name = images;
 			path = assets/images;
@@ -350,6 +390,7 @@
 		DD7BAE4717A5BE9800CACFB2 /* statisticsView */ = {
 			isa = PBXGroup;
 			children = (
+				05C8B674180EE5680065891D /* filterView */,
 				DDB4A883178523B2007C7F15 /* TTStatisticsViewController.h */,
 				DDB4A884178523B2007C7F15 /* TTStatisticsViewController.m */,
 				DDB4A87E178523B1007C7F15 /* TTStatisticsViewController.xib */,
@@ -388,24 +429,6 @@
 			);
 			name = DACircularProgress;
 			path = viewControllers/customTracker/DACircularProgress;
-			sourceTree = "<group>";
-		};
-		DD90BF5717AA05FE0064233C /* mainClock */ = {
-			isa = PBXGroup;
-			children = (
-				05EF3DCF17C25125000005E8 /* clock-min-background_TT.png */,
-				05EF3DD017C25125000005E8 /* clock-sec-background_TT.png */,
-				05EF3DCD17C24FB0000005E8 /* clock-hour-background_TT.png */,
-				DD90BF5817AA06210064233C /* -clock-face.png */,
-				DD90BF5917AA06210064233C /* bliss-roman-aluminium-clock.jpg */,
-				DD90BF5A17AA06210064233C /* clock-background.png */,
-				DD90BF5B17AA06210064233C /* clock-hour-background.png */,
-				DD90BF5C17AA06210064233C /* clock-min-background_.png */,
-				DD90BF5D17AA06210064233C /* clock-min-background.png */,
-				DD90BF5E17AA06210064233C /* clock-sec-background.png */,
-				DD90BF5F17AA06210064233C /* OutputSample.png */,
-			);
-			name = mainClock;
 			sourceTree = "<group>";
 		};
 		DD90BF6817AA06410064233C /* clock */ = {
@@ -488,6 +511,7 @@
 				05C8B632180EC9E00065891D /* tools */,
 				DD7BAE3817A5BE3A00CACFB2 /* assets */,
 				DDB4A85317850BE7007C7F15 /* viewControllers */,
+				05C80AA418115CA400FD78F7 /* components */,
 				DDB4A854178521F5007C7F15 /* managers */,
 				DDB4A83A17849C3F007C7F15 /* TTAppDelegate.h */,
 				DDB4A83B17849C3F007C7F15 /* TTAppDelegate.m */,
@@ -500,6 +524,8 @@
 		DDB4A83217849C3F007C7F15 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				84E1D1791813220E00D67AE5 /* PropertyListFilterView.plist */,
+				84E1D177181304F500D67AE5 /* PropertyListSettingsView.plist */,
 				05BAA80317E1F586003D7498 /* PropertyListOfViewForms.plist */,
 				0568876F1805C93200EDBBB6 /* PropertyListColors.plist */,
 				DDB4A83317849C3F007C7F15 /* PlanMyDay-Info.plist */,
@@ -638,59 +664,57 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				05F2AA601808327700C6E96A /* bgUiBar@2x.png in Resources */,
-				05CD803B17F9A4D00014B980 /* button_new_project.png in Resources */,
-				0568876D1805C77800EDBBB6 /* button_menu.png in Resources */,
+				05C8B670180ED9860065891D /* clock-sec-background_TT.png in Resources */,
+				05C8B66A180ED9860065891D /* clock-hour-background.png in Resources */,
+				05C8B660180ED9860065891D /* icon-statistic@2x.png in Resources */,
+				05C8B673180EE55C0065891D /* icon-filter@2x.png in Resources */,
+				05C8B65F180ED9860065891D /* icon-settings@2x.png in Resources */,
 				056887701805C93200EDBBB6 /* PropertyListColors.plist in Resources */,
+				84E1D17A1813220E00D67AE5 /* PropertyListFilterView.plist in Resources */,
+				05C8B66F180ED9860065891D /* clock-sec-background.png in Resources */,
 				DDB4A83617849C3F007C7F15 /* InfoPlist.strings in Resources */,
 				DDB4A83E17849C3F007C7F15 /* Default.png in Resources */,
 				DDB4A84017849C3F007C7F15 /* Default@2x.png in Resources */,
-				05CD803C17F9A4D00014B980 /* button_new_project@2x.png in Resources */,
-				05C8B629180EC9C10065891D /* icon-settings@2x.png in Resources */,
 				DDB4A84217849C3F007C7F15 /* Default-568h@2x.png in Resources */,
+				05C8B667180ED9860065891D /* -clock-face.png in Resources */,
+				0578674E1811796E0027605C /* TTFieldsTableViewController.xib in Resources */,
+				05C8B664180ED9860065891D /* icon-tasks-edit@2x.png in Resources */,
+				05C8B66B180ED9860065891D /* clock-hour-background_TT.png in Resources */,
+				05C8B668180ED9860065891D /* bliss-roman-aluminium-clock.jpg in Resources */,
+				05C8B662180ED9860065891D /* icon-tasks-default@2x.png in Resources */,
 				DDB4A84817849C3F007C7F15 /* TTViewController.xib in Resources */,
+				05C8B679180EE6230065891D /* TTStatisticFilterViewController.xib in Resources */,
 				DDB4A85217850BCE007C7F15 /* TTMainClockViewController.xib in Resources */,
-				05F2AA5F1808327700C6E96A /* bgUiBar.png in Resources */,
 				DDB4A889178523B2007C7F15 /* TTSettingsViewController.xib in Resources */,
 				DDB4A88A178523B2007C7F15 /* TTStatisticsViewController.xib in Resources */,
+				05C8B65A180ED9860065891D /* bgUiBar@2x.png in Resources */,
 				DD7BAE3117A5BDCA00CACFB2 /* TTTasksTableViewCell.xib in Resources */,
+				05C8B665180ED9860065891D /* icon-tasks-overtime@2x.png in Resources */,
+				05C8B658180ED9860065891D /* background@2x.jpg in Resources */,
 				DD7BAE3717A5BDDB00CACFB2 /* TTTasksViewController.xib in Resources */,
-				055A403017F5E5A7004E0617 /* background@2x.jpg in Resources */,
-				05103CDE17EA2015008C9D81 /* bgUiSearch@2x.png in Resources */,
-				DD7BAE4117A5BE4400CACFB2 /* ckeck_cell_icons.png in Resources */,
-				DD7BAE4217A5BE4400CACFB2 /* delete_cell_icon.png in Resources */,
-				DD7BAE4317A5BE4400CACFB2 /* one_task_back@2x.png in Resources */,
-				DD7BAE4417A5BE4400CACFB2 /* task_icons.png in Resources */,
-				DD7BAE4517A5BE4400CACFB2 /* bgTaskInfoLabel.png in Resources */,
+				05C8B671180ED9860065891D /* OutputSample.png in Resources */,
 				DD7BAE4E17A5C24600CACFB2 /* TTCustomTrackerViewController.xib in Resources */,
-				05C8B62A180EC9C10065891D /* icon-statistic@2x.png in Resources */,
-				DD90BF6017AA06210064233C /* -clock-face.png in Resources */,
+				05C8B663180ED9860065891D /* icon-tasks-delete@2x.png in Resources */,
 				05C454AB17F45B0100FD566C /* TTNewProjectViewController.xib in Resources */,
-				DD90BF6117AA06210064233C /* bliss-roman-aluminium-clock.jpg in Resources */,
-				DD90BF6217AA06210064233C /* clock-background.png in Resources */,
-				DD90BF6317AA06210064233C /* clock-hour-background.png in Resources */,
-				055A402F17F5E5A7004E0617 /* background.jpg in Resources */,
+				05C8B65E180ED9860065891D /* icon-plus@2x.png in Resources */,
+				05C8B66C180ED9860065891D /* clock-min-background.png in Resources */,
+				05C8B66D180ED9860065891D /* clock-min-background_.png in Resources */,
 				05BAA80417E1F586003D7498 /* PropertyListOfViewForms.plist in Resources */,
-				05103CDA17EA1EAF008C9D81 /* bgTaskInfoLabel@2x.png in Resources */,
-				DD90BF6417AA06210064233C /* clock-min-background_.png in Resources */,
+				05C8B65D180ED9860065891D /* icon-menu@2x.png in Resources */,
+				05C8B659180ED9860065891D /* bgTaskInfoLabel@2x.png in Resources */,
 				05C8B631180EC9D40065891D /* TTTasksIndicatorViewController.xib in Resources */,
+				05C8B65C180ED9860065891D /* icon-main@2x.png in Resources */,
+				05C8B661180ED9860065891D /* icon-tasks-check@2x.png in Resources */,
 				0549C2F117FAEE6B0097B002 /* TTSelectColorViewController.xib in Resources */,
-				05C8136F17C6283E00E90B2F /* icon_button_arrow@2x.png in Resources */,
-				DD90BF6517AA06210064233C /* clock-min-background.png in Resources */,
-				05C8B62B180EC9C10065891D /* icon-tracker@2x.png in Resources */,
-				05103CDD17EA2015008C9D81 /* bgUiSearch.png in Resources */,
-				DD90BF6617AA06210064233C /* clock-sec-background.png in Resources */,
-				DD90BF6717AA06210064233C /* OutputSample.png in Resources */,
+				84E1D178181304F500D67AE5 /* PropertyListSettingsView.plist in Resources */,
+				05C8B66E180ED9860065891D /* clock-min-background_TT.png in Resources */,
+				05C8B65B180ED9860065891D /* bgUiSearch@2x.png in Resources */,
 				DD90BF7017AA06530064233C /* ClockViewController.xib in Resources */,
 				DD2B9B8217B06E1F00E37DA8 /* TTMenuViewController.xib in Resources */,
+				05C8B666180ED9860065891D /* icon-tracker@2x.png in Resources */,
 				DD968BA117B7BBE8008D583F /* TTSelectPropertyViewController.xib in Resources */,
-				05C8136E17C6283E00E90B2F /* icon_button_arrow.png in Resources */,
+				05C8B669180ED9860065891D /* clock-background.png in Resources */,
 				DD968BA617B7BC1C008D583F /* TTCreatePropertyViewController.xib in Resources */,
-				05EF3DCE17C24FB0000005E8 /* clock-hour-background_TT.png in Resources */,
-				05EF3DD117C25125000005E8 /* clock-min-background_TT.png in Resources */,
-				05C8B628180EC9C10065891D /* icon-main@2x.png in Resources */,
-				05EF3DD217C25125000005E8 /* clock-sec-background_TT.png in Resources */,
-				0568876E1805C77800EDBBB6 /* button_menu@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -710,6 +734,7 @@
 			files = (
 				DDB4A83817849C3F007C7F15 /* main.m in Sources */,
 				DDB4A83C17849C3F007C7F15 /* TTAppDelegate.m in Sources */,
+				0578674D1811796E0027605C /* TTFieldsTableViewController.m in Sources */,
 				DDB4A85117850BCE007C7F15 /* TTMainClockViewController.m in Sources */,
 				DDB4A85B178521F5007C7F15 /* TTAppDataManager.m in Sources */,
 				DDB4A85C178521F5007C7F15 /* TTICloudDataManager.m in Sources */,
@@ -717,6 +742,7 @@
 				DDB4A861178522AE007C7F15 /* TTItem.m in Sources */,
 				DDB4A88C178523B2007C7F15 /* TTSettingsViewController.m in Sources */,
 				DDB4A88D178523B2007C7F15 /* TTStatisticsViewController.m in Sources */,
+				05C8B678180EE6230065891D /* TTStatisticFilterViewController.m in Sources */,
 				DDB4A88F178523B2007C7F15 /* TTNewProjectViewController.m in Sources */,
 				DDA17431178A38F40000132D /* TTApplicationManager.m in Sources */,
 				DD7BAE3217A5BDCA00CACFB2 /* TTTasksTableViewCell.m in Sources */,

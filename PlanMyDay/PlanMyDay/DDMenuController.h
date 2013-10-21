@@ -22,6 +22,7 @@
 
 @property(nonatomic,strong) UIViewController *leftViewController;
 @property(nonatomic,strong) UIViewController *rootViewController;
+@property(nonatomic,strong) NSString * rightViewController;
 
 @property(nonatomic,readonly) UITapGestureRecognizer *tap;
 @property(nonatomic,assign) Class barButtonItemClass; 

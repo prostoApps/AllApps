@@ -10,33 +10,27 @@
 #import "TTApplicationManager.h"
 #import "TTCreatePropertyViewController.h"
 #import "TTSelectPropertyViewController.h"
+#import "TTFieldsTableViewController.h"
 #import "TTSelectColorViewController.h"
 #import <QuartzCore/QuartzCore.h>
 
 @interface TTNewProjectViewController : UIViewController <UITextFieldDelegate>
 {
-    IBOutlet UITableView * TaskTableView;
-    
     IBOutlet UITableView * tableViewNewProject;
-    IBOutlet UIView * headerTableViewNewProject;
+    IBOutlet UIView * headerNewProject;
     IBOutlet UIView * footerTableViewNewProject;
     IBOutlet UISegmentedControl *scTaskProjectClient;
     IBOutlet UIButton * btnSave;
-    IBOutlet UIScrollView * scrvScrollView;
     
-    IBOutlet UIDatePicker * dpTaskDatePicker;
+   id <UITableViewDelegate>  _delegate;
+   id <UITableViewDataSource>  _dataSource;
 
-    IBOutlet UIView * dpView;
 }
-
--(IBAction) datePickerPickHandler:(id)sender;
--(IBAction) btnSaveTouchHandler:(id)sender;
-
-@property (nonatomic,retain)     NSIndexPath *ipCurrentIndexPath;
-
+@property(nonatomic,assign) id <UITableViewDelegate>  delegate;
+@property(nonatomic, assign) id <UITableViewDataSource>  dataSource;
 @property(nonatomic,retain) IBOutlet UISegmentedControl *scTaskProjectClient;
-@property(nonatomic,retain) IBOutlet UIDatePicker * dpTaskDatePicker;
--(IBAction) segmentedControlIndexChanged;
 
+-(IBAction) segmentedControlIndexChanged;
+-(IBAction) btnSaveTouchHandler:(id)sender;
 @end
 

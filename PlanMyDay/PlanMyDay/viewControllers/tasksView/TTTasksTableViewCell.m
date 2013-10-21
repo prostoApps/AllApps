@@ -6,7 +6,8 @@
 //  Copyright (c) 2013 Torasike. All rights reserved.
 //
 #define CHECK_MOVE_DISTANSE 60
-#define DELETE_MOVE_DISTANSE 130
+#define DELETE_MOVE_DISTANSE 160
+#define NOACTION_MOVE_DISTANSE 40
 
 #import "TTTasksTableViewCell.h"
 #import <QuartzCore/QuartzCore.h>
@@ -45,8 +46,7 @@
         CGRect taskIconFrame = CGRectMake(18, 25, 22, 22);
         //taskIcon = [[UIImageView alloc] initWithFrame:taskIconFrame];
         taskIcon = [[UIButton alloc] initWithFrame:taskIconFrame];
-        [taskIcon setImage:[UIImage imageNamed:@"task_icons.png"] forState:UIControlStateNormal];
-        [[taskIcon imageView] setContentMode:UIViewContentModeTop];
+        [taskIcon setImage:[UIImage imageNamed:@"icon-tasks-default.png"] forState:UIControlStateNormal];
         [taskIcon setClipsToBounds:YES];
         [taskIcon addTarget:self action:@selector(iconTaskWasTaped) forControlEvents:UIControlEventTouchUpInside];
         [taskContentView addSubview:taskIcon];
@@ -130,7 +130,7 @@
         [curentTaskTime setHidden:false];
         if ([[data objectForKey:@"durationReal"] integerValue] > [[data objectForKey:@"durationPlan"] integerValue])
         {
-            [[taskIcon imageView] setContentMode:UIViewContentModeCenter];
+            [taskIcon setImage:[UIImage imageNamed:@"icon-tasks-overtime.png"] forState:UIControlStateNormal];
             isOvertime = true;
             curentTaskTime.textColor = [self colorWithHexString:@"fc3e39"];
         }
@@ -185,18 +185,18 @@
                         {
                             if (!isOvertime)
                              {
-                                    [[taskIcon imageView] setContentMode:UIViewContentModeTop];
+                                 [taskIcon setImage:[UIImage imageNamed:@"icon-tasks-default.png"] forState:UIControlStateNormal];
                              }
                              else
                                 {
-                                    [[taskIcon imageView] setContentMode:UIViewContentModeCenter];
+                                    [taskIcon setImage:[UIImage imageNamed:@"icon-tasks-overtime.png"] forState:UIControlStateNormal];
                                 }
                                 taskIcon.alpha = 1-(translation.x / CHECK_MOVE_DISTANSE);
                         }
                         else
                         {
-                                [[taskIcon imageView] setContentMode:UIViewContentModeBottom];
-                                taskIcon.alpha = (translation.x / CHECK_MOVE_DISTANSE)-1;
+                            [taskIcon setImage:[UIImage imageNamed:@"icon-tasks-check.png"] forState:UIControlStateNormal];
+                            taskIcon.alpha = (translation.x / CHECK_MOVE_DISTANSE)-1;
                         }
                         // двигаем бекграунд
                         [taskCheckBackground.layer setPosition:CGPointMake(translation.x + _startPositionCheck.x, _startPositionCheck.y)];
@@ -209,6 +209,21 @@
                     {
                        [taskCheckBackground.layer setPosition:CGPointMake(_startPositionCheck.x, _startPositionCheck.y)];
                     }
+                    
+                    // икнока удалить задание
+                    if (translation.x < -DELETE_MOVE_DISTANSE)
+                    {
+                        self.backgroundView.backgroundColor = [TTTools colorWithHexString:@"fa4030"];
+                        [iconEditDel setImage:[UIImage imageNamed:@"icon-tasks-delete.png"]];
+                    }
+                    // икнока редактировать задание
+                    else
+                    {
+                        self.backgroundView.backgroundColor = [TTTools colorWithHexString:@"ff6403"];
+                       [iconEditDel setImage:[UIImage imageNamed:@"icon-tasks-edit.png"]];
+                    }
+    
+
                     //двигаем ячейку
                     [taskContentView.layer setPosition:CGPointMake(translation.x + _startPositionContent.x, _startPositionContent.y)];
                 }
@@ -253,10 +268,14 @@
                     //вернуть в исходное положение
                     else
                     {
-                       // _taskAnimation.fromValue = [NSNumber numberWithFloat:0];
-                       // _taskAnimation.toValue = [NSNumber numberWithFloat:-translation.x];
-                       // [_taskAnimation setValue:@"DontDeleteTask" forKey:@"taskCellAnimation"];
-                        [self.delegate editCellFromTTTasksTableView:self];
+                        _taskAnimation.fromValue = [NSNumber numberWithFloat:0];
+                        _taskAnimation.toValue = [NSNumber numberWithFloat:-translation.x];
+                        [_taskAnimation setValue:@"DontDeleteTask" forKey:@"taskCellAnimation"];
+                        
+                        if (translation.x < -NOACTION_MOVE_DISTANSE)
+                        {
+                           [self.delegate editCellFromTTTasksTableView:self];
+                        }
                     }
                     [taskContentView.layer addAnimation:_taskAnimation forKey:nil];
                 }
@@ -302,7 +321,7 @@
     [taskName setAlpha:0.5];
     [clientName setAlpha:0.5];
     [taskIcon setAlpha: 1];
-    [[taskIcon imageView] setContentMode:UIViewContentModeBottom];
+    [taskIcon setImage:[UIImage imageNamed:@"icon-tasks-check.png"] forState:UIControlStateNormal];
    
     [taskIcon.layer setPosition:CGPointMake(18+taskIcon.frame.size.width/2, 25+taskIcon.frame.size.height/2)];
     [curentTaskTime setHidden:true];
@@ -319,7 +338,7 @@
     [taskName setAlpha:1];
     [clientName setAlpha:1];
     [taskIcon setAlpha: 1];
-    [[taskIcon imageView] setContentMode:UIViewContentModeTop];
+    [taskIcon setImage:[UIImage imageNamed:@"icon-tasks-default.png"] forState:UIControlStateNormal];
     
     [taskCheckBackground.layer setPosition:CGPointMake(_startPositionCheck.x,_startPositionCheck.y)];
     [taskCheckBackground setHidden:false];

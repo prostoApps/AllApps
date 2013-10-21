@@ -7,7 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "TTApplicationManager.h"
+#import "TTFieldsTableViewController.h"
 
-@interface TTSettingsViewController : UIViewController
-
+@interface TTSettingsViewController : UIViewController{
+    IBOutlet UITableView * tableSettings;
+    id <UITableViewDelegate>  _delegateTableSettings;
+    id <UITableViewDataSource>  _dataSourceTableSettings;
+}
+@property(nonatomic,retain) id <UITableViewDelegate>  _delegateTableSettings;
+@property(nonatomic,retain) id <UITableViewDataSource>  _dataSourceTableSettings;
 @end

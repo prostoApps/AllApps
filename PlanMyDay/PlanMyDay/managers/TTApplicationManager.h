@@ -10,6 +10,7 @@
 #import "TTAppDelegate.h"
 #import "TTTasksViewController.h"
 #import "TTStatisticsViewController.h"
+#import "TTStatisticFilterViewController.h"
 #import "TTSettingsViewController.h"
 #import "TTMainClockViewController.h"
 #import "TTNewProjectViewController.h"
@@ -20,8 +21,10 @@
 {
 
 }
+extern NSString *const VIEW_TEST;
 extern NSString *const VIEW_MENU;
 extern NSString *const VIEW_STATISTICS;
+extern NSString *const VIEW_STATISTICS_FILTER;
 extern NSString *const VIEW_CURRENT_TASKS;
 extern NSString *const VIEW_NEW_TASK;
 extern NSString *const VIEW_SELECT_PROPERTY;

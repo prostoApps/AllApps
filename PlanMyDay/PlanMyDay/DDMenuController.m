@@ -22,6 +22,7 @@
 
 @synthesize leftViewController=_left;
 @synthesize rootViewController=_root;
+@synthesize rightViewController;
 
 @synthesize tap=_tap;
 
@@ -82,6 +83,7 @@
     {
         if (_root && _menuFlags.showingLeftView)
         {
+            
             return CGRectContainsPoint(_root.view.frame, [gestureRecognizer locationInView:self.view]);
         }
         return NO;
@@ -118,17 +120,30 @@
     {
         topController = _root;
     }
-    UIBarButtonItem *RightBarButtonItem=[[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"button_new_project.png"] style:UIBarButtonItemStyleBordered target:self action:@selector(showRight:)];
-    UIBarButtonItem *LeftBarButtonItem=[[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"button_menu.png"] style:UIBarButtonItemStyleBordered target:self action:@selector(showLeft:)];
-   
+    [self showShadow:YES];
+    UIImage * rightItemImage;
+    if ([rightViewController isEqualToString:VIEW_STATISTICS_FILTER])
+    {
+        rightItemImage = [UIImage imageNamed:@"icon-filter.png"];
+    }
+    else{
+        rightItemImage = [UIImage imageNamed:@"icon-plus.png"];
+    }
+    
+    UIBarButtonItem *RightBarButtonItem=[[UIBarButtonItem alloc]initWithImage:rightItemImage style:UIBarButtonItemStyleBordered target:self action:@selector(showRight:)];
+    UIBarButtonItem *LeftBarButtonItem=[[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"icon-menu.png"] style:UIBarButtonItemStyleBordered target:self action:@selector(showLeft:)];
                                       
     [topController.navigationItem setLeftBarButtonItem:LeftBarButtonItem];
-    [topController.navigationItem setRightBarButtonItem:RightBarButtonItem];
+    
+  //  if (![rightViewController isEqualToString:@"NO_VIEW"]){
+        [topController.navigationItem setRightBarButtonItem:RightBarButtonItem];
+  //  }
+
     [topController.navigationController.navigationBar setTintColor:[UIColor whiteColor]];
     
     UIBarButtonItem *backButton=[[UIBarButtonItem alloc]initWithTitle:@"" style:UIBarButtonItemStyleBordered  target:self action:nil];
     [topController.navigationItem setBackBarButtonItem:backButton];
-   
+     
 }
 
 - (void)showRootController:(BOOL)animated {
@@ -138,7 +153,14 @@
     
     CGRect frame = _root.view.frame;
     frame.origin.x = 0.0f;
+    // удаляем фон под статус бар на старой вьюхе
+    [[self.view viewWithTag:33] removeFromSuperview];
+    //добавляем фон под статусбар нового экрана
+    UIView * backStatusBar = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 20)];
+    backStatusBar.backgroundColor = [UIColor blackColor];
+    backStatusBar.tag = 33;
     
+    [self.view addSubview:backStatusBar];
     BOOL _enabled = [UIView areAnimationsEnabled];
     if (!animated)
     {
@@ -154,8 +176,11 @@
         if (_left && _left.view.superview)
         {
             [_left.view removeFromSuperview];
+            
         }
         _menuFlags.showingLeftView = NO;
+        //удаляем фон под статус баром
+        [[self.view viewWithTag:33] removeFromSuperview];
     }];
     
     if (!animated)
@@ -180,6 +205,11 @@
     view.frame = frame;
     [self.view insertSubview:view atIndex:0];
     [self.leftViewController viewWillAppear:animated];
+    //добавляем фон под статусбар
+    UIView * backStatusBar = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 20)];
+    backStatusBar.backgroundColor = [UIColor blackColor];
+    backStatusBar.tag = 33;
+    [self.view addSubview:backStatusBar];
     
     frame = _root.view.frame;
     frame.origin.x = CGRectGetMaxX(view.frame) - (kMenuFullWidth - kMenuDisplayedWidth);
@@ -256,6 +286,7 @@
     }
     if (_menuFlags.showingLeftView)
     {
+
         [[UIApplication sharedApplication] beginIgnoringInteractionEvents];
         // slide out then come back with the new root
         __block DDMenuController *selfRef = self;
@@ -273,6 +304,7 @@
             [selfRef setRootViewController:controller];
             _root.view.frame = frame;
             [selfRef showRootController:animated];
+           
         }];
     }
     else
@@ -325,8 +357,16 @@
         NSLog(@"root controller is not a navigation controller.");
         return;
     }
+    NSString * view;
+    if ([rightViewController isEqualToString:VIEW_STATISTICS_FILTER])
+    {
+        view = rightViewController;
+    }
+    else{
+       view = VIEW_NEW_TASK;
+    }
     
-    [[TTApplicationManager sharedApplicationManager] pushViewTo:VIEW_NEW_TASK forNavigationController:navController];
+    [[TTApplicationManager sharedApplicationManager] pushViewTo:view forNavigationController:navController];
 }
 
 @end
