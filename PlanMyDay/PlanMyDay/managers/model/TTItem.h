@@ -23,6 +23,7 @@ extern NSString *const STR_TASK_COLOR;
 extern NSString *const STR_TASK_CHECK;
 extern NSString *const STR_START_DATE;
 extern NSString *const STR_END_DATE;
+extern NSString *const STR_DURATION;
 extern NSString *const STR_ARC;
 
 extern NSString *const STR_COLOR_CARROT;

@@ -31,8 +31,6 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
-    
-    
     [self.largeProgressView setTrackTintColor:[[UIColor alloc] initWithRed:0x3b/255.0 green:0x45/255.0 blue:0x4e/255.0 alpha:1]];
     [self.largeProgressView setProgressTintColor:[[UIColor alloc] initWithRed:0xfc/255.0 green:0x3e/255.0 blue:0x39/255.0 alpha:0]];
     self.largeProgressView.roundedCorners = NO;
@@ -53,6 +51,8 @@
     NSDate *dtEndDate;
     NSString *strColor;
     
+    NSMutableArray *arrProjectsToDraw = [[NSMutableArray alloc] init];
+    
     //    NSString *strNewString = [strColor substringToIndex:2];
     //    flo *strNewString = [strColor substringWithRange:NSMakeRange(0, 2)];
     //    [strColor floatValue];
@@ -64,15 +64,53 @@
         numDuration = [dtEndDate timeIntervalSinceDate:dtStartDate]/3600;
         
         numTotalDuration += numDuration;
+        
+        if (arrProjectsToDraw.count == 0)
+        {
+            NSMutableDictionary *dictTmpProject = [[NSMutableDictionary alloc] init];
+            [dictTmpProject setObject:[dictTmpTask objectForKey:STR_PROJECT_NAME] forKey:STR_PROJECT_NAME];
+            [dictTmpProject setObject:[NSNumber numberWithFloat:0.0] forKey:STR_DURATION];
+            [dictTmpProject setObject:[dictTmpTask objectForKey:STR_TASK_COLOR] forKey:STR_TASK_COLOR];
+            
+            float tmpProjectDuration = [[dictTmpProject objectForKey:STR_DURATION] floatValue];
+            tmpProjectDuration += numDuration;
+            NSNumber *tmpNumberDuration = [NSNumber numberWithFloat:tmpProjectDuration];
+            [dictTmpProject setValue:tmpNumberDuration forKey:STR_DURATION];
+            [arrProjectsToDraw addObject:dictTmpProject];
+        }
+        else
+        {
+            for (NSMutableDictionary * dictProject in arrProjectsToDraw) {
+                if ([dictProject objectForKey:STR_PROJECT_NAME] != [dictTmpTask objectForKey:STR_PROJECT_NAME])
+                {
+                    NSMutableDictionary *dictTmpProject = [[NSMutableDictionary alloc] init];
+                    [dictTmpProject setObject:[dictTmpTask objectForKey:STR_PROJECT_NAME] forKey:STR_PROJECT_NAME];
+                    [dictTmpProject setObject:[NSNumber numberWithFloat:0.0] forKey:STR_DURATION];
+                    [dictTmpProject setObject:[dictTmpTask objectForKey:STR_TASK_COLOR] forKey:STR_TASK_COLOR];
+                    [arrProjectsToDraw addObject:dictTmpProject];
+                    
+                    float tmpProjectDuration = [[dictTmpProject objectForKey:STR_DURATION] floatValue];
+                    tmpProjectDuration += numDuration;
+                    NSNumber *tmpNumberDuration = [NSNumber numberWithFloat:tmpProjectDuration];
+                    [dictTmpProject setValue:tmpNumberDuration forKey:STR_DURATION];
+                }
+                else
+                {
+                    float tmpProjectDuration = [[dictProject objectForKey:STR_DURATION] floatValue];
+                    tmpProjectDuration += numDuration;
+                    NSNumber *tmpNumberDuration = [NSNumber numberWithFloat:tmpProjectDuration];
+                    [dictProject setValue:tmpNumberDuration forKey:STR_DURATION];
+                }
+               
+            }
+    
+        }
     }
     
-    for (NSMutableDictionary *dictTask in arrTasks)
+    for (NSMutableDictionary *dictTask in arrProjectsToDraw)
     {
         strColor    = [dictTask objectForKey:STR_TASK_COLOR];
-        
-        dtStartDate = [dictTask objectForKey:STR_START_DATE];
-        dtEndDate   = [dictTask objectForKey:STR_END_DATE];
-        numDuration = [dtEndDate timeIntervalSinceDate:dtStartDate]/3600;
+        numDuration = [[dictTask objectForKey:STR_DURATION] floatValue];
         
         fDurationRatio = numDuration * 12 / numTotalDuration ;
         

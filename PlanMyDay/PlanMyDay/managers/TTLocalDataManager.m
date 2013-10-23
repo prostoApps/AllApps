@@ -223,7 +223,7 @@
                                 
                                 [dictProjectData setObject:[[NSMutableArray alloc] initWithObjects: [itemData copy],nil ] forKey:STR_ALL_TASKS];
                                 //TODO go to the tasks list
-                                break;
+                                return YES;
                             }
                         }
                         else
@@ -369,7 +369,7 @@
 {
     
     NSCalendar *cal = [NSCalendar currentCalendar];
-//    NSDateComponents *components = [cal components:( NSHourCalendarUnit | NSMinuteCalendarUnit | NSSecondCalendarUnit ) fromDate:[[NSDate alloc] init]];
+    NSDateComponents *components = [cal components:( NSDayCalendarUnit | NSHourCalendarUnit | NSMinuteCalendarUnit | NSSecondCalendarUnit ) fromDate:[[NSDate alloc] init]];
     
     arrAllTasks = [[NSMutableArray alloc] init];
     NSDate *dtDateToday = [NSDate date];
@@ -399,8 +399,10 @@
                         //проходим по всем таскам проекта и добавляем и в массив всех тасков
                         for (NSMutableDictionary *dictTaskData in [dictProjectData objectForKey:STR_ALL_TASKS])
                         {
+                            NSDateComponents *tmpComponents = [cal components:( NSDayCalendarUnit | NSHourCalendarUnit | NSMinuteCalendarUnit | NSSecondCalendarUnit ) fromDate:[dictTaskData objectForKey:STR_START_DATE]];
+
                             //[NSDate timeIntervalSinceReferenceDate]
-                            if(dtDateToday == [dictTaskData objectForKey:STR_START_DATE])
+                            if(tmpComponents.day == components.day)
                             [arrAllTasks addObject:[dictTaskData copy]];
                         }
                     }//end if

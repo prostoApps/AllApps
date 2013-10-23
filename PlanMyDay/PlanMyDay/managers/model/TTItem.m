@@ -24,6 +24,7 @@ NSString *const STR_TASK_COLOR   = @"taskColor";
 NSString *const STR_TASK_CHECK   = @"isCheck";
 NSString *const STR_START_DATE   = @"startDate";
 NSString *const STR_END_DATE     = @"endDate";
+NSString *const STR_DURATION     = @"duration";
 
 NSString *const STR_ARC          = @"arc";
 
