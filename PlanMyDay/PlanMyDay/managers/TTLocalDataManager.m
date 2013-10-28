@@ -67,7 +67,13 @@
     
     [itemData setObject:[[NSMutableArray alloc] initWithCapacity:0] forKey:STR_ALL_PROJECTS];
 
+    if (![dictLocalData objectForKey:STR_ALL_CLIENTS])
+    {
+        [dictLocalData setObject:[[NSMutableArray alloc] initWithCapacity:0] forKey:STR_ALL_CLIENTS];
+    }
+    
     [[dictLocalData objectForKey:STR_ALL_CLIENTS] addObject:itemData];
+    
     return YES;
 }
 

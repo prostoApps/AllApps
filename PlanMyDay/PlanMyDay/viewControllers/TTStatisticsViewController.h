@@ -8,13 +8,17 @@
 
 #import "DACircularProgressView.h"
 #import "TTAppDataManager.h"
-//#import "TTTasksNavigator.h"
-//#import "TTTools.h"
+#import "TTTasksNavigatorCell.h"
+#import "SectionHeaderView.h"
+#import "Section.h"
 #import <UIKit/UIKit.h>
 
-@interface TTStatisticsViewController : UIViewController
+@interface TTStatisticsViewController : UIViewController <UITableViewDataSource,UITableViewDelegate,SectionHeaderViewDelegate>
 
 @property (strong, nonatomic) IBOutlet DACircularProgressView *largeProgressView;
+@property (nonatomic,retain) IBOutlet UITableView * tasksNavigatorTable;
+@property (nonatomic, strong) NSMutableArray *sectionArray;
+@property (nonatomic, assign) NSInteger openSectionIndex;
 
 //@property (strong, nonatomic) TTTasksNavigator *tasksNavigator;
 

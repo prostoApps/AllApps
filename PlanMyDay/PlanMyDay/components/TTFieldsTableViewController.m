@@ -55,7 +55,7 @@
     return [listData count];
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath    *)indexPath {
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath*)indexPath {
     static NSString *CellIdentifier = @"Cell";
     
     NSArray *listData = [[arrayTableViewData objectAtIndex:[indexPath section]] objectForKey:STR_NEW_PROJECT_CELLS];

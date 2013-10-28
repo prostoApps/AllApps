@@ -10,6 +10,11 @@
 		05103CC617EA0EAB008C9D81 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05103CC517EA0EAB008C9D81 /* XCTest.framework */; };
 		05103CC717EA0EAB008C9D81 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDB4A82D17849C3F007C7F15 /* Foundation.framework */; };
 		05103CC817EA0EAB008C9D81 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDB4A82B17849C3F007C7F15 /* UIKit.framework */; };
+		051A612C181EDB750078851B /* TTTasksNavigatorCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 051A612B181EDB750078851B /* TTTasksNavigatorCell.xib */; };
+		051A612F181EDB970078851B /* TTTasksNavigatorCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 051A612E181EDB970078851B /* TTTasksNavigatorCell.m */; };
+		051A6131181EE68B0078851B /* SectionHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 051A6130181EE68B0078851B /* SectionHeaderView.xib */; };
+		051A6134181EE9A80078851B /* icon-statistic_disclosure2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 051A6132181EE9A80078851B /* icon-statistic_disclosure2@2x.png */; };
+		051A6135181EE9A80078851B /* icon-statistic_disclosure@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 051A6133181EE9A80078851B /* icon-statistic_disclosure@2x.png */; };
 		0549C2F117FAEE6B0097B002 /* TTSelectColorViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0549C2F017FAEE6B0097B002 /* TTSelectColorViewController.xib */; };
 		056887701805C93200EDBBB6 /* PropertyListColors.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0568876F1805C93200EDBBB6 /* PropertyListColors.plist */; };
 		0578674D1811796E0027605C /* TTFieldsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0578674B1811796E0027605C /* TTFieldsTableViewController.m */; };
@@ -50,6 +55,8 @@
 		05C8B678180EE6230065891D /* TTStatisticFilterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05C8B676180EE6230065891D /* TTStatisticFilterViewController.m */; };
 		05C8B679180EE6230065891D /* TTStatisticFilterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05C8B677180EE6230065891D /* TTStatisticFilterViewController.xib */; };
 		05CD804017F9EB6C0014B980 /* TTSelectColorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05CD803E17F9EB6C0014B980 /* TTSelectColorViewController.m */; };
+		05F1BCCF18184588005C0739 /* SectionHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 05F1BCCB18184588005C0739 /* SectionHeaderView.m */; };
+		05F1BCD018184588005C0739 /* Section.m in Sources */ = {isa = PBXBuildFile; fileRef = 05F1BCCD18184588005C0739 /* Section.m */; };
 		84E1D178181304F500D67AE5 /* PropertyListSettingsView.plist in Resources */ = {isa = PBXBuildFile; fileRef = 84E1D177181304F500D67AE5 /* PropertyListSettingsView.plist */; };
 		84E1D17A1813220E00D67AE5 /* PropertyListFilterView.plist in Resources */ = {isa = PBXBuildFile; fileRef = 84E1D1791813220E00D67AE5 /* PropertyListFilterView.plist */; };
 		DD2B9B8117B06E1F00E37DA8 /* TTMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD2B9B7F17B06E1F00E37DA8 /* TTMenuViewController.m */; };
@@ -106,6 +113,12 @@
 /* Begin PBXFileReference section */
 		05103CC417EA0EAB008C9D81 /* PlanMyDay Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "PlanMyDay Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		05103CC517EA0EAB008C9D81 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		051A612B181EDB750078851B /* TTTasksNavigatorCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TTTasksNavigatorCell.xib; path = viewControllers/tasksNavigator/TTTasksNavigatorCell.xib; sourceTree = "<group>"; };
+		051A612D181EDB970078851B /* TTTasksNavigatorCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TTTasksNavigatorCell.h; path = viewControllers/tasksNavigator/TTTasksNavigatorCell.h; sourceTree = "<group>"; };
+		051A612E181EDB970078851B /* TTTasksNavigatorCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TTTasksNavigatorCell.m; path = viewControllers/tasksNavigator/TTTasksNavigatorCell.m; sourceTree = "<group>"; };
+		051A6130181EE68B0078851B /* SectionHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SectionHeaderView.xib; path = viewControllers/tasksNavigator/SectionHeaderView.xib; sourceTree = "<group>"; };
+		051A6132181EE9A80078851B /* icon-statistic_disclosure2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-statistic_disclosure2@2x.png"; sourceTree = "<group>"; };
+		051A6133181EE9A80078851B /* icon-statistic_disclosure@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-statistic_disclosure@2x.png"; sourceTree = "<group>"; };
 		0549C2F017FAEE6B0097B002 /* TTSelectColorViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TTSelectColorViewController.xib; path = viewControllers/newProject/TTSelectColorViewController.xib; sourceTree = "<group>"; };
 		0568876F1805C93200EDBBB6 /* PropertyListColors.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = PropertyListColors.plist; sourceTree = "<group>"; };
 		0578674A1811796E0027605C /* TTFieldsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TTFieldsTableViewController.h; path = components/TTFieldsTableViewController.h; sourceTree = "<group>"; };
@@ -152,6 +165,10 @@
 		05C8B677180EE6230065891D /* TTStatisticFilterViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TTStatisticFilterViewController.xib; path = viewControllers/TTStatisticFilterViewController.xib; sourceTree = "<group>"; };
 		05CD803D17F9EB6C0014B980 /* TTSelectColorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TTSelectColorViewController.h; path = viewControllers/newProject/TTSelectColorViewController.h; sourceTree = "<group>"; };
 		05CD803E17F9EB6C0014B980 /* TTSelectColorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TTSelectColorViewController.m; path = viewControllers/newProject/TTSelectColorViewController.m; sourceTree = "<group>"; };
+		05F1BCCB18184588005C0739 /* SectionHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SectionHeaderView.m; sourceTree = "<group>"; };
+		05F1BCCC18184588005C0739 /* SectionHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SectionHeaderView.h; sourceTree = "<group>"; };
+		05F1BCCD18184588005C0739 /* Section.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Section.m; sourceTree = "<group>"; };
+		05F1BCCE18184588005C0739 /* Section.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Section.h; sourceTree = "<group>"; };
 		84E1D177181304F500D67AE5 /* PropertyListSettingsView.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = PropertyListSettingsView.plist; path = assets/PropertyListSettingsView.plist; sourceTree = "<group>"; };
 		84E1D1791813220E00D67AE5 /* PropertyListFilterView.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = PropertyListFilterView.plist; path = assets/PropertyListFilterView.plist; sourceTree = "<group>"; };
 		DD2B9B7E17B06E1F00E37DA8 /* TTMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TTMenuViewController.h; path = viewControllers/menu/TTMenuViewController.h; sourceTree = "<group>"; };
@@ -302,6 +319,8 @@
 		05C8B640180ED9860065891D /* icons */ = {
 			isa = PBXGroup;
 			children = (
+				051A6132181EE9A80078851B /* icon-statistic_disclosure2@2x.png */,
+				051A6133181EE9A80078851B /* icon-statistic_disclosure@2x.png */,
 				05C8B672180EE55C0065891D /* icon-filter@2x.png */,
 				05C8B641180ED9860065891D /* icon-main@2x.png */,
 				05C8B642180ED9860065891D /* icon-menu@2x.png */,
@@ -344,6 +363,21 @@
 				05C8B677180EE6230065891D /* TTStatisticFilterViewController.xib */,
 			);
 			name = filterView;
+			sourceTree = "<group>";
+		};
+		05F1BCCA1818451F005C0739 /* tasksNavigator */ = {
+			isa = PBXGroup;
+			children = (
+				05F1BCCC18184588005C0739 /* SectionHeaderView.h */,
+				05F1BCCB18184588005C0739 /* SectionHeaderView.m */,
+				051A6130181EE68B0078851B /* SectionHeaderView.xib */,
+				05F1BCCD18184588005C0739 /* Section.m */,
+				05F1BCCE18184588005C0739 /* Section.h */,
+				051A612D181EDB970078851B /* TTTasksNavigatorCell.h */,
+				051A612E181EDB970078851B /* TTTasksNavigatorCell.m */,
+				051A612B181EDB750078851B /* TTTasksNavigatorCell.xib */,
+			);
+			name = tasksNavigator;
 			sourceTree = "<group>";
 		};
 		DD2B9B8317B06E2600E37DA8 /* menu */ = {
@@ -390,6 +424,7 @@
 		DD7BAE4717A5BE9800CACFB2 /* statisticsView */ = {
 			isa = PBXGroup;
 			children = (
+				05F1BCCA1818451F005C0739 /* tasksNavigator */,
 				05C8B674180EE5680065891D /* filterView */,
 				DDB4A883178523B2007C7F15 /* TTStatisticsViewController.h */,
 				DDB4A884178523B2007C7F15 /* TTStatisticsViewController.m */,
@@ -664,12 +699,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				051A6134181EE9A80078851B /* icon-statistic_disclosure2@2x.png in Resources */,
 				05C8B670180ED9860065891D /* clock-sec-background_TT.png in Resources */,
 				05C8B66A180ED9860065891D /* clock-hour-background.png in Resources */,
 				05C8B660180ED9860065891D /* icon-statistic@2x.png in Resources */,
 				05C8B673180EE55C0065891D /* icon-filter@2x.png in Resources */,
 				05C8B65F180ED9860065891D /* icon-settings@2x.png in Resources */,
 				056887701805C93200EDBBB6 /* PropertyListColors.plist in Resources */,
+				051A612C181EDB750078851B /* TTTasksNavigatorCell.xib in Resources */,
 				84E1D17A1813220E00D67AE5 /* PropertyListFilterView.plist in Resources */,
 				05C8B66F180ED9860065891D /* clock-sec-background.png in Resources */,
 				DDB4A83617849C3F007C7F15 /* InfoPlist.strings in Resources */,
@@ -691,6 +728,7 @@
 				DD7BAE3117A5BDCA00CACFB2 /* TTTasksTableViewCell.xib in Resources */,
 				05C8B665180ED9860065891D /* icon-tasks-overtime@2x.png in Resources */,
 				05C8B658180ED9860065891D /* background@2x.jpg in Resources */,
+				051A6131181EE68B0078851B /* SectionHeaderView.xib in Resources */,
 				DD7BAE3717A5BDDB00CACFB2 /* TTTasksViewController.xib in Resources */,
 				05C8B671180ED9860065891D /* OutputSample.png in Resources */,
 				DD7BAE4E17A5C24600CACFB2 /* TTCustomTrackerViewController.xib in Resources */,
@@ -704,6 +742,7 @@
 				05C8B659180ED9860065891D /* bgTaskInfoLabel@2x.png in Resources */,
 				05C8B631180EC9D40065891D /* TTTasksIndicatorViewController.xib in Resources */,
 				05C8B65C180ED9860065891D /* icon-main@2x.png in Resources */,
+				051A6135181EE9A80078851B /* icon-statistic_disclosure@2x.png in Resources */,
 				05C8B661180ED9860065891D /* icon-tasks-check@2x.png in Resources */,
 				0549C2F117FAEE6B0097B002 /* TTSelectColorViewController.xib in Resources */,
 				84E1D178181304F500D67AE5 /* PropertyListSettingsView.plist in Resources */,
@@ -745,17 +784,20 @@
 				05C8B678180EE6230065891D /* TTStatisticFilterViewController.m in Sources */,
 				DDB4A88F178523B2007C7F15 /* TTNewProjectViewController.m in Sources */,
 				DDA17431178A38F40000132D /* TTApplicationManager.m in Sources */,
+				051A612F181EDB970078851B /* TTTasksNavigatorCell.m in Sources */,
 				DD7BAE3217A5BDCA00CACFB2 /* TTTasksTableViewCell.m in Sources */,
 				DD7BAE3617A5BDDB00CACFB2 /* TTTasksViewController.m in Sources */,
 				05C8B635180EC9E00065891D /* TTTools.m in Sources */,
 				05CD804017F9EB6C0014B980 /* TTSelectColorViewController.m in Sources */,
 				DD7BAE4D17A5C24600CACFB2 /* TTCustomTrackerViewController.m in Sources */,
 				DD7BAE5217A5C3A500CACFB2 /* DACircularProgressView.m in Sources */,
+				05F1BCCF18184588005C0739 /* SectionHeaderView.m in Sources */,
 				DD90BF6E17AA06530064233C /* ClockView.m in Sources */,
 				DD90BF6F17AA06530064233C /* ClockViewController.m in Sources */,
 				DD2B9B8117B06E1F00E37DA8 /* TTMenuViewController.m in Sources */,
 				DD968BA017B7BBE8008D583F /* TTSelectPropertyViewController.m in Sources */,
 				0596765117D0CAD000653A60 /* DDMenuController.m in Sources */,
+				05F1BCD018184588005C0739 /* Section.m in Sources */,
 				05C8B630180EC9D40065891D /* TTTasksIndicatorViewController.m in Sources */,
 				DD968BA517B7BC1C008D583F /* TTCreatePropertyViewController.m in Sources */,
 			);
