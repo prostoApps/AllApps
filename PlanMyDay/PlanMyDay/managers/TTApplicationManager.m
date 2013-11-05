@@ -13,7 +13,7 @@
 NSString *const VIEW_TEST                   = @"test";
 NSString *const VIEW_MENU                   = @"viewMenu";
 NSString *const VIEW_STATISTICS             = @"viewStatistics";
-NSString *const VIEW_STATISTICS_FILTER             = @"viewStatisticsFilter";
+NSString *const VIEW_STATISTICS_FILTER      = @"viewStatisticsFilter";
 NSString *const VIEW_CURRENT_TASKS          = @"viewCurrentTasks";
 NSString *const VIEW_NEW_TASK               = @"viewNewTask";
 NSString *const VIEW_SELECT_PROPERTY        = @"viewSelectProperty";
@@ -81,8 +81,8 @@ NSString * _menuRightViewController;
     {
         arrTaskColors = [[NSArray alloc] initWithObjects:
                          [[NSDictionary alloc] initWithObjectsAndKeys:
-                                    @"Strawberry",@"name",
-                                    @"fc3e39",@"color",
+                          @"Tomato",@"name",
+                          @"e04217",@"color",
                           nil],
                          [[NSDictionary alloc] initWithObjectsAndKeys:
                           @"Plum",@"name",
@@ -91,20 +91,43 @@ NSString * _menuRightViewController;
                          [[NSDictionary alloc] initWithObjectsAndKeys:
                           @"Cucumber",@"name",
                           @"53d769",@"color",
+                          nil],
+                         [[NSDictionary alloc] initWithObjectsAndKeys:
+                          @"Carrot",@"name",
+                          @"fd9426",@"color",
+                          nil],
+                         [[NSDictionary alloc] initWithObjectsAndKeys:
+                          @"Eggplant",@"name",
+                          @"5d2878",@"color",
+                          nil],
+                         [[NSDictionary alloc] initWithObjectsAndKeys:
+                          @"Persimmon",@"name",
+                          @"e65702",@"color",
+                          nil],
+                         [[NSDictionary alloc] initWithObjectsAndKeys:
+                          @"Apple",@"name",
+                          @"90b837",@"color",
+                          nil],
+                         [[NSDictionary alloc] initWithObjectsAndKeys:
+                          @"Raspberry",@"name",
+                          @"ff3d5d",@"color",
+                          nil],
+                         [[NSDictionary alloc] initWithObjectsAndKeys:
+                          @"Orange",@"name",
+                          @"f8641e",@"color",
                           nil],
                          [[NSDictionary alloc] initWithObjectsAndKeys:
                           @"Strawberry",@"name",
-                          @"fc3e39",@"color",
+                          @"fe3618",@"color",
                           nil],
                          [[NSDictionary alloc] initWithObjectsAndKeys:
-                          @"Plum",@"name",
-                          @"1e7cf4",@"color",
+                          @"Melon",@"name",
+                          @"ffda58",@"color",
                           nil],
                          [[NSDictionary alloc] initWithObjectsAndKeys:
-                          @"Cucumber",@"name",
-                          @"53d769",@"color",
+                          @"Cabbage",@"name",
+                          @"b9dc68",@"color",
                           nil],
-                         
                          nil];
     }
     return arrTaskColors;

@@ -13,8 +13,6 @@
     
     return [CAGradientLayer class];
 }
-
-
 -(id)initWithFrame:(CGRect)frame title:(NSString*)title section:(NSInteger)sectionNumber delegate:(id <SectionHeaderViewDelegate>)delegate {
     
     self = [super initWithFrame:frame];
@@ -26,18 +24,19 @@
         
         // Set up the tap gesture recognizer.
         UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(toggleOpen:)];
-       // [self addGestureRecognizer:tapGesture];
         [self.disclosureButton addGestureRecognizer:tapGesture];
-        _delegate = delegate;        
+        
+        _delegate = delegate;
+        _section = sectionNumber;
         self.userInteractionEnabled = YES;
         
+        self.titleLabel.text = title;
         [self.disclosureButton setImage:[UIImage imageNamed:@"icon-statistic_disclosure2.png"] forState:UIControlStateNormal];
         [self.disclosureButton setImage:[UIImage imageNamed:@"icon-statistic_disclosure.png"] forState:UIControlStateSelected];
         
-//        self.layer.borderColor = [[TTAppDataManager sharedAppDataManager] colorWithHexString:@"#a8adb3"].CGColor;
-//        self.layer.borderWidth = 1.0f;
         
-}
+        
+    }
     
     return self;
 }

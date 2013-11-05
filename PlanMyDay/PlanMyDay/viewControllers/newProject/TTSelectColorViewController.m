@@ -28,7 +28,6 @@
     if (self) {
         // Custom initialization
         arrayOfColors = [[TTApplicationManager sharedApplicationManager] arrTaskColors];
-       
     }
     return self;
 }

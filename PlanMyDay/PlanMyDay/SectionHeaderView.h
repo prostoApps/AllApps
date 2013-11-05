@@ -29,4 +29,3 @@
 -(void)sectionHeaderView:(SectionHeaderView*)sectionHeaderView sectionClosed:(NSInteger)section;
 
 @end
-

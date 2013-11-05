@@ -48,15 +48,10 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
-    [self.largeProgressView setTrackTintColor:[[UIColor alloc] initWithRed:0x3b/255.0 green:0x45/255.0 blue:0x4e/255.0 alpha:1]];
-    [self.largeProgressView setProgressTintColor:[[UIColor alloc] initWithRed:0xfc/255.0 green:0x3e/255.0 blue:0x39/255.0 alpha:0]];
-    self.largeProgressView.roundedCorners = NO;
-    [self.view addSubview:self.largeProgressView];
-    [self.largeProgressView setThicknessRatio:0.066];
-    
     [self drawTasksToView:[[TTAppDataManager sharedAppDataManager] getAllTasks]];
     
     self.tasksNavigatorTable.sectionHeaderHeight = HEADER_HEIGHT;
+    self.tasksNavigatorTable.tableHeaderView = self.largeProgressView;
     self.openSectionIndex = NSNotFound;
 
 //    [tasksNavigator initWithTasks];
@@ -101,7 +96,6 @@
         
     }
     
-    
     return aSection.sectionHeaderView;
 }
 
@@ -133,6 +127,7 @@
     
     // Configure the cell...
     cell.textLabel.text=[aSection.sectionRows objectAtIndex:indexPath.row];
+    cell.textLabel.textColor = [UIColor whiteColor];
     return cell;
 }
 
@@ -297,13 +292,13 @@
         NSString *strBlueString = [NSString stringWithFormat:@"%@", [strColor substringWithRange:NSMakeRange(4, 2)]];
         float fBlue = [[TTTools hexFromStr:strBlueString] floatValue];
         
-        DACircularProgressView *largeProgressViewTMP = [[DACircularProgressView alloc] initWithFrame:CGRectMake(28, 74, 265, 265)];
+        DACircularProgressView *largeProgressViewTMP = [[DACircularProgressView alloc] initWithFrame:CGRectMake(28, 0, 185, 185)];
         largeProgressViewTMP.layer.anchorPoint = CGPointMake(0.5, 0.5);
         [largeProgressViewTMP setTrackTintColor:[[UIColor alloc] initWithRed:0xfc/255.0 green:0x3e/255.0 blue:0xff/255.0 alpha:0]];
         [largeProgressViewTMP setProgressTintColor:[[UIColor alloc] initWithRed:fRed/6666.0 green:fGreen/6666.0 blue:fBlue/6666.0 alpha:1]];
         
         largeProgressViewTMP.roundedCorners = NO;
-        [self.view addSubview:largeProgressViewTMP];
+        [self.largeProgressView addSubview:largeProgressViewTMP];
         [largeProgressViewTMP setThicknessRatio:0.066];
         
         [largeProgressViewTMP setProgress:fDurationRatio*NUM_ONE_HOUR_DURATION];
