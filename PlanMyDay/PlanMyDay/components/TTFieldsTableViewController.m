@@ -181,9 +181,7 @@
 {
     // ipCurrentIndexPath = indexPath;
     
-    NSLog(@"NEW_PROJECT_VIEW_CONT::tableView didSelectRowAtIndexPath:: ipNewProjectSelectedProperty1: %@ , indexPath:%@",[[TTApplicationManager sharedApplicationManager] ipNewProjectSelectedProperty],indexPath);
     [[TTApplicationManager sharedApplicationManager] setIpNewProjectSelectedProperty:indexPath];
-    NSLog(@"NEW_PROJECT_VIEW_CONT::tableView didSelectRowAtIndexPath:: ipNewProjectSelectedProperty2: %@ , indexPath:%@",[[TTApplicationManager sharedApplicationManager] ipNewProjectSelectedProperty],indexPath);
     NSArray *listData = [[arrayTableViewData objectAtIndex:[indexPath section]] objectForKey:STR_NEW_PROJECT_CELLS];
     int typeCell = [[[listData objectAtIndex:indexPath.row] objectForKey:STR_NEW_PROJECT_TYPE] intValue];
     
@@ -239,9 +237,6 @@
     
 
     NSIndexPath *indexPath = [tableViewParametrs indexPathForCell:(UITableViewCell*)[[textField superview] superview]];
-    
-    NSLog(@"NEW_PROJECT_VIEW_CONT::textFieldDidBeginEditing:: ipNewProjectSelectedProperty %@, indexPath:%@",[[TTApplicationManager sharedApplicationManager] ipNewProjectSelectedProperty],indexPath);
-    //    [[TTApplicationManager sharedApplicationManager] setIpNewProjectSelectedProperty:indexPath];
     
     NSArray *listData = [[arrayTableViewData objectAtIndex:[indexPath section]] objectForKey:STR_NEW_PROJECT_CELLS];
     //тип ячеки

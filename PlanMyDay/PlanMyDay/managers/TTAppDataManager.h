@@ -31,6 +31,7 @@ extern NSString *const STR_SORT_PARAMETER_TASK_DURATION;
 
 
 //@property (nonatomic, retain) TTLocalDataManager *localDataManager;
+@property (nonatomic, retain) UIViewController *currentViewController;
 
 @property (nonatomic,readwrite) int segmentIndexNewProject;
 @property (nonatomic,readwrite) NSMutableDictionary * dictNewProjectIndexPaths;
@@ -40,10 +41,13 @@ extern NSString *const STR_SORT_PARAMETER_TASK_DURATION;
 -(NSString*)getDocumentsPath;
 -(NSString*)getProjectsFilePath;
 -(NSArray*) getNewProjectFields;
+-(NSArray*)updateNewTaskFormFieldsWithData:(NSDictionary*) dictTaskData;
 -(NSArray*) getFilterFields;
 -(NSObject*)getNewProjectFieldsValue:(NSString*)value byIndexPath:(NSIndexPath*)indexPath;
 
 -(NSDictionary*)readDataFromFile:(NSString*)pathToFile;
+
+-(BOOL)editTTItem:(NSMutableDictionary*) dictOldTaskData;
 
 -(BOOL)saveTTItem;
 -(void)saveNewProjectFieldsValue:(NSObject*)value byIndexPath:(NSIndexPath*)indexPath;
@@ -65,7 +69,7 @@ extern NSString *const STR_SORT_PARAMETER_TASK_DURATION;
 
 +(NSMutableArray*)sortTasks:(NSMutableArray*)arrTasksToSort byParameter:(NSString*)strSortParameter withValue:(NSString*) strSortParameterValue;
 
--(NSMutableDictionary*) editTask:(NSMutableDictionary*) dictTaskToEdit withNewData:(NSMutableDictionary*) dictNewData;
+-(BOOL) editTask:(NSMutableDictionary*) dictTaskToEdit withNewData:(NSMutableDictionary*) dictNewData;
 -(NSMutableDictionary*) clearTask:(NSMutableDictionary*) dictTaskToClear;
 -(BOOL) removeTask:(NSMutableDictionary*) dictTaskToRemove;
 -(BOOL) removeProject:(NSMutableDictionary*) dictProjectToRemove;
@@ -75,6 +79,8 @@ extern NSString *const STR_SORT_PARAMETER_TASK_DURATION;
 -(NSMutableDictionary*)serializeClientData:(TTItem*)item;
 -(NSMutableDictionary*)serializeProjectData:(TTItem*)item;
 -(NSMutableDictionary*)serializeTaskData:(TTItem*)item;
+
+-(void)updateData;
 
 -(TTItem*)deserializeData:(NSDictionary*)data;
 @end

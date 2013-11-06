@@ -71,12 +71,24 @@
     
     [tasksTableView reloadData];
 }
--(void)editCellFromTTTasksTableView:(TTTasksTableViewCell*)cell{
-    
-    NSString * taskName = [cell.getTableCellData objectForKey:STR_TASK_NAME];
 
-    [[TTApplicationManager sharedApplicationManager] pushViewTo:VIEW_NEW_TASK forNavigationController:self.navigationController];
+#pragma mark Edit task table
+-(void)editCellFromTTTasksTableView:(TTTasksTableViewCell*)cell
+{
+    NSDictionary *dictSelectedTaskData = [[NSDictionary alloc] initWithDictionary:cell.getTableCellData];
+    for (NSMutableDictionary *dictTaskData in cellsDataArray)
+    {
+        if ([[dictTaskData objectForKey:STR_TASK_NAME] isEqualToString: [dictSelectedTaskData objectForKey:STR_TASK_NAME]]  &&
+            [[dictTaskData objectForKey:STR_PROJECT_NAME] isEqualToString: [dictSelectedTaskData objectForKey:STR_PROJECT_NAME]] &&
+            [[dictTaskData objectForKey:STR_CLIENT_NAME] isEqualToString: [dictSelectedTaskData objectForKey:STR_CLIENT_NAME] ])
+        {
+            
+            [[TTApplicationManager sharedApplicationManager] pushViewTo:VIEW_NEW_TASK forNavigationController:self.navigationController withArgument:dictTaskData];
+        }
+    }
+//    [[TTApplicationManager sharedApplicationManager] pushViewTo:VIEW_NEW_TASK forNavigationController:self.navigationController];
 }
+
 -(void)iconTaskWasTaped:(UITableViewCell*)cell{
     [[TTApplicationManager sharedApplicationManager] switchViewTo:VIEW_CUSTOM_TRACKER forNavigationController:self.navigationController];
     

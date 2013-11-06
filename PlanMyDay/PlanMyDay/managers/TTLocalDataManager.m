@@ -66,7 +66,7 @@
     }
     
     [itemData setObject:[[NSMutableArray alloc] initWithCapacity:0] forKey:STR_ALL_PROJECTS];
-
+    [dictLocalData  setObject:[[NSMutableArray alloc] init] forKey:STR_ALL_CLIENTS];
     [[dictLocalData objectForKey:STR_ALL_CLIENTS] addObject:itemData];
     return YES;
 }
@@ -466,7 +466,7 @@
 }
 
 #pragma mark - Edit Section
--(NSMutableDictionary*) editTask:(NSMutableDictionary*) dictTaskToEdit withNewData:(NSMutableDictionary*) dictNewData
+-(BOOL) editTask:(NSMutableDictionary*) dictTaskToEdit withNewData:(NSMutableDictionary*) dictNewData
 {
     NSMutableDictionary * dictTaskToReturn = [[NSMutableDictionary alloc] initWithDictionary:dictTaskToEdit copyItems:YES];
  
@@ -497,12 +497,12 @@
                                     {
                                         for(NSString* key in [dictNewData allKeys])
                                         {
-                                            if([dictTaskToReturn objectForKey:key] != [dictNewData objectForKey:key] )
+                                            if([dictTaskData objectForKey:key] != [dictNewData objectForKey:key] )
                                             {
-                                                [dictTaskToReturn setObject:[dictNewData objectForKey:key] forKey:key];
+                                                [dictTaskData setObject:[dictNewData objectForKey:key] forKey:key];
                                             }
-                                            return dictTaskToReturn;
                                         }
+                                        return YES;
                                     }
                                 }
                             }//end if
@@ -513,10 +513,10 @@
         }//end for
     }//end if
     
-    return nil;
+    return YES;
 }
 
--(NSMutableDictionary*) editProject:(NSMutableDictionary*) dictProjectToEdit withNewData:(NSMutableDictionary*) dictNewData
+-(BOOL) editProject:(NSMutableDictionary*) dictProjectToEdit withNewData:(NSMutableDictionary*) dictNewData
 {
     NSMutableDictionary * dictTaskToReturn = [[NSMutableDictionary alloc] initWithDictionary:dictProjectToEdit copyItems:YES];
     
@@ -556,7 +556,7 @@
 }
 
 
--(NSMutableDictionary*) editClient:(NSMutableDictionary*) dictClientToEdit withNewData:(NSMutableDictionary*) dictNewData
+-(BOOL) editClient:(NSMutableDictionary*) dictClientToEdit withNewData:(NSMutableDictionary*) dictNewData
 {
     NSMutableDictionary * dictClientToReturn = [[NSMutableDictionary alloc] initWithDictionary:dictClientToEdit copyItems:YES];
     

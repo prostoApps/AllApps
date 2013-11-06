@@ -6,6 +6,18 @@
 //  Copyright (c) 2013 prosto*. All rights reserved.
 //
 
+@protocol ViewControllerWithArgument <NSObject>
+
+- (void)setExternalArgument:(NSObject*)argument;
+- (NSObject*)getExternalArgument;
+
+@end
+
+@protocol ViewControllerWithAutoUpdate <NSObject>
+- (void)updateData;
+@end
+
+
 #import <Foundation/Foundation.h>
 #import "TTAppDelegate.h"
 #import "TTTasksViewController.h"
@@ -16,6 +28,8 @@
 #import "TTNewProjectViewController.h"
 #import "TTCustomTrackerViewController.h"
 #import "TTMenuViewController.h"
+
+
 
 @interface TTApplicationManager : NSObject
 {
@@ -76,9 +90,14 @@ extern NSString *const FONT_HELVETICA_NEUE_MEDIUM;
 @property (nonatomic,copy) NSString * strNewProjectSelectedCategory;
 @property (nonatomic,copy) NSArray * arrTaskColors;
 
+@property (nonatomic,copy) UIViewController <ViewControllerWithAutoUpdate> * vcViewControllerToUpdate;
+
 + (TTApplicationManager *)sharedApplicationManager;
 -(void) pushViewTo:(NSString*) strNewView forNavigationController:(UINavigationController*) navController;
+-(void) pushViewTo:(NSString*) strNewView forNavigationController:(UINavigationController*) navController withArgument:(NSObject*)argument;
 -(void) switchViewTo:(NSString*) strNewView forNavigationController:(UINavigationController*) navController;
+
+//-(void) switchViewTo:(NSString*) strNewView forNavigationController:(UINavigationController*) navController;
 //-(void) switchViewTo:(NSString*) strNewView
 //        forNavigationController:(UINavigationController*) navController
 //        withParams:(NSMutableDictionary*)dictParams;

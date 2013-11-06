@@ -44,9 +44,9 @@
 
 -(void)initTestData;
 
--(NSMutableDictionary*) editTask:(NSMutableDictionary*) dictTaskToEdit withNewData:(NSMutableDictionary*) dictNewData;
--(NSMutableDictionary*) editProject:(NSMutableDictionary*) dictProjectToEdit withNewData:(NSMutableDictionary*) dictNewData;
--(NSMutableDictionary*) editClient:(NSMutableDictionary*) dictClientToEdit withNewData:(NSMutableDictionary*) dictNewData;
+-(BOOL) editTask:(NSMutableDictionary*) dictTaskToEdit withNewData:(NSMutableDictionary*) dictNewData;
+-(BOOL) editProject:(NSMutableDictionary*) dictProjectToEdit withNewData:(NSMutableDictionary*) dictNewData;
+-(BOOL) editClient:(NSMutableDictionary*) dictClientToEdit withNewData:(NSMutableDictionary*) dictNewData;
 
 -(BOOL) removeTask:(NSMutableDictionary*) dictTaskToRemove;
 -(BOOL) removeProject:(NSMutableDictionary*) dictProjectToRemove;

@@ -20,6 +20,7 @@
 @synthesize scTaskProjectClient;
 @synthesize dataSource;
 @synthesize delegate;
+@synthesize externalArgument;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -85,10 +86,18 @@
 - (void) loadPropertyForView {
     
     TTAppDataManager * appDataManager = [TTAppDataManager sharedAppDataManager];
-    NSString * nameStr = [[TTApplicationManager sharedApplicationManager] strNewProjectSelectedCategory];
-    
-    [self setTitle:[NSString stringWithFormat:@"Add %@",nameStr]];
-    [btnSave setTitle:[NSString stringWithFormat:@"Add %@",nameStr] forState:UIControlStateNormal];
+    NSString * strName = [[TTApplicationManager sharedApplicationManager] strNewProjectSelectedCategory];
+    NSString * strAddOrEdit ;
+    if (externalArgument)
+    {
+        strAddOrEdit = @"Edit";
+    }
+    else
+    {
+        strAddOrEdit = @"Add";
+    }
+    [self setTitle:[NSString stringWithFormat:@"%@ %@",strAddOrEdit, strName]];
+    [btnSave setTitle:[NSString stringWithFormat:@"%@ %@",strAddOrEdit, strName] forState:UIControlStateNormal];
     [scTaskProjectClient setSelectedSegmentIndex:appDataManager.segmentIndexNewProject];
 
     [newProjectTableController setArrayTableViewData:[appDataManager getNewProjectFields]];
@@ -123,9 +132,19 @@
 
 -(IBAction) btnSaveTouchHandler:(id)sender
 {
-    //сохраняем имя проекта перед созданием проекта
+    BOOL bSaveEditSuccess = NO;
+    
     [self.view endEditing:YES];
-   if ([[TTAppDataManager sharedAppDataManager] saveTTItem])
+    if (externalArgument)
+    {
+        bSaveEditSuccess = [[TTAppDataManager sharedAppDataManager] editTTItem:externalArgument];
+    }
+    else
+    {
+        bSaveEditSuccess = [[TTAppDataManager sharedAppDataManager] saveTTItem];
+    }
+    
+   if (bSaveEditSuccess)
    {
        if (scTaskProjectClient.selectedSegmentIndex == NUM_NEW_PROJECT_SELECTED_SEGMENT_CLIENT)
        {
@@ -140,18 +159,40 @@
        else if (scTaskProjectClient.selectedSegmentIndex == NUM_NEW_PROJECT_SELECTED_SEGMENT_TASK)
        {
            [[TTAppDataManager sharedAppDataManager] clearNewProjectFields];
+           [[TTAppDataManager sharedAppDataManager] updateData];
            [self.navigationController popViewControllerAnimated:YES];
        }
-
    }
+}
 
+-(void) updateViewWithNewData
+{
     
+    NSMutableArray * dictExistingTaskFields = [[TTAppDataManager sharedAppDataManager] updateNewTaskFormFieldsWithData:externalArgument];
+    [newProjectTableController setArrayTableViewData:dictExistingTaskFields];
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(void)setExternalArgument:(NSObject*)argument
+{
+    externalArgument = argument;
+    [self updateViewWithNewData];
+}
+
+- (NSObject*)getExternalArgument
+{
+    return externalArgument;
+}
+
+
+-(void)updateData
+{
+    
 }
 
 @end

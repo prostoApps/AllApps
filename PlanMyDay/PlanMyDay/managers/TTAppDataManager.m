@@ -97,6 +97,36 @@ static TTLocalDataManager *localDataManager;
 -(NSArray*)getNewProjectFields{
     return [dictNewProjectFields objectForKey:[[TTApplicationManager sharedApplicationManager] strNewProjectSelectedCategory]];
 }
+
+-(NSArray*)updateNewTaskFormFieldsWithData:(NSDictionary*) dictTaskData
+{
+    NSMutableArray * arrToReturn = [[NSMutableArray alloc] initWithArray:[dictNewProjectFields objectForKey:STR_NEW_PROJECT_TASK]];
+    //set task fields (section 1)
+    NSLog(@"%@",[NSString stringWithFormat:@"%@",[dictTaskData objectForKey:STR_TASK_NAME]]);
+    NSLog(@"%@",[[[arrToReturn objectAtIndex:0] objectForKey:STR_NEW_PROJECT_CELLS]objectAtIndex:0 ] );
+    
+    [[[[arrToReturn objectAtIndex:0] objectForKey:STR_NEW_PROJECT_CELLS]objectAtIndex:0 ] setObject:
+     [NSString stringWithFormat:@"%@",[dictTaskData objectForKey:STR_TASK_NAME]] forKey:STR_NEW_PROJECT_VALUE];
+    
+    [[[[arrToReturn objectAtIndex:0] objectForKey:STR_NEW_PROJECT_CELLS]objectAtIndex:1 ] setObject:
+     [dictTaskData objectForKey:STR_PROJECT_NAME] forKey:STR_NEW_PROJECT_VALUE];
+    
+    [[[[arrToReturn objectAtIndex:0] objectForKey:STR_NEW_PROJECT_CELLS]objectAtIndex:2 ] setObject:
+     [dictTaskData objectForKey:STR_CLIENT_NAME] forKey:STR_NEW_PROJECT_VALUE];
+    
+    [[[[arrToReturn objectAtIndex:0] objectForKey:STR_NEW_PROJECT_CELLS]objectAtIndex:3 ] setObject:
+     [dictTaskData objectForKey:STR_TASK_COLOR] forKey:STR_NEW_PROJECT_VALUE];
+
+    //set task date (section 2)
+    [[[[arrToReturn objectAtIndex:1] objectForKey:STR_NEW_PROJECT_CELLS]objectAtIndex:0 ] setObject:
+     [dictTaskData objectForKey:STR_START_DATE] forKey:STR_NEW_PROJECT_VALUE];
+    
+    [[[[arrToReturn objectAtIndex:1] objectForKey:STR_NEW_PROJECT_CELLS]objectAtIndex:1 ] setObject:
+     [dictTaskData objectForKey:STR_END_DATE] forKey:STR_NEW_PROJECT_VALUE];
+    
+    return arrToReturn;
+}
+
 -(NSMutableArray*)getFilterFields{
     return arrayFilterFields;
 }
@@ -118,6 +148,76 @@ static TTLocalDataManager *localDataManager;
     NSMutableDictionary * clearDictionary = [[NSMutableDictionary alloc] initWithContentsOfFile:plistPath];
     [dictNewProjectFields setObject:[clearDictionary objectForKey:[[TTApplicationManager sharedApplicationManager] strNewProjectSelectedCategory]]
                                forKey:[[TTApplicationManager sharedApplicationManager] strNewProjectSelectedCategory]];
+}
+
+//TODO REFACTOR: MOVE SAME PARTS IN IF CASES TO SEPARATE METHODS:::
+//Edit Item and save it to Device
+-(BOOL)editTTItem:(NSMutableDictionary*) dictOldTaskData
+{
+    BOOL * bReadyToWriteData = NO;
+    TTItem * item = [[TTItem alloc] init];
+    
+    NSMutableDictionary *dictUpdatedTaskData = [[NSMutableDictionary alloc] init];
+    
+    item.strClientName = [NSString stringWithFormat:@"%@",[self getNewProjectFieldsValue:STR_NEW_PROJECT_VALUE
+                                                                             byIndexPath:[[dictNewProjectIndexPaths objectForKey:[[TTApplicationManager sharedApplicationManager] strNewProjectSelectedCategory]] objectForKey:STR_NEW_PROJECT_CLIENT]]];
+    
+    //Если выбрана категория "редактировать таск", сохраняем таск с проектом и клиентом
+    if ([[[TTApplicationManager sharedApplicationManager] strNewProjectSelectedCategory] isEqualToString:STR_NEW_PROJECT_TASK])
+    {
+        
+        item.strTaskName = [NSString stringWithFormat:@"%@",[self getNewProjectFieldsValue:STR_NEW_PROJECT_VALUE
+                                                                               byIndexPath:[[dictNewProjectIndexPaths objectForKey:[[TTApplicationManager sharedApplicationManager] strNewProjectSelectedCategory]] objectForKey:STR_NEW_PROJECT_NAME]]];
+        item.strProjectName = [NSString stringWithFormat:@"%@",[self getNewProjectFieldsValue:STR_NEW_PROJECT_VALUE
+                                                                                  byIndexPath:[[dictNewProjectIndexPaths objectForKey:[[TTApplicationManager sharedApplicationManager] strNewProjectSelectedCategory]] objectForKey:STR_NEW_PROJECT_PROJECT]]];
+        
+        
+        item.strColor = [NSString stringWithFormat:@"%@",[self getNewProjectFieldsValue:STR_NEW_PROJECT_VALUE
+                                                                            byIndexPath:[[dictNewProjectIndexPaths objectForKey:[[TTApplicationManager sharedApplicationManager] strNewProjectSelectedCategory]] objectForKey:STR_NEW_PROJECT_COLOR]]];
+        
+        
+        item.dtStartDate = [self getNewProjectFieldsValue:STR_NEW_PROJECT_VALUE
+                                              byIndexPath:[[dictNewProjectIndexPaths objectForKey:[[TTApplicationManager sharedApplicationManager] strNewProjectSelectedCategory]] objectForKey:STR_NEW_PROJECT_START_DATE]];
+        item.dtEndDate = [self getNewProjectFieldsValue:STR_NEW_PROJECT_VALUE
+                                            byIndexPath:[[dictNewProjectIndexPaths objectForKey:[[TTApplicationManager sharedApplicationManager] strNewProjectSelectedCategory]] objectForKey:STR_NEW_PROJECT_END_DATE]];
+        
+        dictUpdatedTaskData = [self serializeTaskData:item];
+        
+    }    //Если выбрана категория "редактировать проект", сохраняем только проект с клиентом
+    else if( [[[TTApplicationManager sharedApplicationManager] strNewProjectSelectedCategory] isEqualToString:STR_NEW_PROJECT_PROJECT])
+    {
+        item.strProjectName = [NSString stringWithFormat:@"%@",[self getNewProjectFieldsValue:STR_NEW_PROJECT_VALUE
+                                                                                  byIndexPath:[[dictNewProjectIndexPaths objectForKey:[[TTApplicationManager sharedApplicationManager] strNewProjectSelectedCategory]] objectForKey:STR_NEW_PROJECT_PROJECT]]];
+        
+        dictUpdatedTaskData = [self serializeProjectData:item];
+
+    }    //Если выбрана категория "редактировать проект", сохраняем только клиента
+    else if( [[[TTApplicationManager sharedApplicationManager] strNewProjectSelectedCategory] isEqualToString:STR_NEW_PROJECT_CLIENT])
+    {
+        item.strClientSkype = [NSString stringWithFormat:@"%@",[self getNewProjectFieldsValue:STR_NEW_PROJECT_VALUE
+                                                                                  byIndexPath:[[dictNewProjectIndexPaths objectForKey:[[TTApplicationManager sharedApplicationManager] strNewProjectSelectedCategory]] objectForKey:STR_NEW_PROJECT_CLIENT_SKYPE]]];
+        
+        item.strClientPhone = [NSString stringWithFormat:@"%@",[self getNewProjectFieldsValue:STR_NEW_PROJECT_VALUE
+                                                                                  byIndexPath:[[dictNewProjectIndexPaths objectForKey:[[TTApplicationManager sharedApplicationManager] strNewProjectSelectedCategory]] objectForKey:STR_NEW_PROJECT_CLIENT_PHONE]]];
+        
+        item.strClientMail = [NSString stringWithFormat:@"%@",[self getNewProjectFieldsValue:STR_NEW_PROJECT_VALUE
+                                                                                 byIndexPath:[[dictNewProjectIndexPaths objectForKey:[[TTApplicationManager sharedApplicationManager] strNewProjectSelectedCategory]] objectForKey:STR_NEW_PROJECT_CLIENT_MAIL]]];
+        
+        item.strClientNotes = [NSString stringWithFormat:@"%@",[self getNewProjectFieldsValue:STR_NEW_PROJECT_VALUE
+                                                                                  byIndexPath:[[dictNewProjectIndexPaths objectForKey:[[TTApplicationManager sharedApplicationManager] strNewProjectSelectedCategory]] objectForKey:STR_NEW_PROJECT_CLIENT_NOTE]]];
+        dictUpdatedTaskData = [self serializeClientData:item];
+
+    }
+    
+        bReadyToWriteData = [self editTask:dictOldTaskData withNewData:dictUpdatedTaskData];
+    
+    if (bReadyToWriteData == YES)
+    {
+        [localDataManager writeData:[localDataManager dictLocalData]
+                             toFile:[self getProjectsFilePath] ];
+        return YES;
+    }
+    return NO;
 }
 
 //Save Item to Device
@@ -189,9 +289,11 @@ static TTLocalDataManager *localDataManager;
 }
 
 #pragma mark - Edit Task with new Data
--(NSMutableDictionary*) editTask:(NSMutableDictionary*) dictTaskToEdit withNewData:(NSMutableDictionary*) dictNewData
+-(BOOL) editTask:(NSMutableDictionary*) dictTaskToEdit withNewData:(NSMutableDictionary*) dictNewData
 {
     NSMutableDictionary * dictTaskToReturn = [[NSMutableDictionary alloc] initWithDictionary:dictTaskToEdit copyItems:YES];
+    
+    return [localDataManager editTask:dictTaskToEdit withNewData:dictNewData];
     
     for(NSString* key in [dictNewData allKeys])
     {
@@ -200,7 +302,7 @@ static TTLocalDataManager *localDataManager;
             [dictTaskToReturn setObject:[dictNewData objectForKey:key] forKey:key];
         }
     }
-    return dictTaskToReturn;
+    return YES;
 }
 
 #pragma mark - Clear Task
@@ -419,5 +521,8 @@ static TTLocalDataManager *localDataManager;
     return dt;
 }
 
-
+-(void)updateData
+{
+    
+}
 @end

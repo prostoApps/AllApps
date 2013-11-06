@@ -130,4 +130,10 @@
     [self gotoPage:YES];    // YES = animate
 }
 
+-(void)updateData
+{
+    //вытаскиваем все таски, которые есть в localData
+    NSMutableArray *arrAllTasks = [[NSMutableArray alloc] initWithArray:[[TTAppDataManager sharedAppDataManager] getAllTasksForToday]];
+    tasksIndicator = [[TTTasksIndicatorViewController alloc] initWithTasks:arrAllTasks];   
+}
 @end

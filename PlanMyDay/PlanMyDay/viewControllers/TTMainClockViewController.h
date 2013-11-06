@@ -13,7 +13,7 @@
 #import "TTApplicationManager.h"
 
 
-@interface TTMainClockViewController : UIViewController
+@interface TTMainClockViewController : UIViewController <ViewControllerWithAutoUpdate>
 {
     IBOutlet UIButton *btnMenu;
     IBOutlet UIButton *btnNewTask;
@@ -37,5 +37,9 @@
 @property (nonatomic,retain) IBOutlet UIButton *btnNewTask;
 
 @property (nonatomic,retain) UIViewController  *customTrackerViewController;
+
+@property (nonatomic,retain) NSObject  *externalArgument;
+
+-(void)updateData;
 
 @end

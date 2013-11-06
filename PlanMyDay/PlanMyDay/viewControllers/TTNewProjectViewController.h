@@ -14,7 +14,8 @@
 #import "TTSelectColorViewController.h"
 #import <QuartzCore/QuartzCore.h>
 
-@interface TTNewProjectViewController : UIViewController <UITextFieldDelegate>
+
+@interface TTNewProjectViewController : UIViewController <UITextFieldDelegate,ViewControllerWithArgument,ViewControllerWithAutoUpdate>
 {
     IBOutlet UITableView * tableViewNewProject;
     IBOutlet UIView * headerNewProject;
@@ -30,7 +31,16 @@
 @property(nonatomic, assign) id <UITableViewDataSource>  dataSource;
 @property(nonatomic,retain) IBOutlet UISegmentedControl *scTaskProjectClient;
 
+@property (nonatomic,retain) NSObject  *externalArgument;
+
+-(void) updateViewWithNewData;
+
+- (void)setExternalArgument:(NSObject*)argument;
+- (NSObject*)getExternalArgument;
+
 -(IBAction) segmentedControlIndexChanged;
 -(IBAction) btnSaveTouchHandler:(id)sender;
+
+-(void)updateData;
 @end
 

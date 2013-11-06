@@ -57,6 +57,7 @@ NSString *const FONT_HELVETICA_NEUE_MEDIUM    = @"HelveticaNeue-Medium";
 
 @synthesize ipNewProjectSelectedProperty,strNewProjectSelectedCategory,arrTaskColors;
 @synthesize ipNewProjectSelectedColor;
+@synthesize vcViewControllerToUpdate;
 
 
 NSString * _menuRightViewController;
@@ -205,29 +206,56 @@ NSString * _menuRightViewController;
     return targetViewController;
     
 }
--(void) pushViewTo:(NSString*) strNewView forNavigationController:(UINavigationController*) navController
+-(void) pushViewTo:(NSString*) strNewView forNavigationController:(UINavigationController*) navController withArgument:(NSObject*)argument
 {
     // определяем новый вью контроллер
-    UIViewController* targetViewController  = [self getUIViewControllerFromString:strNewView];
+    UIViewController <ViewControllerWithArgument,ViewControllerWithAutoUpdate> *targetViewController  = [self getUIViewControllerFromString:strNewView];
     
     UIBarButtonItem *backButton=[[UIBarButtonItem alloc]initWithTitle:@"" style:UIBarButtonItemStyleBordered  target:self action:nil];
     [targetViewController.navigationItem setBackBarButtonItem:backButton];
     
+    if (argument && [targetViewController respondsToSelector:@selector(setExternalArgument:)])
+    {
+        if (vcViewControllerToUpdate)
+            [vcViewControllerToUpdate updateData];
+        
+        [targetViewController setExternalArgument:argument] ;
+    }
+    
     [navController pushViewController:targetViewController animated:YES];
+
 }
 
--(void) switchViewTo:(NSString*) strNewView forNavigationController:(UINavigationController*) navController
+-(void) pushViewTo:(NSString*) strNewView forNavigationController:(UINavigationController*) navController
+{
+    [self pushViewTo:strNewView forNavigationController:navController withArgument:nil];
+}
+
+-(void) switchViewTo:(NSString*) strNewView forNavigationController:(UINavigationController*) navController withArgument:(NSObject*) argument
 {
     DDMenuController *menuController = (DDMenuController*)((TTAppDelegate*)[[UIApplication sharedApplication] delegate]).menuController;
     // определяем новый вью контроллер
-    UIViewController* targetViewController  = [self getUIViewControllerFromString:strNewView];
+    UIViewController <ViewControllerWithArgument,ViewControllerWithAutoUpdate> *targetViewController  = [self getUIViewControllerFromString:strNewView];
     
     [menuController setRightViewController:_menuRightViewController];
     
     // set the root controller
     UINavigationController *navControllerRRR = [[UINavigationController alloc] initWithRootViewController:targetViewController];
     
+    if (argument && [targetViewController respondsToSelector:@selector(setExternalArgument:)])
+    {
+        if (vcViewControllerToUpdate)
+            [vcViewControllerToUpdate updateData];
+        
+        [targetViewController setExternalArgument:argument] ;
+    }
+    
     [menuController setRootController:navControllerRRR animated:YES];
+}
+
+-(void) switchViewTo:(NSString*) strNewView forNavigationController:(UINavigationController*) navController
+{
+    [self switchViewTo:strNewView forNavigationController:navController withArgument:nil];
 }
 
 @end
