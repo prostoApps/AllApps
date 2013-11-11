@@ -1,6 +1,6 @@
 
 #import <Foundation/Foundation.h>
-//#import "TTApplicationManager.h"
+#import "TTTools.h"
 
 @protocol SectionHeaderViewDelegate;
 
@@ -9,6 +9,7 @@
 
 @property (nonatomic, weak) IBOutlet UILabel *titleLabel;
 @property (nonatomic, weak) IBOutlet UIButton *disclosureButton;
+@property (nonatomic, weak) IBOutlet UIView * sectionHeaderBack;
 @property (nonatomic, assign) NSInteger section;
 @property (nonatomic, weak) id <SectionHeaderViewDelegate> delegate;
 

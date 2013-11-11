@@ -7,6 +7,7 @@
 
 
 @synthesize titleLabel=_titleLabel, disclosureButton=_disclosureButton, delegate=_delegate, section=_section;
+@synthesize sectionHeaderBack;
 
 
 + (Class)layerClass {
@@ -29,6 +30,9 @@
         _delegate = delegate;
         _section = sectionNumber;
         self.userInteractionEnabled = YES;
+        
+        self.sectionHeaderBack.layer.borderColor = [TTTools colorWithHexString:@"#a8adb3"].CGColor;
+        self.sectionHeaderBack.layer.borderWidth = 1.0f;
         
         self.titleLabel.text = title;
         [self.disclosureButton setImage:[UIImage imageNamed:@"icon-statistic_disclosure2.png"] forState:UIControlStateNormal];
