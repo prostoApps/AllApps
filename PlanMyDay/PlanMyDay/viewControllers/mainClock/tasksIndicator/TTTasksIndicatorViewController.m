@@ -37,6 +37,12 @@ float const NUM_ONE_HOUR_ROTATION = 0.523f;
     return self;
 }
 
+-(void)updateWithTasks:(NSMutableArray*) arrTasks
+{
+    arrTasksForToday = [arrTasks copy];
+    [self drawTasksToView];
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];

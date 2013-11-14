@@ -16,7 +16,7 @@
 
 @synthesize btnNewTask,btnMenu;
 
-@synthesize pageControl,svScrollView,tasksIndicator;
+@synthesize pageControl,svClockScrollView,tasksIndicatorAM,tasksIndicatorPM;
 @synthesize customTrackerViewController;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -42,16 +42,47 @@
     UIColor * back = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"background.jpg"]];
     self.view.backgroundColor = back;
     
+    CGRect scrollViewFrame = CGRectMake(0, 0, 320, 404);
+    svClockScrollView = [[UIScrollView alloc] initWithFrame:scrollViewFrame];
+    [self.view addSubview:svClockScrollView];
 
     //добавляем основные часы
-    ClockViewController *clock = [[ClockViewController alloc] initWithNibName:@"ClockViewController" bundle:nil];
-    clock.view.frame = CGRectMake(0, 0, svScrollView.frame.size.width, svScrollView.frame.size.height);
-    //[svScrollView addSubview:clock.view];
-    [self.view addSubview:clock.view];
+    ClockViewController *clockAM = [[ClockViewController alloc] initWithNibName:@"ClockViewController" bundle:nil];
+    clockAM.view.frame = CGRectMake(0, 0, svClockScrollView.frame.size.width, svClockScrollView.frame.size.height);
+    [svClockScrollView addSubview:clockAM.view];
+
+    ClockViewController *clockPM = [[ClockViewController alloc] initWithNibName:@"ClockViewController" bundle:nil];
+    clockPM.view.frame = CGRectMake(svClockScrollView.frame.size.width, 0, svClockScrollView.frame.size.width, svClockScrollView.frame.size.height);
+    [svClockScrollView addSubview:clockPM.view];
+
+    
+    CGSize scrollViewContentSize = CGSizeMake(640, 404);
+    [svClockScrollView setContentSize:scrollViewContentSize];
     
     //добавляем цветной индикатор тасков вокруг часов
-    tasksIndicator = [[TTTasksIndicatorViewController alloc] initWithTasks:arrAllTasks];
-    [self.view addSubview:tasksIndicator.view];
+//    tasksIndicatorAM = [[TTTasksIndicatorViewController alloc] initWithTasks:arrAllTasks];
+    tasksIndicatorAM = [[TTTasksIndicatorViewController alloc] init];
+    [svClockScrollView addSubview:tasksIndicatorAM.view];
+    
+//    tasksIndicatorPM = [[TTTasksIndicatorViewController alloc] initWithTasks:arrAllTasks];
+    tasksIndicatorPM = [[TTTasksIndicatorViewController alloc] init];
+    [svClockScrollView addSubview:tasksIndicatorPM.view];
+    tasksIndicatorPM.view.frame = CGRectMake(svClockScrollView.frame.size.width,0,svClockScrollView.frame.size.width, svClockScrollView.frame.size.height);
+    
+    [self updateData];
+
+//    svClockScrollView.scrollEnabled = false;
+    svClockScrollView.showsHorizontalScrollIndicator = false;
+    
+    pageControl = [[UIPageControl alloc] init];
+    pageControl.frame = CGRectMake(110,5,100,100);
+    pageControl.numberOfPages = 2;
+    pageControl.currentPage = 0;
+    [self.view addSubview:pageControl];
+//    pageControl.backgroundColor = [UIColor redColor];
+    
+     [pageControl addTarget:self action:@selector(changePage:) forControlEvents:UIControlEventValueChanged];
+//        [self.view addSubview:svScrollView];
     
     //добавляем индикатор под основные часы
    // TTCurrentTaskNextTaskIndicatorViewController *indicator = [[TTCurrentTaskNextTaskIndicatorViewController alloc] initWithNibName:@"TTCurrentTaskNextTaskIndicatorViewController" bundle:nil];
@@ -68,14 +99,13 @@
 
     
  //   self.navigationController.navigationController.v view.backgroundColor = [UIColor clearColor];
-    
 
 }
 -(void) createPageWithColor: (UIColor*) color forPage:(NSInteger) page
 {
-    UIView *newView = [[UIView alloc] initWithFrame:CGRectMake(svScrollView.frame.size.width * page, 0, svScrollView.frame.size.width, svScrollView.frame.size.height)];
+    UIView *newView = [[UIView alloc] initWithFrame:CGRectMake(svClockScrollView.frame.size.width * page, 0, svClockScrollView.frame.size.width, svClockScrollView.frame.size.height)];
     newView.backgroundColor = color;
-    [svScrollView addSubview:newView];
+    [svClockScrollView addSubview:newView];
 }
 
 - (void)didReceiveMemoryWarning
@@ -98,8 +128,8 @@
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
 {
     // switch the indicator when more than 50% of the previous/next page is visible
-    CGFloat pageWidth = CGRectGetWidth(svScrollView.frame);
-    NSUInteger page = floor((svScrollView.contentOffset.x - pageWidth / 2) / pageWidth) + 1;
+    CGFloat pageWidth = CGRectGetWidth(svClockScrollView.frame);
+    NSUInteger page = floor((svClockScrollView.contentOffset.x - pageWidth / 2) / pageWidth) + 1;
     self.pageControl.currentPage = page;
     
     // load the visible page and the page on either side of it (to avoid flashes when the user starts scrolling)
@@ -119,10 +149,10 @@
 //    [self createPageWithColor:[UIColor blueColor] forPage:1];
     
 	// update the scroll view to the appropriate page
-    CGRect bounds = self.svScrollView.bounds;
+    CGRect bounds = self.svClockScrollView.bounds;
     bounds.origin.x = CGRectGetWidth(bounds) * page;
     bounds.origin.y = 0;
-    [self.svScrollView scrollRectToVisible:bounds animated:animated];
+    [self.svClockScrollView scrollRectToVisible:bounds animated:animated];
 }
 
 - (IBAction)changePage:(id)sender
@@ -132,8 +162,25 @@
 
 -(void)updateData
 {
-    //вытаскиваем все таски, которые есть в localData
-    NSMutableArray *arrAllTasks = [[NSMutableArray alloc] initWithArray:[[TTAppDataManager sharedAppDataManager] getAllTasksForToday]];
-    tasksIndicator = [[TTTasksIndicatorViewController alloc] initWithTasks:arrAllTasks];   
+    NSCalendar *cal = [NSCalendar currentCalendar];
+
+    NSMutableArray *arrTasksAM = [[NSMutableArray alloc] init];
+    NSMutableArray *arrTasksPM = [[NSMutableArray alloc] init];
+
+    for (NSMutableDictionary *dictTaskData in [[TTAppDataManager sharedAppDataManager] getAllTasksForToday])
+    {
+
+        NSDateComponents *tmpComponents = [cal components:( NSDayCalendarUnit | NSHourCalendarUnit | NSMinuteCalendarUnit | NSSecondCalendarUnit ) fromDate:[dictTaskData objectForKey:STR_START_DATE]];
+            
+            //[NSDate timeIntervalSinceReferenceDate]
+        if(tmpComponents.hour < 12)
+            [arrTasksAM addObject:dictTaskData ];
+        else
+            [arrTasksPM addObject:dictTaskData ];
+    }
+
+    [tasksIndicatorAM updateWithTasks:arrTasksAM];
+    [tasksIndicatorPM updateWithTasks:arrTasksPM];
 }
+
 @end

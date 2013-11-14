@@ -120,9 +120,7 @@
     Section *aSection=[sectionArray objectAtIndex:indexPath.section];
     static NSString *CellIdentifier = @"Cell";
     
-    TTTasksNavigatorCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
-        cell = [[TTTasksNavigatorCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
     
     // Configure the cell...
@@ -130,7 +128,6 @@
     cell.textLabel.textColor = [UIColor whiteColor];
     return cell;
 }
-
 -(void)sectionHeaderView:(SectionHeaderView*)sectionHeaderView sectionOpened:(NSInteger)sectionOpened {
     
     Section *aSection=[sectionArray objectAtIndex:sectionOpened];

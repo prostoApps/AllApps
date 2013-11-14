@@ -91,12 +91,15 @@ extern NSString *const FONT_HELVETICA_NEUE_MEDIUM;
 @property (nonatomic,copy) NSArray * arrTaskColors;
 
 @property (nonatomic,copy) UIViewController <ViewControllerWithAutoUpdate> * vcViewControllerToUpdate;
+@property (nonatomic,copy) UIViewController <ViewControllerWithAutoUpdate> * vcPreviousViewController;
+@property (nonatomic,copy) UIViewController <ViewControllerWithAutoUpdate> * vcCurrentViewController;
 
 + (TTApplicationManager *)sharedApplicationManager;
 -(void) pushViewTo:(NSString*) strNewView forNavigationController:(UINavigationController*) navController;
 -(void) pushViewTo:(NSString*) strNewView forNavigationController:(UINavigationController*) navController withArgument:(NSObject*)argument;
 -(void) switchViewTo:(NSString*) strNewView forNavigationController:(UINavigationController*) navController;
 
+-(void) updateCurrentViewController;
 //-(void) switchViewTo:(NSString*) strNewView forNavigationController:(UINavigationController*) navController;
 //-(void) switchViewTo:(NSString*) strNewView
 //        forNavigationController:(UINavigationController*) navController

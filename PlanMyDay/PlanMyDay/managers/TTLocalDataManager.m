@@ -413,7 +413,7 @@
 
                             //[NSDate timeIntervalSinceReferenceDate]
                             if(tmpComponents.day == components.day)
-                            [arrAllTasks addObject:[dictTaskData copy]];
+                                [arrAllTasks addObject:dictTaskData ];
                         }
                     }//end if
                 }//end for

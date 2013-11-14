@@ -18,8 +18,10 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
     
-    TTStatisticsViewController *mainController = [[TTStatisticsViewController alloc] init];
-
+//    TTStatisticsViewController *mainController = [[TTStatisticsViewController alloc] init];
+    TTMainClockViewController <ViewControllerWithAutoUpdate> *mainController = [[TTMainClockViewController alloc] init];
+    [[TTApplicationManager sharedApplicationManager] switchViewTo:VIEW_MAIN_CLOCK forNavigationController:mainController];
+    
     UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:mainController];
     
     

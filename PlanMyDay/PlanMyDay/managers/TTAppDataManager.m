@@ -524,5 +524,6 @@ static TTLocalDataManager *localDataManager;
 -(void)updateData
 {
     
+    NSLog(@"-(void!!!)updateData");
 }
 @end

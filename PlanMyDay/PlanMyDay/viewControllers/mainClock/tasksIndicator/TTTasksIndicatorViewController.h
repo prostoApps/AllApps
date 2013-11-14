@@ -21,6 +21,7 @@ extern const CGFloat NUM_ONE_HOUR_DURATION;
 
 -(id)initWithTasks:(NSMutableArray*)arrTasks;
 -(void)drawTasksToView;
+-(void)updateWithTasks:(NSMutableArray*) arrTasks;
 
 @property (strong, nonatomic) IBOutlet DACircularProgressView *largeProgressView;
 

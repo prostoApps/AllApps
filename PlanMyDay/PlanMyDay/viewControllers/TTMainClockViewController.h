@@ -29,9 +29,10 @@
 - (void)gotoPage:(BOOL)animated;
 
 @property (nonatomic,retain) IBOutlet UIPageControl *pageControl;
-@property (nonatomic,retain) IBOutlet UIScrollView  *svScrollView;
+@property (nonatomic,retain) UIScrollView  *svClockScrollView;
 
-@property (nonatomic,retain) TTTasksIndicatorViewController *tasksIndicator;
+@property (nonatomic,retain) TTTasksIndicatorViewController *tasksIndicatorAM;
+@property (nonatomic,retain) TTTasksIndicatorViewController *tasksIndicatorPM;
 
 @property (nonatomic,retain) IBOutlet UIButton *btnMenu;
 @property (nonatomic,retain) IBOutlet UIButton *btnNewTask;

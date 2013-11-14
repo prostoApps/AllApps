@@ -58,6 +58,8 @@ NSString *const FONT_HELVETICA_NEUE_MEDIUM    = @"HelveticaNeue-Medium";
 @synthesize ipNewProjectSelectedProperty,strNewProjectSelectedCategory,arrTaskColors;
 @synthesize ipNewProjectSelectedColor;
 @synthesize vcViewControllerToUpdate;
+@synthesize vcPreviousViewController;
+@synthesize vcCurrentViewController;
 
 
 NSString * _menuRightViewController;
@@ -239,11 +241,11 @@ NSString * _menuRightViewController;
     
     if (argument && [targetViewController respondsToSelector:@selector(setExternalArgument:)])
     {
-        if (vcViewControllerToUpdate)
-            [vcViewControllerToUpdate updateData];
-        
         [targetViewController setExternalArgument:argument] ;
     }
+    
+    if (vcViewControllerToUpdate)
+        [vcViewControllerToUpdate updateData];
     
     [navController pushViewController:targetViewController animated:YES];
 
@@ -257,8 +259,14 @@ NSString * _menuRightViewController;
 -(void) switchViewTo:(NSString*) strNewView forNavigationController:(UINavigationController*) navController withArgument:(NSObject*) argument
 {
     DDMenuController *menuController = (DDMenuController*)((TTAppDelegate*)[[UIApplication sharedApplication] delegate]).menuController;
+
     // определяем новый вью контроллер
     UIViewController <ViewControllerWithArgument,ViewControllerWithAutoUpdate> *targetViewController  = [self getUIViewControllerFromString:strNewView];
+
+    if (vcCurrentViewController)
+        vcPreviousViewController = vcCurrentViewController;
+
+        vcCurrentViewController = targetViewController;
     
     [menuController setRightViewController:_menuRightViewController];
     
@@ -267,11 +275,12 @@ NSString * _menuRightViewController;
     
     if (argument && [targetViewController respondsToSelector:@selector(setExternalArgument:)])
     {
-        if (vcViewControllerToUpdate)
-            [vcViewControllerToUpdate updateData];
-        
         [targetViewController setExternalArgument:argument] ;
     }
+    
+    if (vcViewControllerToUpdate)
+        [vcViewControllerToUpdate updateData];
+    
     
     [menuController setRootController:navControllerRRR animated:YES];
 }
@@ -279,6 +288,12 @@ NSString * _menuRightViewController;
 -(void) switchViewTo:(NSString*) strNewView forNavigationController:(UINavigationController*) navController
 {
     [self switchViewTo:strNewView forNavigationController:navController withArgument:nil];
+}
+
+-(void) updateCurrentViewController
+{
+    if (vcCurrentViewController)
+        [vcCurrentViewController updateData];
 }
 
 @end

@@ -10,8 +10,6 @@
 		05103CC617EA0EAB008C9D81 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05103CC517EA0EAB008C9D81 /* XCTest.framework */; };
 		05103CC717EA0EAB008C9D81 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDB4A82D17849C3F007C7F15 /* Foundation.framework */; };
 		05103CC817EA0EAB008C9D81 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDB4A82B17849C3F007C7F15 /* UIKit.framework */; };
-		051A612C181EDB750078851B /* TTTasksNavigatorCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 051A612B181EDB750078851B /* TTTasksNavigatorCell.xib */; };
-		051A612F181EDB970078851B /* TTTasksNavigatorCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 051A612E181EDB970078851B /* TTTasksNavigatorCell.m */; };
 		051A6131181EE68B0078851B /* SectionHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 051A6130181EE68B0078851B /* SectionHeaderView.xib */; };
 		051A6134181EE9A80078851B /* icon-statistic_disclosure2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 051A6132181EE9A80078851B /* icon-statistic_disclosure2@2x.png */; };
 		051A6135181EE9A80078851B /* icon-statistic_disclosure@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 051A6133181EE9A80078851B /* icon-statistic_disclosure@2x.png */; };
@@ -113,9 +111,6 @@
 /* Begin PBXFileReference section */
 		05103CC417EA0EAB008C9D81 /* PlanMyDay Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "PlanMyDay Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		05103CC517EA0EAB008C9D81 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
-		051A612B181EDB750078851B /* TTTasksNavigatorCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TTTasksNavigatorCell.xib; path = viewControllers/tasksNavigator/TTTasksNavigatorCell.xib; sourceTree = "<group>"; };
-		051A612D181EDB970078851B /* TTTasksNavigatorCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TTTasksNavigatorCell.h; path = viewControllers/tasksNavigator/TTTasksNavigatorCell.h; sourceTree = "<group>"; };
-		051A612E181EDB970078851B /* TTTasksNavigatorCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TTTasksNavigatorCell.m; path = viewControllers/tasksNavigator/TTTasksNavigatorCell.m; sourceTree = "<group>"; };
 		051A6130181EE68B0078851B /* SectionHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SectionHeaderView.xib; path = viewControllers/tasksNavigator/SectionHeaderView.xib; sourceTree = "<group>"; };
 		051A6132181EE9A80078851B /* icon-statistic_disclosure2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-statistic_disclosure2@2x.png"; sourceTree = "<group>"; };
 		051A6133181EE9A80078851B /* icon-statistic_disclosure@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-statistic_disclosure@2x.png"; sourceTree = "<group>"; };
@@ -373,9 +368,6 @@
 				051A6130181EE68B0078851B /* SectionHeaderView.xib */,
 				05F1BCCD18184588005C0739 /* Section.m */,
 				05F1BCCE18184588005C0739 /* Section.h */,
-				051A612D181EDB970078851B /* TTTasksNavigatorCell.h */,
-				051A612E181EDB970078851B /* TTTasksNavigatorCell.m */,
-				051A612B181EDB750078851B /* TTTasksNavigatorCell.xib */,
 			);
 			name = tasksNavigator;
 			sourceTree = "<group>";
@@ -706,7 +698,6 @@
 				05C8B673180EE55C0065891D /* icon-filter@2x.png in Resources */,
 				05C8B65F180ED9860065891D /* icon-settings@2x.png in Resources */,
 				056887701805C93200EDBBB6 /* PropertyListColors.plist in Resources */,
-				051A612C181EDB750078851B /* TTTasksNavigatorCell.xib in Resources */,
 				84E1D17A1813220E00D67AE5 /* PropertyListFilterView.plist in Resources */,
 				05C8B66F180ED9860065891D /* clock-sec-background.png in Resources */,
 				DDB4A83617849C3F007C7F15 /* InfoPlist.strings in Resources */,
@@ -784,7 +775,6 @@
 				05C8B678180EE6230065891D /* TTStatisticFilterViewController.m in Sources */,
 				DDB4A88F178523B2007C7F15 /* TTNewProjectViewController.m in Sources */,
 				DDA17431178A38F40000132D /* TTApplicationManager.m in Sources */,
-				051A612F181EDB970078851B /* TTTasksNavigatorCell.m in Sources */,
 				DD7BAE3217A5BDCA00CACFB2 /* TTTasksTableViewCell.m in Sources */,
 				DD7BAE3617A5BDDB00CACFB2 /* TTTasksViewController.m in Sources */,
 				05C8B635180EC9E00065891D /* TTTools.m in Sources */,

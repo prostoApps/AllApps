@@ -135,6 +135,8 @@
     BOOL bSaveEditSuccess = NO;
     
     [self.view endEditing:YES];
+    //externalArgument == nil  при создании нового таска.
+    //externalArgument != nil при редактировании таска.
     if (externalArgument)
     {
         bSaveEditSuccess = [[TTAppDataManager sharedAppDataManager] editTTItem:externalArgument];
@@ -158,8 +160,9 @@
        }
        else if (scTaskProjectClient.selectedSegmentIndex == NUM_NEW_PROJECT_SELECTED_SEGMENT_TASK)
        {
+           NSArray * tmpArray = [[NSArray alloc] initWithArray:[[TTAppDataManager sharedAppDataManager] getAllTasksForToday]];
            [[TTAppDataManager sharedAppDataManager] clearNewProjectFields];
-           [[TTAppDataManager sharedAppDataManager] updateData];
+           [[TTApplicationManager sharedApplicationManager]  updateCurrentViewController];
            [self.navigationController popViewControllerAnimated:YES];
        }
    }
@@ -192,7 +195,7 @@
 
 -(void)updateData
 {
-    
+    NSLog(@"-(void)updateData");
 }
 
 @end
