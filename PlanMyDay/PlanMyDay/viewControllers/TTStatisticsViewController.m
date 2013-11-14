@@ -120,13 +120,26 @@
     Section *aSection=[sectionArray objectAtIndex:indexPath.section];
     static NSString *CellIdentifier = @"Cell";
     
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+        cell.backgroundColor =[TTTools colorWithHexString:@"#54626e"];
     }
     
     // Configure the cell...
     cell.textLabel.text=[aSection.sectionRows objectAtIndex:indexPath.row];
     cell.textLabel.textColor = [UIColor whiteColor];
+    cell.textLabel.font = [UIFont fontWithName:FONT_HELVETICA_NEUE_LIGHT size:12];
+    
+    UIView *cellColor = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 4, 41)];
+    cellColor.backgroundColor = [TTTools colorWithHexString:@"#fb4030"];
+    [cell addSubview:cellColor];
+    
     return cell;
+}
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 41;
 }
 -(void)sectionHeaderView:(SectionHeaderView*)sectionHeaderView sectionOpened:(NSInteger)sectionOpened {
     
@@ -289,15 +302,31 @@
         NSString *strBlueString = [NSString stringWithFormat:@"%@", [strColor substringWithRange:NSMakeRange(4, 2)]];
         float fBlue = [[TTTools hexFromStr:strBlueString] floatValue];
         
-        DACircularProgressView *largeProgressViewTMP = [[DACircularProgressView alloc] initWithFrame:CGRectMake(28, 0, 185, 185)];
+<<<<<<< HEAD
+//<<<<<<< HEAD
+//        DACircularProgressView *largeProgressViewTMP = [[DACircularProgressView alloc] initWithFrame:CGRectMake(28, 0, 265, 265)];
+//=======
+        DACircularProgressView *largeProgressViewTMP = [[DACircularProgressView alloc] initWithFrame:CGRectMake(68, 65, 185, 185)];
+//>>>>>>> b403e93c0d799c4488e314b6af4b748074dc79fe
+=======
+        DACircularProgressView *largeProgressViewTMP = [[DACircularProgressView alloc] initWithFrame:CGRectMake(68, 65, 185, 185)];
+>>>>>>> b403e93c0d799c4488e314b6af4b748074dc79fe
         largeProgressViewTMP.layer.anchorPoint = CGPointMake(0.5, 0.5);
         [largeProgressViewTMP setTrackTintColor:[[UIColor alloc] initWithRed:0xfc/255.0 green:0x3e/255.0 blue:0xff/255.0 alpha:0]];
         [largeProgressViewTMP setProgressTintColor:[[UIColor alloc] initWithRed:fRed/6666.0 green:fGreen/6666.0 blue:fBlue/6666.0 alpha:1]];
         
         largeProgressViewTMP.roundedCorners = NO;
         [self.largeProgressView addSubview:largeProgressViewTMP];
-        [largeProgressViewTMP setThicknessRatio:0.066];
+<<<<<<< HEAD
+//<<<<<<< HEAD
+//        [largeProgressViewTMP setThicknessRatio:0.2];
         
+//=======
+        [largeProgressViewTMP setThicknessRatio:0.15];
+//>>>>>>> b403e93c0d799c4488e314b6af4b748074dc79fe
+=======
+        [largeProgressViewTMP setThicknessRatio:0.15];
+>>>>>>> b403e93c0d799c4488e314b6af4b748074dc79fe
         [largeProgressViewTMP setProgress:fDurationRatio*NUM_ONE_HOUR_DURATION];
         
         CABasicAnimation *rota = [CABasicAnimation animationWithKeyPath:@"transform.rotation"];
@@ -309,8 +338,47 @@
         rota.toValue = [NSNumber numberWithFloat:  numRotationAngle ];
         [largeProgressViewTMP.layer addAnimation: rota forKey: @"rotation"];
         numRotationAngle += fDurationRatio*NUM_ONE_HOUR_ROTATION;
+        self.largeProgressView.backgroundColor = [[UIColor alloc] initWithRed:0xcc/255.0 green:0xcc/255.0 blue:0xcc/255.0 alpha:1];
     }
 }
+
+#pragma mark segmentedControl methods
+-(IBAction) segmentedControlIndexChanged
+{
+
+	switch (scTaskedPlaned.selectedSegmentIndex) {
+		case 0:
+          
+			break;
+		case 1:
+           
+			break;
+		default:
+            break;
+    }
+
+}
+
+<<<<<<< HEAD
+=======
+#pragma mark segmentedControl methods
+-(IBAction) segmentedControlIndexChanged
+{
+
+	switch (scTaskedPlaned.selectedSegmentIndex) {
+		case 0:
+          
+			break;
+		case 1:
+           
+			break;
+		default:
+            break;
+    }
+
+}
+
+>>>>>>> b403e93c0d799c4488e314b6af4b748074dc79fe
 
 - (void)didReceiveMemoryWarning
 {
