@@ -12,4 +12,5 @@
 
 +(NSString*)hexFromStr:(NSString*)str;
 + (UIColor *)colorWithHexString:(NSString *)stringToConvert;
++ (void)showPopUpOk:(NSDictionary *)parametrs;
 @end

@@ -135,6 +135,22 @@
     BOOL bSaveEditSuccess = NO;
     
     [self.view endEditing:YES];
+    // проверка на заполненость имени
+ 
+    
+    NSString * validateName = [NSString stringWithFormat:@"%@",
+                             [[TTAppDataManager sharedAppDataManager] getNewProjectFieldsValue:STR_NEW_PROJECT_VALUE
+                                               byIndexPath:[[[[TTAppDataManager sharedAppDataManager] dictNewProjectIndexPaths] objectForKey:[[TTApplicationManager sharedApplicationManager] strNewProjectSelectedCategory]] objectForKey:STR_NEW_PROJECT_NAME]]];
+    
+    if ( [validateName isEqualToString:@"(null)"] || [validateName isEqualToString:@""] )
+    {
+        [TTTools showPopUpOk:[[NSDictionary alloc] initWithObjectsAndKeys:@"Error",@"title",
+                              @"Ok",@"titleButton",
+                              @"Поле имя не заполнено",@"message",
+                              nil]];
+        return;
+    }
+    
     //externalArgument == nil  при создании нового таска.
     //externalArgument != nil при редактировании таска.
     if (externalArgument)

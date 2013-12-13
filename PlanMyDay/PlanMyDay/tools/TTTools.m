@@ -33,4 +33,16 @@
     return [UIColor colorWithRed:r / 255.0f green:g / 255.0f blue:b / 255.0f alpha:1.0f];
 }
 
++ (void)showPopUpOk:(NSDictionary *)parametrs{
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:[parametrs objectForKey:@"title"] message:[parametrs objectForKey:@"message"] delegate:self cancelButtonTitle:[parametrs objectForKey:@"titleButton"] otherButtonTitles:nil];
+//    UITextView *someTextView = [[UITextView alloc] initWithFrame:CGRectMake(15, 35, 250, 100)];
+//    someTextView.backgroundColor = [UIColor clearColor];
+//    someTextView.textColor = [UIColor whiteColor];
+//    someTextView.editable = NO;
+//    someTextView.font = [UIFont systemFontOfSize:15];
+//    someTextView.text = @"Enter Text Here";
+//    [alert addSubview:someTextView];
+    [alert show];
+}
+
 @end

@@ -147,7 +147,16 @@
         inputField.tag = INT_NEW_PROJECT_TYPE_PICKER;
         inputField.delegate = self;
         inputField.inputView = dpView;
-        NSDate * date = [[listData objectAtIndex:row] objectForKey:STR_NEW_PROJECT_VALUE];
+        NSDate * date;
+        date = [[listData objectAtIndex:row] objectForKey:STR_NEW_PROJECT_VALUE];
+        if (!date) {
+            date = [NSDate date];
+            if ([[[listData objectAtIndex:row] objectForKey:STR_NEW_PROJECT_NAME] isEqualToString:STR_NEW_PROJECT_END_DATE]) {
+                NSTimeInterval secondsInEightHours = 1 * 60 * 60;
+                NSDate *dateEightHoursAhead = [date dateByAddingTimeInterval:secondsInEightHours];
+                date = dateEightHoursAhead;
+            }
+        }
         inputField.text = [[TTAppDataManager sharedAppDataManager] convertDate:date withFormat:@"EEEE, MMMM dd,yyyy hh:mm a"];
         [cell addSubview:inputField];
         
