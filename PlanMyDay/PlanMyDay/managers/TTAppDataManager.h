@@ -41,7 +41,7 @@ extern NSString *const STR_SORT_PARAMETER_TASK_DURATION;
 -(NSString*)getDocumentsPath;
 -(NSString*)getProjectsFilePath;
 -(NSArray*) getNewProjectFields;
--(NSArray*)updateNewTaskFormFieldsWithData:(NSDictionary*) dictTaskData;
+-(NSArray*)updateNewTaskFormFieldsWithData:(TTItem*) dictTaskData;
 -(NSArray*) getFilterFields;
 -(NSObject*)getNewProjectFieldsValue:(NSString*)value byIndexPath:(NSIndexPath*)indexPath;
 

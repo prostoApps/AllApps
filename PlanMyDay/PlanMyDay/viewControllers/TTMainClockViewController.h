@@ -39,7 +39,7 @@
 
 @property (nonatomic,retain) UIViewController  *customTrackerViewController;
 
-@property (nonatomic,retain) NSObject  *externalArgument;
+@property (nonatomic,retain) TTItem  *externalArgument;
 
 -(void)updateData;
 

@@ -170,9 +170,12 @@
 
 -(void) updateViewWithNewData
 {
-    
     NSMutableArray * dictExistingTaskFields = [[TTAppDataManager sharedAppDataManager] updateNewTaskFormFieldsWithData:externalArgument];
     [newProjectTableController setArrayTableViewData:dictExistingTaskFields];
+    if(externalArgument.strTaskName)
+    {
+     
+    }
 }
 
 - (void)didReceiveMemoryWarning
@@ -181,13 +184,13 @@
     // Dispose of any resources that can be recreated.
 }
 
--(void)setExternalArgument:(NSObject*)argument
+-(void)setExternalArgument:(TTItem*)argument
 {
     externalArgument = argument;
     [self updateViewWithNewData];
 }
 
-- (NSObject*)getExternalArgument
+- (TTItem*)getExternalArgument
 {
     return externalArgument;
 }

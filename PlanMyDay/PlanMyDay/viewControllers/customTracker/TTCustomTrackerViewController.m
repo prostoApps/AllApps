@@ -19,6 +19,8 @@
 @synthesize largeProgressView = _largeProgressView;
 @synthesize playPauseButton;
 @synthesize btnNewTask,btnMenu;
+@synthesize externalArgument;
+@synthesize unsavedTrackedTask;
 
 - (void)viewDidLoad
 {
@@ -43,15 +45,16 @@
     duration = 0;
     [self.largeProgressView setProgress:1];
     // Запланированый старт (текущая дата - час)
-    NSDate *taskStartTime1 = [NSDate dateWithTimeInterval:-2 sinceDate:[NSDate date]];
+    NSDate *taskStartTime1 = [NSDate dateWithTimeInterval:0 sinceDate:[NSDate date]];
     // Запланированый Финиш (текущая дата + час)
-    NSDate *taskStartTime2 = [NSDate dateWithTimeInterval:2 sinceDate:[NSDate date]];
+    NSDate *taskStartTime2 = [NSDate dateWithTimeIntervalSinceNow:0];
     timeDifference100 = [taskStartTime2 timeIntervalSinceDate:taskStartTime1];
     NSLog(@"timeDifference100:%f",timeDifference100);
     [self updateTimerStuff];
     
 	// Do any additional setup after loading the view, typically from a nib.
 }
+
 -(void)startTrackingTime{
     [self.largeProgressView resumeAnimation];
     [self.largeProgressView setAnimatedProgress:0 withDuration:timeDifference100];
@@ -151,6 +154,12 @@
     
 }
 -(IBAction)playPauseButtonPressed{
+    if(unsavedTrackedTask == nil)
+    {
+        unsavedTrackedTask = [[TTItem alloc] initWithEmptyFields];
+        unsavedTrackedTask.dtStartDate = [NSDate date];
+    }
+    
     if([playPauseButton.titleLabel.text isEqualToString:@"Pause"])
     {
         [playPauseButton setTitle:@"Resume" forState:UIControlStateNormal];
@@ -186,7 +195,24 @@
     [self.largeProgressView setProgress:0];
     self.timerLabel.text = @"00:00:00";
     timerTitleLabel.text = @"Time ramaining";
-    
+
+    if (!externalArgument)
+    {
+        if (unsavedTrackedTask  == nil)
+        {
+            unsavedTrackedTask = [[TTItem alloc] initWithEmptyFields];
+        }
+        float tmpTime = (duration-timeDifference100)+timeDifference;
+        unsavedTrackedTask.numRealDuration = &(tmpTime);
+        unsavedTrackedTask.dtEndDate = [NSDate date];
+        NSLog(@"completeButtonPressed::tracked time: %f",tmpTime);
+        [[TTApplicationManager sharedApplicationManager] switchViewTo:VIEW_NEW_TASK forNavigationController:self.navigationController withArgument:unsavedTrackedTask];
+    }
+    else
+    {
+        [[TTApplicationManager sharedApplicationManager] switchViewTo:VIEW_CURRENT_TASKS forNavigationController:self.navigationController];
+    }
+
 }
 -(IBAction)cancelButtonPressed{
     [playPauseButton setTitle:@"Start" forState:UIControlStateNormal];
@@ -198,5 +224,54 @@
     [self updateTimerStuff];
     overtime = false;
     timerTitleLabel.text = @"Time ramaining";
+    unsavedTrackedTask = nil;
 }
+
+-(void)calculateRemainingTaskDurationOfTask: (TTItem*)taskItem
+{
+        NSDateComponents *dateComponents = [[NSCalendar currentCalendar] components:(NSHourCalendarUnit | NSMinuteCalendarUnit | NSSecondCalendarUnit)
+                                                                       fromDate:taskItem.dtStartDate];
+	NSInteger seconds = [dateComponents second];
+	NSInteger minutes = [dateComponents minute];
+	NSInteger hours = [dateComponents hour];
+
+//    NSString *strRedString = [NSString stringWithFormat:@"%@", [strColor substringWithRange:NSMakeRange(0, 2)]];
+//    float fRed = [[TTTools hexFromStr:strRedString] floatValue];
+//    NSString *strGreenString = [NSString stringWithFormat:@"%@", [strColor substringWithRange:NSMakeRange(2, 2)]];
+//    float fGreen = [[TTTools hexFromStr:strGreenString] floatValue];
+//    NSString *strBlueString = [NSString stringWithFormat:@"%@", [strColor substringWithRange:NSMakeRange(4, 2)]];
+//    float fBlue = [[TTTools hexFromStr:strBlueString] floatValue];
+//    
+
+    [self.largeProgressView setTrackTintColor:[[UIColor alloc] initWithRed:0x3b/255.0 green:0x45/255.0 blue:0x4e/255.0 alpha:1]];
+    [self.largeProgressView setProgressTintColor:[[UIColor alloc] initWithRed:0xfc/255.0 green:0x3e/255.0 blue:0x39/255.0 alpha:1]];
+
+    
+    NSDate *taskStartTime = [taskItem.dtStartDate copy];
+    NSDate *taskEndTime = taskItem.dtEndDate;
+    timeDifference100 = [taskEndTime timeIntervalSinceDate:taskStartTime];
+    NSLog(@"timeDifference100:%f",timeDifference100);
+    [self updateTimerStuff];
+
+}
+
+-(void)setExternalArgument:(TTItem*)argument
+{
+    externalArgument = argument;
+    [self updateViewWithNewData];
+}
+
+- (TTItem*)getExternalArgument
+{
+    return externalArgument;
+}
+
+
+-(void) updateViewWithNewData
+{
+    [self calculateRemainingTaskDurationOfTask:externalArgument];
+//    NSMutableArray * dictExistingTaskFields = [[TTAppDataManager sharedAppDataManager] updateNewTaskFormFieldsWithData:externalArgument];
+//      [newProjectTableController setArrayTableViewData:dictExistingTaskFields];
+}
+
 @end

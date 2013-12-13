@@ -98,31 +98,31 @@ static TTLocalDataManager *localDataManager;
     return [dictNewProjectFields objectForKey:[[TTApplicationManager sharedApplicationManager] strNewProjectSelectedCategory]];
 }
 
--(NSArray*)updateNewTaskFormFieldsWithData:(NSDictionary*) dictTaskData
+-(NSArray*)updateNewTaskFormFieldsWithData:(TTItem*) item
 {
     NSMutableArray * arrToReturn = [[NSMutableArray alloc] initWithArray:[dictNewProjectFields objectForKey:STR_NEW_PROJECT_TASK]];
     //set task fields (section 1)
-    NSLog(@"%@",[NSString stringWithFormat:@"%@",[dictTaskData objectForKey:STR_TASK_NAME]]);
-    NSLog(@"%@",[[[arrToReturn objectAtIndex:0] objectForKey:STR_NEW_PROJECT_CELLS]objectAtIndex:0 ] );
+//    NSLog(@"%@",[NSString stringWithFormat:@"%@",item.strTaskName]);
+//    NSLog(@"%@",[[[arrToReturn objectAtIndex:0] objectForKey:STR_NEW_PROJECT_CELLS]objectAtIndex:0 ] );
     
     [[[[arrToReturn objectAtIndex:0] objectForKey:STR_NEW_PROJECT_CELLS]objectAtIndex:0 ] setObject:
-     [NSString stringWithFormat:@"%@",[dictTaskData objectForKey:STR_TASK_NAME]] forKey:STR_NEW_PROJECT_VALUE];
+     [NSString stringWithFormat:@"%@",item.strTaskName] forKey:STR_NEW_PROJECT_VALUE];
     
     [[[[arrToReturn objectAtIndex:0] objectForKey:STR_NEW_PROJECT_CELLS]objectAtIndex:1 ] setObject:
-     [dictTaskData objectForKey:STR_PROJECT_NAME] forKey:STR_NEW_PROJECT_VALUE];
+     [NSString stringWithFormat:@"%@",item.strProjectName] forKey:STR_NEW_PROJECT_VALUE];
     
     [[[[arrToReturn objectAtIndex:0] objectForKey:STR_NEW_PROJECT_CELLS]objectAtIndex:2 ] setObject:
-     [dictTaskData objectForKey:STR_CLIENT_NAME] forKey:STR_NEW_PROJECT_VALUE];
+     [NSString stringWithFormat:@"%@",item.strClientName] forKey:STR_NEW_PROJECT_VALUE];
     
     [[[[arrToReturn objectAtIndex:0] objectForKey:STR_NEW_PROJECT_CELLS]objectAtIndex:3 ] setObject:
-     [dictTaskData objectForKey:STR_TASK_COLOR] forKey:STR_NEW_PROJECT_VALUE];
+     [NSString stringWithFormat:@"%@",item.strColor] forKey:STR_NEW_PROJECT_VALUE];
 
     //set task date (section 2)
     [[[[arrToReturn objectAtIndex:1] objectForKey:STR_NEW_PROJECT_CELLS]objectAtIndex:0 ] setObject:
-     [dictTaskData objectForKey:STR_START_DATE] forKey:STR_NEW_PROJECT_VALUE];
+     item.dtStartDate forKey:STR_NEW_PROJECT_VALUE];
     
     [[[[arrToReturn objectAtIndex:1] objectForKey:STR_NEW_PROJECT_CELLS]objectAtIndex:1 ] setObject:
-     [dictTaskData objectForKey:STR_END_DATE] forKey:STR_NEW_PROJECT_VALUE];
+     item.dtEndDate forKey:STR_NEW_PROJECT_VALUE];
     
     return arrToReturn;
 }
@@ -174,7 +174,7 @@ static TTLocalDataManager *localDataManager;
         
         item.strColor = [NSString stringWithFormat:@"%@",[self getNewProjectFieldsValue:STR_NEW_PROJECT_VALUE
                                                                             byIndexPath:[[dictNewProjectIndexPaths objectForKey:[[TTApplicationManager sharedApplicationManager] strNewProjectSelectedCategory]] objectForKey:STR_NEW_PROJECT_COLOR]]];
-        
+//        [NSDate da]
         
         item.dtStartDate = [self getNewProjectFieldsValue:STR_NEW_PROJECT_VALUE
                                               byIndexPath:[[dictNewProjectIndexPaths objectForKey:[[TTApplicationManager sharedApplicationManager] strNewProjectSelectedCategory]] objectForKey:STR_NEW_PROJECT_START_DATE]];
@@ -249,8 +249,9 @@ static TTLocalDataManager *localDataManager;
                                                                               byIndexPath:[[dictNewProjectIndexPaths objectForKey:[[TTApplicationManager sharedApplicationManager] strNewProjectSelectedCategory]] objectForKey:STR_NEW_PROJECT_START_DATE]];
         item.dtEndDate = [self getNewProjectFieldsValue:STR_NEW_PROJECT_VALUE
                                                                               byIndexPath:[[dictNewProjectIndexPaths objectForKey:[[TTApplicationManager sharedApplicationManager] strNewProjectSelectedCategory]] objectForKey:STR_NEW_PROJECT_END_DATE]];
+//        [item setNumPlaningDuration:[item.dtStartDate timeIntervalSinceDate:item.dtEndDate]];
         
-        dictData = [self serializeTaskData:item];
+        dictData = [[NSMutableDictionary alloc] initWithDictionary:[self serializeTaskData:item] copyItems:YES];
         bReadyToWriteData = [localDataManager saveItemData:dictData];
         
     }    //Если выбрана категория "создать проект", сохраняем только проект с клиентом
@@ -381,8 +382,8 @@ static TTLocalDataManager *localDataManager;
                                      item.strClientPhone, STR_CLIENT_PHONE,
                                      item.strClientNotes, STR_CLIENT_NOTES,
                                      // item.strCheck,      STR_TASK_CHECK,
-                                     // item.dtStartDate,   STR_START_DATE,
-                                     // item.dtEndDate,     STR_END_DATE,
+//                                      item.dtStartDate,   STR_START_DATE,
+//                                      item.dtEndDate,     STR_END_DATE,
                                      nil];
     
     return dictData;
@@ -406,8 +407,15 @@ static TTLocalDataManager *localDataManager;
 
 -(TTItem*)deserializeData:(NSDictionary*)data
 {
-    TTItem *item;
-   // [item setItemData:data];
+    TTItem *item = [[TTItem alloc] init];
+
+    item.strClientName  = [data objectForKey:STR_CLIENT_NAME];
+    item.strProjectName = [data objectForKey:STR_PROJECT_NAME];
+    item.strTaskName    = [data objectForKey:STR_TASK_NAME];
+    item.dtStartDate    = [data objectForKey:STR_START_DATE];
+    item.dtEndDate      = [data objectForKey:STR_END_DATE];
+    item.strColor       = [data objectForKey:STR_TASK_COLOR];
+
     return item;
 }
 

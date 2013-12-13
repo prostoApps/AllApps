@@ -621,6 +621,7 @@
                                 {
                                     if ([dictTaskData objectForKey:STR_TASK_NAME] == [dictTaskToRemove objectForKey:STR_TASK_NAME])
                                     {
+                                        [[dictProjectData objectForKey:STR_ALL_TASKS] removeObject:dictTaskData];
                                         return YES;
                                     }
                                 }

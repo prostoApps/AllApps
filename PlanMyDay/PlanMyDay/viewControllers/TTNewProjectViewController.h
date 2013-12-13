@@ -31,12 +31,12 @@
 @property(nonatomic, assign) id <UITableViewDataSource>  dataSource;
 @property(nonatomic,retain) IBOutlet UISegmentedControl *scTaskProjectClient;
 
-@property (nonatomic,retain) NSObject  *externalArgument;
+@property (nonatomic,retain) TTItem  *externalArgument;
 
 -(void) updateViewWithNewData;
 
-- (void)setExternalArgument:(NSObject*)argument;
-- (NSObject*)getExternalArgument;
+- (void)setExternalArgument:(TTItem*)argument;
+- (TTItem*)getExternalArgument;
 
 -(IBAction) segmentedControlIndexChanged;
 -(IBAction) btnSaveTouchHandler:(id)sender;

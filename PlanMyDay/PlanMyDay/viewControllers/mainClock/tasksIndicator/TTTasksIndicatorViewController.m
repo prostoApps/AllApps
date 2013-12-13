@@ -18,6 +18,7 @@ float const NUM_ONE_HOUR_ROTATION = 0.523f;
 @implementation TTTasksIndicatorViewController
 
 @synthesize largeProgressView = _largeProgressView;
+@synthesize tasksHolderView;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -70,11 +71,13 @@ float const NUM_ONE_HOUR_ROTATION = 0.523f;
     
     float numDuration = 0;
     float numTotalDuration = 0;
-    float fDurationRatio = 0;
     NSDate *dtStartDate;
     NSDate *dtEndDate;
     NSString *strColor;
-    
+
+    tasksHolderView = nil;
+    tasksHolderView = [[UIView alloc] initWithFrame:self.view.frame];
+    [self.view addSubview:tasksHolderView];
     //    NSString *strNewString = [strColor substringToIndex:2];
     //    flo *strNewString = [strColor substringWithRange:NSMakeRange(0, 2)];
     //    [strColor floatValue];
@@ -96,8 +99,6 @@ float const NUM_ONE_HOUR_ROTATION = 0.523f;
         dtEndDate   = [dictTask objectForKey:STR_END_DATE];
         numDuration = [dtEndDate timeIntervalSinceDate:dtStartDate]/3600;
         
-        fDurationRatio = numDuration / numTotalDuration;
-        
         NSDateComponents *tmpDateComponents = [calendar components:(NSHourCalendarUnit) fromDate:dtStartDate];
         NSInteger numHourOfTaskStarts = [tmpDateComponents hour];
         
@@ -114,7 +115,7 @@ float const NUM_ONE_HOUR_ROTATION = 0.523f;
         [largeProgressViewTMP setProgressTintColor:[[UIColor alloc] initWithRed:fRed/6666.0 green:fGreen/6666.0 blue:fBlue/6666.0 alpha:1]];
         
         largeProgressViewTMP.roundedCorners = NO;
-        [self.view addSubview:largeProgressViewTMP];
+        [tasksHolderView addSubview:largeProgressViewTMP];
         [largeProgressViewTMP setThicknessRatio:0.066];
         
         [largeProgressViewTMP setProgress:numDuration*NUM_ONE_HOUR_DURATION];

@@ -84,14 +84,26 @@
         {
             
             [[TTApplicationManager sharedApplicationManager] pushViewTo:VIEW_NEW_TASK forNavigationController:self.navigationController withArgument:dictTaskData];
+            return;
         }
     }
 //    [[TTApplicationManager sharedApplicationManager] pushViewTo:VIEW_NEW_TASK forNavigationController:self.navigationController];
 }
 
--(void)iconTaskWasTaped:(UITableViewCell*)cell{
-    [[TTApplicationManager sharedApplicationManager] switchViewTo:VIEW_CUSTOM_TRACKER forNavigationController:self.navigationController];
-    
+-(void)iconTaskWasTaped:(TTTasksTableViewCell*)cell
+{
+    NSDictionary *dictSelectedTaskData = [[NSDictionary alloc] initWithDictionary:cell.getTableCellData];
+    for (NSMutableDictionary *dictTaskData in cellsDataArray)
+    {
+        if ([[dictTaskData objectForKey:STR_TASK_NAME] isEqualToString: [dictSelectedTaskData objectForKey:STR_TASK_NAME]]  &&
+            [[dictTaskData objectForKey:STR_PROJECT_NAME] isEqualToString: [dictSelectedTaskData objectForKey:STR_PROJECT_NAME]] &&
+            [[dictTaskData objectForKey:STR_CLIENT_NAME] isEqualToString: [dictSelectedTaskData objectForKey:STR_CLIENT_NAME] ])
+        {
+            [[TTApplicationManager sharedApplicationManager] switchViewTo:VIEW_CUSTOM_TRACKER
+                                                  forNavigationController:self.navigationController
+                                                             withArgument:[[TTAppDataManager sharedAppDataManager] deserializeData:dictTaskData]];
+        }
+    }
 }
 
 #pragma mark UITableViewDataSource

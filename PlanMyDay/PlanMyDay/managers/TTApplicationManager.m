@@ -231,7 +231,7 @@ NSString * _menuRightViewController;
     return targetViewController;
     
 }
--(void) pushViewTo:(NSString*) strNewView forNavigationController:(UINavigationController*) navController withArgument:(NSObject*)argument
+-(void) pushViewTo:(NSString*) strNewView forNavigationController:(UINavigationController*) navController withArgument:(TTItem*)argument
 {
     // определяем новый вью контроллер
     UIViewController <ViewControllerWithArgument,ViewControllerWithAutoUpdate> *targetViewController  = [self getUIViewControllerFromString:strNewView];
@@ -256,7 +256,7 @@ NSString * _menuRightViewController;
     [self pushViewTo:strNewView forNavigationController:navController withArgument:nil];
 }
 
--(void) switchViewTo:(NSString*) strNewView forNavigationController:(UINavigationController*) navController withArgument:(NSObject*) argument
+-(void) switchViewTo:(NSString*) strNewView forNavigationController:(UINavigationController*) navController withArgument:(TTItem*) argument
 {
     DDMenuController *menuController = (DDMenuController*)((TTAppDelegate*)[[UIApplication sharedApplication] delegate]).menuController;
 

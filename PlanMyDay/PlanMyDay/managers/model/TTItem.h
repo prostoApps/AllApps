@@ -42,8 +42,8 @@ extern NSString *const STR_COLOR_STRAWBERRY;
     NSDate   *dtStartDate;
     NSDate   *dtStartTime;
     NSDate   *dtEndDate;
-    int      *numPlaningDuration;
-    int      *numRealDuration;
+    NSTimeInterval      *numPlaningDuration;
+    double      *numRealDuration;
     int      *numRate;
     NSString *strColor;
     NSString *strCheck;
@@ -56,13 +56,14 @@ extern NSString *const STR_COLOR_STRAWBERRY;
 @property(nonatomic, retain) NSString *strProjectName;
 @property(nonatomic, retain) NSString *strTaskName;
 @property(nonatomic, retain) NSDate   *dtStartTime;
-@property(nonatomic, retain) NSDate   *dtStartDate;
+@property(nonatomic, strong) NSDate   *dtStartDate;
 @property(nonatomic, retain) NSDate   *dtEndDate;
-@property(nonatomic, assign) int      *numPlaningDuration;
-@property(nonatomic, assign) int      *numRealDuration;
+@property(nonatomic, assign) NSTimeInterval      *numPlaningDuration;
+@property(nonatomic, assign) double      *numRealDuration;
 @property(nonatomic, assign) int      *numRate;
 @property(nonatomic, retain) NSString *strColor;
 @property(nonatomic, retain) NSString *strCheck;
 
 -(void)clear;
+-(id)initWithEmptyFields;
 @end

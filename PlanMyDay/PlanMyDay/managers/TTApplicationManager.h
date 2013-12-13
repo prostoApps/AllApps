@@ -5,11 +5,12 @@
 //  Created by ProstoApps* on 7/8/13.
 //  Copyright (c) 2013 prosto*. All rights reserved.
 //
+#import "TTItem.h"
 
 @protocol ViewControllerWithArgument <NSObject>
 
-- (void)setExternalArgument:(NSObject*)argument;
-- (NSObject*)getExternalArgument;
+- (void)setExternalArgument:(TTItem*)argument;
+- (TTItem*)getExternalArgument;
 
 @end
 
@@ -28,6 +29,7 @@
 #import "TTNewProjectViewController.h"
 #import "TTCustomTrackerViewController.h"
 #import "TTMenuViewController.h"
+
 
 
 
@@ -96,8 +98,9 @@ extern NSString *const FONT_HELVETICA_NEUE_MEDIUM;
 
 + (TTApplicationManager *)sharedApplicationManager;
 -(void) pushViewTo:(NSString*) strNewView forNavigationController:(UINavigationController*) navController;
--(void) pushViewTo:(NSString*) strNewView forNavigationController:(UINavigationController*) navController withArgument:(NSObject*)argument;
+-(void) pushViewTo:(NSString*) strNewView forNavigationController:(UINavigationController*) navController withArgument:(TTItem*)argument;
 -(void) switchViewTo:(NSString*) strNewView forNavigationController:(UINavigationController*) navController;
+-(void) switchViewTo:(NSString*) strNewView forNavigationController:(UINavigationController*) navController withArgument:(TTItem*) argument;
 
 -(void) updateCurrentViewController;
 //-(void) switchViewTo:(NSString*) strNewView forNavigationController:(UINavigationController*) navController;

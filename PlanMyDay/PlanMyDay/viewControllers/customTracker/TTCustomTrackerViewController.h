@@ -26,6 +26,8 @@
     NSDate *taskStartTime;
     NSDate *taskStartTimeNow;
     NSTimeInterval timeDifference,timeDifference100;
+    
+    TTItem *unsavedTrackedTask;
 }
 
 -(IBAction) btnNewTaskTouchHandler:(id)sender;
@@ -39,6 +41,9 @@
 @property (retain, nonatomic) IBOutlet UILabel *timerTitleLabel;
 @property (retain, nonatomic) IBOutlet UILabel *timerLabel;
 @property (strong, nonatomic) IBOutlet DACircularProgressView *largeProgressView;
+
+@property (nonatomic,retain) TTItem  *externalArgument;
+@property (nonatomic,retain) TTItem  *unsavedTrackedTask;
 
 -(IBAction)playPauseButtonPressed;
 -(IBAction)stopButtonPressed;

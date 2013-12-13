@@ -44,6 +44,20 @@ Strawberry fc3e39
 @synthesize   strProjectName,strTaskName,dtStartDate,dtStartTime,dtEndDate;
 @synthesize   numPlaningDuration,numRealDuration,numRate,strColor,strCheck;
 
+-(id)initWithEmptyFields
+{
+        self = [super init];
+        if(self) {
+            strTaskName = @"";
+            strProjectName = @"";
+            strClientName = @"";
+            strColor = @"";
+            numRealDuration = 0;
+            numPlaningDuration = 0;
+        }
+        return(self);
+}
+
 -(void)clear
 {
     strClientName=nil;
