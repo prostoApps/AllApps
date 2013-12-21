@@ -391,7 +391,7 @@
     
     if ([[dictLocalData objectForKey:STR_ALL_CLIENTS] count] > 0)
     {
-        for (NSMutableDictionary *dictClientData in [dictLocalData objectForKey:STR_ALL_CLIENTS])
+        for (NSDictionary *dictClientData in [dictLocalData objectForKey:STR_ALL_CLIENTS])
         {
             //проходим по всем проектам в локал дате и проверяем имена на повторение
             //если в локал дате существует клиент с таким же именем, то заходим в него
@@ -401,13 +401,13 @@
             {
                 //проходим по всем проектам клиента и проверяем на совпадение имени
                 //если у клиента существует проект с таким же именем, то заходим в него
-                for (NSMutableDictionary *dictProjectData in [dictClientData objectForKey:STR_ALL_PROJECTS])
+                for (NSDictionary *dictProjectData in [dictClientData objectForKey:STR_ALL_PROJECTS])
                 {
                     //если в проекте есть таски, то проходим по каждой
                     if([[dictProjectData objectForKey:STR_ALL_TASKS] count] > 0)
                     {
                         //проходим по всем таскам проекта и добавляем и в массив всех тасков
-                        for (NSMutableDictionary *dictTaskData in [dictProjectData objectForKey:STR_ALL_TASKS])
+                        for (NSDictionary *dictTaskData in [dictProjectData objectForKey:STR_ALL_TASKS])
                         {
                             NSDateComponents *tmpComponents = [cal components:( NSDayCalendarUnit | NSHourCalendarUnit | NSMinuteCalendarUnit | NSSecondCalendarUnit ) fromDate:[dictTaskData objectForKey:STR_START_DATE]];
 
@@ -712,7 +712,7 @@
                                       @"Страховая Компания", STR_PROJECT_NAME,
                                       @"Дизайн", STR_TASK_NAME,
                                       @"fd9426", STR_TASK_COLOR,
-                                      @"1", STR_TASK_CHECK,
+                                      @"1", STR_THIS_TASK_IS_CHECKED,
                                       nil];
     
     NSMutableDictionary *dictTask4 = [[NSMutableDictionary alloc] initWithObjectsAndKeys:@"Павел", STR_CLIENT_NAME,
@@ -754,7 +754,7 @@
                                       @"Bookzy", STR_PROJECT_NAME,
                                       @"Читалка", STR_TASK_NAME,
                                       @"1c7efb", STR_TASK_COLOR,
-                                      @"1", STR_TASK_CHECK,
+                                      @"1", STR_THIS_TASK_IS_CHECKED,
                                       nil];
     
     NSMutableDictionary *dictTask10 = [[NSMutableDictionary alloc] initWithObjectsAndKeys:@"Алексей", STR_CLIENT_NAME,

@@ -196,20 +196,25 @@
     self.timerLabel.text = @"00:00:00";
     timerTitleLabel.text = @"Time ramaining";
 
+    float tmpTime = (duration-timeDifference100)+timeDifference;
+    NSLog(@"completeButtonPressed::tracked time: %f",tmpTime);
+    
     if (!externalArgument)
     {
         if (unsavedTrackedTask  == nil)
         {
             unsavedTrackedTask = [[TTItem alloc] initWithEmptyFields];
         }
-        float tmpTime = (duration-timeDifference100)+timeDifference;
+
         unsavedTrackedTask.numRealDuration = &(tmpTime);
         unsavedTrackedTask.dtEndDate = [NSDate date];
-        NSLog(@"completeButtonPressed::tracked time: %f",tmpTime);
+
         [[TTApplicationManager sharedApplicationManager] switchViewTo:VIEW_NEW_TASK forNavigationController:self.navigationController withArgument:unsavedTrackedTask];
     }
     else
     {
+        externalArgument.numRealDuration = &(tmpTime);
+        externalArgument.strIsChecked = @"1";
         [[TTApplicationManager sharedApplicationManager] switchViewTo:VIEW_CURRENT_TASKS forNavigationController:self.navigationController];
     }
 
@@ -235,16 +240,16 @@
 	NSInteger minutes = [dateComponents minute];
 	NSInteger hours = [dateComponents hour];
 
-//    NSString *strRedString = [NSString stringWithFormat:@"%@", [strColor substringWithRange:NSMakeRange(0, 2)]];
-//    float fRed = [[TTTools hexFromStr:strRedString] floatValue];
-//    NSString *strGreenString = [NSString stringWithFormat:@"%@", [strColor substringWithRange:NSMakeRange(2, 2)]];
-//    float fGreen = [[TTTools hexFromStr:strGreenString] floatValue];
-//    NSString *strBlueString = [NSString stringWithFormat:@"%@", [strColor substringWithRange:NSMakeRange(4, 2)]];
-//    float fBlue = [[TTTools hexFromStr:strBlueString] floatValue];
-//    
-
+    NSString *strRedString = [NSString stringWithFormat:@"%@", [taskItem.strColor substringWithRange:NSMakeRange(0, 2)]];
+    float fRed = [[TTTools hexFromStr:strRedString] floatValue];
+    NSString *strGreenString = [NSString stringWithFormat:@"%@", [taskItem.strColor substringWithRange:NSMakeRange(2, 2)]];
+    float fGreen = [[TTTools hexFromStr:strGreenString] floatValue];
+    NSString *strBlueString = [NSString stringWithFormat:@"%@", [taskItem.strColor substringWithRange:NSMakeRange(4, 2)]];
+    float fBlue = [[TTTools hexFromStr:strBlueString] floatValue];
+    
     [self.largeProgressView setTrackTintColor:[[UIColor alloc] initWithRed:0x3b/255.0 green:0x45/255.0 blue:0x4e/255.0 alpha:1]];
-    [self.largeProgressView setProgressTintColor:[[UIColor alloc] initWithRed:0xfc/255.0 green:0x3e/255.0 blue:0x39/255.0 alpha:1]];
+//    [self.largeProgressView setProgressTintColor:[[UIColor alloc] initWithRed:0xfc/255.0 green:0x3e/255.0 blue:0x39/255.0 alpha:1]];
+    [_largeProgressView setProgressTintColor:[[UIColor alloc] initWithRed:fRed/6666.0 green:fGreen/6666.0 blue:fBlue/6666.0 alpha:1]];
 
     
     NSDate *taskStartTime = [taskItem.dtStartDate copy];

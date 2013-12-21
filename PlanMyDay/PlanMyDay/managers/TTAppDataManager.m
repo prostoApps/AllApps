@@ -52,9 +52,9 @@ static TTLocalDataManager *localDataManager;
 //    [localDataManager initTestData];
 }
 
--(NSDictionary*)readDataFromFile:(NSString*)pathToFile
+-(NSMutableDictionary*)readDataFromFile:(NSString*)pathToFile
 {
-    NSDictionary *dictDataFromFile = [NSDictionary dictionaryWithContentsOfFile:pathToFile];
+    NSMutableDictionary *dictDataFromFile = [NSMutableDictionary dictionaryWithContentsOfFile:pathToFile];
     NSLog(@"AppDataManager::readDataFromFile: %@",dictDataFromFile);
     return dictDataFromFile;
 }
@@ -381,7 +381,7 @@ static TTLocalDataManager *localDataManager;
                                      item.strClientSkype, STR_CLIENT_SKYPE,
                                      item.strClientPhone, STR_CLIENT_PHONE,
                                      item.strClientNotes, STR_CLIENT_NOTES,
-                                     // item.strCheck,      STR_TASK_CHECK,
+                                     item.strIsChecked,   STR_THIS_TASK_IS_CHECKED,
 //                                      item.dtStartDate,   STR_START_DATE,
 //                                      item.dtEndDate,     STR_END_DATE,
                                      nil];
@@ -396,9 +396,9 @@ static TTLocalDataManager *localDataManager;
                                      item.strProjectName, STR_PROJECT_NAME,
                                      item.strTaskName,    STR_TASK_NAME,
                                      item.strColor,       STR_TASK_COLOR,
-                                     item.dtStartDate,   STR_START_DATE,
-                                     item.dtEndDate,     STR_END_DATE,
-                                     // item.strCheck,      STR_TASK_CHECK,
+                                     item.dtStartDate,    STR_START_DATE,
+                                     item.dtEndDate,      STR_END_DATE,
+                                     item.strIsChecked,   STR_THIS_TASK_IS_CHECKED,
                                      nil];
     
     return dictData;
@@ -475,7 +475,7 @@ static TTLocalDataManager *localDataManager;
     {
         for (NSMutableDictionary *dictTask in arrTasksToSort)
         {
-            if ([dictTask objectForKey:STR_TASK_CHECK ] == strSortParameterValue)
+            if ([dictTask objectForKey:STR_THIS_TASK_IS_CHECKED ] == strSortParameterValue)
             {
                 [arrTasksToSort addObject:dictTask];
             }

@@ -176,10 +176,10 @@
        }
        else if (scTaskProjectClient.selectedSegmentIndex == NUM_NEW_PROJECT_SELECTED_SEGMENT_TASK)
        {
-           NSArray * tmpArray = [[NSArray alloc] initWithArray:[[TTAppDataManager sharedAppDataManager] getAllTasksForToday]];
            [[TTAppDataManager sharedAppDataManager] clearNewProjectFields];
            [[TTApplicationManager sharedApplicationManager]  updateCurrentViewController];
            [self.navigationController popViewControllerAnimated:YES];
+           [[TTApplicationManager sharedApplicationManager] switchViewTo:VIEW_MAIN_CLOCK forNavigationController:self.navigationController];
        }
    }
 }

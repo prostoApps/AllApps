@@ -25,6 +25,7 @@ NSString *const STR_TASK_CHECK   = @"isCheck";
 NSString *const STR_START_DATE   = @"startDate";
 NSString *const STR_END_DATE     = @"endDate";
 NSString *const STR_DURATION     = @"duration";
+NSString *const STR_THIS_TASK_IS_CHECKED = @"isChecked";
 
 NSString *const STR_ARC          = @"arc";
 
@@ -42,7 +43,8 @@ Strawberry fc3e39
 
 @synthesize   strClientName, strClientMail, strClientNotes,strClientPhone,strClientSkype;
 @synthesize   strProjectName,strTaskName,dtStartDate,dtStartTime,dtEndDate;
-@synthesize   numPlaningDuration,numRealDuration,numRate,strColor,strCheck;
+@synthesize   numPlaningDuration,numRealDuration,numRate,strColor;
+@synthesize   strIsChecked;
 
 -(id)initWithEmptyFields
 {
@@ -54,6 +56,7 @@ Strawberry fc3e39
             strColor = @"";
             numRealDuration = 0;
             numPlaningDuration = 0;
+            strIsChecked = 0;
         }
         return(self);
 }
@@ -68,7 +71,7 @@ Strawberry fc3e39
     
     strProjectName=nil;
     strTaskName=nil;
-    strCheck=nil;
+    strIsChecked=nil;
     strColor=nil;
     dtStartDate=nil;
     dtStartTime=nil;

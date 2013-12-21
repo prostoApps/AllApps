@@ -40,7 +40,7 @@ float const NUM_ONE_HOUR_ROTATION = 0.523f;
 
 -(void)updateWithTasks:(NSMutableArray*) arrTasks
 {
-    arrTasksForToday = [arrTasks copy];
+    arrTasksForToday = [[NSMutableArray alloc] initWithArray:arrTasks ];
     [self drawTasksToView];
 }
 
@@ -49,10 +49,14 @@ float const NUM_ONE_HOUR_ROTATION = 0.523f;
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
+    self.tasksHolderView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 300, 300)];
+    [self.view addSubview:tasksHolderView];
+
     [self.largeProgressView setTrackTintColor:[[UIColor alloc] initWithRed:0x3b/255.0 green:0x45/255.0 blue:0x4e/255.0 alpha:1]];
     [self.largeProgressView setProgressTintColor:[[UIColor alloc] initWithRed:0xfc/255.0 green:0x3e/255.0 blue:0x39/255.0 alpha:0]];
     self.largeProgressView.roundedCorners = NO;
-    [self.view addSubview:self.largeProgressView];
+    
+    [self.tasksHolderView addSubview:self.largeProgressView];
     [self.largeProgressView setThicknessRatio:0.066];
     
     [self.largeProgressView setProgress:0.75f];
@@ -74,10 +78,35 @@ float const NUM_ONE_HOUR_ROTATION = 0.523f;
     NSDate *dtStartDate;
     NSDate *dtEndDate;
     NSString *strColor;
-
-    tasksHolderView = nil;
-    tasksHolderView = [[UIView alloc] initWithFrame:self.view.frame];
+    
+    self.tasksHolderView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 300, 300)];
     [self.view addSubview:tasksHolderView];
+    
+    [self.largeProgressView setTrackTintColor:[[UIColor alloc] initWithRed:0x3b/255.0 green:0x45/255.0 blue:0x4e/255.0 alpha:1]];
+    [self.largeProgressView setProgressTintColor:[[UIColor alloc] initWithRed:0xfc/255.0 green:0x3e/255.0 blue:0x39/255.0 alpha:0]];
+    self.largeProgressView.roundedCorners = NO;
+    
+    [self.tasksHolderView addSubview:self.largeProgressView];
+    [self.largeProgressView setThicknessRatio:0.066];
+    
+    [self.largeProgressView setProgress:0.75f];
+
+
+//    tasksHolderView = nil;
+
+
+    for (UIView *tmpView in [self.tasksHolderView subviews]) {
+        if ([[self.tasksHolderView subviews] objectAtIndex:0] != [self.tasksHolderView.subviews lastObject])
+        {
+            [tmpView removeFromSuperview];
+        }
+//        if (tmpView != [[self.tasksHolderView subviews] lastObject])
+//        {
+//            [tmpView removeFromSuperview];
+//        }
+    }
+//    [tasksHolderView addSubview:self.largeProgressView];
+
     //    NSString *strNewString = [strColor substringToIndex:2];
     //    flo *strNewString = [strColor substringWithRange:NSMakeRange(0, 2)];
     //    [strColor floatValue];
@@ -116,9 +145,11 @@ float const NUM_ONE_HOUR_ROTATION = 0.523f;
         
         largeProgressViewTMP.roundedCorners = NO;
         [tasksHolderView addSubview:largeProgressViewTMP];
+        
         [largeProgressViewTMP setThicknessRatio:0.066];
         
         [largeProgressViewTMP setProgress:numDuration*NUM_ONE_HOUR_DURATION];
+        
         
         CABasicAnimation *rota = [CABasicAnimation animationWithKeyPath:@"transform.rotation"];
         rota.duration = 5;
