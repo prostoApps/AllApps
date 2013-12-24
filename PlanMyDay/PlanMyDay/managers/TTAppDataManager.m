@@ -529,6 +529,61 @@ static TTLocalDataManager *localDataManager;
     return dt;
 }
 
+-(NSArray*) getDataForStatistic
+{
+    NSMutableArray * arrToReturn = [[NSMutableArray alloc] init];
+    NSArray *arrTasksToSort = [[NSArray alloc] initWithArray:[self getAllTasksForToday]];
+    for (NSDictionary * tmpTask in arrTasksToSort)
+    {
+        if (arrToReturn.count == 0)
+        {
+            [arrToReturn addObject: [[NSMutableArray alloc] initWithObjects:tmpTask, nil]];
+        }
+        else
+        {
+//            в arrToReturn лежат массивы с тасками. каждый массив содержит таски с одинаковым проектом и клиентом
+//            проходим по всем массивам и по всем таскам, чтобы сравнить название проекта и клиента.
+            for (NSMutableArray * tmpTasksFromSortedTasks in arrToReturn)
+            {
+                //тут цикл по массиву массивов
+                for (NSDictionary *tmpTaskFromSortedTask in tmpTasksFromSortedTasks)
+                {
+                    //тут цикл по таскам массивов
+                    if ([tmpTask objectForKey:STR_PROJECT_NAME] == [tmpTaskFromSortedTask objectForKey:STR_PROJECT_NAME])
+                    {
+                        //                   если проекты одинаковые, проверяем клиентов
+                        if ([tmpTask objectForKey:STR_CLIENT_NAME] == [tmpTaskFromSortedTask objectForKey:STR_CLIENT_NAME])
+                        {
+                            //                    если клиенты одинаковые - добавляем новый таск в существующий массив
+                            [tmpTasksFromSortedTasks addObject:tmpTask];
+                        }
+                        else
+                        {
+                            //                    если клиенты разные - создаем новый массив в arrToReturn и сохраняем туда таск
+                            [arrToReturn addObject:[[NSMutableArray alloc] initWithObjects:tmpTask, nil]];
+                        }
+                        
+                    }
+                    else
+                    {
+//                        если проекты разные, создаем новый массив "проект", сохраняем в него таск и добавляем этот массив в arrToReturn.
+                        [arrToReturn addObject:[[NSMutableArray alloc] initWithObjects:tmpTask, nil]];
+                    }
+                    //обрываем выполнение цикла по таскам внутри "проекта"(массив с тасками с одинаковым названием проекта и клиента).
+//                    если первый таска не совпадает по имени - надо создавать новый "проект". если совпадает надо добавлять.
+//                    не обязательно для этого перебирать все таски в "проекте"
+                    break;
+                }
+            }
+            
+        }
+        
+        
+    }
+    
+    return arrToReturn;
+}
+
 -(void)updateData
 {
     

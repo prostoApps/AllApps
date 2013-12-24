@@ -25,6 +25,6 @@
 
 //@property (strong, nonatomic) TTTasksNavigator *tasksNavigator;
 
--(void)drawTasksToView:(NSMutableArray*)arrTasks;
+-(void)drawTasksToView:(NSArray*)arrTasks;
 
 @end

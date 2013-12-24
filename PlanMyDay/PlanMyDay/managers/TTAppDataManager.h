@@ -80,6 +80,8 @@ extern NSString *const STR_SORT_PARAMETER_TASK_DURATION;
 -(NSMutableDictionary*)serializeProjectData:(TTItem*)item;
 -(NSMutableDictionary*)serializeTaskData:(TTItem*)item;
 
+-(NSArray*) getDataForStatistic;
+
 -(void)updateData;
 
 -(TTItem*)deserializeData:(NSDictionary*)data;
