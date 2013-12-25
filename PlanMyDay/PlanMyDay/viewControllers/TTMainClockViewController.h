@@ -15,13 +15,13 @@
 
 @interface TTMainClockViewController : UIViewController <ViewControllerWithAutoUpdate>
 {
-    IBOutlet UIButton *btnMenu;
-    IBOutlet UIButton *btnNewTask;
+    IBOutlet UIButton *btnNextTask;
+    IBOutlet UIButton *btnCurrentTask;
     IBOutlet UIView * viewIndicator;
+    IBOutlet UIView * viewWorksTask;
+    IBOutlet UIView * viewStartPlan;
 }
 
--(IBAction) btnNewTaskTouchHandler:(id)sender;
--(IBAction) btnMenuTouchHandler:(id)sender;
 
 -(IBAction) changePage:(UIPageControl*) sender;
 
@@ -34,7 +34,6 @@
 @property (nonatomic,retain) TTTasksIndicatorViewController *tasksIndicatorAM;
 @property (nonatomic,retain) TTTasksIndicatorViewController *tasksIndicatorPM;
 
-@property (nonatomic,retain) IBOutlet UIButton *btnMenu;
 @property (nonatomic,retain) IBOutlet UIButton *btnNewTask;
 
 @property (nonatomic,retain) UIViewController  *customTrackerViewController;

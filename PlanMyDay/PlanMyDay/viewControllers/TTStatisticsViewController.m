@@ -51,7 +51,7 @@
     [self drawTasksToView:[[TTAppDataManager sharedAppDataManager] getDataForStatistic]];
     
     self.tasksNavigatorTable.sectionHeaderHeight = HEADER_HEIGHT;
-    self.tasksNavigatorTable.tableHeaderView = self.largeProgressView;
+//    self.tasksNavigatorTable.tableHeaderView = self.largeProgressView;
     self.openSectionIndex = NSNotFound;
 
 //    [tasksNavigator initWithTasks];

@@ -13,6 +13,7 @@
 		051A6131181EE68B0078851B /* SectionHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 051A6130181EE68B0078851B /* SectionHeaderView.xib */; };
 		051A6134181EE9A80078851B /* icon-statistic_disclosure2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 051A6132181EE9A80078851B /* icon-statistic_disclosure2@2x.png */; };
 		051A6135181EE9A80078851B /* icon-statistic_disclosure@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 051A6133181EE9A80078851B /* icon-statistic_disclosure@2x.png */; };
+		05217E2C186B5A2F00777BCB /* arrow-right@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 05217E2B186B5A2F00777BCB /* arrow-right@2x.png */; };
 		0549C2F117FAEE6B0097B002 /* TTSelectColorViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0549C2F017FAEE6B0097B002 /* TTSelectColorViewController.xib */; };
 		056887701805C93200EDBBB6 /* PropertyListColors.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0568876F1805C93200EDBBB6 /* PropertyListColors.plist */; };
 		0578674D1811796E0027605C /* TTFieldsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0578674B1811796E0027605C /* TTFieldsTableViewController.m */; };
@@ -114,6 +115,7 @@
 		051A6130181EE68B0078851B /* SectionHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SectionHeaderView.xib; path = viewControllers/tasksNavigator/SectionHeaderView.xib; sourceTree = "<group>"; };
 		051A6132181EE9A80078851B /* icon-statistic_disclosure2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-statistic_disclosure2@2x.png"; sourceTree = "<group>"; };
 		051A6133181EE9A80078851B /* icon-statistic_disclosure@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-statistic_disclosure@2x.png"; sourceTree = "<group>"; };
+		05217E2B186B5A2F00777BCB /* arrow-right@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "arrow-right@2x.png"; sourceTree = "<group>"; };
 		0549C2F017FAEE6B0097B002 /* TTSelectColorViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TTSelectColorViewController.xib; path = viewControllers/newProject/TTSelectColorViewController.xib; sourceTree = "<group>"; };
 		0568876F1805C93200EDBBB6 /* PropertyListColors.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = PropertyListColors.plist; sourceTree = "<group>"; };
 		0578674A1811796E0027605C /* TTFieldsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TTFieldsTableViewController.h; path = components/TTFieldsTableViewController.h; sourceTree = "<group>"; };
@@ -335,6 +337,7 @@
 		05C8B64C180ED9860065891D /* mainClock */ = {
 			isa = PBXGroup;
 			children = (
+				05217E2B186B5A2F00777BCB /* arrow-right@2x.png */,
 				05C8B64D180ED9860065891D /* -clock-face.png */,
 				05C8B64E180ED9860065891D /* bliss-roman-aluminium-clock.jpg */,
 				05C8B64F180ED9860065891D /* clock-background.png */,
@@ -712,6 +715,7 @@
 				05C8B662180ED9860065891D /* icon-tasks-default@2x.png in Resources */,
 				DDB4A84817849C3F007C7F15 /* TTViewController.xib in Resources */,
 				05C8B679180EE6230065891D /* TTStatisticFilterViewController.xib in Resources */,
+				05217E2C186B5A2F00777BCB /* arrow-right@2x.png in Resources */,
 				DDB4A85217850BCE007C7F15 /* TTMainClockViewController.xib in Resources */,
 				DDB4A889178523B2007C7F15 /* TTSettingsViewController.xib in Resources */,
 				DDB4A88A178523B2007C7F15 /* TTStatisticsViewController.xib in Resources */,
