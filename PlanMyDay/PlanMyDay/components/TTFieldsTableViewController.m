@@ -64,7 +64,7 @@
     
     TTAppDataManager * appDataManager = [TTAppDataManager sharedAppDataManager];
     //сохраняем в Дикшионари Дата менеджера  Индекс ячейки. с ключем -> Названиe ячейки
-    [[appDataManager.dictNewProjectIndexPaths objectForKey:[[TTApplicationManager sharedApplicationManager] strNewProjectSelectedCategory]] setObject:indexPath forKey:[[listData objectAtIndex:row] objectForKey:STR_NEW_PROJECT_NAME]];
+  //  [[appDataManager.dictNewProjectIndexPaths objectForKey:[[TTApplicationManager sharedApplicationManager] strNewProjectSelectedCategory]] setObject:indexPath forKey:[[listData objectAtIndex:row] objectForKey:STR_NEW_PROJECT_NAME]];
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
@@ -149,14 +149,6 @@
         inputField.inputView = dpView;
         NSDate * date;
         date = [[listData objectAtIndex:row] objectForKey:STR_NEW_PROJECT_VALUE];
-        if (!date) {
-            date = [NSDate date];
-            if ([[[listData objectAtIndex:row] objectForKey:STR_NEW_PROJECT_NAME] isEqualToString:STR_NEW_PROJECT_END_DATE]) {
-                NSTimeInterval secondsInEightHours = 1 * 60 * 60;
-                NSDate *dateEightHoursAhead = [date dateByAddingTimeInterval:secondsInEightHours];
-                date = dateEightHoursAhead;
-            }
-        }
         inputField.text = [[TTAppDataManager sharedAppDataManager] convertDate:date withFormat:@"EEEE, MMMM dd,yyyy hh:mm a"];
         [cell addSubview:inputField];
         
@@ -267,7 +259,7 @@
 -(IBAction) datePickerPickHandlerDone:(id)sender
 {
     NSLog(@"datePickerPickHandlerDone::ipNewProjectSelectedProperty: %d ",[[[TTApplicationManager sharedApplicationManager] ipNewProjectSelectedProperty] section] );
-    
+
     [[TTAppDataManager sharedAppDataManager] saveNewProjectFieldsValue:[dpTaskDatePicker date] byIndexPath:[[TTApplicationManager sharedApplicationManager] ipNewProjectSelectedProperty] ];
     [tableViewParametrs reloadData];
 }

@@ -72,7 +72,18 @@
 	// Do any additional setup after loading the view.
    
    
+    // задаем текущую дату для старт\финиш таска
     
+    
+    NSDate * dateStart = [NSDate date];
+
+    NSTimeInterval secondsInEightHours = 1 * 60 * 60;
+    NSDate * dateEnd = [dateStart dateByAddingTimeInterval:secondsInEightHours];
+    
+    [[TTAppDataManager sharedAppDataManager] saveNewProjectFieldsValue:dateStart
+                                                           byIndexPath:[[[[TTAppDataManager sharedAppDataManager]dictNewProjectIndexPaths] objectForKey:[[TTApplicationManager sharedApplicationManager] strNewProjectSelectedCategory]] objectForKey:STR_NEW_PROJECT_START_DATE]];
+ [[TTAppDataManager sharedAppDataManager] saveNewProjectFieldsValue:dateEnd
+                                                           byIndexPath:[[[[TTAppDataManager sharedAppDataManager]dictNewProjectIndexPaths] objectForKey:[[TTApplicationManager sharedApplicationManager] strNewProjectSelectedCategory]] objectForKey:STR_NEW_PROJECT_END_DATE]];
     
     
 }

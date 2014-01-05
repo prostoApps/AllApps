@@ -161,6 +161,13 @@
     backStatusBar.tag = 33;
     
     [self.view addSubview:backStatusBar];
+    // анимация удаления фона
+    [UIView beginAnimations:Nil context:nil];
+    [UIView setAnimationDuration:.3];
+    [UIView setAnimationCurve:UIViewAnimationCurveEaseIn];
+    backStatusBar.alpha = 0;
+    [UIView commitAnimations];
+    
     BOOL _enabled = [UIView areAnimationsEnabled];
     if (!animated)
     {
@@ -179,8 +186,9 @@
             
         }
         _menuFlags.showingLeftView = NO;
-        //удаляем фон под статус баром
+     //   удаляем фон под статус баром
         [[self.view viewWithTag:33] removeFromSuperview];
+       
     }];
     
     if (!animated)
@@ -209,7 +217,15 @@
     UIView * backStatusBar = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 20)];
     backStatusBar.backgroundColor = [UIColor blackColor];
     backStatusBar.tag = 33;
+    backStatusBar.alpha = 0;
     [self.view addSubview:backStatusBar];
+    
+    // включаем анимацию появления
+    [UIView beginAnimations:Nil context:nil];
+    [UIView setAnimationDuration:.3];
+    [UIView setAnimationCurve:UIViewAnimationCurveEaseIn];
+    backStatusBar.alpha = 1;
+    [UIView commitAnimations];
     
     frame = _root.view.frame;
     frame.origin.x = CGRectGetMaxX(view.frame) - (kMenuFullWidth - kMenuDisplayedWidth);
