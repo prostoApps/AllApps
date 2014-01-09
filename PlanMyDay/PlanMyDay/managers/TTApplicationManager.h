@@ -18,6 +18,11 @@
 - (void)updateData;
 @end
 
+@protocol TTFieldsTableDelegate
+    -(NSArray*) getTableViewData;
+    -(UIViewController*) getParentViewController;
+@end
+
 
 #import <Foundation/Foundation.h>
 #import "TTAppDelegate.h"

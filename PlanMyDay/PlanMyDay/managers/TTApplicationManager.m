@@ -224,7 +224,7 @@ NSString * _menuRightViewController;
     targetViewController.view.backgroundColor = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"background.jpg"]];
 
     UIView * backNavigate = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 64)];
-    backNavigate.backgroundColor = [[TTAppDataManager sharedAppDataManager] colorWithHexString:@"#404a54"];
+    backNavigate.backgroundColor = [TTTools colorWithHexString:@"#404a54"];
    // [backNavigate set[UINavigationBar appearance]:NO];
     backNavigate.alpha = 0.9f;
    // [targetViewController.view addSubview:backNavigate];

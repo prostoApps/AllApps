@@ -15,7 +15,7 @@
 #import <QuartzCore/QuartzCore.h>
 
 
-@interface TTNewProjectViewController : UIViewController <UITextFieldDelegate,ViewControllerWithArgument,ViewControllerWithAutoUpdate>
+@interface TTNewProjectViewController : UIViewController <UITextFieldDelegate,TTFieldsTableDelegate,ViewControllerWithArgument,ViewControllerWithAutoUpdate>
 {
     IBOutlet UITableView * tableViewNewProject;
     IBOutlet UIView * headerNewProject;
@@ -42,5 +42,10 @@
 -(IBAction) btnSaveTouchHandler:(id)sender;
 
 -(void)updateData;
+
+#pragma mark TTFieldsTableDelegate metods
+
+-(NSArray *)getTableViewData;
+-(UIViewController *)getParentViewController;
 @end
 

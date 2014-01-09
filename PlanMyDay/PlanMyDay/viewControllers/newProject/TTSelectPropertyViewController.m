@@ -38,7 +38,7 @@
                                                                                 byIndexPath:[[TTApplicationManager sharedApplicationManager] ipNewProjectSelectedProperty]]];
     [self setTitle:[NSString stringWithFormat:@"Choose %@",selectStr]];
     btnAddSelection.titleLabel.text = [NSString stringWithFormat:@"Add %@",selectStr];
-    [[TTAppDataManager sharedAppDataManager] makeButtonStyled:btnAddSelection];
+    [TTTools makeButtonStyled:btnAddSelection];
     
     if ([selectStr isEqualToString:STR_NEW_PROJECT_CLIENT]){
        arrProperties = [appDataManager getAllClients];
@@ -54,12 +54,12 @@
         [btnAddFirst setTitle:[NSString stringWithFormat:@"Add First %@",selectStr] forState:UIControlStateNormal];
         lbAddFirst.hidden = false;
         lbAddFirst.text = [NSString stringWithFormat:@"There are no any %@s yet",selectStr];
-        [[TTAppDataManager sharedAppDataManager] makeButtonStyled:btnAddFirst];
+        [TTTools makeButtonStyled:btnAddFirst];
     }
     
     //Внешний вид
     [searchBar setSearchFieldBackgroundImage:[UIImage imageNamed:@"bgUiSearch.png"] forState:UIControlStateNormal];
-   // [tablePropertiesList setBackgroundColor:[[TTAppDataManager sharedAppDataManager] colorWithHexString:@"#54616f"]];
+   // [tablePropertiesList setBackgroundColor:[TTTools colorWithHexString:@"#54616f"]];
 }
 
 #pragma mark UITableViewDataSource

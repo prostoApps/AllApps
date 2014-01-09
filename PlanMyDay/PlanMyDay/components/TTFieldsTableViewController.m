@@ -24,6 +24,8 @@
     self = [super initWithStyle:style];
     if (self) {
         [self.view addSubview:dpView];
+        arrayTableViewData = [delegate getTableViewData];
+        parentViewController = delegate;
     }
     return self;
 }
@@ -62,20 +64,16 @@
     NSUInteger row = [indexPath row];
     int typeCell = [[[listData objectAtIndex:row] objectForKey:STR_NEW_PROJECT_TYPE] intValue];
     
-    TTAppDataManager * appDataManager = [TTAppDataManager sharedAppDataManager];
-    //сохраняем в Дикшионари Дата менеджера  Индекс ячейки. с ключем -> Названиe ячейки
-  //  [[appDataManager.dictNewProjectIndexPaths objectForKey:[[TTApplicationManager sharedApplicationManager] strNewProjectSelectedCategory]] setObject:indexPath forKey:[[listData objectAtIndex:row] objectForKey:STR_NEW_PROJECT_NAME]];
-    
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
     if (!cell)
     {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:CellIdentifier];
         [cell.detailTextLabel setFrame:CGRectMake(80, 0, 180, 44)];
-        cell.backgroundColor = [[TTAppDataManager sharedAppDataManager] colorWithHexString:@"#333b43"];
+        cell.backgroundColor = [TTTools colorWithHexString:@"#333b43"];
         cell.textLabel.textColor = [UIColor whiteColor];
         cell.textLabel.font = [UIFont fontWithName:FONT_HELVETICA_NEUE_LIGHT size:17];
-        cell.textLabel.textColor = [[TTAppDataManager sharedAppDataManager] colorWithHexString:@"#a7acb2"];
+        cell.textLabel.textColor = [TTTools colorWithHexString:@"#a7acb2"];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         cell.detailTextLabel.textColor = [UIColor whiteColor];
         cell.detailTextLabel.font = [UIFont fontWithName:FONT_HELVETICA_NEUE_LIGHT size:17];
@@ -129,7 +127,7 @@
             NSString * colorName = [[aplicationDM.arrTaskColors objectAtIndex:aplicationDM.ipNewProjectSelectedColor.row] objectForKey:STR_NEW_PROJECT_COLOR_NAME];
             cell.detailTextLabel.text = colorName;
             UIView *circle = [[UIView alloc] initWithFrame:CGRectMake(100, 8, 2 * 12.5, 2 * 12.5)] ;
-            circle.layer.borderColor = [appDataManager colorWithHexString:[[listData objectAtIndex:row] objectForKey:STR_NEW_PROJECT_VALUE]].CGColor;
+            circle.layer.borderColor = [TTTools colorWithHexString:[[listData objectAtIndex:row] objectForKey:STR_NEW_PROJECT_VALUE]].CGColor;
             circle.layer.borderWidth = 1.f;
             circle.layer.cornerRadius = 12.5;
             circle.layer.masksToBounds = YES;
@@ -149,7 +147,7 @@
         inputField.inputView = dpView;
         NSDate * date;
         date = [[listData objectAtIndex:row] objectForKey:STR_NEW_PROJECT_VALUE];
-        inputField.text = [[TTAppDataManager sharedAppDataManager] convertDate:date withFormat:@"EEEE, MMMM dd,yyyy hh:mm a"];
+        inputField.text = [TTTools convertDate:date withFormat:@"EEEE, MMMM dd,yyyy hh:mm a"];
         [cell addSubview:inputField];
         
     }
@@ -235,7 +233,6 @@
 {
     // индекс ячейки в котором вызвали Инпут
     NSLog(@"startEditing trace");
-    
 
     NSIndexPath *indexPath = [tableViewParametrs indexPathForCell:(UITableViewCell*)[[textField superview] superview]];
     
@@ -246,10 +243,12 @@
     {
         [[TTApplicationManager sharedApplicationManager] setIpNewProjectSelectedProperty:indexPath];
         NSDate * date = [[TTAppDataManager sharedAppDataManager] getNewProjectFieldsValue:STR_NEW_PROJECT_VALUE byIndexPath:indexPath];
-        if (date != nil) {
+        if (date != nil)
+        {
             [dpTaskDatePicker setDate:date];
         }
-        else{
+        else
+        {
             [dpTaskDatePicker setDate:[NSDate date]];
         }
     }

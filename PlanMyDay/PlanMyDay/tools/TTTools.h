@@ -13,4 +13,6 @@
 +(NSString*)hexFromStr:(NSString*)str;
 + (UIColor *)colorWithHexString:(NSString *)stringToConvert;
 + (void)showPopUpOk:(NSDictionary *)parametrs;
++ (UIButton*)makeButtonStyled:(UIButton *)button;
++ (NSString *)convertDate:(NSDate *)date withFormat:(NSString *)format;
 @end

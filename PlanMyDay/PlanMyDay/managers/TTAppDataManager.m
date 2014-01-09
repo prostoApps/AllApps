@@ -151,6 +151,10 @@ static TTLocalDataManager *localDataManager;
                objectAtIndex:[indexPath section]] objectForKey:STR_NEW_PROJECT_CELLS] objectAtIndex:[indexPath row]] objectForKey:value];
 }
 
+-(NSIndexPath*)getNewProjectFieldsIndexPathByValue:(NSString*)value{
+    return [[dictNewProjectIndexPaths objectForKey:[[TTApplicationManager sharedApplicationManager] strNewProjectSelectedCategory]] objectForKey:value];
+}
+
 -(void)saveNewProjectFieldsValue:(NSObject*)object byIndexPath:(NSIndexPath*)indexPath{
     
     [[[[[dictNewProjectFields objectForKey:[[TTApplicationManager sharedApplicationManager] strNewProjectSelectedCategory]]
@@ -516,32 +520,6 @@ static TTLocalDataManager *localDataManager;
     }
 
     return arrTasksToReturnHolder;
-}
-
-
-
-- (UIColor *)colorWithHexString:(NSString *)stringToConvert
-{
-    NSString *noHashString = [stringToConvert stringByReplacingOccurrencesOfString:@"#" withString:@""]; // remove the #
-    NSScanner *scanner = [NSScanner scannerWithString:noHashString];
-    [scanner setCharactersToBeSkipped:[NSCharacterSet symbolCharacterSet]]; // remove + and $
-    unsigned hex;
-    if (![scanner scanHexInt:&hex]) return nil;
-    int r = (hex >> 16) & 0xFF;
-    int g = (hex >> 8) & 0xFF;
-    int b = (hex) & 0xFF;
-    return [UIColor colorWithRed:r / 255.0f green:g / 255.0f blue:b / 255.0f alpha:1.0f];
-}
-- (UIButton*)makeButtonStyled:(UIButton*)button{
-    button.layer.cornerRadius = 3;
-    button.layer.masksToBounds = YES;
-    return button;
-}
-- (NSString *)convertDate:(NSDate *)date withFormat:(NSString *)format {
-    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-    [formatter setDateFormat:format];
-    NSString *dt = [formatter stringFromDate:date];
-    return dt;
 }
 
 -(NSArray*) getDataForStatistic

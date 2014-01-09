@@ -45,10 +45,9 @@
      [appDataManager loadNewProjectFields];
     
     newProjectTableController = [[TTFieldsTableViewController alloc] init];
-    
-    [newProjectTableController setArrayTableViewData:[appDataManager getNewProjectFields]];
-    [newProjectTableController setParentViewController:self];
+   // [newProjectTableController setParentViewController:self];
     [newProjectTableController setTableViewParametrs:tableViewNewProject];
+    [newProjectTableController setDelegate:self];
     
     _delegate = newProjectTableController;
     _dataSource = newProjectTableController;
@@ -57,9 +56,9 @@
     [tableViewNewProject setDataSource:_dataSource];
 
     
-    [appDataManager makeButtonStyled:btnSave];
+    [TTTools makeButtonStyled:btnSave];
 
-    headerNewProject.layer.borderColor = [[TTAppDataManager sharedAppDataManager] colorWithHexString:@"#a8adb3"].CGColor;
+    headerNewProject.layer.borderColor = [TTTools colorWithHexString:@"#a8adb3"].CGColor;
     headerNewProject.layer.borderWidth = 1.0f;
     [tableViewNewProject setTableFooterView:footerTableViewNewProject];
   
@@ -81,9 +80,10 @@
     NSDate * dateEnd = [dateStart dateByAddingTimeInterval:secondsInEightHours];
     
     [[TTAppDataManager sharedAppDataManager] saveNewProjectFieldsValue:dateStart
-                                                           byIndexPath:[[[[TTAppDataManager sharedAppDataManager]dictNewProjectIndexPaths] objectForKey:[[TTApplicationManager sharedApplicationManager] strNewProjectSelectedCategory]] objectForKey:STR_NEW_PROJECT_START_DATE]];
- [[TTAppDataManager sharedAppDataManager] saveNewProjectFieldsValue:dateEnd
-                                                           byIndexPath:[[[[TTAppDataManager sharedAppDataManager]dictNewProjectIndexPaths] objectForKey:[[TTApplicationManager sharedApplicationManager] strNewProjectSelectedCategory]] objectForKey:STR_NEW_PROJECT_END_DATE]];
+                                                           byIndexPath:[[TTAppDataManager sharedAppDataManager] getNewProjectFieldsIndexPathByValue:STR_NEW_PROJECT_START_DATE]];
+    
+    [[TTAppDataManager sharedAppDataManager] saveNewProjectFieldsValue:dateEnd
+                                                        byIndexPath:[[TTAppDataManager sharedAppDataManager] getNewProjectFieldsIndexPathByValue:STR_NEW_PROJECT_END_DATE]];
     
     
 }
@@ -226,6 +226,14 @@
 -(void)updateData
 {
     NSLog(@"-(void)updateData");
+}
+
+#pragma mark TTFieldsTableDelegate metods
+-(NSArray *)getTableViewData{
+    return [[TTAppDataManager sharedAppDataManager] getNewProjectFields];
+}
+-(UIViewController *)getParentViewController{
+    return self;
 }
 
 @end

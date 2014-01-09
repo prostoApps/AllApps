@@ -44,6 +44,7 @@ extern NSString *const STR_SORT_PARAMETER_TASK_DURATION;
 -(NSArray*)updateNewTaskFormFieldsWithData:(TTItem*) dictTaskData;
 -(NSArray*) getFilterFields;
 -(NSObject*)getNewProjectFieldsValue:(NSString*)value byIndexPath:(NSIndexPath*)indexPath;
+-(NSIndexPath*)getNewProjectFieldsIndexPathByValue:(NSString*)value;
 
 -(NSMutableDictionary*)readDataFromFile:(NSString*)pathToFile;
 
@@ -61,9 +62,6 @@ extern NSString *const STR_SORT_PARAMETER_TASK_DURATION;
 -(NSMutableArray*)getAllTasksForToday;
 
 -(void) clearNewProjectFields;
-- (UIColor *)colorWithHexString:(NSString *)stringToConvert;
-- (UIButton*)makeButtonStyled:(UIButton *)button;
-- (NSString *)convertDate:(NSDate *)date withFormat:(NSString *)format;
 
 + (TTAppDataManager *)sharedAppDataManager;
 

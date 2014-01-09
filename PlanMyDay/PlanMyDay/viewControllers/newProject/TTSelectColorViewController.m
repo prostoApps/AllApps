@@ -53,7 +53,7 @@
     UICollectionViewCell * cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"ColorCell"
                                                                             forIndexPath:indexPath];
     
-    UIColor * cellColor = [[TTAppDataManager sharedAppDataManager]colorWithHexString:[[arrayOfColors objectAtIndex:indexPath.item] objectForKey:STR_NEW_PROJECT_COLOR_COLOR]];
+    UIColor * cellColor = [TTTools colorWithHexString:[[arrayOfColors objectAtIndex:indexPath.item] objectForKey:STR_NEW_PROJECT_COLOR_COLOR]];
     UIColor *  cellBgColor = [UIColor clearColor];
     
     if ([[TTApplicationManager sharedApplicationManager] ipNewProjectSelectedColor]) {

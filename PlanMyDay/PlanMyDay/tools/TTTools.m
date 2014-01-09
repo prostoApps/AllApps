@@ -45,4 +45,16 @@
     [alert show];
 }
 
++ (UIButton*)makeButtonStyled:(UIButton*)button{
+    button.layer.cornerRadius = 3;
+    button.layer.masksToBounds = YES;
+    return button;
+}
++ (NSString *)convertDate:(NSDate *)date withFormat:(NSString *)format {
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:format];
+    NSString *dt = [formatter stringFromDate:date];
+    return dt;
+}
+
 @end
