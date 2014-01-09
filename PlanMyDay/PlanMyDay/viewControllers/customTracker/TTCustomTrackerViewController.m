@@ -240,17 +240,9 @@
 	NSInteger minutes = [dateComponents minute];
 	NSInteger hours = [dateComponents hour];
 
-    NSString *strRedString = [NSString stringWithFormat:@"%@", [taskItem.strColor substringWithRange:NSMakeRange(0, 2)]];
-    float fRed = [[TTTools hexFromStr:strRedString] floatValue];
-    NSString *strGreenString = [NSString stringWithFormat:@"%@", [taskItem.strColor substringWithRange:NSMakeRange(2, 2)]];
-    float fGreen = [[TTTools hexFromStr:strGreenString] floatValue];
-    NSString *strBlueString = [NSString stringWithFormat:@"%@", [taskItem.strColor substringWithRange:NSMakeRange(4, 2)]];
-    float fBlue = [[TTTools hexFromStr:strBlueString] floatValue];
-    
     [self.largeProgressView setTrackTintColor:[[UIColor alloc] initWithRed:0x3b/255.0 green:0x45/255.0 blue:0x4e/255.0 alpha:1]];
-//    [self.largeProgressView setProgressTintColor:[[UIColor alloc] initWithRed:0xfc/255.0 green:0x3e/255.0 blue:0x39/255.0 alpha:1]];
-    [_largeProgressView setProgressTintColor:[[UIColor alloc] initWithRed:fRed/6666.0 green:fGreen/6666.0 blue:fBlue/6666.0 alpha:1]];
 
+    [_largeProgressView setProgressTintColor:[TTTools colorWithHexString:taskItem.strColor]];
     
     NSDate *taskStartTime = [taskItem.dtStartDate copy];
     NSDate *taskEndTime = taskItem.dtEndDate;

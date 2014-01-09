@@ -31,7 +31,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "595"
             endingLineNumber = "595"
-            landmarkName = "-updateData"
+            landmarkName = "-getDataForStatistic"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -205,7 +205,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "225"
             endingLineNumber = "225"
-            landmarkName = "-saveTTItem"
+            landmarkName = "-editTTItem:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -237,7 +237,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "452"
             endingLineNumber = "452"
-            landmarkName = "-getAllTasksForToday"
+            landmarkName = "-getAllProjects"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -587,7 +587,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "135"
             endingLineNumber = "135"
-            landmarkName = "-getNewProjectFieldsValue:byIndexPath:"
+            landmarkName = "-updateNewTaskFormFieldsWithData:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -603,7 +603,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "136"
             endingLineNumber = "136"
-            landmarkName = "-getNewProjectFieldsValue:byIndexPath:"
+            landmarkName = "-updateNewTaskFormFieldsWithData:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -667,7 +667,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "416"
             endingLineNumber = "416"
-            landmarkName = "-deserializeData:"
+            landmarkName = "-serializeTaskData:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -683,7 +683,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "415"
             endingLineNumber = "415"
-            landmarkName = "-deserializeData:"
+            landmarkName = "-serializeTaskData:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -747,7 +747,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "103"
             endingLineNumber = "103"
-            landmarkName = "-updateNewTaskFormFieldsWithData:"
+            landmarkName = "-loadSettingsFields"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -763,7 +763,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "108"
             endingLineNumber = "108"
-            landmarkName = "-updateNewTaskFormFieldsWithData:"
+            landmarkName = "-loadFilterFields"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -779,7 +779,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "102"
             endingLineNumber = "102"
-            landmarkName = "-updateNewTaskFormFieldsWithData:"
+            landmarkName = "-loadSettingsFields"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1047,7 +1047,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "541"
             endingLineNumber = "541"
-            landmarkName = "-getDataForStatistic"
+            landmarkName = "-makeButtonStyled:"
             landmarkType = "5">
             <Locations>
                <Location

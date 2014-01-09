@@ -9,12 +9,6 @@
 		<array>
 			<dict>
 				<key>type</key>
-				<integer>1</integer>
-				<key>name</key>
-				<string>Task</string>
-			</dict>
-			<dict>
-				<key>type</key>
 				<integer>0</integer>
 				<key>name</key>
 				<string>Project</string>
@@ -24,12 +18,6 @@
 				<integer>0</integer>
 				<key>name</key>
 				<string>Client</string>
-			</dict>
-			<dict>
-				<key>type</key>
-				<integer>3</integer>
-				<key>name</key>
-				<string>Color</string>
 			</dict>
 		</array>
 	</dict>

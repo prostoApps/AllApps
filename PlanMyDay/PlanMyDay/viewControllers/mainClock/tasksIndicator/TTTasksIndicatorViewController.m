@@ -131,17 +131,11 @@ float const NUM_ONE_HOUR_ROTATION = 0.523f;
         NSDateComponents *tmpDateComponents = [calendar components:(NSHourCalendarUnit) fromDate:dtStartDate];
         NSInteger numHourOfTaskStarts = [tmpDateComponents hour];
         
-        NSString *strRedString = [NSString stringWithFormat:@"%@", [strColor substringWithRange:NSMakeRange(0, 2)]];
-        float fRed = [[TTTools hexFromStr:strRedString] floatValue];
-        NSString *strGreenString = [NSString stringWithFormat:@"%@", [strColor substringWithRange:NSMakeRange(2, 2)]];
-        float fGreen = [[TTTools hexFromStr:strGreenString] floatValue];
-        NSString *strBlueString = [NSString stringWithFormat:@"%@", [strColor substringWithRange:NSMakeRange(4, 2)]];
-        float fBlue = [[TTTools hexFromStr:strBlueString] floatValue];
-        
         DACircularProgressView *largeProgressViewTMP = [[DACircularProgressView alloc] initWithFrame:CGRectMake(28, 74, 265, 265)];
         largeProgressViewTMP.layer.anchorPoint = CGPointMake(0.5, 0.5);
         [largeProgressViewTMP setTrackTintColor:[[UIColor alloc] initWithRed:0xfc/255.0 green:0x3e/255.0 blue:0xff/255.0 alpha:0]];
-        [largeProgressViewTMP setProgressTintColor:[[UIColor alloc] initWithRed:fRed/6666.0 green:fGreen/6666.0 blue:fBlue/6666.0 alpha:1]];
+        [largeProgressViewTMP setProgressTintColor:[TTTools colorWithHexString:strColor]];
+        
         
         largeProgressViewTMP.roundedCorners = NO;
         [tasksHolderView addSubview:largeProgressViewTMP];

@@ -14,7 +14,7 @@
 
 @implementation TTMainClockViewController
 
-@synthesize btnNewTask,btnMenu;
+@synthesize btnNewTask;
 
 @synthesize pageControl,svClockScrollView,tasksIndicatorAM,tasksIndicatorPM;
 @synthesize customTrackerViewController;
@@ -38,8 +38,11 @@
     
     //вытаскиваем все таски, которые есть в localData
     NSMutableArray *arrAllTasks = [[NSMutableArray alloc] initWithArray:[[TTAppDataManager sharedAppDataManager] getAllTasksForToday]];
-    
+    //добавляем кнопку "Начать планировать" есть нету тасков на сегодня
     if (arrAllTasks.count == 0) {
+        [viewWorksTask addSubview:viewStartPlan];
+    }
+    else{
         
     }
     UIColor * back = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"background.jpg"]];

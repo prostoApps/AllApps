@@ -80,7 +80,22 @@ static TTLocalDataManager *localDataManager;
         dictNewProjectIndexPaths = [[NSMutableDictionary alloc] init];
         for(id key in [dictNewProjectFields allKeys]){
             [dictNewProjectIndexPaths setObject:[[NSMutableDictionary alloc] init] forKey:key];
+            int section = 0;
+            for(NSDictionary * arrSection in [[dictNewProjectFields objectForKey:key] allObjects]){
+              //  NSLog(@"%d",section);
+                int row = 0;
+                for(NSDictionary * arrRow in [[arrSection objectForKey:STR_NEW_PROJECT_CELLS] allObjects]){
+                    NSIndexPath * indexPath = [NSIndexPath indexPathForRow:row inSection:section];
+                    [[dictNewProjectIndexPaths objectForKey:key] setObject:indexPath forKey:[arrRow objectForKey:STR_NEW_PROJECT_NAME]];
+                    row++;
+                }
+                section++;
+                
+            
+            }
+            
         }
+        
     }
 }
 -(void)loadSettingsFields{
