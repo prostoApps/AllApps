@@ -156,6 +156,7 @@
                 NSDate *dateEightHoursAhead = [date dateByAddingTimeInterval:secondsInEightHours];
                 date = dateEightHoursAhead;
             }
+            [[listData objectAtIndex:row] setObject:date forKey:STR_NEW_PROJECT_VALUE];
         }
         inputField.text = [[TTAppDataManager sharedAppDataManager] convertDate:date withFormat:@"EEEE, MMMM dd,yyyy hh:mm a"];
         [cell addSubview:inputField];
@@ -260,6 +261,8 @@
         else{
             [dpTaskDatePicker setDate:[NSDate date]];
         }
+        [[TTAppDataManager sharedAppDataManager]  saveNewProjectFieldsValue:[dpTaskDatePicker date] byIndexPath:[[TTApplicationManager sharedApplicationManager] ipNewProjectSelectedProperty] ];
+            [tableViewParametrs reloadData];
     }
 }
 

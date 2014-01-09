@@ -174,7 +174,6 @@ static TTLocalDataManager *localDataManager;
         
         item.strColor = [NSString stringWithFormat:@"%@",[self getNewProjectFieldsValue:STR_NEW_PROJECT_VALUE
                                                                             byIndexPath:[[dictNewProjectIndexPaths objectForKey:[[TTApplicationManager sharedApplicationManager] strNewProjectSelectedCategory]] objectForKey:STR_NEW_PROJECT_COLOR]]];
-//        [NSDate da]
         
         item.dtStartDate = [self getNewProjectFieldsValue:STR_NEW_PROJECT_VALUE
                                               byIndexPath:[[dictNewProjectIndexPaths objectForKey:[[TTApplicationManager sharedApplicationManager] strNewProjectSelectedCategory]] objectForKey:STR_NEW_PROJECT_START_DATE]];
@@ -321,7 +320,13 @@ static TTLocalDataManager *localDataManager;
 #pragma mark - Remove Task Section
 -(BOOL) removeTask:(NSMutableDictionary*) dictTaskToRemove
 {
-    return [localDataManager removeTask:dictTaskToRemove];
+    if ([localDataManager removeTask:dictTaskToRemove])
+    {
+        [localDataManager writeData:[localDataManager dictLocalData]
+                                 toFile:[self getProjectsFilePath] ];
+        return YES;
+    }
+    return NO;
 }
 
 //remove project
