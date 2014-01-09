@@ -162,6 +162,8 @@
         return;
     }
     
+//    [[TTAppDataManager sharedAppDataManager] saveNewProjectFieldsValue:[dpTaskDatePicker date] byIndexPath:[[TTApplicationManager sharedApplicationManager] ipNewProjectSelectedProperty] ];
+    
     //externalArgument == nil  при создании нового таска.
     //externalArgument != nil при редактировании таска.
     if (externalArgument)

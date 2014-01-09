@@ -61,6 +61,21 @@ Strawberry fc3e39
         return(self);
 }
 
+-(id)initWithDictionary:(NSDictionary*)dictTaskData
+{
+    self = [super init];
+    if(self) {
+        strTaskName = [dictTaskData objectForKey:STR_TASK_NAME];
+        strProjectName = [dictTaskData objectForKey:STR_PROJECT_NAME];
+        strClientName = [dictTaskData objectForKey:STR_CLIENT_NAME];
+        strColor = [dictTaskData objectForKey:STR_TASK_COLOR];
+//        numRealDuration = [dictTaskData objectForKey:STR_DURATION];
+//        numPlaningDuration = [dictTaskData objectForKey:STR_TASK_NAME];
+        strIsChecked = [dictTaskData objectForKey:STR_THIS_TASK_IS_CHECKED];
+    }
+    return(self);
+}
+
 -(void)clear
 {
     strClientName=nil;

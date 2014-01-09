@@ -66,4 +66,5 @@ extern NSString *const STR_COLOR_STRAWBERRY;
 
 -(void)clear;
 -(id)initWithEmptyFields;
+-(id)initWithDictionary:(NSDictionary*)dictTaskData;
 @end

@@ -46,14 +46,17 @@
 
 -(void)deleteCellFromTTTasksTableView:(TTTasksTableViewCell*)cell{
     // найти какую ячейку удалить из списка
+    BOOL bIsSuccess = [[TTAppDataManager sharedAppDataManager] removeTask:[cellsDataArray objectAtIndex:[[tasksTableView indexPathForCell:cell] row]]];
     
-    [[TTAppDataManager sharedAppDataManager] removeTask:[cellsDataArray objectAtIndex:[[tasksTableView indexPathForCell:cell] row]]];
+    if (bIsSuccess)
+    {
+        cellsDataArray = [[TTAppDataManager sharedAppDataManager] getAllTasks];
+        
+        [tasksTableView deleteRowsAtIndexPaths:[[NSArray alloc]
+                                                initWithObjects:[tasksTableView indexPathForCell:cell], nil]
+                              withRowAnimation:UITableViewRowAnimationFade];
+    }
     
-    cellsDataArray = [[TTAppDataManager sharedAppDataManager] getAllTasks];
-    
-    [tasksTableView deleteRowsAtIndexPaths:[[NSArray alloc]
-                                            initWithObjects:[tasksTableView indexPathForCell:cell], nil]
-                          withRowAnimation:UITableViewRowAnimationFade];
     
 }
 -(void)checkCellFromTTTasksTableView:(TTTasksTableViewCell*)cell{
@@ -83,7 +86,7 @@
             [[dictTaskData objectForKey:STR_CLIENT_NAME] isEqualToString: [dictSelectedTaskData objectForKey:STR_CLIENT_NAME] ])
         {
             
-            [[TTApplicationManager sharedApplicationManager] pushViewTo:VIEW_NEW_TASK forNavigationController:self.navigationController withArgument:dictTaskData];
+            [[TTApplicationManager sharedApplicationManager] pushViewTo:VIEW_NEW_TASK forNavigationController:self.navigationController withArgument:[[TTItem alloc] initWithDictionary:[dictTaskData copy] ]];
             return;
         }
     }
