@@ -37,8 +37,7 @@
     
     [appDataManager loadSettingsFields];
     
-    [settingsTableController setArrayTableViewData:appDataManager.arraySettingsFields];
-    [settingsTableController setParentViewController:self];
+    
     [settingsTableController setTableViewParametrs:tableSettings];
     
     _delegateTableSettings = settingsTableController;

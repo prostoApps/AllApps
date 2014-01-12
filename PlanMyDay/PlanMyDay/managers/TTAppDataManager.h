@@ -33,25 +33,25 @@ extern NSString *const STR_SORT_PARAMETER_TASK_DURATION;
 //@property (nonatomic, retain) TTLocalDataManager *localDataManager;
 @property (nonatomic, retain) UIViewController *currentViewController;
 
-@property (nonatomic,readwrite) int segmentIndexNewProject;
 @property (nonatomic,readwrite) NSMutableDictionary * dictNewProjectIndexPaths;
 @property (nonatomic,readwrite) NSMutableArray * arraySettingsFields;
 @property (nonatomic,readwrite) NSMutableArray * arrayFilterFields;
 
 -(NSString*)getDocumentsPath;
 -(NSString*)getProjectsFilePath;
--(NSArray*) getNewProjectFields;
--(NSArray*)updateNewTaskFormFieldsWithData:(TTItem*) dictTaskData;
+-(NSArray*) getNewProjectFieldsByCategory:(NSString*)category;
+-(void)updateNewTaskFormFieldsWithData:(TTItem*) dictTaskData onCategory:(NSString*)category;
 -(NSArray*) getFilterFields;
--(NSObject*)getNewProjectFieldsValue:(NSString*)value byIndexPath:(NSIndexPath*)indexPath;
--(NSIndexPath*)getNewProjectFieldsIndexPathByValue:(NSString*)value;
+-(NSObject*)getNewProjectFieldsValue:(NSString*)value byIndexPath:(NSIndexPath*)indexPath onCategory:(NSString*)category;
+-(NSIndexPath*)getNewProjectFieldsIndexPathByValue:(NSString*)value onCategory:(NSString*)category;
+-(NSObject*)getNewProjectFieldsValueByIndexPath:(NSIndexPath*)indexPath onCategory:(NSString*)category;
 
 -(NSMutableDictionary*)readDataFromFile:(NSString*)pathToFile;
 
--(BOOL)editTTItem:(NSMutableDictionary*) dictOldTaskData;
+-(BOOL)editTTItem:(NSMutableDictionary*)dictOldTaskData onCategory:(NSString*)category;;
 
--(BOOL)saveTTItem;
--(void)saveNewProjectFieldsValue:(NSObject*)value byIndexPath:(NSIndexPath*)indexPath;
+-(BOOL)saveTTItemOnCategory:(NSString*)category;
+-(void)saveNewProjectFieldsValue:(NSObject*)value byIndexPath:(NSIndexPath*)indexPath onCategory:(NSString*)category;
 -(void)loadNewProjectFields;
 -(void)loadSettingsFields;
 -(void)loadFilterFields;
@@ -61,7 +61,7 @@ extern NSString *const STR_SORT_PARAMETER_TASK_DURATION;
 -(NSMutableArray*)getAllClients;
 -(NSMutableArray*)getAllTasksForToday;
 
--(void) clearNewProjectFields;
+-(void) clearNewProjectFieldsonCategory:(NSString*)category;
 
 + (TTAppDataManager *)sharedAppDataManager;
 

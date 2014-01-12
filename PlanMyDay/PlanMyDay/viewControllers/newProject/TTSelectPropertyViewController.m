@@ -15,6 +15,7 @@
 @implementation TTSelectPropertyViewController
 
 @synthesize tablePropertiesList,arrProperties;
+@synthesize delegate;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -32,21 +33,8 @@
     
     [tablePropertiesList setTableFooterView:viewTableFooter];
     
-    TTAppDataManager * appDataManager = [TTAppDataManager sharedAppDataManager];
-    
-    selectStr = [NSString stringWithFormat:@"%@",[appDataManager getNewProjectFieldsValue:STR_NEW_PROJECT_NAME
-                                                                                byIndexPath:[[TTApplicationManager sharedApplicationManager] ipNewProjectSelectedProperty]]];
-    [self setTitle:[NSString stringWithFormat:@"Choose %@",selectStr]];
-    btnAddSelection.titleLabel.text = [NSString stringWithFormat:@"Add %@",selectStr];
-    [TTTools makeButtonStyled:btnAddSelection];
-    
-    if ([selectStr isEqualToString:STR_NEW_PROJECT_CLIENT]){
-       arrProperties = [appDataManager getAllClients];
-    }
-    else if ([selectStr isEqualToString:STR_NEW_PROJECT_PROJECT]){
-         arrProperties = [appDataManager getAllProjects];
-    }
-    
+    arrProperties = [delegate getSelectedFieldData];
+    btnAddSelection.titleLabel.text = [NSString stringWithFormat:@"Add %@",[delegate getSelectedFieldName]];
     if (arrProperties.count <= 0)
     {
         tablePropertiesList.hidden = true;
@@ -83,24 +71,14 @@
         cell.textLabel.textColor = [UIColor whiteColor];
         
     }
-    if ([selectStr isEqualToString:STR_NEW_PROJECT_CLIENT]){
-        cell.textLabel.text = [[arrProperties objectAtIndex:[indexPath row]] objectForKey:STR_CLIENT_NAME];
-    }
-    else if ([selectStr isEqualToString:STR_NEW_PROJECT_PROJECT]){
-        cell.textLabel.text = [[arrProperties objectAtIndex:[indexPath row]] objectForKey:STR_PROJECT_NAME];
-    }
-    
-    
+    cell.textLabel.text = [[arrProperties objectAtIndex:[indexPath row]] objectForKey:[NSString stringWithFormat:@"%@Name",[[delegate getSelectedFieldName] lowercaseString]]];
     return cell;
 }
 // Tap on table Row
 - (void) tableView: (UITableView *) tableView didSelectRowAtIndexPath: (NSIndexPath *) indexPath {
 
     UITableViewCell * cell = [tableView cellForRowAtIndexPath:indexPath];
-        NSLog(@"tableView didSelectRowAtIndexPath:: indexPath %@, with text: %@",indexPath,cell.textLabel.text);
-        NSLog(@"tableView didSelectRowAtIndexPath:: ipNewProjectSelectedProperty %@,",[[TTApplicationManager sharedApplicationManager] ipNewProjectSelectedProperty]);
-    [[TTAppDataManager sharedAppDataManager] saveNewProjectFieldsValue:cell.textLabel.text
-                                                             byIndexPath:[[TTApplicationManager sharedApplicationManager] ipNewProjectSelectedProperty]];
+    [delegate saveSelectedFieldTableValue:cell.textLabel.text];
     [self.navigationController popViewControllerAnimated:YES];
 }
 
@@ -110,15 +88,8 @@
 }
 
 -(IBAction)AddNewSelectionItemHehdler:(id)sender{
-    
-    [[TTApplicationManager sharedApplicationManager] setStrNewProjectSelectedCategory:selectStr];
-    
-    if ([selectStr isEqualToString:STR_NEW_PROJECT_PROJECT]){
-        [[TTAppDataManager sharedAppDataManager] setSegmentIndexNewProject:NUM_NEW_PROJECT_SELECTED_SEGMENT_PROJECT];
-    }
-    else if([selectStr isEqualToString:STR_NEW_PROJECT_CLIENT]){
-         [[TTAppDataManager sharedAppDataManager] setSegmentIndexNewProject:NUM_NEW_PROJECT_SELECTED_SEGMENT_CLIENT];
-    }
+    [delegate addNewSelectedFieldItem];
+   
     [self.navigationController popViewControllerAnimated:YES];
     
 }

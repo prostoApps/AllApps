@@ -15,20 +15,20 @@
 
 @interface TTSelectColorViewController ()
 {
-    NSIndexPath * indexCurrentColor;
+    NSArray * arrayOfColors;
 }
+
 @end
 
 @implementation TTSelectColorViewController
 @synthesize delegate;
-@synthesize collectionViewOfColors;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
-        indexCurrentColor = [[NSIndexPath alloc] init];
+        arrayOfColors = [[TTApplicationManager sharedApplicationManager] arrTaskColors];
     }
     return self;
 }
@@ -37,14 +37,13 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    //UIGestureRecognizer * tapGesture = [[UIGestureRecognizer alloc] initWithTarget:collectionViewOfColors action:@selector()]
 }
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView{
     return 1;
 }
 
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
-    return [[delegate getColorData] count];
+    return [arrayOfColors count];
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView
@@ -54,30 +53,22 @@
     
     UICollectionViewCell * cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"ColorCell"
                                                                             forIndexPath:indexPath];
-    
-    if ([cell viewWithTag:1]) {
-        [[cell viewWithTag:1] removeFromSuperview];
-        [[cell viewWithTag:2] removeFromSuperview];
-    }
-    NSString * cellColorString = [[[delegate getColorData] objectAtIndex:indexPath.item]objectForKey:STR_NEW_PROJECT_COLOR_COLOR];
+    NSString * cellColorString = [[arrayOfColors objectAtIndex:indexPath.item]objectForKey:STR_NEW_PROJECT_COLOR_COLOR];
     
     UIColor * cellColor = [TTTools colorWithHexString:cellColorString];
     
     UIColor *  cellBgColor = [UIColor clearColor];
+    NSString * selectedColorString = [delegate getSelectedColorValue];
     
-    if ([delegate respondsToSelector:@selector(getSelectedFieldTableValue)]) {
-        NSString * selectedColorString = [NSString stringWithFormat:@"%@",[delegate getSelectedFieldTableValue]];
-        
-        if ([cellColorString isEqualToString:selectedColorString]) {
-            cellBgColor = cellColor;
-            indexCurrentColor = indexPath;
-        }
+    if ([cellColorString isEqualToString:selectedColorString]) {
+        cellBgColor = cellColor;
     }
-   
+
+    
     [cell addSubview:[self circleWithColor:cellColor backgroundColor:cellBgColor radius:45]];
     UILabel * lblColorName = [[UILabel alloc] initWithFrame:CGRectMake(0, 38, 90, 14)];
     
-    lblColorName.text = [[[delegate getColorData] objectAtIndex:indexPath.item] objectForKey:STR_NEW_PROJECT_COLOR_NAME];
+    lblColorName.text = [[arrayOfColors objectAtIndex:indexPath.item] objectForKey:STR_NEW_PROJECT_COLOR_NAME];
     lblColorName.textColor = [UIColor whiteColor];
     lblColorName.font = [UIFont fontWithName:FONT_HELVETICA_NEUE_MEDIUM size:13.f];
     lblColorName.textAlignment = NSTextAlignmentCenter;
@@ -90,20 +81,22 @@
 }
 
 -(void)collectionView:(UICollectionView *)collectionView didHighlightItemAtIndexPath:(NSIndexPath *)indexPath{
-//   [delegate saveSelectedFieldTableValue:[[[delegate getColorData] objectAtIndex:indexPath.item] objectForKey:STR_NEW_PROJECT_COLOR_COLOR]];
-////    [collectionView reloadData];
-//    UICollectionViewCell * oldCell = [collectionView cellForItemAtIndexPath:indexCurrentColor];
-//    [oldCell viewWithTag:1].backgroundColor = [UIColor clearColor];
-//    
-//    UICollectionViewCell * cell = [collectionView cellForItemAtIndexPath:indexPath];
-//    UIColor * color = [UIColor colorWithCGColor:[cell viewWithTag:1].layer.borderColor];
-//    [cell viewWithTag:1].backgroundColor = color;
+   
+    UICollectionViewCell * oldCell = [collectionView cellForItemAtIndexPath:[[TTApplicationManager sharedApplicationManager] ipNewProjectSelectedColor]];
+    
+    
+    [oldCell viewWithTag:1].backgroundColor = [UIColor clearColor];
+    
+    UICollectionViewCell * cell = [collectionView cellForItemAtIndexPath:indexPath];
+    UIColor * color = [UIColor colorWithCGColor:[cell viewWithTag:1].layer.borderColor];
+    [cell viewWithTag:1].backgroundColor = color;
 }
 
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
 
-    [delegate saveSelectedFieldTableValue:[[[delegate getColorData] objectAtIndex:indexPath.item] objectForKey:STR_NEW_PROJECT_COLOR_COLOR]];
+    [delegate saveColorValue:[[arrayOfColors objectAtIndex:indexPath.item] objectForKey:STR_NEW_PROJECT_COLOR_COLOR]];
+    [[TTAppDataManager sharedAppDataManager] set]
     [collectionView reloadData];
     [self.navigationController popViewControllerAnimated:YES];
     

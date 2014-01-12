@@ -8,10 +8,7 @@
 
 #import "TTAppDataManager.h"
 #import "TTApplicationManager.h"
-#import "TTCreatePropertyViewController.h"
-#import "TTSelectPropertyViewController.h"
 #import "TTFieldsTableViewController.h"
-#import "TTSelectColorViewController.h"
 #import <QuartzCore/QuartzCore.h>
 
 
@@ -33,8 +30,6 @@
 
 @property (nonatomic,retain) TTItem  *externalArgument;
 
--(void) updateViewWithNewData;
-
 - (void)setExternalArgument:(TTItem*)argument;
 - (TTItem*)getExternalArgument;
 
@@ -42,10 +37,5 @@
 -(IBAction) btnSaveTouchHandler:(id)sender;
 
 -(void)updateData;
-
-#pragma mark TTFieldsTableDelegate metods
-
--(NSArray *)getTableViewData;
--(UIViewController *)getParentViewController;
 @end
 

@@ -73,8 +73,6 @@
 		DD90BF7017AA06530064233C /* ClockViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DD90BF6D17AA06530064233C /* ClockViewController.xib */; };
 		DD968BA017B7BBE8008D583F /* TTSelectPropertyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD968B9E17B7BBE8008D583F /* TTSelectPropertyViewController.m */; };
 		DD968BA117B7BBE8008D583F /* TTSelectPropertyViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DD968B9F17B7BBE8008D583F /* TTSelectPropertyViewController.xib */; };
-		DD968BA517B7BC1C008D583F /* TTCreatePropertyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD968BA317B7BC1C008D583F /* TTCreatePropertyViewController.m */; };
-		DD968BA617B7BC1C008D583F /* TTCreatePropertyViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DD968BA417B7BC1C008D583F /* TTCreatePropertyViewController.xib */; };
 		DDA17431178A38F40000132D /* TTApplicationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = DDA17430178A38F40000132D /* TTApplicationManager.m */; };
 		DDB4A82C17849C3F007C7F15 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDB4A82B17849C3F007C7F15 /* UIKit.framework */; };
 		DDB4A82E17849C3F007C7F15 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDB4A82D17849C3F007C7F15 /* Foundation.framework */; };
@@ -191,9 +189,6 @@
 		DD968B9D17B7BBE8008D583F /* TTSelectPropertyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TTSelectPropertyViewController.h; path = viewControllers/newProject/TTSelectPropertyViewController.h; sourceTree = "<group>"; };
 		DD968B9E17B7BBE8008D583F /* TTSelectPropertyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TTSelectPropertyViewController.m; path = viewControllers/newProject/TTSelectPropertyViewController.m; sourceTree = "<group>"; };
 		DD968B9F17B7BBE8008D583F /* TTSelectPropertyViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TTSelectPropertyViewController.xib; path = viewControllers/newProject/TTSelectPropertyViewController.xib; sourceTree = "<group>"; };
-		DD968BA217B7BC1C008D583F /* TTCreatePropertyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TTCreatePropertyViewController.h; path = viewControllers/newProject/TTCreatePropertyViewController.h; sourceTree = "<group>"; };
-		DD968BA317B7BC1C008D583F /* TTCreatePropertyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TTCreatePropertyViewController.m; path = viewControllers/newProject/TTCreatePropertyViewController.m; sourceTree = "<group>"; };
-		DD968BA417B7BC1C008D583F /* TTCreatePropertyViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TTCreatePropertyViewController.xib; path = viewControllers/newProject/TTCreatePropertyViewController.xib; sourceTree = "<group>"; };
 		DDA1742F178A38F40000132D /* TTApplicationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTApplicationManager.h; sourceTree = "<group>"; };
 		DDA17430178A38F40000132D /* TTApplicationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTApplicationManager.m; sourceTree = "<group>"; };
 		DDB4A82817849C3F007C7F15 /* PlanMyDay.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PlanMyDay.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -495,9 +490,6 @@
 				DD968B9D17B7BBE8008D583F /* TTSelectPropertyViewController.h */,
 				DD968B9E17B7BBE8008D583F /* TTSelectPropertyViewController.m */,
 				DD968B9F17B7BBE8008D583F /* TTSelectPropertyViewController.xib */,
-				DD968BA217B7BC1C008D583F /* TTCreatePropertyViewController.h */,
-				DD968BA317B7BC1C008D583F /* TTCreatePropertyViewController.m */,
-				DD968BA417B7BC1C008D583F /* TTCreatePropertyViewController.xib */,
 				05CD803D17F9EB6C0014B980 /* TTSelectColorViewController.h */,
 				05CD803E17F9EB6C0014B980 /* TTSelectColorViewController.m */,
 				0549C2F017FAEE6B0097B002 /* TTSelectColorViewController.xib */,
@@ -748,7 +740,6 @@
 				05C8B666180ED9860065891D /* icon-tracker@2x.png in Resources */,
 				DD968BA117B7BBE8008D583F /* TTSelectPropertyViewController.xib in Resources */,
 				05C8B669180ED9860065891D /* clock-background.png in Resources */,
-				DD968BA617B7BC1C008D583F /* TTCreatePropertyViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -793,7 +784,6 @@
 				0596765117D0CAD000653A60 /* DDMenuController.m in Sources */,
 				05F1BCD018184588005C0739 /* Section.m in Sources */,
 				05C8B630180EC9D40065891D /* TTTasksIndicatorViewController.m in Sources */,
-				DD968BA517B7BC1C008D583F /* TTCreatePropertyViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

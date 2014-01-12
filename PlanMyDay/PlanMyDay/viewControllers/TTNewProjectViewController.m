@@ -12,6 +12,8 @@
 @interface TTNewProjectViewController ()
 {
     TTFieldsTableViewController * newProjectTableController;
+    NSString * newProjectSelectedCategory;
+    int segmentIndexNewProject;
 }
 
 @end
@@ -26,7 +28,8 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-
+        newProjectTableController = [[TTFieldsTableViewController alloc] init];
+        segmentIndexNewProject = 0;
     }
     return self;
 }
@@ -35,18 +38,12 @@
 {
     
     [super viewDidLoad];
+
+    newProjectSelectedCategory = STR_NEW_PROJECT_TASK;
+
+     [[TTAppDataManager sharedAppDataManager] loadNewProjectFields];
     
-    TTAppDataManager * appDataManager = [TTAppDataManager sharedAppDataManager];
     
-    if ([[TTApplicationManager sharedApplicationManager] strNewProjectSelectedCategory] == nil)
-    {
-        [[TTApplicationManager sharedApplicationManager] setStrNewProjectSelectedCategory:STR_NEW_PROJECT_TASK];
-    }
-     [appDataManager loadNewProjectFields];
-    
-    newProjectTableController = [[TTFieldsTableViewController alloc] init];
-   // [newProjectTableController setParentViewController:self];
-    [newProjectTableController setTableViewParametrs:tableViewNewProject];
     [newProjectTableController setDelegate:self];
     
     _delegate = newProjectTableController;
@@ -79,12 +76,12 @@
     NSTimeInterval secondsInEightHours = 1 * 60 * 60;
     NSDate * dateEnd = [dateStart dateByAddingTimeInterval:secondsInEightHours];
     
-    [[TTAppDataManager sharedAppDataManager] saveNewProjectFieldsValue:dateStart
-                                                           byIndexPath:[[TTAppDataManager sharedAppDataManager] getNewProjectFieldsIndexPathByValue:STR_NEW_PROJECT_START_DATE]];
-    
-    [[TTAppDataManager sharedAppDataManager] saveNewProjectFieldsValue:dateEnd
-                                                        byIndexPath:[[TTAppDataManager sharedAppDataManager] getNewProjectFieldsIndexPathByValue:STR_NEW_PROJECT_END_DATE]];
-    
+    [[TTAppDataManager sharedAppDataManager]  saveNewProjectFieldsValue:dateStart
+                                                            byIndexPath:[[TTAppDataManager sharedAppDataManager]getNewProjectFieldsIndexPathByValue:STR_NEW_PROJECT_START_DATE onCategory:newProjectSelectedCategory]
+                                                            onCategory:newProjectSelectedCategory];
+    [[TTAppDataManager sharedAppDataManager]  saveNewProjectFieldsValue:dateEnd
+                                                            byIndexPath:[[TTAppDataManager sharedAppDataManager]getNewProjectFieldsIndexPathByValue:STR_NEW_PROJECT_END_DATE onCategory:newProjectSelectedCategory]
+                                                             onCategory:newProjectSelectedCategory];
     
 }
 
@@ -95,9 +92,6 @@
     }
 }
 - (void) loadPropertyForView {
-    
-    TTAppDataManager * appDataManager = [TTAppDataManager sharedAppDataManager];
-    NSString * strName = [[TTApplicationManager sharedApplicationManager] strNewProjectSelectedCategory];
     NSString * strAddOrEdit ;
     if (externalArgument)
     {
@@ -107,11 +101,12 @@
     {
         strAddOrEdit = @"Add";
     }
-    [self setTitle:[NSString stringWithFormat:@"%@ %@",strAddOrEdit, strName]];
-    [btnSave setTitle:[NSString stringWithFormat:@"%@ %@",strAddOrEdit, strName] forState:UIControlStateNormal];
-    [scTaskProjectClient setSelectedSegmentIndex:appDataManager.segmentIndexNewProject];
+  
+       [self setTitle:[NSString stringWithFormat:@"%@ %@",strAddOrEdit, newProjectSelectedCategory]];
+    [btnSave setTitle:[NSString stringWithFormat:@"%@ %@",strAddOrEdit, newProjectSelectedCategory] forState:UIControlStateNormal];
+    [scTaskProjectClient setSelectedSegmentIndex:segmentIndexNewProject];
 
-    [newProjectTableController setArrayTableViewData:[appDataManager getNewProjectFields]];
+  //  [newProjectTableController setArrayTableViewData:[appDataManager getNewProjectFields]];
     
     [tableViewNewProject reloadData];
     
@@ -121,17 +116,17 @@
 -(IBAction) segmentedControlIndexChanged
 {
     [self.view endEditing:YES];
-    [[TTAppDataManager sharedAppDataManager] setSegmentIndexNewProject:scTaskProjectClient.selectedSegmentIndex];
+    segmentIndexNewProject = scTaskProjectClient.selectedSegmentIndex;
     
 	switch (self.scTaskProjectClient.selectedSegmentIndex) {
 		case 0:
-            [[TTApplicationManager sharedApplicationManager] setStrNewProjectSelectedCategory:STR_NEW_PROJECT_TASK];
+             newProjectSelectedCategory = STR_NEW_PROJECT_TASK;
 			break;
 		case 1:
-            [[TTApplicationManager sharedApplicationManager] setStrNewProjectSelectedCategory:STR_NEW_PROJECT_PROJECT];
+            newProjectSelectedCategory = STR_NEW_PROJECT_PROJECT;
 			break;
 		case 2:
-            [[TTApplicationManager sharedApplicationManager] setStrNewProjectSelectedCategory:STR_NEW_PROJECT_CLIENT];
+            newProjectSelectedCategory = STR_NEW_PROJECT_CLIENT;
 			break;
 		default:
             break;
@@ -147,11 +142,9 @@
     
     [self.view endEditing:YES];
     // проверка на заполненость имени
- 
-    
-    NSString * validateName = [NSString stringWithFormat:@"%@",
-                             [[TTAppDataManager sharedAppDataManager] getNewProjectFieldsValue:STR_NEW_PROJECT_VALUE
-                                               byIndexPath:[[[[TTAppDataManager sharedAppDataManager] dictNewProjectIndexPaths] objectForKey:[[TTApplicationManager sharedApplicationManager] strNewProjectSelectedCategory]] objectForKey:STR_NEW_PROJECT_NAME]]];
+    NSString * validateName = [NSString stringWithFormat:@"%@",[[TTAppDataManager sharedAppDataManager]getNewProjectFieldsValue:STR_NEW_PROJECT_VALUE
+                                           byIndexPath:[[[[TTAppDataManager sharedAppDataManager] dictNewProjectIndexPaths]objectForKey:newProjectSelectedCategory] objectForKey:STR_NEW_PROJECT_NAME]
+                                                                onCategory:newProjectSelectedCategory]];
     
     if ( [validateName isEqualToString:@"(null)"] || [validateName isEqualToString:@""] )
     {
@@ -162,17 +155,14 @@
         return;
     }
     
-//    [[TTAppDataManager sharedAppDataManager] saveNewProjectFieldsValue:[dpTaskDatePicker date] byIndexPath:[[TTApplicationManager sharedApplicationManager] ipNewProjectSelectedProperty] ];
-    
-    //externalArgument == nil  при создании нового таска.
-    //externalArgument != nil при редактировании таска.
     if (externalArgument)
     {
-        bSaveEditSuccess = [[TTAppDataManager sharedAppDataManager] editTTItem:externalArgument];
+        bSaveEditSuccess = [[TTAppDataManager sharedAppDataManager] editTTItem:externalArgument onCategory:newProjectSelectedCategory];
     }
     else
     {
-        bSaveEditSuccess = [[TTAppDataManager sharedAppDataManager] saveTTItem];
+        bSaveEditSuccess = [[TTAppDataManager sharedAppDataManager] saveTTItemOnCategory:newProjectSelectedCategory];
+        [[TTAppDataManager sharedAppDataManager] clearNewProjectFieldsonCategory:newProjectSelectedCategory];
     }
     
    if (bSaveEditSuccess)
@@ -189,22 +179,12 @@
        }
        else if (scTaskProjectClient.selectedSegmentIndex == NUM_NEW_PROJECT_SELECTED_SEGMENT_TASK)
        {
-           [[TTAppDataManager sharedAppDataManager] clearNewProjectFields];
-           [[TTApplicationManager sharedApplicationManager]  updateCurrentViewController];
+          
+        //   [[TTApplicationManager sharedApplicationManager]  updateCurrentViewController];
            [self.navigationController popViewControllerAnimated:YES];
            [[TTApplicationManager sharedApplicationManager] switchViewTo:VIEW_MAIN_CLOCK forNavigationController:self.navigationController];
        }
    }
-}
-
--(void) updateViewWithNewData
-{
-    NSMutableArray * dictExistingTaskFields = [[TTAppDataManager sharedAppDataManager] updateNewTaskFormFieldsWithData:externalArgument];
-    [newProjectTableController setArrayTableViewData:dictExistingTaskFields];
-    if(externalArgument.strTaskName)
-    {
-     
-    }
 }
 
 - (void)didReceiveMemoryWarning
@@ -213,10 +193,12 @@
     // Dispose of any resources that can be recreated.
 }
 
+
 -(void)setExternalArgument:(TTItem*)argument
 {
     externalArgument = argument;
-    [self updateViewWithNewData];
+    [[TTAppDataManager sharedAppDataManager] updateNewTaskFormFieldsWithData:externalArgument onCategory:newProjectSelectedCategory];
+    [self loadPropertyForView];
 }
 
 - (TTItem*)getExternalArgument
@@ -232,10 +214,31 @@
 
 #pragma mark TTFieldsTableDelegate metods
 -(NSArray *)getTableViewData{
-    return [[TTAppDataManager sharedAppDataManager] getNewProjectFields];
+    return [[TTAppDataManager sharedAppDataManager] getNewProjectFieldsByCategory:newProjectSelectedCategory];
 }
--(UIViewController *)getParentViewController{
+-(UIViewController *)getParentController{
     return self;
 }
+-(UITableView *)getTableView{
+    return tableViewNewProject;
+}
+-(void) saveValue:(id)value byIndexPath:(NSIndexPath*)indexPath{
+    [[TTAppDataManager sharedAppDataManager] saveNewProjectFieldsValue:value byIndexPath:indexPath onCategory:newProjectSelectedCategory];
+    [tableViewNewProject reloadData];
+}
+-(id)getValuebyIndexPath:(NSIndexPath*)indexPath{
+    return [[TTAppDataManager sharedAppDataManager] getNewProjectFieldsValueByIndexPath:indexPath onCategory:newProjectSelectedCategory];
+}
+-(void) setFieldsCategory:(NSString*)swichCategoryName{
 
+    if ([swichCategoryName isEqualToString:STR_NEW_PROJECT_PROJECT]) {
+        segmentIndexNewProject = 1;
+    }
+    else if ([swichCategoryName isEqualToString:STR_NEW_PROJECT_CLIENT]) {
+        segmentIndexNewProject = 2;
+    }
+    
+    newProjectSelectedCategory = swichCategoryName;
+    [self loadPropertyForView];
+}
 @end

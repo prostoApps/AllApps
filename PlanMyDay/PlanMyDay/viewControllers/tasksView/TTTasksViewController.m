@@ -61,16 +61,10 @@
 }
 -(void)checkCellFromTTTasksTableView:(TTTasksTableViewCell*)cell{
     
-    TTItem * itemToSave = [[TTItem alloc] init];
-    [itemToSave setStrIsChecked:[cell.getTableCellData objectForKey:STR_THIS_TASK_IS_CHECKED]];
-    [itemToSave setStrClientName:[cell.getTableCellData objectForKey:STR_CLIENT_NAME]];
-    [itemToSave setStrProjectName:[cell.getTableCellData objectForKey:STR_PROJECT_NAME]];
-    [itemToSave setStrTaskName:[cell.getTableCellData objectForKey:STR_TASK_NAME]];
-    NSLog(@"isCheck: %@",[cell.getTableCellData objectForKey:STR_THIS_TASK_IS_CHECKED]);
-  //  [[TTAppDataManager sharedAppDataManager] saveTTItem:itemToSave];
+    // определяем индекс ячейки и забираем все ее данные из массива
+    NSIndexPath * indexPath = [tasksTableView indexPathForCell:cell];
+    NSDictionary *dictSelectedTaskData = [cellsDataArray objectAtIndex:indexPath.row];
     
-    TTAppDataManager * Mydata = [TTAppDataManager sharedAppDataManager];
-    cellsDataArray = [Mydata getAllTasks];
     
     [tasksTableView reloadData];
 }
@@ -78,35 +72,22 @@
 #pragma mark Edit task table
 -(void)editCellFromTTTasksTableView:(TTTasksTableViewCell*)cell
 {
-    NSDictionary *dictSelectedTaskData = [[NSDictionary alloc] initWithDictionary:cell.getTableCellData];
-    for (NSMutableDictionary *dictTaskData in cellsDataArray)
-    {
-        if ([[dictTaskData objectForKey:STR_TASK_NAME] isEqualToString: [dictSelectedTaskData objectForKey:STR_TASK_NAME]]  &&
-            [[dictTaskData objectForKey:STR_PROJECT_NAME] isEqualToString: [dictSelectedTaskData objectForKey:STR_PROJECT_NAME]] &&
-            [[dictTaskData objectForKey:STR_CLIENT_NAME] isEqualToString: [dictSelectedTaskData objectForKey:STR_CLIENT_NAME] ])
-        {
-            
-            [[TTApplicationManager sharedApplicationManager] pushViewTo:VIEW_NEW_TASK forNavigationController:self.navigationController withArgument:[[TTItem alloc] initWithDictionary:[dictTaskData copy] ]];
-            return;
-        }
-    }
-//    [[TTApplicationManager sharedApplicationManager] pushViewTo:VIEW_NEW_TASK forNavigationController:self.navigationController];
+    // определяем индекс ячейки и забираем все ее данные из массива
+    NSIndexPath * indexPath = [tasksTableView indexPathForCell:cell];
+    NSDictionary *dictSelectedTaskData = [cellsDataArray objectAtIndex:indexPath.row];
+
+    [[TTApplicationManager sharedApplicationManager] pushViewTo:VIEW_NEW_TASK forNavigationController:self.navigationController withArgument:[[TTItem alloc] initWithDictionary:[dictSelectedTaskData copy] ]];
 }
 
 -(void)iconTaskWasTaped:(TTTasksTableViewCell*)cell
 {
-    NSDictionary *dictSelectedTaskData = [[NSDictionary alloc] initWithDictionary:cell.getTableCellData];
-    for (NSMutableDictionary *dictTaskData in cellsDataArray)
-    {
-        if ([[dictTaskData objectForKey:STR_TASK_NAME] isEqualToString: [dictSelectedTaskData objectForKey:STR_TASK_NAME]]  &&
-            [[dictTaskData objectForKey:STR_PROJECT_NAME] isEqualToString: [dictSelectedTaskData objectForKey:STR_PROJECT_NAME]] &&
-            [[dictTaskData objectForKey:STR_CLIENT_NAME] isEqualToString: [dictSelectedTaskData objectForKey:STR_CLIENT_NAME] ])
-        {
-            [[TTApplicationManager sharedApplicationManager] switchViewTo:VIEW_CUSTOM_TRACKER
-                                                  forNavigationController:self.navigationController
-                                                             withArgument:[[TTAppDataManager sharedAppDataManager] deserializeData:dictTaskData]];
-        }
-    }
+    // определяем индекс ячейки и забираем все ее данные из массива
+    NSIndexPath * indexPath = [tasksTableView indexPathForCell:cell];
+    NSDictionary *dictSelectedTaskData = [cellsDataArray objectAtIndex:indexPath.row];
+    
+    [[TTApplicationManager sharedApplicationManager] switchViewTo:VIEW_CUSTOM_TRACKER
+                                          forNavigationController:self.navigationController
+                                                     withArgument:[[TTAppDataManager sharedAppDataManager] deserializeData:dictSelectedTaskData]];
 }
 
 #pragma mark UITableViewDataSource

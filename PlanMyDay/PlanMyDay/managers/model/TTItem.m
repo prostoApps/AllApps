@@ -69,9 +69,12 @@ Strawberry fc3e39
         strProjectName = [dictTaskData objectForKey:STR_PROJECT_NAME];
         strClientName = [dictTaskData objectForKey:STR_CLIENT_NAME];
         strColor = [dictTaskData objectForKey:STR_TASK_COLOR];
+        dtStartDate = [dictTaskData objectForKey:STR_START_DATE];
+        dtEndDate = [dictTaskData objectForKey:STR_END_DATE];
 //        numRealDuration = [dictTaskData objectForKey:STR_DURATION];
 //        numPlaningDuration = [dictTaskData objectForKey:STR_TASK_NAME];
         strIsChecked = [dictTaskData objectForKey:STR_THIS_TASK_IS_CHECKED];
+        
     }
     return(self);
 }

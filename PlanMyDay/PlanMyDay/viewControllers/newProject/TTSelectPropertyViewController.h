@@ -18,9 +18,10 @@
     
     IBOutlet UIView * viewTableFooter;
     IBOutlet UIButton * btnAddSelection;
+    id <TTSelectedFieldTableDelegate> _delegate;
 }
-
-@property (nonatomic, retain) NSMutableArray *arrProperties;
+@property (weak) id<TTSelectedFieldTableDelegate> delegate;
+@property (nonatomic, retain) NSArray *arrProperties;
 @property (nonatomic, retain) IBOutlet UITableView *tablePropertiesList;
 
 -(IBAction)AddNewSelectionItemHehdler:(id)sender;

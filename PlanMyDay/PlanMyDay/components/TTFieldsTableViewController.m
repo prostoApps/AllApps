@@ -13,19 +13,19 @@
 @end
 
 @implementation TTFieldsTableViewController
-@synthesize parentViewController;
-@synthesize arrayTableViewData;
-@synthesize tableViewParametrs;
+@synthesize delegate;
 @synthesize dpTaskDatePicker;
 @synthesize dpView;
+
+
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
     self = [super initWithStyle:style];
     if (self) {
         [self.view addSubview:dpView];
-        arrayTableViewData = [delegate getTableViewData];
-        parentViewController = delegate;
+        indexCurrentSelectedItem = [[NSIndexPath alloc] init];
+        
     }
     return self;
 }
@@ -33,7 +33,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
 }
 
 - (void)didReceiveMemoryWarning
@@ -48,29 +47,22 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return [arrayTableViewData count];
+    return [[delegate getTableViewData] count];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    NSArray *listData =[[arrayTableViewData objectAtIndex:section] objectForKey:STR_NEW_PROJECT_CELLS];
+    NSArray *listData =[[[delegate getTableViewData] objectAtIndex:section] objectForKey:STR_NEW_PROJECT_CELLS];
     return [listData count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath*)indexPath {
     static NSString *CellIdentifier = @"Cell";
     
-    NSArray *listData = [[arrayTableViewData objectAtIndex:[indexPath section]] objectForKey:STR_NEW_PROJECT_CELLS];
+    NSArray *listData = [[[delegate getTableViewData] objectAtIndex:[indexPath section]] objectForKey:STR_NEW_PROJECT_CELLS];
     NSUInteger row = [indexPath row];
     int typeCell = [[[listData objectAtIndex:row] objectForKey:STR_NEW_PROJECT_TYPE] intValue];
     
-<<<<<<< HEAD
-=======
-    TTAppDataManager * appDataManager = [TTAppDataManager sharedAppDataManager];
-    //сохраняем в Дикшионари Дата менеджера  Индекс ячейки. с ключем -> Названиe ячейки
-    [[appDataManager.dictNewProjectIndexPaths objectForKey:[[TTApplicationManager sharedApplicationManager] strNewProjectSelectedCategory]] setObject:indexPath forKey:[[listData objectAtIndex:row] objectForKey:STR_NEW_PROJECT_NAME]];
-    
->>>>>>> 739ae6893dcc2c4d6b872ad13869a7e0f74264c8
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
     if (!cell)
@@ -127,14 +119,21 @@
     // если ячейчка выбора цвета
     else if (typeCell == INT_NEW_PROJECT_TYPE_COLOR)
     {
-        TTApplicationManager * aplicationDM = [TTApplicationManager sharedApplicationManager];
-        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-        if (aplicationDM.ipNewProjectSelectedColor)
+         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+        if ([[listData objectAtIndex:row] objectForKey:STR_NEW_PROJECT_VALUE])
         {
-            NSString * colorName = [[aplicationDM.arrTaskColors objectAtIndex:aplicationDM.ipNewProjectSelectedColor.row] objectForKey:STR_NEW_PROJECT_COLOR_NAME];
-            cell.detailTextLabel.text = colorName;
+            NSString * strColor = [[listData objectAtIndex:row] objectForKey:STR_NEW_PROJECT_VALUE];
+            NSArray * arrayColors = [[TTApplicationManager sharedApplicationManager] arrTaskColors];
+            for (int i = 0; i < arrayColors.count ; i++) {
+                if ([arrayColors[i][STR_NEW_PROJECT_COLOR_COLOR] isEqualToString:strColor]){
+                    NSString * colorName = arrayColors[i][STR_NEW_PROJECT_COLOR_NAME];
+                    cell.detailTextLabel.text = colorName;
+                }
+            }
+           
+            
             UIView *circle = [[UIView alloc] initWithFrame:CGRectMake(100, 8, 2 * 12.5, 2 * 12.5)] ;
-            circle.layer.borderColor = [TTTools colorWithHexString:[[listData objectAtIndex:row] objectForKey:STR_NEW_PROJECT_VALUE]].CGColor;
+            circle.layer.borderColor = [TTTools colorWithHexString:strColor].CGColor;
             circle.layer.borderWidth = 1.f;
             circle.layer.cornerRadius = 12.5;
             circle.layer.masksToBounds = YES;
@@ -154,20 +153,7 @@
         inputField.inputView = dpView;
         NSDate * date;
         date = [[listData objectAtIndex:row] objectForKey:STR_NEW_PROJECT_VALUE];
-<<<<<<< HEAD
         inputField.text = [TTTools convertDate:date withFormat:@"EEEE, MMMM dd,yyyy hh:mm a"];
-=======
-        if (!date) {
-            date = [NSDate date];
-            if ([[[listData objectAtIndex:row] objectForKey:STR_NEW_PROJECT_NAME] isEqualToString:STR_NEW_PROJECT_END_DATE]) {
-                NSTimeInterval secondsInEightHours = 1 * 60 * 60;
-                NSDate *dateEightHoursAhead = [date dateByAddingTimeInterval:secondsInEightHours];
-                date = dateEightHoursAhead;
-            }
-            [[listData objectAtIndex:row] setObject:date forKey:STR_NEW_PROJECT_VALUE];
-        }
-        inputField.text = [[TTAppDataManager sharedAppDataManager] convertDate:date withFormat:@"EEEE, MMMM dd,yyyy hh:mm a"];
->>>>>>> 739ae6893dcc2c4d6b872ad13869a7e0f74264c8
         [cell addSubview:inputField];
         
     }
@@ -186,7 +172,7 @@
     UILabel *tempLabel=[[UILabel alloc]initWithFrame:CGRectMake(15,0,305,30)];
     tempLabel.textColor = [UIColor whiteColor];
     
-    tempLabel.text = [[arrayTableViewData objectAtIndex:section] objectForKey:STR_NEW_PROJECT_NAME];
+    tempLabel.text = [[[delegate getTableViewData] objectAtIndex:section] objectForKey:STR_NEW_PROJECT_NAME];
     tempLabel.font = [UIFont fontWithName:FONT_HELVETICA_NEUE_REGULAR size:14];
     [tempView addSubview:tempLabel];
     return tempView;
@@ -198,19 +184,30 @@
 // Tap on table Row
 - (void) tableView: (UITableView *) tableView didSelectRowAtIndexPath: (NSIndexPath *) indexPath
 {
-    // ipCurrentIndexPath = indexPath;
-    
-    [[TTApplicationManager sharedApplicationManager] setIpNewProjectSelectedProperty:indexPath];
-    NSArray *listData = [[arrayTableViewData objectAtIndex:[indexPath section]] objectForKey:STR_NEW_PROJECT_CELLS];
+    indexCurrentSelectedItem = indexPath;
+
+    NSArray *listData = [[[delegate getTableViewData] objectAtIndex:[indexPath section]] objectForKey:STR_NEW_PROJECT_CELLS];
     int typeCell = [[[listData objectAtIndex:indexPath.row] objectForKey:STR_NEW_PROJECT_TYPE] intValue];
     
     if (typeCell == INT_NEW_PROJECT_TYPE_SELECT)
     {
-        [[TTApplicationManager sharedApplicationManager] pushViewTo:VIEW_SELECT_PROPERTY forNavigationController:parentViewController.navigationController];
+        TTSelectPropertyViewController * targetViewController = [[TTSelectPropertyViewController alloc]
+                                                              initWithNibName:@"TTSelectPropertyViewController" bundle:nil];
+        [targetViewController setDelegate:self];
+        
+        [[delegate getParentController].navigationController pushViewController:targetViewController animated:YES];
+        
+      //  [[TTApplicationManager sharedApplicationManager] pushViewTo:VIEW_SELECT_PROPERTY forNavigationController:[delegate getParentController].navigationController];
     }
     else if (typeCell == INT_NEW_PROJECT_TYPE_COLOR)
     {
-        [[TTApplicationManager sharedApplicationManager] pushViewTo:VIEW_SELECT_COLOR forNavigationController:parentViewController.navigationController];
+        TTSelectColorViewController * targetViewController = [[TTSelectColorViewController alloc]
+                            initWithNibName:@"TTSelectColorViewController" bundle:nil];
+        [targetViewController setDelegate:self];
+        
+        [[delegate getParentController].navigationController pushViewController:targetViewController animated:YES];
+        
+       // [[TTApplicationManager sharedApplicationManager] pushViewTo:VIEW_SELECT_COLOR forNavigationController:[delegate getParentNavController].navigationController];
     }
 }
 
@@ -220,8 +217,8 @@
 - (void) switchChanged:(id)sender
 {
     UISwitch* switchControl = sender;
-    NSIndexPath *indexPath = [tableViewParametrs indexPathForCell:(UITableViewCell*)[[switchControl superview] superview]]; // this should return you
-    [[TTAppDataManager sharedAppDataManager] saveNewProjectFieldsValue:switchControl.on ? @"YES" : @"NO" byIndexPath:indexPath];
+    NSIndexPath *indexPath = [[delegate getTableView] indexPathForCell:(UITableViewCell*)[[switchControl superview] superview]]; // this should return you
+    [delegate saveValue:switchControl.on ? @"YES" : @"NO" byIndexPath:indexPath];
 }
 
 #pragma mark -
@@ -235,16 +232,15 @@
 // когда Текстовое поле завершило редакирование
 - (void)textFieldDidEndEditing:(UITextField *)textField
 {
+    NSLog(@"endEditing trace");
     // индекс ячейки в котором вызвали Инпут
-    NSIndexPath *indexPath = [tableViewParametrs indexPathForCell:(UITableViewCell*)[[textField superview] superview]]; // this should return you your current indexPath
-    
-    // индекс ячейки в котором вызвали Инпут
-    NSArray *listData = [[arrayTableViewData objectAtIndex:[indexPath section]] objectForKey:STR_NEW_PROJECT_CELLS];
+    NSIndexPath *indexPath = [[delegate getTableView] indexPathForCell:(UITableViewCell*)[[textField superview] superview]]; 
+    NSArray *listData = [[[delegate getTableViewData] objectAtIndex:[indexPath section]] objectForKey:STR_NEW_PROJECT_CELLS];
     //тип ячеки
     int typeCell = [[[listData objectAtIndex:indexPath.row] objectForKey:STR_NEW_PROJECT_TYPE] intValue];
     if (typeCell == INT_NEW_PROJECT_TYPE_INPUT)
     {
-        [[TTAppDataManager sharedAppDataManager] saveNewProjectFieldsValue:textField.text byIndexPath:indexPath];
+        [delegate saveValue:textField.text byIndexPath:indexPath];
         
     }
 }
@@ -254,15 +250,16 @@
     // индекс ячейки в котором вызвали Инпут
     NSLog(@"startEditing trace");
 
-    NSIndexPath *indexPath = [tableViewParametrs indexPathForCell:(UITableViewCell*)[[textField superview] superview]];
+    NSIndexPath *indexPath = [[delegate getTableView] indexPathForCell:(UITableViewCell*)[[textField superview] superview]];
     
-    NSArray *listData = [[arrayTableViewData objectAtIndex:[indexPath section]] objectForKey:STR_NEW_PROJECT_CELLS];
+    NSArray *listData = [[[delegate getTableViewData] objectAtIndex:[indexPath section]] objectForKey:STR_NEW_PROJECT_CELLS];
     //тип ячеки
     int typeCell = [[[listData objectAtIndex:indexPath.row] objectForKey:STR_NEW_PROJECT_TYPE] intValue];
     if (typeCell == INT_NEW_PROJECT_TYPE_PICKER)
     {
-        [[TTApplicationManager sharedApplicationManager] setIpNewProjectSelectedProperty:indexPath];
-        NSDate * date = [[TTAppDataManager sharedAppDataManager] getNewProjectFieldsValue:STR_NEW_PROJECT_VALUE byIndexPath:indexPath];
+        indexCurrentSelectedItem = indexPath;
+        // проверка
+        NSDate * date = [[listData objectAtIndex:indexPath.row] objectForKey:STR_NEW_PROJECT_VALUE];
         if (date != nil)
         {
             [dpTaskDatePicker setDate:date];
@@ -271,23 +268,50 @@
         {
             [dpTaskDatePicker setDate:[NSDate date]];
         }
-        [[TTAppDataManager sharedAppDataManager]  saveNewProjectFieldsValue:[dpTaskDatePicker date] byIndexPath:[[TTApplicationManager sharedApplicationManager] ipNewProjectSelectedProperty] ];
-            [tableViewParametrs reloadData];
     }
 }
 
 
 -(IBAction) datePickerPickHandlerDone:(id)sender
 {
-    NSLog(@"datePickerPickHandlerDone::ipNewProjectSelectedProperty: %d ",[[[TTApplicationManager sharedApplicationManager] ipNewProjectSelectedProperty] section] );
-    
-    [[TTAppDataManager sharedAppDataManager] saveNewProjectFieldsValue:[dpTaskDatePicker date] byIndexPath:[[TTApplicationManager sharedApplicationManager] ipNewProjectSelectedProperty] ];
-    [tableViewParametrs reloadData];
+    [delegate saveValue:[dpTaskDatePicker date] byIndexPath:indexCurrentSelectedItem];
 }
 -(IBAction) datePickerPickHandlerCancel:(id)sender
 {
-    [parentViewController.view endEditing:YES];
+    [[delegate getParentController].view endEditing:YES];
 }
 
-
+#pragma marks - TTSelectedFieldTableDelegate methods
+-(void) saveSelectedFieldTableValue:(NSString*)value{
+     [delegate saveValue:value byIndexPath:indexCurrentSelectedItem];
+}
+-(NSObject *)getSelectedFieldTableValue{
+    return [delegate getValuebyIndexPath:indexCurrentSelectedItem];
+}
+-(NSArray*) getColorData{
+    return [[TTApplicationManager sharedApplicationManager] arrTaskColors];
+}
+-(NSString*) getSelectedFieldName{
+    NSArray *listData = [[[delegate getTableViewData] objectAtIndex:indexCurrentSelectedItem.section] objectForKey:STR_NEW_PROJECT_CELLS];
+    NSString * requestDataName = [[listData objectAtIndex:indexCurrentSelectedItem.row] objectForKey:STR_NEW_PROJECT_NAME];
+    return requestDataName;
+}
+-(NSArray*) getSelectedFieldData{
+    NSString * requestDataName = [self getSelectedFieldName];
+    
+    if ([requestDataName isEqualToString:STR_NEW_PROJECT_CLIENT]) {
+        return [[TTAppDataManager sharedAppDataManager] getAllClients];
+    }
+    else if([requestDataName isEqualToString:STR_NEW_PROJECT_PROJECT]){
+       return [[TTAppDataManager sharedAppDataManager] getAllProjects];
+    }
+    return nil;
+}
+-(void) addNewSelectedFieldItem{
+   NSString * swichCategoryName = [self getSelectedFieldName];
+    if ([delegate respondsToSelector:@selector(setFieldsCategory:)]) {
+       [delegate setFieldsCategory:swichCategoryName];
+    }
+    
+}
 @end

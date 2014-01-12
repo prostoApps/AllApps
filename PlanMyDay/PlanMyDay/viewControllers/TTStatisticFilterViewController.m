@@ -38,9 +38,7 @@
     
 
     [appDataManager loadFilterFields];
-    
-    [filterTableController setArrayTableViewData:appDataManager.arrayFilterFields];
-    [filterTableController setParentViewController:self];
+
     [filterTableController setTableViewParametrs:tableFilter];
     
     _delegateTableFilter = filterTableController;

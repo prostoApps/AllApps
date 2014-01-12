@@ -18,11 +18,27 @@
 - (void)updateData;
 @end
 
-@protocol TTFieldsTableDelegate
-    -(NSArray*) getTableViewData;
-    -(UIViewController*) getParentViewController;
+@protocol TTFieldsTableDelegate <NSObject>
+@required
+-(NSArray*) getTableViewData;
+-(UIViewController*) getParentController;
+-(UITableView*) getTableView;
+-(void) saveValue:(id)value byIndexPath:(NSIndexPath*)indexPath;
+-(id)getValuebyIndexPath:(NSIndexPath*)indexPath;
+@optional
+-(void) setFieldsCategory:(NSString*)newCategory;
 @end
 
+@protocol TTSelectedFieldTableDelegate <NSObject>
+@required
+-(void) saveSelectedFieldTableValue:(NSString*)value;
+-(NSObject *)getSelectedFieldTableValue;
+@optional
+-(NSArray*) getColorData;
+-(NSArray*) getSelectedFieldData;
+-(NSString*) getSelectedFieldName;
+-(void) addNewSelectedFieldItem;
+@end
 
 #import <Foundation/Foundation.h>
 #import "TTAppDelegate.h"
@@ -89,12 +105,6 @@ extern NSString *const FONT_HELVETICA_NEUE_LIGHT;
 extern NSString *const FONT_HELVETICA_NEUE_REGULAR;
 extern NSString *const FONT_HELVETICA_NEUE_MEDIUM;
 
-//@property (nonatomic, retain)
-//Создание нового таска. индекс ячейки, которую редактируем.
-@property (nonatomic,copy) NSIndexPath * ipNewProjectSelectedProperty;
-@property (nonatomic,copy) NSIndexPath * ipNewProjectSelectedColor;
-//Создание нового таска. название раздела Task/Project/Client.
-@property (nonatomic,copy) NSString * strNewProjectSelectedCategory;
 @property (nonatomic,copy) NSArray * arrTaskColors;
 
 @property (nonatomic,copy) UIViewController <ViewControllerWithAutoUpdate> * vcViewControllerToUpdate;

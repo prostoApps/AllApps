@@ -55,8 +55,7 @@ NSString *const FONT_HELVETICA_NEUE_LIGHT      = @"HelveticaNeue-Light";
 NSString *const FONT_HELVETICA_NEUE_REGULAR    = @"HelveticaNeue-Regular";
 NSString *const FONT_HELVETICA_NEUE_MEDIUM    = @"HelveticaNeue-Medium";
 
-@synthesize ipNewProjectSelectedProperty,strNewProjectSelectedCategory,arrTaskColors;
-@synthesize ipNewProjectSelectedColor;
+@synthesize arrTaskColors;
 @synthesize vcViewControllerToUpdate;
 @synthesize vcPreviousViewController;
 @synthesize vcCurrentViewController;
@@ -82,6 +81,20 @@ NSString * _menuRightViewController;
 -(NSArray*)arrTaskColors{
     if (!arrTaskColors)
     {
+//        arrTaskColors = [[NSArray alloc] initWithObjects:
+//                         @"e04217",@"Tomato",
+//                         @"1e7cf4",@"Plum",
+//                         @"53d769",@"Cucumber",
+//                         @"fd9426",@"Carrot",
+//                         @"5d2878",@"Eggplant",
+//                         @"e65702",@"Persimmon",
+//                         @"90b837",@"Apple",
+//                         @"ff3d5d",@"Raspberry",
+//                         @"f8641e",@"Orange",
+//                         @"fe3618",@"Strawberry",
+//                         @"ffda58",@"Melon",
+//                         @"b9dc68",@"Cabbage",
+//                         nil];
         arrTaskColors = [[NSArray alloc] initWithObjects:
                          [[NSDictionary alloc] initWithObjectsAndKeys:
                           @"Tomato",@"name",
@@ -190,23 +203,11 @@ NSString * _menuRightViewController;
         targetViewController = [[TTNewProjectViewController alloc]
                                 initWithNibName:@"TTNewProjectViewController" bundle:nil];
     }
-    else if (strViewController == VIEW_CREATE_PROPERTY)
-    {
-        NSLog(@"open  VIEW_CREATE_PROPERTY view");
-        targetViewController = [[TTCreatePropertyViewController alloc]
-                                initWithNibName:@"TTCreatePropertyViewController" bundle:nil];
-    }
     else if (strViewController == VIEW_SELECT_PROPERTY)
     {
         NSLog(@"open  VIEW_SELECT_PROPERTY view ");
         targetViewController = [[TTSelectPropertyViewController alloc]
                                 initWithNibName:@"TTSelectPropertyViewController" bundle:nil];
-    }
-    else if (strViewController == VIEW_SELECT_COLOR)
-    {
-        NSLog(@"open  VIEW_SELECT_COLOR view ");
-        targetViewController = [[TTSelectColorViewController alloc]
-                                initWithNibName:@"TTSelectColorViewController" bundle:nil];
     }
     else if (strViewController == VIEW_PROFILE)
     {

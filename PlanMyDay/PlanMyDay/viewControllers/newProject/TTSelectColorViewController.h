@@ -12,6 +12,9 @@
 
 @interface TTSelectColorViewController : UIViewController <UICollectionViewDataSource ,UICollectionViewDelegate>
 
+
+@property (nonatomic,retain) id <TTSelectedFieldTableDelegate>  delegate;
 @property (strong, nonatomic) IBOutlet UICollectionView *collectionViewOfColors;
+
 
 @end

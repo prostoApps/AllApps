@@ -8,18 +8,19 @@
 
 #import <UIKit/UIKit.h>
 #import "TTApplicationManager.h"
+#import "TTSelectColorViewController.h"
+#import "TTSelectPropertyViewController.h"
 
-@interface TTFieldsTableViewController : UITableViewController <UITextFieldDelegate>{
+@interface TTFieldsTableViewController : UITableViewController <UITextFieldDelegate,TTSelectedFieldTableDelegate>{
     
     id <TTFieldsTableDelegate> delegate;
+    NSIndexPath * indexCurrentSelectedItem;
     
 }
-@property (nonatomic,assign) id <TTFieldsTableDelegate>  delegate;
+@property (nonatomic,retain) id <TTFieldsTableDelegate>  delegate;
 
 @property (retain,nonatomic) IBOutlet UIDatePicker * dpTaskDatePicker;
 @property (retain,nonatomic) IBOutlet UIView * dpView;
-@property (retain,nonatomic) UIViewController * parentViewController ;
-@property (nonatomic,assign) NSArray * arrayTableViewData;
 @property (nonatomic,assign) UITableView *tableViewParametrs;
 
 
