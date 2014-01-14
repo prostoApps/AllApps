@@ -174,7 +174,6 @@ static TTLocalDataManager *localDataManager;
                                forKey:category];
 }
 
-//TODO REFACTOR: MOVE SAME PARTS IN IF CASES TO SEPARATE METHODS:::
 //Edit Item and save it to Device
 -(BOOL)editTTItem:(NSMutableDictionary*) dictOldTaskData onCategory:(NSString *)category
 {
@@ -242,7 +241,6 @@ static TTLocalDataManager *localDataManager;
         dictUpdatedTaskData = [self serializeClientData:item];
 
     }
-    
         bReadyToWriteData = [self editTask:dictOldTaskData withNewData:dictUpdatedTaskData];
     
     if (bReadyToWriteData == YES)
@@ -395,19 +393,19 @@ static TTLocalDataManager *localDataManager;
     {
         [dictData setObject:item.strClientName forKey:STR_CLIENT_NAME];
     }
-    if (item.strClientName != nil)
+    if (item.strClientMail != nil)
     {
         [dictData setObject:item.strClientMail forKey:STR_CLIENT_MAIL];
     }
-    if (item.strClientName != nil)
+    if (item.strClientSkype != nil)
     {
         [dictData setObject:item.strClientSkype forKey:STR_CLIENT_SKYPE];
     }
-    if (item.strClientName != nil)
+    if (item.strClientPhone != nil)
     {
         [dictData setObject:item.strClientPhone forKey:STR_CLIENT_PHONE];
     }
-    if (item.strClientName != nil)
+    if (item.strClientNotes != nil)
     {
         [dictData setObject:item.strClientNotes forKey:STR_CLIENT_NOTES];
     }
