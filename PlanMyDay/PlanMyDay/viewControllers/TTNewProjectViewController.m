@@ -154,7 +154,7 @@
     
     if (externalArgument)
     {
-        bSaveEditSuccess = [[TTAppDataManager sharedAppDataManager] editTTItem:externalArgument onCategory:newProjectSelectedCategory];
+        bSaveEditSuccess = [[TTAppDataManager sharedAppDataManager] editTTItem:[[TTAppDataManager sharedAppDataManager] serializeTaskData:externalArgument] onCategory:newProjectSelectedCategory];
     }
     else
     {
