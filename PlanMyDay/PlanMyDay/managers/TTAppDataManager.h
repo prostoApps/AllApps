@@ -48,7 +48,7 @@ extern NSString *const STR_SORT_PARAMETER_TASK_DURATION;
 
 -(NSMutableDictionary*)readDataFromFile:(NSString*)pathToFile;
 
--(BOOL)editTTItem:(NSMutableDictionary*)dictOldTaskData onCategory:(NSString*)category;;
+-(BOOL)editTTItem:(NSMutableDictionary*)dictOldTaskData onCategory:(NSString*)category;
 
 -(BOOL)saveTTItemOnCategory:(NSString*)category;
 -(void)saveNewProjectFieldsValue:(NSObject*)value byIndexPath:(NSIndexPath*)indexPath onCategory:(NSString*)category;

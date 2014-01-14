@@ -46,11 +46,8 @@
     
     [newProjectTableController setDelegate:self];
     
-    _delegate = newProjectTableController;
-    _dataSource = newProjectTableController;
-    
-    [tableViewNewProject setDelegate:_delegate];
-    [tableViewNewProject setDataSource:_dataSource];
+    [tableViewNewProject setDelegate:newProjectTableController];
+    [tableViewNewProject setDataSource:newProjectTableController];
 
     
     [TTTools makeButtonStyled:btnSave];

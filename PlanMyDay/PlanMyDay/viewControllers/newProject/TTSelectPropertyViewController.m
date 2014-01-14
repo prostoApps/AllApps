@@ -69,9 +69,18 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:CellIdentifier];
         cell.backgroundColor = [UIColor clearColor];
         cell.textLabel.textColor = [UIColor whiteColor];
-        
     }
+    [cell setAccessoryType:UITableViewCellAccessoryNone];
+    
+    NSString * value = [[arrProperties objectAtIndex:[indexPath row]] objectForKey:[NSString stringWithFormat:@"%@Name",[[delegate getSelectedFieldName] lowercaseString]]];
+    
     cell.textLabel.text = [[arrProperties objectAtIndex:[indexPath row]] objectForKey:[NSString stringWithFormat:@"%@Name",[[delegate getSelectedFieldName] lowercaseString]]];
+    
+    NSString * value2 = [NSString stringWithFormat:@"%@",[delegate getSelectedFieldTableValue]];
+    
+    if ([value isEqualToString:value2]) {
+        [cell setAccessoryType:UITableViewCellAccessoryCheckmark];
+    }
     return cell;
 }
 // Tap on table Row
