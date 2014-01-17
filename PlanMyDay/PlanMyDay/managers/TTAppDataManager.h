@@ -15,9 +15,7 @@
 {
 //    TTLocalDataManager *myLocalDataManager;
 //    TTLocalDataManager *localDataManager;
-    NSMutableDictionary * dictNewProjectFields;
-    NSMutableArray * arrayFilterFields;
-   
+    NSMutableDictionary * dictTableFieldsOption;
     
 }
 
@@ -33,35 +31,33 @@ extern NSString *const STR_SORT_PARAMETER_TASK_DURATION;
 //@property (nonatomic, retain) TTLocalDataManager *localDataManager;
 @property (nonatomic, retain) UIViewController *currentViewController;
 
-@property (nonatomic,readwrite) NSMutableDictionary * dictNewProjectIndexPaths;
-@property (nonatomic,readwrite) NSMutableArray * arraySettingsFields;
-@property (nonatomic,readwrite) NSMutableArray * arrayFilterFields;
+@property (nonatomic,readwrite) NSMutableDictionary * dictOfTableFieldIndexPaths;
 
 -(NSString*)getDocumentsPath;
 -(NSString*)getProjectsFilePath;
--(NSArray*) getNewProjectFieldsByCategory:(NSString*)category;
+
+
+// Table Fields Option methods
+-(void)loadTableFieldsOptionsForView:(NSString*)strView;
+-(NSArray*) getTableFieldsOptionsByCategory:(NSString*)category;
+-(void) clearTableFieldsOptionsByCategory:(NSString*)category;
+-(NSIndexPath*)getTableFieldsOptionIndexPathByValue:(NSString*)value onCategory:(NSString*)category;
+-(NSObject*)getTableFieldsOptionValueByIndexPath:(NSIndexPath*)indexPath onCategory:(NSString*)category;
+-(void)saveTableFieldsOptionValue:(NSObject*)value byIndexPath:(NSIndexPath*)indexPath onCategory:(NSString*)category;
+
+
 -(void)updateNewTaskFormFieldsWithData:(TTItem*) dictTaskData onCategory:(NSString*)category;
--(NSArray*) getFilterFields;
--(NSObject*)getNewProjectFieldsValue:(NSString*)value byIndexPath:(NSIndexPath*)indexPath onCategory:(NSString*)category;
--(NSIndexPath*)getNewProjectFieldsIndexPathByValue:(NSString*)value onCategory:(NSString*)category;
--(NSObject*)getNewProjectFieldsValueByIndexPath:(NSIndexPath*)indexPath onCategory:(NSString*)category;
 
 -(NSMutableDictionary*)readDataFromFile:(NSString*)pathToFile;
-
 -(BOOL)editTTItem:(NSMutableDictionary*)dictOldTaskData onCategory:(NSString*)category;
-
 -(BOOL)saveTTItemOnCategory:(NSString*)category;
--(void)saveNewProjectFieldsValue:(NSObject*)value byIndexPath:(NSIndexPath*)indexPath onCategory:(NSString*)category;
--(void)loadNewProjectFields;
--(void)loadSettingsFields;
--(void)loadFilterFields;
 
 -(NSMutableArray*)getAllTasks;
 -(NSMutableArray*)getAllProjects;
 -(NSMutableArray*)getAllClients;
 -(NSMutableArray*)getAllTasksForToday;
 
--(void) clearNewProjectFieldsonCategory:(NSString*)category;
+
 
 + (TTAppDataManager *)sharedAppDataManager;
 

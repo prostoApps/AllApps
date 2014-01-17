@@ -81,20 +81,6 @@ NSString * _menuRightViewController;
 -(NSArray*)arrTaskColors{
     if (!arrTaskColors)
     {
-//        arrTaskColors = [[NSArray alloc] initWithObjects:
-//                         @"e04217",@"Tomato",
-//                         @"1e7cf4",@"Plum",
-//                         @"53d769",@"Cucumber",
-//                         @"fd9426",@"Carrot",
-//                         @"5d2878",@"Eggplant",
-//                         @"e65702",@"Persimmon",
-//                         @"90b837",@"Apple",
-//                         @"ff3d5d",@"Raspberry",
-//                         @"f8641e",@"Orange",
-//                         @"fe3618",@"Strawberry",
-//                         @"ffda58",@"Melon",
-//                         @"b9dc68",@"Cabbage",
-//                         nil];
         arrTaskColors = [[NSArray alloc] initWithObjects:
                          [[NSDictionary alloc] initWithObjectsAndKeys:
                           @"Tomato",@"name",

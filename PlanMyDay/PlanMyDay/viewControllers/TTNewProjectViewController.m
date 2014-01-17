@@ -41,8 +41,7 @@
 
     newProjectSelectedCategory = STR_NEW_PROJECT_TASK;
 
-     [[TTAppDataManager sharedAppDataManager] loadNewProjectFields];
-    
+    [[TTAppDataManager sharedAppDataManager] loadTableFieldsOptionsForView:VIEW_NEW_TASK];
     
     [newProjectTableController setDelegate:self];
     
@@ -73,11 +72,11 @@
     NSTimeInterval secondsInEightHours = 1 * 60 * 60;
     NSDate * dateEnd = [dateStart dateByAddingTimeInterval:secondsInEightHours];
     
-    [[TTAppDataManager sharedAppDataManager]  saveNewProjectFieldsValue:dateStart
-                                                            byIndexPath:[[TTAppDataManager sharedAppDataManager]getNewProjectFieldsIndexPathByValue:STR_NEW_PROJECT_START_DATE onCategory:newProjectSelectedCategory]
+    [[TTAppDataManager sharedAppDataManager]  saveTableFieldsOptionValue:dateStart
+                                                            byIndexPath:[[TTAppDataManager sharedAppDataManager]getTableFieldsOptionIndexPathByValue:STR_NEW_PROJECT_START_DATE onCategory:newProjectSelectedCategory]
                                                             onCategory:newProjectSelectedCategory];
-    [[TTAppDataManager sharedAppDataManager]  saveNewProjectFieldsValue:dateEnd
-                                                            byIndexPath:[[TTAppDataManager sharedAppDataManager]getNewProjectFieldsIndexPathByValue:STR_NEW_PROJECT_END_DATE onCategory:newProjectSelectedCategory]
+    [[TTAppDataManager sharedAppDataManager]  saveTableFieldsOptionValue:dateEnd
+                                                            byIndexPath:[[TTAppDataManager sharedAppDataManager]getTableFieldsOptionIndexPathByValue:STR_NEW_PROJECT_END_DATE onCategory:newProjectSelectedCategory]
                                                              onCategory:newProjectSelectedCategory];
     
 }
@@ -139,9 +138,8 @@
     
     [self.view endEditing:YES];
     // проверка на заполненость имени
-    NSString * validateName = [NSString stringWithFormat:@"%@",[[TTAppDataManager sharedAppDataManager]getNewProjectFieldsValue:STR_NEW_PROJECT_VALUE
-                                           byIndexPath:[[[[TTAppDataManager sharedAppDataManager] dictNewProjectIndexPaths]objectForKey:newProjectSelectedCategory] objectForKey:STR_NEW_PROJECT_NAME]
-                                                                onCategory:newProjectSelectedCategory]];
+    NSString * validateName = [NSString stringWithFormat:@"%@",[[TTAppDataManager sharedAppDataManager]getTableFieldsOptionValueByIndexPath:[[[[TTAppDataManager sharedAppDataManager] dictOfTableFieldIndexPaths]objectForKey:newProjectSelectedCategory] objectForKey:STR_NEW_PROJECT_NAME]
+                                  onCategory:newProjectSelectedCategory]];
     
     if ( [validateName isEqualToString:@"(null)"] || [validateName isEqualToString:@""] )
     {
@@ -155,11 +153,12 @@
     if (externalArgument)
     {
         bSaveEditSuccess = [[TTAppDataManager sharedAppDataManager] editTTItem:[[TTAppDataManager sharedAppDataManager] serializeTaskData:externalArgument] onCategory:newProjectSelectedCategory];
+        [[TTAppDataManager sharedAppDataManager] clearTableFieldsOptionsByCategory:newProjectSelectedCategory];
     }
     else
     {
         bSaveEditSuccess = [[TTAppDataManager sharedAppDataManager] saveTTItemOnCategory:newProjectSelectedCategory];
-        [[TTAppDataManager sharedAppDataManager] clearNewProjectFieldsonCategory:newProjectSelectedCategory];
+        [[TTAppDataManager sharedAppDataManager] clearTableFieldsOptionsByCategory:newProjectSelectedCategory];
     }
     
    if (bSaveEditSuccess)
@@ -211,7 +210,7 @@
 
 #pragma mark TTFieldsTableDelegate metods
 -(NSArray *)getTableViewData{
-    return [[TTAppDataManager sharedAppDataManager] getNewProjectFieldsByCategory:newProjectSelectedCategory];
+    return [[TTAppDataManager sharedAppDataManager] getTableFieldsOptionsByCategory:newProjectSelectedCategory];
 }
 -(UIViewController *)getParentController{
     return self;
@@ -220,11 +219,11 @@
     return tableViewNewProject;
 }
 -(void) saveValue:(id)value byIndexPath:(NSIndexPath*)indexPath{
-    [[TTAppDataManager sharedAppDataManager] saveNewProjectFieldsValue:value byIndexPath:indexPath onCategory:newProjectSelectedCategory];
+    [[TTAppDataManager sharedAppDataManager] saveTableFieldsOptionValue:value byIndexPath:indexPath onCategory:newProjectSelectedCategory];
     [tableViewNewProject reloadData];
 }
 -(id)getValuebyIndexPath:(NSIndexPath*)indexPath{
-    return [[TTAppDataManager sharedAppDataManager] getNewProjectFieldsValueByIndexPath:indexPath onCategory:newProjectSelectedCategory];
+    return [[TTAppDataManager sharedAppDataManager] getTableFieldsOptionValueByIndexPath:indexPath onCategory:newProjectSelectedCategory];
 }
 -(void) setFieldsCategory:(NSString*)swichCategoryName{
 

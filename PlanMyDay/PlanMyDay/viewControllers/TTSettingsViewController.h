@@ -10,11 +10,10 @@
 #import "TTApplicationManager.h"
 #import "TTFieldsTableViewController.h"
 
-@interface TTSettingsViewController : UIViewController{
+@interface TTSettingsViewController : UIViewController<TTFieldsTableDelegate>{
     IBOutlet UITableView * tableSettings;
-    id <UITableViewDelegate>  _delegateTableSettings;
-    id <UITableViewDataSource>  _dataSourceTableSettings;
+    IBOutlet UIView * footerTableView;
+    IBOutlet UIButton * btnApply;
 }
-@property(nonatomic,retain) id <UITableViewDelegate>  _delegateTableSettings;
-@property(nonatomic,retain) id <UITableViewDataSource>  _dataSourceTableSettings;
+-(IBAction) btnApplyTouchHandler:(id)sender;
 @end

@@ -1,44 +1,53 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
-<array>
-	<dict>
-		<key>name</key>
-		<string>Project Info</string>
-		<key>cells</key>
-		<array>
-			<dict>
-				<key>type</key>
-				<integer>0</integer>
-				<key>name</key>
-				<string>Project</string>
-			</dict>
-			<dict>
-				<key>type</key>
-				<integer>0</integer>
-				<key>name</key>
-				<string>Client</string>
-			</dict>
-		</array>
-	</dict>
-	<dict>
-		<key>name</key>
-		<string>Planning Time</string>
-		<key>cells</key>
-		<array>
-			<dict>
-				<key>type</key>
-				<integer>4</integer>
-				<key>name</key>
-				<string>Start</string>
-			</dict>
-			<dict>
-				<key>type</key>
-				<integer>4</integer>
-				<key>name</key>
-				<string>End</string>
-			</dict>
-		</array>
-	</dict>
-</array>
+<dict>
+	<key>Filter</key>
+	<array>
+		<dict>
+			<key>name</key>
+			<string>Project Info</string>
+			<key>cells</key>
+			<array>
+				<dict>
+					<key>type</key>
+					<integer>0</integer>
+					<key>name</key>
+					<string>Client</string>
+				</dict>
+				<dict>
+					<key>type</key>
+					<integer>0</integer>
+					<key>name</key>
+					<string>Project</string>
+				</dict>
+				<dict>
+					<key>type</key>
+					<integer>0</integer>
+					<key>name</key>
+					<string>Task</string>
+				</dict>
+			</array>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>Planning Time</string>
+			<key>cells</key>
+			<array>
+				<dict>
+					<key>type</key>
+					<integer>4</integer>
+					<key>name</key>
+					<string>Start</string>
+				</dict>
+				<dict>
+					<key>type</key>
+					<integer>4</integer>
+					<key>name</key>
+					<string>End</string>
+				</dict>
+			</array>
+		</dict>
+	</array>
+</dict>
 </plist>
