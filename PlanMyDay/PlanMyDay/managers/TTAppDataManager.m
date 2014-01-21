@@ -46,6 +46,9 @@ static TTLocalDataManager *localDataManager;
 {
     localDataManager = [[TTLocalDataManager alloc] init];
     [localDataManager readLocalData];
+    
+    //load fileds options
+    [self loadTableFieldsOptions];
 //    [localDataManager initTestData];
 }
 
@@ -66,19 +69,9 @@ static TTLocalDataManager *localDataManager;
 {
     return [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject] stringByAppendingPathComponent:@"projectData.plist"];
 }
--(void)loadTableFieldsOptionsForView:(NSString*)strView{
-    NSString * strPathToResource;
-    if ([strView isEqualToString:VIEW_NEW_TASK]) {
-        strPathToResource = @"PropertyListOfViewForms";
-    }
-    else if ([strView isEqualToString:VIEW_STATISTICS_FILTER]){
-        strPathToResource = @"PropertyListFilterView";
-    }
-    else if ([strView isEqualToString:VIEW_SETTINGS]){
-        strPathToResource = @"PropertyListSettingsView";
-    }
+-(void)loadTableFieldsOptions{
     
-    NSString* plistPath = [[NSBundle mainBundle] pathForResource:strPathToResource ofType:@"plist"];
+    NSString* plistPath = [[NSBundle mainBundle] pathForResource:@"PropertyListOfViewForms" ofType:@"plist"];
     // загружаем опции ячеек для формы
     NSMutableDictionary * dictAddedFields = [[NSMutableDictionary alloc] initWithContentsOfFile:plistPath];
     

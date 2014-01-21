@@ -38,7 +38,7 @@ extern NSString *const STR_SORT_PARAMETER_TASK_DURATION;
 
 
 // Table Fields Option methods
--(void)loadTableFieldsOptionsForView:(NSString*)strView;
+-(void)loadTableFieldsOptions;
 -(NSArray*) getTableFieldsOptionsByCategory:(NSString*)category;
 -(void) clearTableFieldsOptionsByCategory:(NSString*)category;
 -(NSIndexPath*)getTableFieldsOptionIndexPathByValue:(NSString*)value onCategory:(NSString*)category;

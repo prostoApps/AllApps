@@ -23,6 +23,7 @@
 @synthesize dataSource;
 @synthesize delegate;
 @synthesize externalArgument;
+@synthesize tableViewNewProject;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -38,10 +39,7 @@
 {
     
     [super viewDidLoad];
-
     newProjectSelectedCategory = STR_NEW_PROJECT_TASK;
-
-    [[TTAppDataManager sharedAppDataManager] loadTableFieldsOptionsForView:VIEW_NEW_TASK];
     
     [newProjectTableController setDelegate:self];
     
@@ -54,7 +52,10 @@
     headerNewProject.layer.borderColor = [TTTools colorWithHexString:@"#a8adb3"].CGColor;
     headerNewProject.layer.borderWidth = 1.0f;
     [tableViewNewProject setTableFooterView:footerTableViewNewProject];
-  
+    
+    [btnSave setTitle:[NSString stringWithFormat:@"Save %@", newProjectSelectedCategory] forState:UIControlStateNormal];
+    [self setTitle:[NSString stringWithFormat:@"Add %@", newProjectSelectedCategory]];
+    [scTaskProjectClient setSelectedSegmentIndex:segmentIndexNewProject];
     
     //[scTaskProjectClient.tintColor ]
     [scTaskProjectClient setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:
@@ -79,32 +80,18 @@
                                                             byIndexPath:[[TTAppDataManager sharedAppDataManager]getTableFieldsOptionIndexPathByValue:STR_NEW_PROJECT_END_DATE onCategory:newProjectSelectedCategory]
                                                              onCategory:newProjectSelectedCategory];
     
+    
 }
 
 -(void) viewWillAppear:(BOOL)animated{
     
     if (tableViewNewProject != nil){
-        [self loadPropertyForView];
+        [tableViewNewProject reloadData];
     }
 }
 - (void) loadPropertyForView {
-    NSString * strAddOrEdit ;
-    if (externalArgument)
-    {
-        strAddOrEdit = @"Edit";
-    }
-    else
-    {
-        strAddOrEdit = @"Add";
-    }
-  
-       [self setTitle:[NSString stringWithFormat:@"%@ %@",strAddOrEdit, newProjectSelectedCategory]];
-    [btnSave setTitle:[NSString stringWithFormat:@"%@ %@",strAddOrEdit, newProjectSelectedCategory] forState:UIControlStateNormal];
-    [scTaskProjectClient setSelectedSegmentIndex:segmentIndexNewProject];
-
-  //  [newProjectTableController setArrayTableViewData:[appDataManager getNewProjectFields]];
-    
     [tableViewNewProject reloadData];
+    
     
 }
 
@@ -127,6 +114,8 @@
 		default:
             break;
     }
+    [btnSave setTitle:[NSString stringWithFormat:@"Save %@", newProjectSelectedCategory] forState:UIControlStateNormal];
+    [self setTitle:[NSString stringWithFormat:@"Add %@", newProjectSelectedCategory]];
     
     [self loadPropertyForView];
 }
@@ -193,6 +182,12 @@
 -(void)setExternalArgument:(TTItem*)argument
 {
     externalArgument = argument;
+    
+    newProjectSelectedCategory = STR_NEW_PROJECT_TASK_EDIT;
+    scTaskProjectClient.hidden = true;
+    [self setTitle:[NSString stringWithFormat:@"Edit Task"]];
+  
+    
     [[TTAppDataManager sharedAppDataManager] updateNewTaskFormFieldsWithData:externalArgument onCategory:newProjectSelectedCategory];
     [self loadPropertyForView];
 }
