@@ -77,6 +77,7 @@
     
     NSString * strSelectedFieldName =[ NSString stringWithFormat:@"%@",[delegate getSelectedFieldName]];
    
+<<<<<<< HEAD
     NSString * strAdditionalFieldValue;
     
     if ([strSelectedFieldName isEqualToString:STR_NEW_PROJECT_PROJECT]) {
@@ -88,6 +89,17 @@
     
     cell.textLabel.text = strCurrentFieldValue;
     cell.detailTextLabel.text = strAdditionalFieldValue;
+=======
+    
+    if ([strSelectedFieldName isEqualToString:STR_NEW_PROJECT_PROJECT]) {
+        strCurrentFieldValue = [ NSString stringWithFormat:@"%@ (%@)",strCurrentFieldValue,[[arrProperties objectAtIndex:[indexPath row]] objectForKey:STR_CLIENT_NAME]];
+    }
+    else if ([strSelectedFieldName isEqualToString:STR_NEW_PROJECT_TASK]){
+        strCurrentFieldValue = [ NSString stringWithFormat:@"%@ (%@)",strCurrentFieldValue,[[arrProperties objectAtIndex:[indexPath row]] objectForKey:STR_PROJECT_NAME]];
+    }
+    
+    cell.textLabel.text = strCurrentFieldValue;
+>>>>>>> cf39f9cbe1312bd74f25e877da6bae11852bd5b9
     
     if ([strCurrentFieldValue isEqualToString:strSelectedFieldValue]) {
         [cell setAccessoryType:UITableViewCellAccessoryCheckmark];
