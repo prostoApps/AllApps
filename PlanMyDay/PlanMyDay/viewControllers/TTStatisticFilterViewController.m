@@ -33,8 +33,6 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
-    [[TTAppDataManager sharedAppDataManager] loadTableFieldsOptionsForView:VIEW_STATISTICS_FILTER];
-    
     [filterTableController setDelegate:self];
     
     [tableFilter setDelegate:filterTableController];

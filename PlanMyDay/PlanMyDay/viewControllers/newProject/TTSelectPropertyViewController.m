@@ -72,13 +72,24 @@
     }
     [cell setAccessoryType:UITableViewCellAccessoryNone];
     
-    NSString * value = [[arrProperties objectAtIndex:[indexPath row]] objectForKey:[NSString stringWithFormat:@"%@Name",[[delegate getSelectedFieldName] lowercaseString]]];
+    NSString * strCurrentFieldValue = [[arrProperties objectAtIndex:[indexPath row]] objectForKey:[NSString stringWithFormat:@"%@Name",[[delegate getSelectedFieldName] lowercaseString]]];
+    NSString * strSelectedFieldValue = [NSString stringWithFormat:@"%@",[delegate getSelectedFieldTableValue]];
     
-    cell.textLabel.text = [[arrProperties objectAtIndex:[indexPath row]] objectForKey:[NSString stringWithFormat:@"%@Name",[[delegate getSelectedFieldName] lowercaseString]]];
+    NSString * strSelectedFieldName =[ NSString stringWithFormat:@"%@",[delegate getSelectedFieldName]];
+   
+    NSString * strAdditionalFieldValue;
     
-    NSString * value2 = [NSString stringWithFormat:@"%@",[delegate getSelectedFieldTableValue]];
+    if ([strSelectedFieldName isEqualToString:STR_NEW_PROJECT_PROJECT]) {
+        strAdditionalFieldValue = [ NSString stringWithFormat:@"%@",[[arrProperties objectAtIndex:[indexPath row]] objectForKey:STR_CLIENT_NAME]];
+    }
+    else if ([strSelectedFieldName isEqualToString:STR_NEW_PROJECT_TASK]){
+        strAdditionalFieldValue = [ NSString stringWithFormat:@"%@",[[arrProperties objectAtIndex:[indexPath row]] objectForKey:STR_PROJECT_NAME]];
+    }
     
-    if ([value isEqualToString:value2]) {
+    cell.textLabel.text = strCurrentFieldValue;
+    cell.detailTextLabel.text = strAdditionalFieldValue;
+    
+    if ([strCurrentFieldValue isEqualToString:strSelectedFieldValue]) {
         [cell setAccessoryType:UITableViewCellAccessoryCheckmark];
     }
     return cell;

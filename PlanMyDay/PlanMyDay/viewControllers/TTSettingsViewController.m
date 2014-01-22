@@ -31,8 +31,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    [[TTAppDataManager sharedAppDataManager] loadTableFieldsOptionsForView:VIEW_SETTINGS];
+
     
     [settingsTableController setDelegate:self];
     

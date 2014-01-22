@@ -33,12 +33,9 @@
     [self.view addSubview:self.largeProgressView];
     [self.largeProgressView setThicknessRatio:0.066];
     
-    stopButton.layer.cornerRadius = 3;
-    playPauseButton.layer.cornerRadius = 3;
-    cancelButton.layer.cornerRadius = 3;
-    stopButton.layer.masksToBounds = YES;
-    playPauseButton.layer.masksToBounds = YES;
-    cancelButton.layer.masksToBounds = YES;
+    [TTTools makeButtonStyled:stopButton];
+    [TTTools makeButtonStyled:playPauseButton];
+    [TTTools makeButtonStyled:cancelButton];
     
     
     timeDifference = -1;
@@ -215,6 +212,8 @@
     {
         externalArgument.numRealDuration = &(tmpTime);
         externalArgument.strIsChecked = @"1";
+     
+        
         [[TTApplicationManager sharedApplicationManager] switchViewTo:VIEW_CURRENT_TASKS forNavigationController:self.navigationController];
     }
 
@@ -222,7 +221,7 @@
 -(IBAction)cancelButtonPressed{
     [playPauseButton setTitle:@"Start" forState:UIControlStateNormal];
     duration = 0;
-    timeDifference = -1;
+    timeDifference = 0;
     [timer invalidate];
     timer = nil;
     [self.largeProgressView setProgress:1];
@@ -234,19 +233,19 @@
 
 -(void)calculateRemainingTaskDurationOfTask: (TTItem*)taskItem
 {
-        NSDateComponents *dateComponents = [[NSCalendar currentCalendar] components:(NSHourCalendarUnit | NSMinuteCalendarUnit | NSSecondCalendarUnit)
-                                                                       fromDate:taskItem.dtStartDate];
-	NSInteger seconds = [dateComponents second];
-	NSInteger minutes = [dateComponents minute];
-	NSInteger hours = [dateComponents hour];
+ //       NSDateComponents *dateComponents = [[NSCalendar currentCalendar] components:(NSHourCalendarUnit | NSMinuteCalendarUnit | NSSecondCalendarUnit)
+  //                                                                     fromDate:taskItem.dtStartDate];
+//	NSInteger seconds = [dateComponents second];
+//	NSInteger minutes = [dateComponents minute];
+//	NSInteger hours = [dateComponents hour];
 
-    [self.largeProgressView setTrackTintColor:[[UIColor alloc] initWithRed:0x3b/255.0 green:0x45/255.0 blue:0x4e/255.0 alpha:1]];
+  //  [self.largeProgressView setTrackTintColor:[[UIColor alloc] initWithRed:0x3b/255.0 green:0x45/255.0 blue:0x4e/255.0 alpha:1]];
 
     [_largeProgressView setProgressTintColor:[TTTools colorWithHexString:taskItem.strColor]];
     
     NSDate *taskStartTime = [taskItem.dtStartDate copy];
     NSDate *taskEndTime = taskItem.dtEndDate;
-    timeDifference100 = [taskEndTime timeIntervalSinceDate:taskStartTime];
+    timeDifference100 = [taskEndTime timeIntervalSinceDate:taskStartTime]+1;
     NSLog(@"timeDifference100:%f",timeDifference100);
     [self updateTimerStuff];
 

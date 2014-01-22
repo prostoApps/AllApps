@@ -84,7 +84,7 @@
     // определяем индекс ячейки и забираем все ее данные из массива
     NSIndexPath * indexPath = [tasksTableView indexPathForCell:cell];
     NSDictionary *dictSelectedTaskData = [cellsDataArray objectAtIndex:indexPath.row];
-    
+   
     [[TTApplicationManager sharedApplicationManager] switchViewTo:VIEW_CUSTOM_TRACKER
                                           forNavigationController:self.navigationController
                                                      withArgument:[[TTAppDataManager sharedAppDataManager] deserializeData:dictSelectedTaskData]];

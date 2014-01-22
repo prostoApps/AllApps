@@ -14,7 +14,7 @@
 
 @interface TTNewProjectViewController : UIViewController <UITextFieldDelegate,TTFieldsTableDelegate,ViewControllerWithArgument,ViewControllerWithAutoUpdate>
 {
-    IBOutlet UITableView * tableViewNewProject;
+  //  IBOutlet UITableView * tableViewNewProject;
     IBOutlet UIView * headerNewProject;
     IBOutlet UIView * footerTableViewNewProject;
     IBOutlet UISegmentedControl *scTaskProjectClient;
@@ -27,6 +27,7 @@
 @property(nonatomic,assign) id <UITableViewDelegate>  delegate;
 @property(nonatomic, assign) id <UITableViewDataSource>  dataSource;
 @property(nonatomic,retain) IBOutlet UISegmentedControl *scTaskProjectClient;
+@property(nonatomic ,retain) IBOutlet UITableView * tableViewNewProject;
 
 @property (nonatomic,retain) TTItem  *externalArgument;
 
