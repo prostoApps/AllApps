@@ -28,6 +28,8 @@ static TTLocalDataManager *localDataManager;
 
 + (TTAppDataManager *)sharedAppDataManager
 {
+
+    
     static TTAppDataManager *sharedAppDataManager;
 
 //    static TTAppDataManager *iCloudDataManager;
@@ -113,8 +115,6 @@ static TTLocalDataManager *localDataManager;
 
 -(void)updateNewTaskFormFieldsWithData:(TTItem*) item onCategory:(NSString *)category
 {
- 
-    
     [self saveNewProjectFieldsValue:item.strTaskName
                         byIndexPath:[self getNewProjectFieldsIndexPathByValue:STR_NEW_PROJECT_TASK onCategory:category]
                          onCategory:category];
@@ -256,7 +256,7 @@ static TTLocalDataManager *localDataManager;
 -(BOOL)saveTTItemOnCategory:(NSString *)category
 {
     BOOL * bReadyToWriteData = NO;
-    TTItem * item = [[TTItem alloc] init];
+    TTItem * item = [[TTItem alloc] initWithEmptyFields];
     
     NSMutableDictionary *dictData = [[NSMutableDictionary alloc] init];
     
@@ -283,6 +283,17 @@ static TTLocalDataManager *localDataManager;
                                                                               byIndexPath:[[dictNewProjectIndexPaths objectForKey:category] objectForKey:STR_NEW_PROJECT_START_DATE]onCategory:category];
         item.dtEndDate = [self getNewProjectFieldsValue:STR_NEW_PROJECT_VALUE
                                                                               byIndexPath:[[dictNewProjectIndexPaths objectForKey:category] objectForKey:STR_NEW_PROJECT_END_DATE]onCategory:category];
+        
+        NSDate *taskStartTime = item.dtStartDate;
+        NSDate *taskEndTime = item.dtEndDate;
+        NSTimeInterval timeDifference100 = [taskEndTime timeIntervalSinceDate:taskStartTime];
+
+        NSNumber *tmpTime = [[NSNumber alloc] initWithInt:timeDifference100];
+        NSNumber *tmpRealTime = [[NSNumber alloc] initWithInt:0];
+        
+        item.numPlannedDuration = tmpTime;
+
+        item.numRealDuration = tmpRealTime;
         
         dictData = [[NSMutableDictionary alloc] initWithDictionary:[self serializeTaskData:item] copyItems:YES];
         bReadyToWriteData = [localDataManager saveItemData:dictData];
@@ -435,13 +446,15 @@ static TTLocalDataManager *localDataManager;
 -(NSMutableDictionary*)serializeTaskData:(TTItem*)item
 {
     NSMutableDictionary *dictData = [[NSMutableDictionary alloc] initWithObjectsAndKeys:
-                                     item.strClientName,  STR_CLIENT_NAME,
-                                     item.strProjectName, STR_PROJECT_NAME,
-                                     item.strTaskName,    STR_TASK_NAME,
-                                     item.strColor,       STR_TASK_COLOR,
-                                     item.dtStartDate,    STR_START_DATE,
-                                     item.dtEndDate,      STR_END_DATE,
-                                     item.strIsChecked,   STR_THIS_TASK_IS_CHECKED,
+                                     item.strClientName,      STR_CLIENT_NAME,
+                                     item.strProjectName,     STR_PROJECT_NAME,
+                                     item.strTaskName,        STR_TASK_NAME,
+                                     item.strColor,           STR_TASK_COLOR,
+                                     item.dtStartDate,        STR_START_DATE,
+                                     item.dtEndDate,          STR_END_DATE,
+                                     item.numPlannedDuration, STR_PLANNED_DURATION,
+                                     item.numRealDuration  ,  STR_REAL_DURATION,
+                                     item.strIsChecked,       STR_THIS_TASK_IS_CHECKED,
                                      nil];
     
     return dictData;
@@ -452,12 +465,18 @@ static TTLocalDataManager *localDataManager;
 {
     TTItem *item = [[TTItem alloc] init];
 
-    item.strClientName  = [data objectForKey:STR_CLIENT_NAME];
-    item.strProjectName = [data objectForKey:STR_PROJECT_NAME];
-    item.strTaskName    = [data objectForKey:STR_TASK_NAME];
-    item.dtStartDate    = [data objectForKey:STR_START_DATE];
-    item.dtEndDate      = [data objectForKey:STR_END_DATE];
-    item.strColor       = [data objectForKey:STR_TASK_COLOR];
+    NSNumber *tmpRealDuration = [[NSNumber alloc] initWithDouble:[[data objectForKey:STR_REAL_DURATION] doubleValue]];
+    NSNumber *tmpPlannedDuration = [[NSNumber alloc] initWithDouble:[[data objectForKey:STR_PLANNED_DURATION] doubleValue]];
+    
+    
+    item.strClientName      = [data objectForKey:STR_CLIENT_NAME];
+    item.strProjectName     = [data objectForKey:STR_PROJECT_NAME];
+    item.strTaskName        = [data objectForKey:STR_TASK_NAME];
+    item.dtStartDate        = [data objectForKey:STR_START_DATE];
+    item.dtEndDate          = [data objectForKey:STR_END_DATE];
+    item.numRealDuration    = tmpRealDuration;
+    item.numPlannedDuration = tmpPlannedDuration;
+    item.strColor           = [data objectForKey:STR_TASK_COLOR];
 
     return item;
 }
@@ -549,7 +568,8 @@ static TTLocalDataManager *localDataManager;
 -(NSArray*) getDataForStatistic
 {
     NSMutableArray * arrToReturn = [[NSMutableArray alloc] init];
-    NSArray *arrTasksToSort = [[NSArray alloc] initWithArray:[self getAllTasksForToday]];
+    NSArray *arrTasksToSort = [[NSArray alloc] initWithArray:[self getAllTasks]];
+    BOOL bCreateNewProject = NO;
     for (NSDictionary * tmpTask in arrTasksToSort)
     {
         if (arrToReturn.count == 0)
@@ -579,18 +599,23 @@ static TTLocalDataManager *localDataManager;
                             //                    если клиенты разные - создаем новый массив в arrToReturn и сохраняем туда таск
                             [arrToReturn addObject:[[NSMutableArray alloc] initWithObjects:tmpTask, nil]];
                         }
-                        
+                        bCreateNewProject = NO;
                     }
                     else
                     {
 //                        если проекты разные, создаем новый массив "проект", сохраняем в него таск и добавляем этот массив в arrToReturn.
-                        [arrToReturn addObject:[[NSMutableArray alloc] initWithObjects:tmpTask, nil]];
+                        bCreateNewProject = YES;
+//                        [arrToReturn addObject:[[NSMutableArray alloc] initWithObjects:tmpTask, nil]];
                     }
-                    //обрываем выполнение цикла по таскам внутри "проекта"(массив с тасками с одинаковым названием проекта и клиента).
-//                    если первый таска не совпадает по имени - надо создавать новый "проект". если совпадает надо добавлять.
-//                    не обязательно для этого перебирать все таски в "проекте"
                     break;
+                    //TODO перебрать все таски. засетить флаг.
+                    //если флаг установлен - создаем новый массив, если нет - записываем даск в нужный массив
                 }
+            }
+            if (bCreateNewProject)
+            {
+                [arrToReturn addObject:[[NSMutableArray alloc] initWithObjects:tmpTask, nil]];
+                bCreateNewProject = NO;
             }
             
         }

@@ -15,13 +15,15 @@
 @interface TTStatisticsViewController : UIViewController <UITableViewDataSource,UITableViewDelegate,SectionHeaderViewDelegate>{
     IBOutlet UILabel * lbTimeTracked;
     IBOutlet UISegmentedControl * scTaskedPlaned;
-    
+    BOOL bShowTrackedTime;
 }
 
 @property (strong, nonatomic) IBOutlet UIView *largeProgressView;
 @property (nonatomic,retain) IBOutlet UITableView * tasksNavigatorTable;
 @property (nonatomic, strong) NSMutableArray *sectionArray;
 @property (nonatomic, assign) NSInteger openSectionIndex;
+@property (nonatomic, retain) NSMutableArray *arrTasksToDraw;
+@property (nonatomic, retain) NSMutableArray *arrDrawedTasksHolder;
 
 //@property (strong, nonatomic) TTTasksNavigator *tasksNavigator;
 

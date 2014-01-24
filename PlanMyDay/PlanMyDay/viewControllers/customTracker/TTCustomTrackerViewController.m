@@ -50,7 +50,7 @@
     NSDate *taskStartTime2 = [NSDate dateWithTimeIntervalSinceNow:0];
     timeDifference100 = [taskStartTime2 timeIntervalSinceDate:taskStartTime1];
     NSLog(@"timeDifference100:%f",timeDifference100);
-    [self updateTimerStuff];
+    [self updateTimer];
     
 	// Do any additional setup after loading the view, typically from a nib.
 }
@@ -59,7 +59,7 @@
     [self.largeProgressView resumeAnimation];
     [self.largeProgressView setAnimatedProgress:0 withDuration:timeDifference100];
     //запускаем отсчет времени
-    timer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(updateTimerStuff) userInfo:nil repeats:YES];
+    timer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(updateTimer) userInfo:nil repeats:YES];
 }
 -(void)pauseTrackingTime{
     duration += timeDifference;
@@ -82,8 +82,8 @@
         [self.largeProgressView setAnimatedProgress:0 withDuration:timeDifference100-duration];
     }
     
-    [self updateTimerStuff];
-    timer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(updateTimerStuff) userInfo:nil repeats:YES];
+    [self updateTimer];
+    timer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(updateTimer) userInfo:nil repeats:YES];
 }
 
 - (NSString*)getTimeStringFrom:(int)seconds{
@@ -110,7 +110,7 @@
     return timeString;
 }
 
--(void)updateTimerStuff{
+-(void)updateTimer{
     
     timeDifference++;
     if (timeDifference+duration < timeDifference100 )
@@ -206,14 +206,14 @@
             unsavedTrackedTask = [[TTItem alloc] initWithEmptyFields];
         }
 
-        unsavedTrackedTask.numRealDuration = &(tmpTime);
+        unsavedTrackedTask.numRealDuration = [[NSNumber alloc] initWithFloat:tmpTime];
         unsavedTrackedTask.dtEndDate = [NSDate date];
 
         [[TTApplicationManager sharedApplicationManager] switchViewTo:VIEW_NEW_TASK forNavigationController:self.navigationController withArgument:unsavedTrackedTask];
     }
     else
     {
-        externalArgument.numRealDuration = &(tmpTime);
+        externalArgument.numRealDuration = [[NSNumber alloc] initWithFloat:tmpTime];
         externalArgument.strIsChecked = @"1";
         [[TTApplicationManager sharedApplicationManager] switchViewTo:VIEW_CURRENT_TASKS forNavigationController:self.navigationController];
     }
@@ -226,7 +226,7 @@
     [timer invalidate];
     timer = nil;
     [self.largeProgressView setProgress:1];
-    [self updateTimerStuff];
+    [self updateTimer];
     overtime = false;
     timerTitleLabel.text = @"Time ramaining";
     unsavedTrackedTask = nil;
@@ -244,11 +244,11 @@
 
     [_largeProgressView setProgressTintColor:[TTTools colorWithHexString:taskItem.strColor]];
     
-    NSDate *taskStartTime = [taskItem.dtStartDate copy];
+    NSDate *taskStartTime = taskItem.dtStartDate;
     NSDate *taskEndTime = taskItem.dtEndDate;
     timeDifference100 = [taskEndTime timeIntervalSinceDate:taskStartTime];
     NSLog(@"timeDifference100:%f",timeDifference100);
-    [self updateTimerStuff];
+    [self updateTimer];
 
 }
 
