@@ -241,7 +241,6 @@
     if (typeCell == INT_NEW_PROJECT_TYPE_INPUT)
     {
         [delegate saveValue:textField.text byIndexPath:indexPath];
-        
     }
 }
 
@@ -305,6 +304,9 @@
     else if([requestDataName isEqualToString:STR_NEW_PROJECT_PROJECT]){
        return [[TTAppDataManager sharedAppDataManager] getAllProjects];
     }
+     if ([requestDataName isEqualToString:STR_NEW_PROJECT_TASK]) {
+       return [[TTAppDataManager sharedAppDataManager] getAllTasks];
+     }
     return nil;
 }
 -(void) addNewSelectedFieldItem{

@@ -15,7 +15,6 @@
 		051A6135181EE9A80078851B /* icon-statistic_disclosure@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 051A6133181EE9A80078851B /* icon-statistic_disclosure@2x.png */; };
 		05217E2C186B5A2F00777BCB /* arrow-right@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 05217E2B186B5A2F00777BCB /* arrow-right@2x.png */; };
 		0549C2F117FAEE6B0097B002 /* TTSelectColorViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0549C2F017FAEE6B0097B002 /* TTSelectColorViewController.xib */; };
-		056887701805C93200EDBBB6 /* PropertyListColors.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0568876F1805C93200EDBBB6 /* PropertyListColors.plist */; };
 		0578674D1811796E0027605C /* TTFieldsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0578674B1811796E0027605C /* TTFieldsTableViewController.m */; };
 		0578674E1811796E0027605C /* TTFieldsTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0578674C1811796E0027605C /* TTFieldsTableViewController.xib */; };
 		0596765117D0CAD000653A60 /* DDMenuController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0596765017D0CAD000653A60 /* DDMenuController.m */; };
@@ -56,8 +55,6 @@
 		05CD804017F9EB6C0014B980 /* TTSelectColorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05CD803E17F9EB6C0014B980 /* TTSelectColorViewController.m */; };
 		05F1BCCF18184588005C0739 /* SectionHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 05F1BCCB18184588005C0739 /* SectionHeaderView.m */; };
 		05F1BCD018184588005C0739 /* Section.m in Sources */ = {isa = PBXBuildFile; fileRef = 05F1BCCD18184588005C0739 /* Section.m */; };
-		84E1D178181304F500D67AE5 /* PropertyListSettingsView.plist in Resources */ = {isa = PBXBuildFile; fileRef = 84E1D177181304F500D67AE5 /* PropertyListSettingsView.plist */; };
-		84E1D17A1813220E00D67AE5 /* PropertyListFilterView.plist in Resources */ = {isa = PBXBuildFile; fileRef = 84E1D1791813220E00D67AE5 /* PropertyListFilterView.plist */; };
 		DD2B9B8117B06E1F00E37DA8 /* TTMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD2B9B7F17B06E1F00E37DA8 /* TTMenuViewController.m */; };
 		DD2B9B8217B06E1F00E37DA8 /* TTMenuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DD2B9B8017B06E1F00E37DA8 /* TTMenuViewController.xib */; };
 		DD7BAE3117A5BDCA00CACFB2 /* TTTasksTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DD7BAE2E17A5BDCA00CACFB2 /* TTTasksTableViewCell.xib */; };
@@ -86,7 +83,6 @@
 		DDB4A84817849C3F007C7F15 /* TTViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DDB4A84617849C3F007C7F15 /* TTViewController.xib */; };
 		DDB4A85117850BCE007C7F15 /* TTMainClockViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DDB4A84F17850BCE007C7F15 /* TTMainClockViewController.m */; };
 		DDB4A85217850BCE007C7F15 /* TTMainClockViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DDB4A85017850BCE007C7F15 /* TTMainClockViewController.xib */; };
-		DDB4A85B178521F5007C7F15 /* TTAppDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = DDB4A856178521F5007C7F15 /* TTAppDataManager.m */; };
 		DDB4A85C178521F5007C7F15 /* TTICloudDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = DDB4A858178521F5007C7F15 /* TTICloudDataManager.m */; };
 		DDB4A85D178521F5007C7F15 /* TTLocalDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = DDB4A85A178521F5007C7F15 /* TTLocalDataManager.m */; };
 		DDB4A861178522AE007C7F15 /* TTItem.m in Sources */ = {isa = PBXBuildFile; fileRef = DDB4A860178522AE007C7F15 /* TTItem.m */; };
@@ -115,7 +111,6 @@
 		051A6133181EE9A80078851B /* icon-statistic_disclosure@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-statistic_disclosure@2x.png"; sourceTree = "<group>"; };
 		05217E2B186B5A2F00777BCB /* arrow-right@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "arrow-right@2x.png"; sourceTree = "<group>"; };
 		0549C2F017FAEE6B0097B002 /* TTSelectColorViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TTSelectColorViewController.xib; path = viewControllers/newProject/TTSelectColorViewController.xib; sourceTree = "<group>"; };
-		0568876F1805C93200EDBBB6 /* PropertyListColors.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = PropertyListColors.plist; sourceTree = "<group>"; };
 		0578674A1811796E0027605C /* TTFieldsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TTFieldsTableViewController.h; path = components/TTFieldsTableViewController.h; sourceTree = "<group>"; };
 		0578674B1811796E0027605C /* TTFieldsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TTFieldsTableViewController.m; path = components/TTFieldsTableViewController.m; sourceTree = "<group>"; };
 		0578674C1811796E0027605C /* TTFieldsTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TTFieldsTableViewController.xib; path = components/TTFieldsTableViewController.xib; sourceTree = "<group>"; };
@@ -164,8 +159,6 @@
 		05F1BCCC18184588005C0739 /* SectionHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SectionHeaderView.h; sourceTree = "<group>"; };
 		05F1BCCD18184588005C0739 /* Section.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Section.m; sourceTree = "<group>"; };
 		05F1BCCE18184588005C0739 /* Section.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Section.h; sourceTree = "<group>"; };
-		84E1D177181304F500D67AE5 /* PropertyListSettingsView.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = PropertyListSettingsView.plist; path = assets/PropertyListSettingsView.plist; sourceTree = "<group>"; };
-		84E1D1791813220E00D67AE5 /* PropertyListFilterView.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = PropertyListFilterView.plist; path = assets/PropertyListFilterView.plist; sourceTree = "<group>"; };
 		DD2B9B7E17B06E1F00E37DA8 /* TTMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TTMenuViewController.h; path = viewControllers/menu/TTMenuViewController.h; sourceTree = "<group>"; };
 		DD2B9B7F17B06E1F00E37DA8 /* TTMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TTMenuViewController.m; path = viewControllers/menu/TTMenuViewController.m; sourceTree = "<group>"; };
 		DD2B9B8017B06E1F00E37DA8 /* TTMenuViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TTMenuViewController.xib; path = viewControllers/menu/TTMenuViewController.xib; sourceTree = "<group>"; };
@@ -209,7 +202,6 @@
 		DDB4A84F17850BCE007C7F15 /* TTMainClockViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TTMainClockViewController.m; path = viewControllers/TTMainClockViewController.m; sourceTree = "<group>"; };
 		DDB4A85017850BCE007C7F15 /* TTMainClockViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TTMainClockViewController.xib; path = viewControllers/TTMainClockViewController.xib; sourceTree = "<group>"; };
 		DDB4A855178521F5007C7F15 /* TTAppDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTAppDataManager.h; sourceTree = "<group>"; };
-		DDB4A856178521F5007C7F15 /* TTAppDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTAppDataManager.m; sourceTree = "<group>"; };
 		DDB4A857178521F5007C7F15 /* TTICloudDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTICloudDataManager.h; sourceTree = "<group>"; };
 		DDB4A858178521F5007C7F15 /* TTICloudDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTICloudDataManager.m; sourceTree = "<group>"; };
 		DDB4A859178521F5007C7F15 /* TTLocalDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTLocalDataManager.h; sourceTree = "<group>"; };
@@ -251,6 +243,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		052F185D188EFC470021C36D /* editTaskView */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = editTaskView;
+			sourceTree = "<group>";
+		};
 		0596765217D0CAD700653A60 /* DDMenuController */ = {
 			isa = PBXGroup;
 			children = (
@@ -266,6 +265,12 @@
 				0578674A1811796E0027605C /* TTFieldsTableViewController.h */,
 				0578674B1811796E0027605C /* TTFieldsTableViewController.m */,
 				0578674C1811796E0027605C /* TTFieldsTableViewController.xib */,
+				DD968B9D17B7BBE8008D583F /* TTSelectPropertyViewController.h */,
+				DD968B9E17B7BBE8008D583F /* TTSelectPropertyViewController.m */,
+				DD968B9F17B7BBE8008D583F /* TTSelectPropertyViewController.xib */,
+				05CD803D17F9EB6C0014B980 /* TTSelectColorViewController.h */,
+				05CD803E17F9EB6C0014B980 /* TTSelectColorViewController.m */,
+				0549C2F017FAEE6B0097B002 /* TTSelectColorViewController.xib */,
 			);
 			name = tableViewOfParametrs;
 			sourceTree = "<group>";
@@ -487,12 +492,6 @@
 				DDB4A887178523B2007C7F15 /* TTNewProjectViewController.h */,
 				DDB4A886178523B2007C7F15 /* TTNewProjectViewController.m */,
 				05941E9117E9BFCE0079C571 /* TTNewProjectViewController.xib */,
-				DD968B9D17B7BBE8008D583F /* TTSelectPropertyViewController.h */,
-				DD968B9E17B7BBE8008D583F /* TTSelectPropertyViewController.m */,
-				DD968B9F17B7BBE8008D583F /* TTSelectPropertyViewController.xib */,
-				05CD803D17F9EB6C0014B980 /* TTSelectColorViewController.h */,
-				05CD803E17F9EB6C0014B980 /* TTSelectColorViewController.m */,
-				0549C2F017FAEE6B0097B002 /* TTSelectColorViewController.xib */,
 			);
 			name = newProjectView;
 			sourceTree = "<group>";
@@ -546,10 +545,7 @@
 		DDB4A83217849C3F007C7F15 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				84E1D1791813220E00D67AE5 /* PropertyListFilterView.plist */,
-				84E1D177181304F500D67AE5 /* PropertyListSettingsView.plist */,
 				05BAA80317E1F586003D7498 /* PropertyListOfViewForms.plist */,
-				0568876F1805C93200EDBBB6 /* PropertyListColors.plist */,
 				DDB4A83317849C3F007C7F15 /* PlanMyDay-Info.plist */,
 				DDB4A83417849C3F007C7F15 /* InfoPlist.strings */,
 				DDB4A83717849C3F007C7F15 /* main.m */,
@@ -569,6 +565,7 @@
 				DD7BAE4617A5BE8600CACFB2 /* settingsView */,
 				DD7BAE4717A5BE9800CACFB2 /* statisticsView */,
 				DDA17444178CEB9E0000132D /* newProjectView */,
+				052F185D188EFC470021C36D /* editTaskView */,
 				DD7BAE4817A5BEA600CACFB2 /* mainClockView */,
 				DD2B9B8317B06E2600E37DA8 /* menu */,
 			);
@@ -580,7 +577,6 @@
 			children = (
 				DDB4A85E178522AE007C7F15 /* model */,
 				DDB4A855178521F5007C7F15 /* TTAppDataManager.h */,
-				DDB4A856178521F5007C7F15 /* TTAppDataManager.m */,
 				DDB4A857178521F5007C7F15 /* TTICloudDataManager.h */,
 				DDB4A858178521F5007C7F15 /* TTICloudDataManager.m */,
 				DDB4A859178521F5007C7F15 /* TTLocalDataManager.h */,
@@ -692,8 +688,6 @@
 				05C8B660180ED9860065891D /* icon-statistic@2x.png in Resources */,
 				05C8B673180EE55C0065891D /* icon-filter@2x.png in Resources */,
 				05C8B65F180ED9860065891D /* icon-settings@2x.png in Resources */,
-				056887701805C93200EDBBB6 /* PropertyListColors.plist in Resources */,
-				84E1D17A1813220E00D67AE5 /* PropertyListFilterView.plist in Resources */,
 				05C8B66F180ED9860065891D /* clock-sec-background.png in Resources */,
 				DDB4A83617849C3F007C7F15 /* InfoPlist.strings in Resources */,
 				DDB4A83E17849C3F007C7F15 /* Default.png in Resources */,
@@ -732,7 +726,6 @@
 				051A6135181EE9A80078851B /* icon-statistic_disclosure@2x.png in Resources */,
 				05C8B661180ED9860065891D /* icon-tasks-check@2x.png in Resources */,
 				0549C2F117FAEE6B0097B002 /* TTSelectColorViewController.xib in Resources */,
-				84E1D178181304F500D67AE5 /* PropertyListSettingsView.plist in Resources */,
 				05C8B66E180ED9860065891D /* clock-min-background_TT.png in Resources */,
 				05C8B65B180ED9860065891D /* bgUiSearch@2x.png in Resources */,
 				DD90BF7017AA06530064233C /* ClockViewController.xib in Resources */,
@@ -761,7 +754,6 @@
 				DDB4A83C17849C3F007C7F15 /* TTAppDelegate.m in Sources */,
 				0578674D1811796E0027605C /* TTFieldsTableViewController.m in Sources */,
 				DDB4A85117850BCE007C7F15 /* TTMainClockViewController.m in Sources */,
-				DDB4A85B178521F5007C7F15 /* TTAppDataManager.m in Sources */,
 				DDB4A85C178521F5007C7F15 /* TTICloudDataManager.m in Sources */,
 				DDB4A85D178521F5007C7F15 /* TTLocalDataManager.m in Sources */,
 				DDB4A861178522AE007C7F15 /* TTItem.m in Sources */,

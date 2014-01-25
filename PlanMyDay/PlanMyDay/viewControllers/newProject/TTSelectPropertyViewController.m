@@ -69,9 +69,41 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:CellIdentifier];
         cell.backgroundColor = [UIColor clearColor];
         cell.textLabel.textColor = [UIColor whiteColor];
-        
     }
-    cell.textLabel.text = [[arrProperties objectAtIndex:[indexPath row]] objectForKey:[NSString stringWithFormat:@"%@Name",[[delegate getSelectedFieldName] lowercaseString]]];
+    [cell setAccessoryType:UITableViewCellAccessoryNone];
+    
+    NSString * strCurrentFieldValue = [[arrProperties objectAtIndex:[indexPath row]] objectForKey:[NSString stringWithFormat:@"%@Name",[[delegate getSelectedFieldName] lowercaseString]]];
+    NSString * strSelectedFieldValue = [NSString stringWithFormat:@"%@",[delegate getSelectedFieldTableValue]];
+    
+    NSString * strSelectedFieldName =[ NSString stringWithFormat:@"%@",[delegate getSelectedFieldName]];
+   
+<<<<<<< HEAD
+    NSString * strAdditionalFieldValue;
+    
+    if ([strSelectedFieldName isEqualToString:STR_NEW_PROJECT_PROJECT]) {
+        strAdditionalFieldValue = [ NSString stringWithFormat:@"%@",[[arrProperties objectAtIndex:[indexPath row]] objectForKey:STR_CLIENT_NAME]];
+    }
+    else if ([strSelectedFieldName isEqualToString:STR_NEW_PROJECT_TASK]){
+        strAdditionalFieldValue = [ NSString stringWithFormat:@"%@",[[arrProperties objectAtIndex:[indexPath row]] objectForKey:STR_PROJECT_NAME]];
+    }
+    
+    cell.textLabel.text = strCurrentFieldValue;
+    cell.detailTextLabel.text = strAdditionalFieldValue;
+=======
+    
+    if ([strSelectedFieldName isEqualToString:STR_NEW_PROJECT_PROJECT]) {
+        strCurrentFieldValue = [ NSString stringWithFormat:@"%@ (%@)",strCurrentFieldValue,[[arrProperties objectAtIndex:[indexPath row]] objectForKey:STR_CLIENT_NAME]];
+    }
+    else if ([strSelectedFieldName isEqualToString:STR_NEW_PROJECT_TASK]){
+        strCurrentFieldValue = [ NSString stringWithFormat:@"%@ (%@)",strCurrentFieldValue,[[arrProperties objectAtIndex:[indexPath row]] objectForKey:STR_PROJECT_NAME]];
+    }
+    
+    cell.textLabel.text = strCurrentFieldValue;
+>>>>>>> cf39f9cbe1312bd74f25e877da6bae11852bd5b9
+    
+    if ([strCurrentFieldValue isEqualToString:strSelectedFieldValue]) {
+        [cell setAccessoryType:UITableViewCellAccessoryCheckmark];
+    }
     return cell;
 }
 // Tap on table Row

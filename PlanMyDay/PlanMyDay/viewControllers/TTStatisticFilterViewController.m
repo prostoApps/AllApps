@@ -9,14 +9,13 @@
 #import "TTStatisticFilterViewController.h"
 
 @interface TTStatisticFilterViewController (){
-     TTFieldsTableViewController * filterTableController;
+    TTFieldsTableViewController * filterTableController;
+    NSString * filterSelectedCategory;
 }
 
 @end
 
 @implementation TTStatisticFilterViewController
-@synthesize _dataSourceTableFilter;
-@synthesize _delegateTableFilter;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -24,6 +23,7 @@
     if (self) {
         // Custom initialization
             filterTableController = [[TTFieldsTableViewController alloc] init];
+            filterSelectedCategory = @"Filter";
     }
     return self;
 }
@@ -33,25 +33,45 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
+    [filterTableController setDelegate:self];
     
-    TTAppDataManager * appDataManager = [TTAppDataManager sharedAppDataManager];
-    
-
-    [appDataManager loadFilterFields];
-
-    [filterTableController setTableViewParametrs:tableFilter];
-    
-    _delegateTableFilter = filterTableController;
-    _dataSourceTableFilter = filterTableController;
-    
-    [tableFilter setDelegate:_delegateTableFilter];
-    [tableFilter setDataSource:_dataSourceTableFilter];
+    [tableFilter setDelegate:filterTableController];
+    [tableFilter setDataSource:filterTableController];
+    [TTTools makeButtonStyled:btnApply];
+    [tableFilter setTableFooterView:footerTableViewFilter];
 }
+//
 
+-(void) viewWillAppear:(BOOL)animated{
+    if (tableFilter != nil){
+         [tableFilter reloadData];
+    }
+}
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(IBAction) btnApplyTouchHandler:(id)sender{
+    
+}
+#pragma mark TTFieldsTableDelegate metods
+-(NSArray *)getTableViewData{
+    return [[TTAppDataManager sharedAppDataManager] getTableFieldsOptionsByCategory:filterSelectedCategory];
+}
+-(UIViewController *)getParentController{
+    return self;
+}
+-(UITableView *)getTableView{
+    return tableFilter;
+}
+-(void) saveValue:(id)value byIndexPath:(NSIndexPath*)indexPath{
+    [[TTAppDataManager sharedAppDataManager] saveTableFieldsOptionValue:value byIndexPath:indexPath onCategory:filterSelectedCategory];
+    [tableFilter reloadData];
+}
+-(id)getValuebyIndexPath:(NSIndexPath*)indexPath{
+    return [[TTAppDataManager sharedAppDataManager] getTableFieldsOptionValueByIndexPath:indexPath onCategory:filterSelectedCategory];
 }
 
 @end

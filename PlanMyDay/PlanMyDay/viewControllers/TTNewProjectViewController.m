@@ -23,6 +23,7 @@
 @synthesize dataSource;
 @synthesize delegate;
 @synthesize externalArgument;
+@synthesize tableViewNewProject;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -38,19 +39,12 @@
 {
     
     [super viewDidLoad];
-
     newProjectSelectedCategory = STR_NEW_PROJECT_TASK;
-
-     [[TTAppDataManager sharedAppDataManager] loadNewProjectFields];
-    
     
     [newProjectTableController setDelegate:self];
     
-    _delegate = newProjectTableController;
-    _dataSource = newProjectTableController;
-    
-    [tableViewNewProject setDelegate:_delegate];
-    [tableViewNewProject setDataSource:_dataSource];
+    [tableViewNewProject setDelegate:newProjectTableController];
+    [tableViewNewProject setDataSource:newProjectTableController];
 
     
     [TTTools makeButtonStyled:btnSave];
@@ -58,7 +52,10 @@
     headerNewProject.layer.borderColor = [TTTools colorWithHexString:@"#a8adb3"].CGColor;
     headerNewProject.layer.borderWidth = 1.0f;
     [tableViewNewProject setTableFooterView:footerTableViewNewProject];
-  
+    
+    [btnSave setTitle:[NSString stringWithFormat:@"Save %@", newProjectSelectedCategory] forState:UIControlStateNormal];
+    [self setTitle:[NSString stringWithFormat:@"Add %@", newProjectSelectedCategory]];
+    [scTaskProjectClient setSelectedSegmentIndex:segmentIndexNewProject];
     
     //[scTaskProjectClient.tintColor ]
     [scTaskProjectClient setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:
@@ -76,39 +73,25 @@
     NSTimeInterval secondsInEightHours = 1 * 60 * 60;
     NSDate * dateEnd = [dateStart dateByAddingTimeInterval:secondsInEightHours];
     
-    [[TTAppDataManager sharedAppDataManager]  saveNewProjectFieldsValue:dateStart
-                                                            byIndexPath:[[TTAppDataManager sharedAppDataManager]getNewProjectFieldsIndexPathByValue:STR_NEW_PROJECT_START_DATE onCategory:newProjectSelectedCategory]
+    [[TTAppDataManager sharedAppDataManager]  saveTableFieldsOptionValue:dateStart
+                                                            byIndexPath:[[TTAppDataManager sharedAppDataManager]getTableFieldsOptionIndexPathByValue:STR_NEW_PROJECT_START_DATE onCategory:newProjectSelectedCategory]
                                                             onCategory:newProjectSelectedCategory];
-    [[TTAppDataManager sharedAppDataManager]  saveNewProjectFieldsValue:dateEnd
-                                                            byIndexPath:[[TTAppDataManager sharedAppDataManager]getNewProjectFieldsIndexPathByValue:STR_NEW_PROJECT_END_DATE onCategory:newProjectSelectedCategory]
+    [[TTAppDataManager sharedAppDataManager]  saveTableFieldsOptionValue:dateEnd
+                                                            byIndexPath:[[TTAppDataManager sharedAppDataManager]getTableFieldsOptionIndexPathByValue:STR_NEW_PROJECT_END_DATE onCategory:newProjectSelectedCategory]
                                                              onCategory:newProjectSelectedCategory];
+    
     
 }
 
 -(void) viewWillAppear:(BOOL)animated{
     
     if (tableViewNewProject != nil){
-        [self loadPropertyForView];
+        [tableViewNewProject reloadData];
     }
 }
 - (void) loadPropertyForView {
-    NSString * strAddOrEdit ;
-    if (externalArgument)
-    {
-        strAddOrEdit = @"Edit";
-    }
-    else
-    {
-        strAddOrEdit = @"Add";
-    }
-  
-       [self setTitle:[NSString stringWithFormat:@"%@ %@",strAddOrEdit, newProjectSelectedCategory]];
-    [btnSave setTitle:[NSString stringWithFormat:@"%@ %@",strAddOrEdit, newProjectSelectedCategory] forState:UIControlStateNormal];
-    [scTaskProjectClient setSelectedSegmentIndex:segmentIndexNewProject];
-
-  //  [newProjectTableController setArrayTableViewData:[appDataManager getNewProjectFields]];
-    
     [tableViewNewProject reloadData];
+    
     
 }
 
@@ -131,6 +114,8 @@
 		default:
             break;
     }
+    [btnSave setTitle:[NSString stringWithFormat:@"Save %@", newProjectSelectedCategory] forState:UIControlStateNormal];
+    [self setTitle:[NSString stringWithFormat:@"Add %@", newProjectSelectedCategory]];
     
     [self loadPropertyForView];
 }
@@ -142,9 +127,8 @@
     
     [self.view endEditing:YES];
     // проверка на заполненость имени
-    NSString * validateName = [NSString stringWithFormat:@"%@",[[TTAppDataManager sharedAppDataManager]getNewProjectFieldsValue:STR_NEW_PROJECT_VALUE
-                                           byIndexPath:[[[[TTAppDataManager sharedAppDataManager] dictNewProjectIndexPaths]objectForKey:newProjectSelectedCategory] objectForKey:STR_NEW_PROJECT_NAME]
-                                                                onCategory:newProjectSelectedCategory]];
+    NSString * validateName = [NSString stringWithFormat:@"%@",[[TTAppDataManager sharedAppDataManager]getTableFieldsOptionValueByIndexPath:[[[[TTAppDataManager sharedAppDataManager] dictOfTableFieldIndexPaths]objectForKey:newProjectSelectedCategory] objectForKey:STR_NEW_PROJECT_NAME]
+                                  onCategory:newProjectSelectedCategory]];
     
     if ( [validateName isEqualToString:@"(null)"] || [validateName isEqualToString:@""] )
     {
@@ -158,11 +142,12 @@
     if (externalArgument)
     {
         bSaveEditSuccess = [[TTAppDataManager sharedAppDataManager] editTTItem:[[TTAppDataManager sharedAppDataManager] serializeTaskData:externalArgument] onCategory:newProjectSelectedCategory];
+        [[TTAppDataManager sharedAppDataManager] clearTableFieldsOptionsByCategory:newProjectSelectedCategory];
     }
     else
     {
         bSaveEditSuccess = [[TTAppDataManager sharedAppDataManager] saveTTItemOnCategory:newProjectSelectedCategory];
-        [[TTAppDataManager sharedAppDataManager] clearNewProjectFieldsonCategory:newProjectSelectedCategory];
+        [[TTAppDataManager sharedAppDataManager] clearTableFieldsOptionsByCategory:newProjectSelectedCategory];
     }
     
    if (bSaveEditSuccess)
@@ -197,6 +182,12 @@
 -(void)setExternalArgument:(TTItem*)argument
 {
     externalArgument = argument;
+    
+    newProjectSelectedCategory = STR_NEW_PROJECT_TASK_EDIT;
+    scTaskProjectClient.hidden = true;
+    [self setTitle:[NSString stringWithFormat:@"Edit Task"]];
+  
+    
     [[TTAppDataManager sharedAppDataManager] updateNewTaskFormFieldsWithData:externalArgument onCategory:newProjectSelectedCategory];
     [self loadPropertyForView];
 }
@@ -214,7 +205,7 @@
 
 #pragma mark TTFieldsTableDelegate metods
 -(NSArray *)getTableViewData{
-    return [[TTAppDataManager sharedAppDataManager] getNewProjectFieldsByCategory:newProjectSelectedCategory];
+    return [[TTAppDataManager sharedAppDataManager] getTableFieldsOptionsByCategory:newProjectSelectedCategory];
 }
 -(UIViewController *)getParentController{
     return self;
@@ -223,11 +214,11 @@
     return tableViewNewProject;
 }
 -(void) saveValue:(id)value byIndexPath:(NSIndexPath*)indexPath{
-    [[TTAppDataManager sharedAppDataManager] saveNewProjectFieldsValue:value byIndexPath:indexPath onCategory:newProjectSelectedCategory];
+    [[TTAppDataManager sharedAppDataManager] saveTableFieldsOptionValue:value byIndexPath:indexPath onCategory:newProjectSelectedCategory];
     [tableViewNewProject reloadData];
 }
 -(id)getValuebyIndexPath:(NSIndexPath*)indexPath{
-    return [[TTAppDataManager sharedAppDataManager] getNewProjectFieldsValueByIndexPath:indexPath onCategory:newProjectSelectedCategory];
+    return [[TTAppDataManager sharedAppDataManager] getTableFieldsOptionValueByIndexPath:indexPath onCategory:newProjectSelectedCategory];
 }
 -(void) setFieldsCategory:(NSString*)swichCategoryName{
 

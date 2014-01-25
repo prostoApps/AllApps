@@ -83,6 +83,7 @@ extern int const INT_NEW_PROJECT_TYPE_SWITCH;
 extern int const INT_NEW_PROJECT_TYPE_COLOR;
 extern int const INT_NEW_PROJECT_TYPE_PICKER;
 
+extern NSString *const STR_NEW_PROJECT_TASK_EDIT;
 extern NSString *const STR_NEW_PROJECT_TASK;
 extern NSString *const STR_NEW_PROJECT_PROJECT;
 
