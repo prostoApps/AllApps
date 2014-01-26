@@ -83,6 +83,7 @@
 		DDB4A84817849C3F007C7F15 /* TTViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DDB4A84617849C3F007C7F15 /* TTViewController.xib */; };
 		DDB4A85117850BCE007C7F15 /* TTMainClockViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DDB4A84F17850BCE007C7F15 /* TTMainClockViewController.m */; };
 		DDB4A85217850BCE007C7F15 /* TTMainClockViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DDB4A85017850BCE007C7F15 /* TTMainClockViewController.xib */; };
+		DDB4A85B178521F5007C7F15 /* TTAppDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = DDB4A856178521F5007C7F15 /* TTAppDataManager.m */; };
 		DDB4A85C178521F5007C7F15 /* TTICloudDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = DDB4A858178521F5007C7F15 /* TTICloudDataManager.m */; };
 		DDB4A85D178521F5007C7F15 /* TTLocalDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = DDB4A85A178521F5007C7F15 /* TTLocalDataManager.m */; };
 		DDB4A861178522AE007C7F15 /* TTItem.m in Sources */ = {isa = PBXBuildFile; fileRef = DDB4A860178522AE007C7F15 /* TTItem.m */; };
@@ -202,6 +203,7 @@
 		DDB4A84F17850BCE007C7F15 /* TTMainClockViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TTMainClockViewController.m; path = viewControllers/TTMainClockViewController.m; sourceTree = "<group>"; };
 		DDB4A85017850BCE007C7F15 /* TTMainClockViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TTMainClockViewController.xib; path = viewControllers/TTMainClockViewController.xib; sourceTree = "<group>"; };
 		DDB4A855178521F5007C7F15 /* TTAppDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTAppDataManager.h; sourceTree = "<group>"; };
+		DDB4A856178521F5007C7F15 /* TTAppDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTAppDataManager.m; sourceTree = "<group>"; };
 		DDB4A857178521F5007C7F15 /* TTICloudDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTICloudDataManager.h; sourceTree = "<group>"; };
 		DDB4A858178521F5007C7F15 /* TTICloudDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTICloudDataManager.m; sourceTree = "<group>"; };
 		DDB4A859178521F5007C7F15 /* TTLocalDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTLocalDataManager.h; sourceTree = "<group>"; };
@@ -577,6 +579,7 @@
 			children = (
 				DDB4A85E178522AE007C7F15 /* model */,
 				DDB4A855178521F5007C7F15 /* TTAppDataManager.h */,
+				DDB4A856178521F5007C7F15 /* TTAppDataManager.m */,
 				DDB4A857178521F5007C7F15 /* TTICloudDataManager.h */,
 				DDB4A858178521F5007C7F15 /* TTICloudDataManager.m */,
 				DDB4A859178521F5007C7F15 /* TTLocalDataManager.h */,
@@ -754,6 +757,7 @@
 				DDB4A83C17849C3F007C7F15 /* TTAppDelegate.m in Sources */,
 				0578674D1811796E0027605C /* TTFieldsTableViewController.m in Sources */,
 				DDB4A85117850BCE007C7F15 /* TTMainClockViewController.m in Sources */,
+				DDB4A85B178521F5007C7F15 /* TTAppDataManager.m in Sources */,
 				DDB4A85C178521F5007C7F15 /* TTICloudDataManager.m in Sources */,
 				DDB4A85D178521F5007C7F15 /* TTLocalDataManager.m in Sources */,
 				DDB4A861178522AE007C7F15 /* TTItem.m in Sources */,
@@ -932,6 +936,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "PlanMyDay/PlanMyDay-Prefix.pch";
 				INFOPLIST_FILE = "PlanMyDay/PlanMyDay-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
@@ -946,6 +951,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "PlanMyDay/PlanMyDay-Prefix.pch";
 				INFOPLIST_FILE = "PlanMyDay/PlanMyDay-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;

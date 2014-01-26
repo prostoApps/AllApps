@@ -66,7 +66,7 @@
     UIColor *  cellBgColor = [UIColor clearColor];
     
     if ([delegate respondsToSelector:@selector(getSelectedFieldTableValue)]) {
-        NSString * selectedColorString = [NSString stringWithFormat:@"%@",[delegate getSelectedFieldTableValue]];
+        NSString * selectedColorString = [NSString stringWithFormat:@"%@",[[delegate getSelectedFieldTableOptions] objectForKey:STR_NEW_PROJECT_VALUE]];
         
         if ([cellColorString isEqualToString:selectedColorString]) {
             cellBgColor = cellColor;

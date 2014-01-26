@@ -73,11 +73,11 @@
     [cell setAccessoryType:UITableViewCellAccessoryNone];
     
     NSString * strCurrentFieldValue = [[arrProperties objectAtIndex:[indexPath row]] objectForKey:[NSString stringWithFormat:@"%@Name",[[delegate getSelectedFieldName] lowercaseString]]];
-    NSString * strSelectedFieldValue = [NSString stringWithFormat:@"%@",[delegate getSelectedFieldTableValue]];
+    NSString * strSelectedFieldValue = [NSString stringWithFormat:@"%@",[[delegate getSelectedFieldTableOptions] objectForKey:STR_NEW_PROJECT_VALUE]];
     
     NSString * strSelectedFieldName =[ NSString stringWithFormat:@"%@",[delegate getSelectedFieldName]];
    
-<<<<<<< HEAD
+
     NSString * strAdditionalFieldValue;
     
     if ([strSelectedFieldName isEqualToString:STR_NEW_PROJECT_PROJECT]) {
@@ -89,17 +89,7 @@
     
     cell.textLabel.text = strCurrentFieldValue;
     cell.detailTextLabel.text = strAdditionalFieldValue;
-=======
-    
-    if ([strSelectedFieldName isEqualToString:STR_NEW_PROJECT_PROJECT]) {
-        strCurrentFieldValue = [ NSString stringWithFormat:@"%@ (%@)",strCurrentFieldValue,[[arrProperties objectAtIndex:[indexPath row]] objectForKey:STR_CLIENT_NAME]];
-    }
-    else if ([strSelectedFieldName isEqualToString:STR_NEW_PROJECT_TASK]){
-        strCurrentFieldValue = [ NSString stringWithFormat:@"%@ (%@)",strCurrentFieldValue,[[arrProperties objectAtIndex:[indexPath row]] objectForKey:STR_PROJECT_NAME]];
-    }
-    
-    cell.textLabel.text = strCurrentFieldValue;
->>>>>>> cf39f9cbe1312bd74f25e877da6bae11852bd5b9
+
     
     if ([strCurrentFieldValue isEqualToString:strSelectedFieldValue]) {
         [cell setAccessoryType:UITableViewCellAccessoryCheckmark];
@@ -110,7 +100,47 @@
 - (void) tableView: (UITableView *) tableView didSelectRowAtIndexPath: (NSIndexPath *) indexPath {
 
     UITableViewCell * cell = [tableView cellForRowAtIndexPath:indexPath];
+    NSDictionary * dictSelectedFieldOptions =[delegate getSelectedFieldTableOptions];
+     NSString * strSelectedFieldValue = [NSString stringWithFormat:@"%@",[dictSelectedFieldOptions objectForKey:STR_NEW_PROJECT_VALUE ]];
+    // если выбрали то что уже указано, выходим
+    if ([cell.textLabel.text isEqualToString:strSelectedFieldValue]) {
+        [self.navigationController popViewControllerAnimated:YES];
+        return;
+    }
+//
+//     NSString * strSelectedFieldName =[ NSString stringWithFormat:@"%@",[dictSelectedFieldOptions objectForKey:STR_NEW_PROJECT_NAME]];
+
+    //сохраняем значение нажатой ячейки
     [delegate saveSelectedFieldTableValue:cell.textLabel.text];
+    
+    // очистка полей привязаных к выбраному полю
+    
+    for(NSString * strFieldToClear in [dictSelectedFieldOptions objectForKey:STR_NEW_PROJECT_CLEAR]){
+        [delegate saveSelectedFieldTableValue:[[NSString alloc]init] byFieldName:strFieldToClear];
+    }
+    
+    for(NSString * strFieldToChange in [dictSelectedFieldOptions objectForKey:STR_NEW_PROJECT_CHANGE]){
+        NSString * strValueToChange = [ NSString stringWithFormat:@"%@",[[arrProperties objectAtIndex:[indexPath row]] objectForKey:[NSString stringWithFormat:@"%@Name",[strFieldToChange lowercaseString]]]];
+        [delegate saveSelectedFieldTableValue:strValueToChange byFieldName:strFieldToChange];
+    }
+//
+//     if ([strSelectedFieldName isEqualToString:STR_NEW_PROJECT_CLIENT]) {         
+//         [delegate saveSelectedFieldTableValue:[[NSString alloc]init] byFieldName:STR_NEW_PROJECT_PROJECT];
+//     }
+//    if ([strSelectedFieldName isEqualToString:STR_NEW_PROJECT_PROJECT]) {
+//         NSString * strClientValue = [ NSString stringWithFormat:@"%@",[[arrProperties objectAtIndex:[indexPath row]] objectForKey:STR_CLIENT_NAME]];
+//        [delegate saveSelectedFieldTableValue:strClientValue byFieldName:STR_NEW_PROJECT_CLIENT];
+//        [delegate saveSelectedFieldTableValue:[[NSString alloc]init] byFieldName:STR_NEW_PROJECT_TASK];
+//        
+//    }
+//    else if ([strSelectedFieldName isEqualToString:STR_NEW_PROJECT_TASK]){
+//        NSString * strProjectValue = [ NSString stringWithFormat:@"%@",[[arrProperties objectAtIndex:[indexPath row]] objectForKey:STR_PROJECT_NAME]];
+//        NSString * strClientValue = [ NSString stringWithFormat:@"%@",[[arrProperties objectAtIndex:[indexPath row]] objectForKey:STR_CLIENT_NAME]];
+//         [delegate saveSelectedFieldTableValue:strClientValue byFieldName:STR_NEW_PROJECT_CLIENT];
+//         [delegate saveSelectedFieldTableValue:strProjectValue byFieldName:STR_NEW_PROJECT_PROJECT];
+//        
+//    }
+
     [self.navigationController popViewControllerAnimated:YES];
 }
 

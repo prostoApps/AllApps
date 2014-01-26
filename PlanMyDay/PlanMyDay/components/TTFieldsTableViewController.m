@@ -284,8 +284,14 @@
 -(void) saveSelectedFieldTableValue:(NSString*)value{
      [delegate saveValue:value byIndexPath:indexCurrentSelectedItem];
 }
--(NSObject *)getSelectedFieldTableValue{
-    return [delegate getValuebyIndexPath:indexCurrentSelectedItem];
+-(void) saveSelectedFieldTableValue:(NSString*)value byFieldName:(NSString*)name{
+    [delegate saveValue:value byName:name];
+}
+-(NSDictionary *)getSelectedFieldTableOptions{
+    
+     NSArray *listData =[[[delegate getTableViewData] objectAtIndex:indexCurrentSelectedItem.section] objectForKey:STR_NEW_PROJECT_CELLS];
+    
+    return [listData objectAtIndex:indexCurrentSelectedItem.row];
 }
 -(NSArray*) getColorData{
     return [[TTApplicationManager sharedApplicationManager] arrTaskColors];

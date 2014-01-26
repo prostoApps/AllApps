@@ -22,17 +22,17 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "No"
+            shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "PlanMyDay/managers/TTAppDataManager.m"
-            timestampString = "412300391.643429"
+            timestampString = "411412506.082383"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "613"
-            endingLineNumber = "613"
-            landmarkName = "@implementation TTAppDataManager"
-            landmarkType = "3">
+            startingLineNumber = "593"
+            endingLineNumber = "593"
+            landmarkName = "-getDataForStatistic"
+            landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -200,19 +200,19 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "PlanMyDay/managers/TTAppDataManager.m"
-            timestampString = "412195339.845856"
+            timestampString = "411412506.082383"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "224"
             endingLineNumber = "224"
-            landmarkName = "@implementation TTAppDataManager"
-            landmarkType = "3">
+            landmarkName = "-editTTItem:onCategory:"
+            landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "PlanMyDay/managers/TTLocalDataManager.m"
@@ -232,11 +232,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "PlanMyDay/managers/TTAppDataManager.m"
-            timestampString = "412300391.643429"
+            timestampString = "411412506.082383"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "463"
-            endingLineNumber = "463"
+            startingLineNumber = "450"
+            endingLineNumber = "450"
             landmarkName = "@implementation TTAppDataManager"
             landmarkType = "3">
          </BreakpointContent>
@@ -418,7 +418,7 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "No"
+            shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "PlanMyDay/viewControllers/tasksView/TTTasksViewController.m"
@@ -434,7 +434,7 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "No"
+            shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "PlanMyDay/viewControllers/tasksView/TTTasksViewController.m"
@@ -450,7 +450,7 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "No"
+            shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "PlanMyDay/managers/TTLocalDataManager.m"
@@ -475,8 +475,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "260"
             endingLineNumber = "260"
-            landmarkName = "@implementation TTCustomTrackerViewController"
-            landmarkType = "3">
+            landmarkName = "-calculateRemainingTaskDurationOfTask:"
+            landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -550,7 +550,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "PlanMyDay/managers/TTAppDataManager.m"
-            timestampString = "412195339.845856"
+            timestampString = "411412506.082383"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "177"
@@ -566,13 +566,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "PlanMyDay/managers/TTAppDataManager.m"
-            timestampString = "412195339.845856"
+            timestampString = "411412506.082383"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "245"
             endingLineNumber = "245"
-            landmarkName = "@implementation TTAppDataManager"
-            landmarkType = "3">
+            landmarkName = "-editTTItem:onCategory:"
+            landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -582,7 +582,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "PlanMyDay/managers/TTAppDataManager.m"
-            timestampString = "412195339.845856"
+            timestampString = "407701564.241792"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "135"
@@ -598,7 +598,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "PlanMyDay/managers/TTAppDataManager.m"
-            timestampString = "412195339.845856"
+            timestampString = "407956731.065493"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "136"
@@ -662,13 +662,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "PlanMyDay/managers/TTAppDataManager.m"
-            timestampString = "412300391.643429"
+            timestampString = "411412506.082383"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "425"
-            endingLineNumber = "425"
-            landmarkName = "@implementation TTAppDataManager"
-            landmarkType = "3">
+            startingLineNumber = "414"
+            endingLineNumber = "414"
+            landmarkName = "-serializeClientData:"
+            landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -678,19 +678,19 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "PlanMyDay/managers/TTAppDataManager.m"
-            timestampString = "412300391.643429"
+            timestampString = "411412506.082383"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "424"
-            endingLineNumber = "424"
-            landmarkName = "@implementation TTAppDataManager"
-            landmarkType = "3">
+            startingLineNumber = "413"
+            endingLineNumber = "413"
+            landmarkName = "-serializeClientData:"
+            landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "PlanMyDay/viewControllers/customTracker/TTCustomTrackerViewController.m"
@@ -699,7 +699,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "115"
             endingLineNumber = "115"
-            landmarkName = "-updateTimer"
+            landmarkName = "-updateTimerStuff"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -742,12 +742,28 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "PlanMyDay/managers/TTAppDataManager.m"
-            timestampString = "412195339.845856"
+            timestampString = "408526599.472946"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "105"
-            endingLineNumber = "105"
-            landmarkName = "-loadTableFieldsOptions"
+            startingLineNumber = "103"
+            endingLineNumber = "103"
+            landmarkName = "-loadSettingsFields"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PlanMyDay/managers/TTAppDataManager.m"
+            timestampString = "408562672.72309"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "108"
+            endingLineNumber = "108"
+            landmarkName = "-loadFilterFields"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -758,28 +774,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "PlanMyDay/managers/TTAppDataManager.m"
-            timestampString = "412195339.845856"
+            timestampString = "408562675.15474"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "110"
-            endingLineNumber = "110"
-            landmarkName = "-getTableFieldsOptionsByCategory:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "PlanMyDay/managers/TTAppDataManager.m"
-            timestampString = "412195339.845856"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "104"
-            endingLineNumber = "104"
-            landmarkName = "-loadTableFieldsOptions"
+            startingLineNumber = "102"
+            endingLineNumber = "102"
+            landmarkName = "-loadSettingsFields"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -978,11 +978,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "PlanMyDay/managers/TTAppDataManager.m"
-            timestampString = "412195339.845856"
+            timestampString = "408996954.055244"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "59"
-            endingLineNumber = "59"
+            startingLineNumber = "57"
+            endingLineNumber = "57"
             landmarkName = "-readDataFromFile:"
             landmarkType = "5">
          </BreakpointContent>
@@ -1026,11 +1026,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "PlanMyDay/viewControllers/TTStatisticsViewController.m"
-            timestampString = "411744186.135644"
+            timestampString = "409563166.374536"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "250"
-            endingLineNumber = "250"
+            startingLineNumber = "235"
+            endingLineNumber = "235"
             landmarkName = "-drawTasksToView:"
             landmarkType = "5">
          </BreakpointContent>
@@ -1042,13 +1042,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "PlanMyDay/managers/TTAppDataManager.m"
-            timestampString = "412300391.643429"
+            timestampString = "411412506.082383"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "558"
-            endingLineNumber = "558"
-            landmarkName = "@implementation TTAppDataManager"
-            landmarkType = "3">
+            startingLineNumber = "539"
+            endingLineNumber = "539"
+            landmarkName = "+sortTasks:byParameter:withValue:"
+            landmarkType = "5">
             <Locations>
                <Location
                   shouldBeEnabled = "Yes"
@@ -1057,11 +1057,11 @@
                   symbolName = "+[TTAppDataManager sortTasks:byParameter:withValue:]"
                   moduleName = "PlanMyDay"
                   urlString = "file:///Users/yegorkarpechenkov/work/work/objectiveC/projects/Apps/repo/AllApps/PlanMyDay/PlanMyDay/managers/TTAppDataManager.m"
-                  timestampString = "412300550.888351"
+                  timestampString = "411413313.203438"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "558"
-                  endingLineNumber = "558"
+                  startingLineNumber = "539"
+                  endingLineNumber = "539"
                   offsetFromSymbolStart = "1378">
                </Location>
                <Location
@@ -1071,11 +1071,11 @@
                   symbolName = "+[TTAppDataManager sortTasks:byParameter:withValue:]"
                   moduleName = "PlanMyDay"
                   urlString = "file:///Users/yegorkarpechenkov/work/work/objectiveC/projects/Apps/repo/AllApps/PlanMyDay/PlanMyDay/managers/TTAppDataManager.m"
-                  timestampString = "412300550.888956"
+                  timestampString = "411413313.203693"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "558"
-                  endingLineNumber = "558"
+                  startingLineNumber = "539"
+                  endingLineNumber = "539"
                   offsetFromSymbolStart = "1511">
                </Location>
             </Locations>
@@ -1084,45 +1084,45 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "No"
+            shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "PlanMyDay/viewControllers/TTStatisticsViewController.m"
-            timestampString = "411744186.135644"
+            timestampString = "409563975.958768"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "252"
-            endingLineNumber = "252"
+            startingLineNumber = "237"
+            endingLineNumber = "237"
             landmarkName = "-drawTasksToView:"
             landmarkType = "5">
             <Locations>
                <Location
-                  shouldBeEnabled = "No"
+                  shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "-[TTStatisticsViewController drawTasksToView:]"
                   moduleName = "PlanMyDay"
                   urlString = "file:///Users/yegorkarpechenkov/work/work/objectiveC/projects/Apps/repo/AllApps/PlanMyDay/PlanMyDay/viewControllers/TTStatisticsViewController.m"
-                  timestampString = "411743966.092851"
+                  timestampString = "411413313.203968"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "254"
-                  endingLineNumber = "254"
-                  offsetFromSymbolStart = "244">
+                  startingLineNumber = "237"
+                  endingLineNumber = "237"
+                  offsetFromSymbolStart = "210">
                </Location>
                <Location
-                  shouldBeEnabled = "No"
+                  shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "-[TTStatisticsViewController drawTasksToView:]"
                   moduleName = "PlanMyDay"
                   urlString = "file:///Users/yegorkarpechenkov/work/work/objectiveC/projects/Apps/repo/AllApps/PlanMyDay/PlanMyDay/viewControllers/TTStatisticsViewController.m"
-                  timestampString = "411743966.093134"
+                  timestampString = "411413313.204222"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "254"
-                  endingLineNumber = "254"
-                  offsetFromSymbolStart = "7008">
+                  startingLineNumber = "237"
+                  endingLineNumber = "237"
+                  offsetFromSymbolStart = "7348">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -1166,13 +1166,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "PlanMyDay/managers/TTAppDataManager.m"
-            timestampString = "412195339.845856"
+            timestampString = "411412506.082383"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "244"
             endingLineNumber = "244"
-            landmarkName = "@implementation TTAppDataManager"
-            landmarkType = "3">
+            landmarkName = "-editTTItem:onCategory:"
+            landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1182,13 +1182,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "PlanMyDay/managers/TTAppDataManager.m"
-            timestampString = "412195339.845856"
+            timestampString = "411412506.082383"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "180"
             endingLineNumber = "180"
-            landmarkName = "@implementation TTAppDataManager"
-            landmarkType = "3">
+            landmarkName = "-editTTItem:onCategory:"
+            landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1198,388 +1198,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "PlanMyDay/managers/TTAppDataManager.m"
-            timestampString = "412195339.845856"
+            timestampString = "411412506.082383"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "181"
             endingLineNumber = "181"
-            landmarkName = "@implementation TTAppDataManager"
-            landmarkType = "3">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "PlanMyDay/managers/TTAppDataManager.m"
-            timestampString = "412300391.643429"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "402"
-            endingLineNumber = "402"
-            landmarkName = "@implementation TTAppDataManager"
-            landmarkType = "3">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "PlanMyDay/viewControllers/customTracker/TTCustomTrackerViewController.m"
-            timestampString = "411413817.232338"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "91"
-            endingLineNumber = "91"
-            landmarkName = "-getTimeStringFrom:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "PlanMyDay/viewControllers/customTracker/TTCustomTrackerViewController.m"
-            timestampString = "411414757.10751"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "51"
-            endingLineNumber = "51"
-            landmarkName = "-viewDidLoad"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "PlanMyDay/viewControllers/TTStatisticsViewController.m"
-            timestampString = "411742008.094292"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "50"
-            endingLineNumber = "50"
-            landmarkName = "-viewDidLoad"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "PlanMyDay/managers/TTAppDataManager.m"
-            timestampString = "412300391.643429"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "570"
-            endingLineNumber = "570"
-            landmarkName = "@implementation TTAppDataManager"
-            landmarkType = "3">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "PlanMyDay/managers/TTAppDataManager.m"
-            timestampString = "412300391.643429"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "614"
-            endingLineNumber = "614"
-            landmarkName = "@implementation TTAppDataManager"
-            landmarkType = "3">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "-[TTAppDataManager getDataForStatistic]"
-                  moduleName = "PlanMyDay"
-                  urlString = "file:///Users/yegorkarpechenkov/work/work/objectiveC/projects/Apps/repo/AllApps/PlanMyDay/PlanMyDay/managers/TTAppDataManager.m"
-                  timestampString = "411545396.666933"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "593"
-                  endingLineNumber = "593"
-                  offsetFromSymbolStart = "1801">
-               </Location>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "-[TTAppDataManager getDataForStatistic]"
-                  moduleName = "PlanMyDay"
-                  urlString = "file:///Users/yegorkarpechenkov/work/work/objectiveC/projects/Apps/repo/AllApps/PlanMyDay/PlanMyDay/managers/TTAppDataManager.m"
-                  timestampString = "411545396.667274"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "593"
-                  endingLineNumber = "593"
-                  offsetFromSymbolStart = "1934">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "PlanMyDay/managers/TTAppDataManager.m"
-            timestampString = "412300391.643429"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "626"
-            endingLineNumber = "626"
-            landmarkName = "@implementation TTAppDataManager"
-            landmarkType = "3">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "PlanMyDay/viewControllers/TTStatisticsViewController.m"
-            timestampString = "411742008.094292"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "49"
-            endingLineNumber = "49"
-            landmarkName = "-viewDidLoad"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "PlanMyDay/viewControllers/TTStatisticsViewController.m"
-            timestampString = "411744186.135644"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "319"
-            endingLineNumber = "319"
-            landmarkName = "-drawTasksToView:"
-            landmarkType = "5">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "-[TTStatisticsViewController drawTasksToView:]"
-                  moduleName = "PlanMyDay"
-                  urlString = "file:///Users/yegorkarpechenkov/work/work/objectiveC/projects/Apps/repo/AllApps/PlanMyDay/PlanMyDay/viewControllers/TTStatisticsViewController.m"
-                  timestampString = "411743966.095171"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "321"
-                  endingLineNumber = "321"
-                  offsetFromSymbolStart = "3446">
-               </Location>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "-[TTStatisticsViewController drawTasksToView:]"
-                  moduleName = "PlanMyDay"
-                  urlString = "file:///Users/yegorkarpechenkov/work/work/objectiveC/projects/Apps/repo/AllApps/PlanMyDay/PlanMyDay/viewControllers/TTStatisticsViewController.m"
-                  timestampString = "411743966.095461"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "321"
-                  endingLineNumber = "321"
-                  offsetFromSymbolStart = "6843">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "PlanMyDay/viewControllers/TTStatisticsViewController.m"
-            timestampString = "411744186.135644"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "288"
-            endingLineNumber = "288"
-            landmarkName = "-drawTasksToView:"
-            landmarkType = "5">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "-[TTStatisticsViewController drawTasksToView:]"
-                  moduleName = "PlanMyDay"
-                  urlString = "file:///Users/yegorkarpechenkov/work/work/objectiveC/projects/Apps/repo/AllApps/PlanMyDay/PlanMyDay/viewControllers/TTStatisticsViewController.m"
-                  timestampString = "411742022.858771"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "285"
-                  endingLineNumber = "285"
-                  offsetFromSymbolStart = "1943">
-               </Location>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "-[TTStatisticsViewController drawTasksToView:]"
-                  moduleName = "PlanMyDay"
-                  urlString = "file:///Users/yegorkarpechenkov/work/work/objectiveC/projects/Apps/repo/AllApps/PlanMyDay/PlanMyDay/viewControllers/TTStatisticsViewController.m"
-                  timestampString = "411742022.858966"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "285"
-                  endingLineNumber = "285"
-                  offsetFromSymbolStart = "2829">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "PlanMyDay/managers/TTLocalDataManager.m"
-            timestampString = "411636312.316787"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "339"
-            endingLineNumber = "339"
-            landmarkName = "-getAllTasks"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "PlanMyDay/managers/TTAppDataManager.m"
-            timestampString = "412300391.643429"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "477"
-            endingLineNumber = "477"
-            landmarkName = "@implementation TTAppDataManager"
-            landmarkType = "3">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "PlanMyDay/viewControllers/TTStatisticsViewController.m"
-            timestampString = "411744186.135644"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "249"
-            endingLineNumber = "249"
-            landmarkName = "-drawTasksToView:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "PlanMyDay/viewControllers/TTStatisticsViewController.m"
-            timestampString = "411744186.135644"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "227"
-            endingLineNumber = "227"
-            landmarkName = "-clearView"
-            landmarkType = "5">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "-[TTStatisticsViewController clearView]"
-                  moduleName = "PlanMyDay"
-                  urlString = "file:///Users/yegorkarpechenkov/work/work/objectiveC/projects/Apps/repo/AllApps/PlanMyDay/PlanMyDay/viewControllers/TTStatisticsViewController.m"
-                  timestampString = "411743966.096196"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "229"
-                  endingLineNumber = "229"
-                  offsetFromSymbolStart = "54">
-               </Location>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "-[TTStatisticsViewController clearView]"
-                  moduleName = "PlanMyDay"
-                  urlString = "file:///Users/yegorkarpechenkov/work/work/objectiveC/projects/Apps/repo/AllApps/PlanMyDay/PlanMyDay/viewControllers/TTStatisticsViewController.m"
-                  timestampString = "411743966.096591"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "229"
-                  endingLineNumber = "229"
-                  offsetFromSymbolStart = "598">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "PlanMyDay/viewControllers/TTStatisticsViewController.m"
-            timestampString = "411742351.539034"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "61"
-            endingLineNumber = "61"
-            landmarkName = "-viewDidLoad"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "PlanMyDay/viewControllers/TTStatisticsViewController.m"
-            timestampString = "411744177.353441"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "257"
-            endingLineNumber = "257"
-            landmarkName = "-drawTasksToView:"
+            landmarkName = "-editTTItem:onCategory:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1590,152 +1214,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "PlanMyDay/managers/TTAppDataManager.m"
-            timestampString = "412300391.643429"
+            timestampString = "411412742.24633"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "573"
-            endingLineNumber = "573"
-            landmarkName = "@implementation TTAppDataManager"
-            landmarkType = "3">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "-[TTAppDataManager getDataForStatistic]"
-                  moduleName = "PlanMyDay"
-                  urlString = "file:///Users/yegorkarpechenkov/work/work/objectiveC/projects/Apps/repo/AllApps/PlanMyDay/PlanMyDay/managers/TTAppDataManager.m"
-                  timestampString = "412300550.898989"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "573"
-                  endingLineNumber = "573"
-                  offsetFromSymbolStart = "245">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "-[TTAppDataManager getDataForStatistic]"
-                  moduleName = "PlanMyDay"
-                  urlString = "file:///Users/yegorkarpechenkov/work/work/objectiveC/projects/Apps/repo/AllApps/PlanMyDay/PlanMyDay/managers/TTAppDataManager.m"
-                  timestampString = "412300550.899224"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "573"
-                  endingLineNumber = "573"
-                  offsetFromSymbolStart = "2258">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "PlanMyDay/managers/TTLocalDataManager.m"
-            timestampString = "411744597.720566"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "361"
-            endingLineNumber = "361"
-            landmarkName = "-getAllTasks"
-            landmarkType = "5">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "-[TTLocalDataManager getAllTasks]"
-                  moduleName = "PlanMyDay"
-                  urlString = "file:///Users/yegorkarpechenkov/work/work/objectiveC/projects/Apps/repo/AllApps/PlanMyDay/PlanMyDay/managers/TTLocalDataManager.m"
-                  timestampString = "411745337.968417"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "361"
-                  endingLineNumber = "361"
-                  offsetFromSymbolStart = "1124">
-               </Location>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "-[TTLocalDataManager getAllTasks]"
-                  moduleName = "PlanMyDay"
-                  urlString = "file:///Users/yegorkarpechenkov/work/work/objectiveC/projects/Apps/repo/AllApps/PlanMyDay/PlanMyDay/managers/TTLocalDataManager.m"
-                  timestampString = "411745337.96871"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "361"
-                  endingLineNumber = "361"
-                  offsetFromSymbolStart = "1656">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "PlanMyDay/managers/TTAppDataManager.m"
-            timestampString = "412195339.845856"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "287"
-            endingLineNumber = "287"
-            landmarkName = "@implementation TTAppDataManager"
-            landmarkType = "3">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "PlanMyDay/managers/TTAppDataManager.m"
-            timestampString = "412300391.643429"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "448"
-            endingLineNumber = "448"
-            landmarkName = "@implementation TTAppDataManager"
-            landmarkType = "3">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "PlanMyDay/managers/TTAppDataManager.m"
-            timestampString = "412300391.643429"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "294"
-            endingLineNumber = "294"
-            landmarkName = "@implementation TTAppDataManager"
-            landmarkType = "3">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "PlanMyDay/managers/model/TTItem.m"
-            timestampString = "412298798.151179"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "55"
-            endingLineNumber = "55"
-            landmarkName = "-initWithEmptyFields"
+            startingLineNumber = "391"
+            endingLineNumber = "391"
+            landmarkName = "-serializeClientData:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

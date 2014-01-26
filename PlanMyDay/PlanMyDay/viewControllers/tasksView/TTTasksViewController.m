@@ -63,9 +63,11 @@
     
     // определяем индекс ячейки и забираем все ее данные из массива
     NSIndexPath * indexPath = [tasksTableView indexPathForCell:cell];
-    NSDictionary *dictSelectedTaskData = [cellsDataArray objectAtIndex:indexPath.row];
+    NSMutableDictionary *dictSelectedTaskData = [cellsDataArray objectAtIndex:indexPath.row];
+    NSMutableDictionary *dictUpdatedTaskData = [[NSMutableDictionary alloc] initWithDictionary:dictSelectedTaskData copyItems:YES];
+    [dictUpdatedTaskData setValue:@"1" forKey:STR_THIS_TASK_IS_CHECKED];
     
-    
+    [[TTAppDataManager sharedAppDataManager] editTask:dictSelectedTaskData withNewData:dictUpdatedTaskData];
     [tasksTableView reloadData];
 }
 

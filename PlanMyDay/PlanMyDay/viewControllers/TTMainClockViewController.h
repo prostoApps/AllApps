@@ -13,9 +13,10 @@
 #import "TTApplicationManager.h"
 
 
-@interface TTMainClockViewController : UIViewController <ViewControllerWithAutoUpdate>
+@interface TTMainClockViewController : UIViewController <ViewControllerWithAutoUpdate,UIScrollViewDelegate>
 {
     IBOutlet UIButton *btnNextTask;
+    IBOutlet UIButton *btnStartPlan;
     IBOutlet UIButton *btnCurrentTask;
     IBOutlet UIView * viewIndicator;
     IBOutlet UIView * viewWorksTask;
