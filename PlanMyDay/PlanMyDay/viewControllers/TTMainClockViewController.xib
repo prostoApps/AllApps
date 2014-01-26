@@ -10,6 +10,7 @@
                 <outlet property="btnCurrentTask" destination="HrE-0R-c7o" id="co8-S1-sc0"/>
                 <outlet property="btnNextTask" destination="Oj1-Ny-Ags" id="tiA-g9-t6K"/>
                 <outlet property="btnStartPlan" destination="b1J-mf-sTT" id="f6s-au-gJu"/>
+                <outlet property="lavelNextTaskStartAt" destination="Koo-JP-fOz" id="ss6-K3-Qhn"/>
                 <outlet property="view" destination="1" id="3"/>
                 <outlet property="viewIndicator" destination="Yua-ia-fsN" id="UNb-k9-CZu"/>
                 <outlet property="viewStartPlan" destination="2Qa-bS-FgS" id="aiK-1K-LEa"/>
@@ -70,7 +71,7 @@
                             <color key="textColor" red="0.65490196079999996" green="0.67450980390000004" blue="0.69803921570000005" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" fixedFrame="YES" text="At 11:00" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Koo-JP-fOz">
+                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" fixedFrame="YES" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Koo-JP-fOz">
                             <rect key="frame" x="20" y="121" width="272" height="16"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="13"/>
@@ -81,7 +82,7 @@
                             <rect key="frame" x="20" y="26" width="280" height="24"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="20"/>
-                            <state key="normal" title="Current task title" image="arrow-right.png">
+                            <state key="normal" image="arrow-right.png">
                                 <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
@@ -90,7 +91,7 @@
                             <rect key="frame" x="20" y="90" width="280" height="28"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="20"/>
-                            <state key="normal" title="Next task title" image="arrow-right.png">
+                            <state key="normal" image="arrow-right.png">
                                 <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
@@ -104,6 +105,7 @@
         </view>
     </objects>
     <resources>
+        <image name="arrow-right.png" width="8" height="12"/>
         <image name="arrow-right.png" width="8" height="12"/>
     </resources>
 </document>

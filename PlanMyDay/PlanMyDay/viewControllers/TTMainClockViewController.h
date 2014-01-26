@@ -15,12 +15,14 @@
 
 @interface TTMainClockViewController : UIViewController <ViewControllerWithAutoUpdate,UIScrollViewDelegate>
 {
-    IBOutlet UIButton *btnNextTask;
     IBOutlet UIButton *btnStartPlan;
-    IBOutlet UIButton *btnCurrentTask;
     IBOutlet UIView * viewIndicator;
     IBOutlet UIView * viewWorksTask;
     IBOutlet UIView * viewStartPlan;
+    
+    IBOutlet UIButton *btnCurrentTask;
+    IBOutlet UIButton *btnNextTask;
+    IBOutlet UILabel * lavelNextTaskStartAt;
 }
 
 

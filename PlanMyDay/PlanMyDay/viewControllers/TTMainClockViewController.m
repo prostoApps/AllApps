@@ -206,7 +206,10 @@
 
     NSMutableArray *arrTasksAM = [[NSMutableArray alloc] init];
     NSMutableArray *arrTasksPM = [[NSMutableArray alloc] init];
-
+    
+    NSMutableDictionary * dictNextTask;
+//    NSDictionary * currentTaskDict =[[NSDictionary alloc] init];
+    
     for (NSMutableDictionary *dictTaskData in [[TTAppDataManager sharedAppDataManager] getAllTasksForToday])
     {
        NSDateComponents *tmpComponents = [cal components:( NSDayCalendarUnit | NSHourCalendarUnit | NSMinuteCalendarUnit | NSSecondCalendarUnit ) fromDate:[dictTaskData objectForKey:STR_START_DATE]];
@@ -218,13 +221,37 @@
             [arrTasksPM addObject:dictTaskData ];
         
        // определяем текущий проект
-      
         if([[dictTaskData objectForKey:STR_END_DATE] timeIntervalSinceNow] > 0 & [[dictTaskData objectForKey:STR_START_DATE] timeIntervalSinceNow] < 0)
         {
-            self.title = [NSString stringWithFormat:@"%@",[dictTaskData objectForKey:STR_TASK_NAME]];
+            btnCurrentTask.titleLabel.text = [NSString stringWithFormat:@"%@",[dictTaskData objectForKey:STR_TASK_NAME]];
+            
         }
-        
+        // определяем следующий таск
+       
+        if ([[dictTaskData objectForKey:STR_START_DATE] timeIntervalSinceNow] > 0)
+        {
+          if (!dictNextTask)
+          {
+            dictNextTask = [[NSMutableDictionary alloc] initWithDictionary:dictTaskData];
+          }
+           if ([[dictNextTask objectForKey:STR_START_DATE] timeIntervalSinceNow] < [[dictTaskData objectForKey:STR_START_DATE] timeIntervalSinceNow])
+           {
+              dictNextTask = dictTaskData;
+           }
+        }
     }
+    
+    btnNextTask.titleLabel.text = [dictNextTask objectForKey:STR_TASK_NAME];
+    
+//    // определяем следующий таск
+//    for (NSMutableDictionary *dictTaskData in [[TTAppDataManager sharedAppDataManager] getAllTasksForToday])
+//    {
+//        NSDate dateEndCurrTask = [currentTaskDict objectForKey:STR_END_DATE];
+//        
+//        if([dateEndCurrTask timeIntervalSinceDate:[dictTaskData objectForKey:STR_START_DATE]] > 0 & [[dictTaskData objectForKey:STR_START_DATE] timeIntervalSinceNow] < 0)
+//        {
+//        }
+//    }
 
     [tasksIndicatorAM updateWithTasks:arrTasksAM];
     [tasksIndicatorPM updateWithTasks:arrTasksPM];
