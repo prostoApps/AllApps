@@ -15,8 +15,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "203"
             endingLineNumber = "203"
-            landmarkName = "@implementation TTNewProjectViewController"
-            landmarkType = "3">
+            landmarkName = "-updateData"
+            landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -30,9 +30,7 @@
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "613"
-            endingLineNumber = "613"
-            landmarkName = "@implementation TTAppDataManager"
-            landmarkType = "3">
+            endingLineNumber = "613">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -63,8 +61,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "281"
             endingLineNumber = "281"
-            landmarkName = "-switchViewTo:forNavigationController:withArgument:"
-            landmarkType = "5">
+            landmarkName = "@implementation TTApplicationManager"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -78,9 +76,7 @@
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "296"
-            endingLineNumber = "296"
-            landmarkName = "-updateCurrentViewController"
-            landmarkType = "5">
+            endingLineNumber = "296">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -111,7 +107,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "143"
             endingLineNumber = "143"
-            landmarkName = "-arrTaskColors"
+            landmarkName = "-getUIViewControllerFromString:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -205,8 +201,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "224"
             endingLineNumber = "224"
-            landmarkName = "@implementation TTAppDataManager"
-            landmarkType = "3">
+            landmarkName = "-saveTTItemOnCategory:"
+            landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -237,8 +233,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "463"
             endingLineNumber = "463"
-            landmarkName = "@implementation TTAppDataManager"
-            landmarkType = "3">
+            landmarkName = "+sortTasks:byParameter:withValue:"
+            landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -475,8 +471,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "260"
             endingLineNumber = "260"
-            landmarkName = "@implementation TTCustomTrackerViewController"
-            landmarkType = "3">
+            landmarkName = "-setExternalArgument:"
+            landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -491,8 +487,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "273"
             endingLineNumber = "273"
-            landmarkName = "@implementation TTCustomTrackerViewController"
-            landmarkType = "3">
+            landmarkName = "-updateViewWithNewData"
+            landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -555,8 +551,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "177"
             endingLineNumber = "177"
-            landmarkName = "@implementation TTAppDataManager"
-            landmarkType = "3">
+            landmarkName = "-editTTItem:onCategory:"
+            landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -571,8 +567,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "245"
             endingLineNumber = "245"
-            landmarkName = "@implementation TTAppDataManager"
-            landmarkType = "3">
+            landmarkName = "-saveTTItemOnCategory:"
+            landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -587,8 +583,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "135"
             endingLineNumber = "135"
-            landmarkName = "-updateNewTaskFormFieldsWithData:onCategory:"
-            landmarkType = "5">
+            landmarkName = "@implementation TTAppDataManager"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -603,8 +599,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "136"
             endingLineNumber = "136"
-            landmarkName = "-updateNewTaskFormFieldsWithData:onCategory:"
-            landmarkType = "5">
+            landmarkName = "@implementation TTAppDataManager"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -619,7 +615,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "244"
             endingLineNumber = "244"
-            landmarkName = "-pushViewTo:forNavigationController:withArgument:"
+            landmarkName = "-pushViewTo:forNavigationController:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -635,7 +631,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "278"
             endingLineNumber = "278"
-            landmarkName = "-switchViewTo:forNavigationController:withArgument:"
+            landmarkName = "-switchViewTo:forNavigationController:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -651,7 +647,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "277"
             endingLineNumber = "277"
-            landmarkName = "-switchViewTo:forNavigationController:withArgument:"
+            landmarkName = "-switchViewTo:forNavigationController:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -667,8 +663,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "425"
             endingLineNumber = "425"
-            landmarkName = "@implementation TTAppDataManager"
-            landmarkType = "3">
+            landmarkName = "+sortTasks:byParameter:withValue:"
+            landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -683,8 +679,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "424"
             endingLineNumber = "424"
-            landmarkName = "@implementation TTAppDataManager"
-            landmarkType = "3">
+            landmarkName = "+sortTasks:byParameter:withValue:"
+            landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -747,8 +743,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "105"
             endingLineNumber = "105"
-            landmarkName = "-loadTableFieldsOptions"
-            landmarkType = "5">
+            landmarkName = "@implementation TTAppDataManager"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -763,7 +759,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "110"
             endingLineNumber = "110"
-            landmarkName = "-getTableFieldsOptionsByCategory:"
+            landmarkName = "-clearTableFieldsOptionsByCategory:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1046,39 +1042,7 @@
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "558"
-            endingLineNumber = "558"
-            landmarkName = "@implementation TTAppDataManager"
-            landmarkType = "3">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "+[TTAppDataManager sortTasks:byParameter:withValue:]"
-                  moduleName = "PlanMyDay"
-                  urlString = "file:///Users/yegorkarpechenkov/work/work/objectiveC/projects/Apps/repo/AllApps/PlanMyDay/PlanMyDay/managers/TTAppDataManager.m"
-                  timestampString = "412300550.888351"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "558"
-                  endingLineNumber = "558"
-                  offsetFromSymbolStart = "1378">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "+[TTAppDataManager sortTasks:byParameter:withValue:]"
-                  moduleName = "PlanMyDay"
-                  urlString = "file:///Users/yegorkarpechenkov/work/work/objectiveC/projects/Apps/repo/AllApps/PlanMyDay/PlanMyDay/managers/TTAppDataManager.m"
-                  timestampString = "412300550.888956"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "558"
-                  endingLineNumber = "558"
-                  offsetFromSymbolStart = "1511">
-               </Location>
-            </Locations>
+            endingLineNumber = "558">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1146,7 +1110,7 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "PlanMyDay/managers/TTApplicationManager.m"
@@ -1155,7 +1119,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "245"
             endingLineNumber = "245"
-            landmarkName = "-pushViewTo:forNavigationController:withArgument:"
+            landmarkName = "-pushViewTo:forNavigationController:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1171,8 +1135,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "244"
             endingLineNumber = "244"
-            landmarkName = "@implementation TTAppDataManager"
-            landmarkType = "3">
+            landmarkName = "-saveTTItemOnCategory:"
+            landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1187,8 +1151,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "180"
             endingLineNumber = "180"
-            landmarkName = "@implementation TTAppDataManager"
-            landmarkType = "3">
+            landmarkName = "-editTTItem:onCategory:"
+            landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1203,14 +1167,14 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "181"
             endingLineNumber = "181"
-            landmarkName = "@implementation TTAppDataManager"
-            landmarkType = "3">
+            landmarkName = "-editTTItem:onCategory:"
+            landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "PlanMyDay/managers/TTAppDataManager.m"
@@ -1219,8 +1183,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "402"
             endingLineNumber = "402"
-            landmarkName = "@implementation TTAppDataManager"
-            landmarkType = "3">
+            landmarkName = "-getAllProjects"
+            landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1282,9 +1246,7 @@
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "570"
-            endingLineNumber = "570"
-            landmarkName = "@implementation TTAppDataManager"
-            landmarkType = "3">
+            endingLineNumber = "570">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1298,9 +1260,7 @@
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "614"
-            endingLineNumber = "614"
-            landmarkName = "@implementation TTAppDataManager"
-            landmarkType = "3">
+            endingLineNumber = "614">
             <Locations>
                <Location
                   shouldBeEnabled = "No"
@@ -1344,9 +1304,7 @@
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "626"
-            endingLineNumber = "626"
-            landmarkName = "@implementation TTAppDataManager"
-            landmarkType = "3">
+            endingLineNumber = "626">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1485,8 +1443,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "477"
             endingLineNumber = "477"
-            landmarkName = "@implementation TTAppDataManager"
-            landmarkType = "3">
+            landmarkName = "-getDataForStatistic"
+            landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1594,39 +1552,7 @@
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "573"
-            endingLineNumber = "573"
-            landmarkName = "@implementation TTAppDataManager"
-            landmarkType = "3">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "-[TTAppDataManager getDataForStatistic]"
-                  moduleName = "PlanMyDay"
-                  urlString = "file:///Users/yegorkarpechenkov/work/work/objectiveC/projects/Apps/repo/AllApps/PlanMyDay/PlanMyDay/managers/TTAppDataManager.m"
-                  timestampString = "412300550.898989"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "573"
-                  endingLineNumber = "573"
-                  offsetFromSymbolStart = "245">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "-[TTAppDataManager getDataForStatistic]"
-                  moduleName = "PlanMyDay"
-                  urlString = "file:///Users/yegorkarpechenkov/work/work/objectiveC/projects/Apps/repo/AllApps/PlanMyDay/PlanMyDay/managers/TTAppDataManager.m"
-                  timestampString = "412300550.899224"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "573"
-                  endingLineNumber = "573"
-                  offsetFromSymbolStart = "2258">
-               </Location>
-            </Locations>
+            endingLineNumber = "573">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1687,8 +1613,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "287"
             endingLineNumber = "287"
-            landmarkName = "@implementation TTAppDataManager"
-            landmarkType = "3">
+            landmarkName = "-removeTask:"
+            landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1703,8 +1629,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "448"
             endingLineNumber = "448"
-            landmarkName = "@implementation TTAppDataManager"
-            landmarkType = "3">
+            landmarkName = "+sortTasks:byParameter:withValue:"
+            landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1719,8 +1645,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "294"
             endingLineNumber = "294"
-            landmarkName = "@implementation TTAppDataManager"
-            landmarkType = "3">
+            landmarkName = "-removeTask:"
+            landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy

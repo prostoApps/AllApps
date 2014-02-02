@@ -212,12 +212,7 @@
     {
         externalArgument.numRealDuration = [[NSNumber alloc] initWithFloat:tmpTime];
         externalArgument.strIsChecked = @"1";
-<<<<<<< HEAD
-     
-        
-=======
-      
->>>>>>> cf39f9cbe1312bd74f25e877da6bae11852bd5b9
+
         [[TTApplicationManager sharedApplicationManager] switchViewTo:VIEW_CURRENT_TASKS forNavigationController:self.navigationController];
     }
 

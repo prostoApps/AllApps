@@ -22,14 +22,10 @@ NSString *const STR_SORT_PARAMETER_TASK_DURATION     = @"taskDuration";
 static TTLocalDataManager *localDataManager;
 //@synthesize localDataManager;
 
-@synthesize dictNewProjectIndexPaths;
-@synthesize arraySettingsFields;
-@synthesize arrayFilterFields;
+@synthesize dictOfTableFieldIndexPaths;
 
 + (TTAppDataManager *)sharedAppDataManager
 {
-
-    
     static TTAppDataManager *sharedAppDataManager;
 
 //    static TTAppDataManager *iCloudDataManager;
@@ -50,6 +46,9 @@ static TTLocalDataManager *localDataManager;
 {
     localDataManager = [[TTLocalDataManager alloc] init];
     [localDataManager readLocalData];
+    
+    //load fileds options
+    [self loadTableFieldsOptions];
 //    [localDataManager initTestData];
 }
 
@@ -70,110 +69,94 @@ static TTLocalDataManager *localDataManager;
 {
     return [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject] stringByAppendingPathComponent:@"projectData.plist"];
 }
--(void)loadNewProjectFields{
-    // загружаем стили ячеек для формы
-    if (dictNewProjectFields.count == 0) {
-        NSString* plistPath = [[NSBundle mainBundle] pathForResource:@"PropertyListOfViewForms" ofType:@"plist"];
-        dictNewProjectFields = [[NSMutableDictionary alloc] initWithContentsOfFile:plistPath];
-        
-        //создаем пустые дикшионари для Индекс значений со структурой (Task,Project,Client)
-        dictNewProjectIndexPaths = [[NSMutableDictionary alloc] init];
-        for(id key in [dictNewProjectFields allKeys]){
-            [dictNewProjectIndexPaths setObject:[[NSMutableDictionary alloc] init] forKey:key];
+-(void)loadTableFieldsOptions{
+    
+    NSString* plistPath = [[NSBundle mainBundle] pathForResource:@"PropertyListOfViewForms" ofType:@"plist"];
+    // загружаем опции ячеек для формы
+    NSMutableDictionary * dictAddedFields = [[NSMutableDictionary alloc] initWithContentsOfFile:plistPath];
+    
+    if ( dictTableFieldsOption.count == 0) {
+        dictTableFieldsOption = [[NSMutableDictionary alloc] init];
+    }
+    if ( dictOfTableFieldIndexPaths.count == 0) {
+        dictOfTableFieldIndexPaths = [[NSMutableDictionary alloc] init];
+    }
+    
+    for (id key in [dictAddedFields allKeys]) {
+        if ([dictTableFieldsOption objectForKey:key] == nil ) {
+         
+            [dictTableFieldsOption setObject:[dictAddedFields objectForKey:key] forKey:key];
+            [dictOfTableFieldIndexPaths setObject:[[NSMutableDictionary alloc] init] forKey:key];
             int section = 0;
-            for(NSDictionary * arrSection in [[dictNewProjectFields objectForKey:key] allObjects]){
-              //  NSLog(@"%d",section);
+            for(NSDictionary * arrSection in [[dictAddedFields objectForKey:key] allObjects]){
+                //  NSLog(@"%d",section);
                 int row = 0;
                 for(NSDictionary * arrRow in [[arrSection objectForKey:STR_NEW_PROJECT_CELLS] allObjects]){
                     NSIndexPath * indexPath = [NSIndexPath indexPathForRow:row inSection:section];
-                    [[dictNewProjectIndexPaths objectForKey:key] setObject:indexPath forKey:[arrRow objectForKey:STR_NEW_PROJECT_NAME]];
+                    [[dictOfTableFieldIndexPaths objectForKey:key] setObject:indexPath forKey:[arrRow objectForKey:STR_NEW_PROJECT_NAME]];
                     row++;
                 }
                 section++;
-                
-            
             }
-            
         }
-        
+    }
+    
+}
+
+-(NSArray*)getTableFieldsOptionsByCategory:(NSString*)category{
+    return [dictTableFieldsOption objectForKey:category];
+}
+-(void) clearTableFieldsOptionsByCategory:(NSString *)category{
+    for (NSMutableDictionary * dictSection in [[dictTableFieldsOption objectForKey:category] allObjects]) {
+        for(NSMutableDictionary * dictRow in [[dictSection objectForKey:STR_NEW_PROJECT_CELLS] allObjects]){
+            [dictRow removeObjectForKey:STR_NEW_PROJECT_VALUE];
+        }
     }
 }
--(void)loadSettingsFields{
-    // загружаем стили ячеек для формы
-        NSString* plistPath = [[NSBundle mainBundle] pathForResource:@"PropertyListSettingsView" ofType:@"plist"];
-        self.arraySettingsFields = [[NSMutableArray alloc] initWithContentsOfFile:plistPath];
-}
--(void)loadFilterFields{
-    // загружаем стили ячеек для формы
-        NSString* plistPath = [[NSBundle mainBundle] pathForResource:@"PropertyListFilterView" ofType:@"plist"];
-        self.arrayFilterFields = [[NSMutableArray alloc] initWithContentsOfFile:plistPath];
-
-}
--(NSArray*)getNewProjectFieldsByCategory:(NSString*)category{
-    return [dictNewProjectFields objectForKey:category];
+-(NSObject*)getTableFieldsOptionValueByIndexPath:(NSIndexPath *)indexPath onCategory:(NSString*)category; {
+    return [[[[[dictTableFieldsOption objectForKey:category]
+               objectAtIndex:[indexPath section]]objectForKey:STR_NEW_PROJECT_CELLS]
+             objectAtIndex:[indexPath row]] objectForKey:STR_NEW_PROJECT_VALUE];
 }
 
--(void)updateNewTaskFormFieldsWithData:(TTItem*) item onCategory:(NSString *)category
-{
-    [self saveNewProjectFieldsValue:item.strTaskName
-                        byIndexPath:[self getNewProjectFieldsIndexPathByValue:STR_NEW_PROJECT_TASK onCategory:category]
-                         onCategory:category];
-    [self saveNewProjectFieldsValue:item.strProjectName
-                        byIndexPath:[self getNewProjectFieldsIndexPathByValue:STR_NEW_PROJECT_PROJECT onCategory:category]
-                         onCategory:category];
-    [self saveNewProjectFieldsValue:item.strClientName
-                        byIndexPath:[self getNewProjectFieldsIndexPathByValue:STR_NEW_PROJECT_CLIENT onCategory:category]
-                         onCategory:category];
-    [self saveNewProjectFieldsValue:item.strColor
-                        byIndexPath:[self getNewProjectFieldsIndexPathByValue:STR_NEW_PROJECT_COLOR onCategory:category]
-                         onCategory:category];
-    [self saveNewProjectFieldsValue:item.dtStartDate
-                        byIndexPath:[self getNewProjectFieldsIndexPathByValue:STR_NEW_PROJECT_START_DATE onCategory:category]
-                         onCategory:category];
-    [self saveNewProjectFieldsValue:item.dtEndDate
-                        byIndexPath:[self getNewProjectFieldsIndexPathByValue:STR_NEW_PROJECT_END_DATE onCategory:category]
-                         onCategory:category];
-}
-
--(NSMutableArray*)getFilterFields{
-    return arrayFilterFields;
-}
-
--(NSObject*)getNewProjectFieldsValue:(NSString*)value byIndexPath:(NSIndexPath*)indexPath onCategory:(NSString *)category{
-    if (indexPath == nil) {
-       indexPath = [[dictNewProjectIndexPaths objectForKey:category] objectForKey:value];
-    }
-    NSObject * test = [[[[[dictNewProjectFields objectForKey:category]
-                          objectAtIndex:[indexPath section]] objectForKey:STR_NEW_PROJECT_CELLS] objectAtIndex:[indexPath row]] objectForKey:value];
+-(NSIndexPath*)getTableFieldsOptionIndexPathByValue:(NSString*)value onCategory:(NSString *)category{
     
-    return test;
-}
--(NSObject*)getNewProjectFieldsValueByIndexPath:(NSIndexPath *)indexPath onCategory:(NSString*)category; {
-    NSObject * test = [[[[[dictNewProjectFields objectForKey:category]
-                          objectAtIndex:[indexPath section]]objectForKey:STR_NEW_PROJECT_CELLS]
-                        objectAtIndex:[indexPath row]] objectForKey:STR_NEW_PROJECT_VALUE];
-    
-    return test;
+    return [[dictOfTableFieldIndexPaths objectForKey:category] objectForKey:value];
+
 }
 
--(NSIndexPath*)getNewProjectFieldsIndexPathByValue:(NSString*)value onCategory:(NSString *)category{
-    return [[dictNewProjectIndexPaths objectForKey:category] objectForKey:value];
-}
-
--(void)saveNewProjectFieldsValue:(NSObject*)object byIndexPath:(NSIndexPath*)indexPath onCategory:(NSString *)category{
+-(void)saveTableFieldsOptionValue:(NSObject*)object byIndexPath:(NSIndexPath*)indexPath onCategory:(NSString *)category{
     
-    [[[[[dictNewProjectFields objectForKey:category]
+    [[[[[dictTableFieldsOption objectForKey:category]
         objectAtIndex:[indexPath section]]objectForKey:STR_NEW_PROJECT_CELLS]
             objectAtIndex:[indexPath row]] setObject:object forKey:STR_NEW_PROJECT_VALUE];
     
 }
--(void) clearNewProjectFieldsonCategory:(NSString *)category{
-    NSString* plistPath = [[NSBundle mainBundle] pathForResource:@"PropertyListOfViewForms" ofType:@"plist"];
-    NSMutableDictionary * clearDictionary = [[NSMutableDictionary alloc] initWithContentsOfFile:plistPath];
-    [dictNewProjectFields setObject:[clearDictionary objectForKey:category]
-                               forKey:category];
-}
 
+
+-(void)updateNewTaskFormFieldsWithData:(TTItem*) item onCategory:(NSString *)category
+{
+    
+    
+    [self saveTableFieldsOptionValue:item.strTaskName
+                         byIndexPath:[self getTableFieldsOptionIndexPathByValue:STR_NEW_PROJECT_TASK onCategory:category]
+                          onCategory:category];
+    [self saveTableFieldsOptionValue:item.strProjectName
+                         byIndexPath:[self getTableFieldsOptionIndexPathByValue:STR_NEW_PROJECT_PROJECT onCategory:category]
+                          onCategory:category];
+    [self saveTableFieldsOptionValue:item.strClientName
+                         byIndexPath:[self getTableFieldsOptionIndexPathByValue:STR_NEW_PROJECT_CLIENT onCategory:category]
+                          onCategory:category];
+    [self saveTableFieldsOptionValue:item.strColor
+                         byIndexPath:[self getTableFieldsOptionIndexPathByValue:STR_NEW_PROJECT_COLOR onCategory:category]
+                          onCategory:category];
+    [self saveTableFieldsOptionValue:item.dtStartDate
+                         byIndexPath:[self getTableFieldsOptionIndexPathByValue:STR_NEW_PROJECT_START_DATE onCategory:category]
+                          onCategory:category];
+    [self saveTableFieldsOptionValue:item.dtEndDate
+                         byIndexPath:[self getTableFieldsOptionIndexPathByValue:STR_NEW_PROJECT_END_DATE onCategory:category]
+                          onCategory:category];
+}
 //Edit Item and save it to Device
 -(BOOL)editTTItem:(NSMutableDictionary*) dictOldTaskData onCategory:(NSString *)category
 {
@@ -182,62 +165,30 @@ static TTLocalDataManager *localDataManager;
     
     NSMutableDictionary *dictUpdatedTaskData = [[NSMutableDictionary alloc] init];
     
-    item.strClientName = [NSString stringWithFormat:@"%@",
-                          [self getNewProjectFieldsValue:STR_NEW_PROJECT_VALUE
-                                            byIndexPath:[[dictNewProjectIndexPaths objectForKey:category] objectForKey:STR_NEW_PROJECT_CLIENT]
-                           onCategory:category]];
+    item.strClientName = [NSString stringWithFormat:@"%@",[self getTableFieldsOptionValueByIndexPath:[[dictOfTableFieldIndexPaths objectForKey:category] objectForKey:STR_NEW_PROJECT_CLIENT] onCategory:category]];
     
     //Если выбрана категория "редактировать таск", сохраняем таск с проектом и клиентом
-    if ([category isEqualToString:STR_NEW_PROJECT_TASK])
+    if ([category isEqualToString:STR_NEW_PROJECT_TASK_EDIT])
     {
-        
-        item.strTaskName = [NSString stringWithFormat:@"%@",[self getNewProjectFieldsValue:STR_NEW_PROJECT_VALUE
-                                                                               byIndexPath:[[dictNewProjectIndexPaths objectForKey:category] objectForKey:STR_NEW_PROJECT_NAME] onCategory:category]];
-        item.strProjectName = [NSString stringWithFormat:@"%@",[self getNewProjectFieldsValue:STR_NEW_PROJECT_VALUE
-                                                                                  byIndexPath:[[dictNewProjectIndexPaths objectForKey:category] objectForKey:STR_NEW_PROJECT_PROJECT] onCategory:category]];
-        
-        
-        item.strColor = [NSString stringWithFormat:@"%@",[self getNewProjectFieldsValue:STR_NEW_PROJECT_VALUE
-                                                                            byIndexPath:[[dictNewProjectIndexPaths objectForKey:category] objectForKey:STR_NEW_PROJECT_COLOR] onCategory:category]];
-        
-        item.dtStartDate = [self getNewProjectFieldsValue:STR_NEW_PROJECT_VALUE
-                                              byIndexPath:[[dictNewProjectIndexPaths objectForKey:category] objectForKey:STR_NEW_PROJECT_START_DATE] onCategory:category];
-        item.dtEndDate = [self getNewProjectFieldsValue:STR_NEW_PROJECT_VALUE
-                                            byIndexPath:[[dictNewProjectIndexPaths objectForKey:category] objectForKey:STR_NEW_PROJECT_END_DATE]onCategory:category];
-        
+        item.strTaskName = [NSString stringWithFormat:@"%@",[self getTableFieldsOptionValueByIndexPath:[[dictOfTableFieldIndexPaths objectForKey:category] objectForKey:STR_NEW_PROJECT_NAME] onCategory:category]];
+        item.strProjectName = [NSString stringWithFormat:@"%@",[self getTableFieldsOptionValueByIndexPath:[[dictOfTableFieldIndexPaths objectForKey:category] objectForKey:STR_NEW_PROJECT_PROJECT] onCategory:category]];
+        item.strColor = [NSString stringWithFormat:@"%@",[self getTableFieldsOptionValueByIndexPath:[[dictOfTableFieldIndexPaths objectForKey:category] objectForKey:STR_NEW_PROJECT_COLOR] onCategory:category]];
+        item.dtStartDate = [self getTableFieldsOptionValueByIndexPath:[[dictOfTableFieldIndexPaths objectForKey:category] objectForKey:STR_NEW_PROJECT_START_DATE] onCategory:category];
+        item.dtEndDate =[self getTableFieldsOptionValueByIndexPath:[[dictOfTableFieldIndexPaths objectForKey:category] objectForKey:STR_NEW_PROJECT_END_DATE] onCategory:category];
         dictUpdatedTaskData = [self serializeTaskData:item];
         
     }    //Если выбрана категория "редактировать проект", сохраняем только проект с клиентом
     else if( [category isEqualToString:STR_NEW_PROJECT_PROJECT])
     {
-        item.strProjectName = [NSString stringWithFormat:@"%@",
-                               [self getNewProjectFieldsValue:STR_NEW_PROJECT_VALUE
-                                                  byIndexPath:[[dictNewProjectIndexPaths objectForKey:category] objectForKey:STR_NEW_PROJECT_PROJECT]
-                                                   onCategory:category]];
-        
+        item.strProjectName = [NSString stringWithFormat:@"%@",[self getTableFieldsOptionValueByIndexPath:[[dictOfTableFieldIndexPaths objectForKey:category] objectForKey:STR_NEW_PROJECT_PROJECT] onCategory:category]];
         dictUpdatedTaskData = [self serializeProjectData:item];
-
     }    //Если выбрана категория "редактировать проект", сохраняем только клиента
     else if( [category isEqualToString:STR_NEW_PROJECT_CLIENT])
     {
-        item.strClientSkype = [NSString stringWithFormat:@"%@",
-                               [self getNewProjectFieldsValue:STR_NEW_PROJECT_VALUE
-                                                  byIndexPath:[[dictNewProjectIndexPaths objectForKey:category] objectForKey:STR_NEW_PROJECT_CLIENT_SKYPE]
-                                                   onCategory:category]];
-        
-        item.strClientPhone = [NSString stringWithFormat:@"%@",
-                               [self getNewProjectFieldsValue:STR_NEW_PROJECT_VALUE
-                                                byIndexPath:[[dictNewProjectIndexPaths objectForKey:category] objectForKey:STR_NEW_PROJECT_CLIENT_PHONE]
-                                                   onCategory:category]];
-        
-        item.strClientMail = [NSString stringWithFormat:@"%@",
-                              [self getNewProjectFieldsValue:STR_NEW_PROJECT_VALUE
-                                                byIndexPath:[[dictNewProjectIndexPaths objectForKey:category] objectForKey:STR_NEW_PROJECT_CLIENT_MAIL]
-                                                onCategory:category]];
-        
-        item.strClientNotes = [NSString stringWithFormat:@"%@",[self getNewProjectFieldsValue:STR_NEW_PROJECT_VALUE
-                                                                                  byIndexPath:[[dictNewProjectIndexPaths objectForKey:category] objectForKey:STR_NEW_PROJECT_CLIENT_NOTE]
-                                                                                   onCategory:category]];
+        item.strClientSkype = [NSString stringWithFormat:@"%@",[self getTableFieldsOptionValueByIndexPath:[[dictOfTableFieldIndexPaths objectForKey:category] objectForKey:STR_NEW_PROJECT_CLIENT_SKYPE] onCategory:category]];
+        item.strClientPhone = [NSString stringWithFormat:@"%@",[self getTableFieldsOptionValueByIndexPath:[[dictOfTableFieldIndexPaths objectForKey:category] objectForKey:STR_NEW_PROJECT_CLIENT_PHONE] onCategory:category]];
+        item.strClientMail = [NSString stringWithFormat:@"%@",[self getTableFieldsOptionValueByIndexPath:[[dictOfTableFieldIndexPaths objectForKey:category] objectForKey:STR_NEW_PROJECT_CLIENT_MAIL] onCategory:category]];
+        item.strClientNotes = [NSString stringWithFormat:@"%@",[self getTableFieldsOptionValueByIndexPath:[[dictOfTableFieldIndexPaths objectForKey:category] objectForKey:STR_NEW_PROJECT_CLIENT_NOTE] onCategory:category]];
         dictUpdatedTaskData = [self serializeClientData:item];
 
     }
@@ -256,44 +207,21 @@ static TTLocalDataManager *localDataManager;
 -(BOOL)saveTTItemOnCategory:(NSString *)category
 {
     BOOL * bReadyToWriteData = NO;
-    TTItem * item = [[TTItem alloc] initWithEmptyFields];
+    TTItem * item = [[TTItem alloc] init];
     
     NSMutableDictionary *dictData = [[NSMutableDictionary alloc] init];
     
-    item.strClientName = [NSString stringWithFormat:@"%@",[self getNewProjectFieldsValue:STR_NEW_PROJECT_VALUE
-                                                                               byIndexPath:[[dictNewProjectIndexPaths objectForKey:category] objectForKey:STR_NEW_PROJECT_CLIENT]
-                                                                              onCategory:category]];
+    item.strClientName = [NSString stringWithFormat:@"%@",[self getTableFieldsOptionValueByIndexPath:[[dictOfTableFieldIndexPaths objectForKey:category] objectForKey:STR_NEW_PROJECT_CLIENT] onCategory:category]];
     
     //Если выбрана категория "создать таск", сохраняем таск с проектом и клиентом
     if ([category isEqualToString:STR_NEW_PROJECT_TASK])
     {
 
-        item.strTaskName = [NSString stringWithFormat:@"%@",[self getNewProjectFieldsValue:STR_NEW_PROJECT_VALUE
-                                                                                 byIndexPath:[[dictNewProjectIndexPaths objectForKey:category] objectForKey:STR_NEW_PROJECT_NAME]onCategory:category]];
-        item.strProjectName = [NSString stringWithFormat:@"%@",[self getNewProjectFieldsValue:STR_NEW_PROJECT_VALUE
-                                                                                    byIndexPath:[[dictNewProjectIndexPaths objectForKey:category] objectForKey:STR_NEW_PROJECT_PROJECT]
-                                                                                   onCategory:category]];
-        
-        
-        item.strColor = [NSString stringWithFormat:@"%@",[self getNewProjectFieldsValue:STR_NEW_PROJECT_VALUE
-                                                                              byIndexPath:[[dictNewProjectIndexPaths objectForKey:category] objectForKey:STR_NEW_PROJECT_COLOR]onCategory:category]];
-        
-        
-        item.dtStartDate = [self getNewProjectFieldsValue:STR_NEW_PROJECT_VALUE
-                                                                              byIndexPath:[[dictNewProjectIndexPaths objectForKey:category] objectForKey:STR_NEW_PROJECT_START_DATE]onCategory:category];
-        item.dtEndDate = [self getNewProjectFieldsValue:STR_NEW_PROJECT_VALUE
-                                                                              byIndexPath:[[dictNewProjectIndexPaths objectForKey:category] objectForKey:STR_NEW_PROJECT_END_DATE]onCategory:category];
-        
-        NSDate *taskStartTime = item.dtStartDate;
-        NSDate *taskEndTime = item.dtEndDate;
-        NSTimeInterval timeDifference100 = [taskEndTime timeIntervalSinceDate:taskStartTime];
-
-        NSNumber *tmpTime = [[NSNumber alloc] initWithInt:timeDifference100];
-        NSNumber *tmpRealTime = [[NSNumber alloc] initWithInt:0];
-        
-        item.numPlannedDuration = tmpTime;
-
-        item.numRealDuration = tmpRealTime;
+        item.strTaskName = [NSString stringWithFormat:@"%@",[self getTableFieldsOptionValueByIndexPath:[[dictOfTableFieldIndexPaths objectForKey:category] objectForKey:STR_NEW_PROJECT_NAME] onCategory:category]];
+        item.strProjectName = [NSString stringWithFormat:@"%@",[self getTableFieldsOptionValueByIndexPath:[[dictOfTableFieldIndexPaths objectForKey:category] objectForKey:STR_NEW_PROJECT_PROJECT] onCategory:category]];
+        item.strColor = [NSString stringWithFormat:@"%@",[self getTableFieldsOptionValueByIndexPath:[[dictOfTableFieldIndexPaths objectForKey:category] objectForKey:STR_NEW_PROJECT_COLOR] onCategory:category]];
+        item.dtStartDate = [self getTableFieldsOptionValueByIndexPath:[[dictOfTableFieldIndexPaths objectForKey:category] objectForKey:STR_NEW_PROJECT_START_DATE] onCategory:category];
+        item.dtEndDate =[self getTableFieldsOptionValueByIndexPath:[[dictOfTableFieldIndexPaths objectForKey:category] objectForKey:STR_NEW_PROJECT_END_DATE] onCategory:category];
         
         dictData = [[NSMutableDictionary alloc] initWithDictionary:[self serializeTaskData:item] copyItems:YES];
         bReadyToWriteData = [localDataManager saveItemData:dictData];
@@ -301,29 +229,18 @@ static TTLocalDataManager *localDataManager;
     }    //Если выбрана категория "создать проект", сохраняем только проект с клиентом
     else if( [category isEqualToString:STR_NEW_PROJECT_PROJECT])
     {
-        item.strProjectName = [NSString stringWithFormat:@"%@",[self getNewProjectFieldsValue:STR_NEW_PROJECT_VALUE
-                                                                              byIndexPath:[[dictNewProjectIndexPaths objectForKey:category] objectForKey:STR_NEW_PROJECT_PROJECT]onCategory:category]];
+        item.strProjectName = [NSString stringWithFormat:@"%@",[self getTableFieldsOptionValueByIndexPath:[[dictOfTableFieldIndexPaths objectForKey:category] objectForKey:STR_NEW_PROJECT_PROJECT] onCategory:category]];
         
         dictData = [self serializeProjectData:item];
         bReadyToWriteData = [localDataManager saveProjectData:dictData];
     }    //Если выбрана категория "создать проект", сохраняем только клиента
     else if( [category isEqualToString:STR_NEW_PROJECT_CLIENT])
     {
-        item.strClientSkype = [NSString stringWithFormat:@"%@",[self getNewProjectFieldsValue:STR_NEW_PROJECT_VALUE
-                                                                              byIndexPath:[[dictNewProjectIndexPaths objectForKey:category] objectForKey:STR_NEW_PROJECT_CLIENT_SKYPE]
-                                                                                onCategory:category]];
-     
-        item.strClientPhone = [NSString stringWithFormat:@"%@",[self getNewProjectFieldsValue:STR_NEW_PROJECT_VALUE
-                                                                                    byIndexPath:[[dictNewProjectIndexPaths objectForKey:category] objectForKey:STR_NEW_PROJECT_CLIENT_PHONE]
-                                                                                   onCategory:category]];
-     
-        item.strClientMail = [NSString stringWithFormat:@"%@",[self getNewProjectFieldsValue:STR_NEW_PROJECT_VALUE
-                                                                                 byIndexPath:[[dictNewProjectIndexPaths objectForKey:category] objectForKey:STR_NEW_PROJECT_CLIENT_MAIL]
-                                                                                  onCategory:category]];
-     
-        item.strClientNotes = [NSString stringWithFormat:@"%@",[self getNewProjectFieldsValue:STR_NEW_PROJECT_VALUE
-                                                                                  byIndexPath:[[dictNewProjectIndexPaths objectForKey:category] objectForKey:STR_NEW_PROJECT_CLIENT_NOTE]
-                                                                                   onCategory:category]];
+        item.strClientSkype = [NSString stringWithFormat:@"%@",[self getTableFieldsOptionValueByIndexPath:[[dictOfTableFieldIndexPaths objectForKey:category] objectForKey:STR_NEW_PROJECT_CLIENT_SKYPE] onCategory:category]];
+        item.strClientPhone = [NSString stringWithFormat:@"%@",[self getTableFieldsOptionValueByIndexPath:[[dictOfTableFieldIndexPaths objectForKey:category] objectForKey:STR_NEW_PROJECT_CLIENT_PHONE] onCategory:category]];
+        item.strClientMail = [NSString stringWithFormat:@"%@",[self getTableFieldsOptionValueByIndexPath:[[dictOfTableFieldIndexPaths objectForKey:category] objectForKey:STR_NEW_PROJECT_CLIENT_MAIL] onCategory:category]];
+        item.strClientNotes = [NSString stringWithFormat:@"%@",[self getTableFieldsOptionValueByIndexPath:[[dictOfTableFieldIndexPaths objectForKey:category] objectForKey:STR_NEW_PROJECT_CLIENT_NOTE] onCategory:category]];
+        
         dictData = [self serializeClientData:item];
         bReadyToWriteData = [localDataManager saveClientData:dictData];
     }
@@ -446,15 +363,13 @@ static TTLocalDataManager *localDataManager;
 -(NSMutableDictionary*)serializeTaskData:(TTItem*)item
 {
     NSMutableDictionary *dictData = [[NSMutableDictionary alloc] initWithObjectsAndKeys:
-                                     item.strClientName,      STR_CLIENT_NAME,
-                                     item.strProjectName,     STR_PROJECT_NAME,
-                                     item.strTaskName,        STR_TASK_NAME,
-                                     item.strColor,           STR_TASK_COLOR,
-                                     item.dtStartDate,        STR_START_DATE,
-                                     item.dtEndDate,          STR_END_DATE,
-                                     item.numPlannedDuration, STR_PLANNED_DURATION,
-                                     item.numRealDuration  ,  STR_REAL_DURATION,
-                                     item.strIsChecked,       STR_THIS_TASK_IS_CHECKED,
+                                     item.strClientName,  STR_CLIENT_NAME,
+                                     item.strProjectName, STR_PROJECT_NAME,
+                                     item.strTaskName,    STR_TASK_NAME,
+                                     item.strColor,       STR_TASK_COLOR,
+                                     item.dtStartDate,    STR_START_DATE,
+                                     item.dtEndDate,      STR_END_DATE,
+                                     item.strIsChecked,   STR_THIS_TASK_IS_CHECKED,
                                      nil];
     
     return dictData;
@@ -465,18 +380,12 @@ static TTLocalDataManager *localDataManager;
 {
     TTItem *item = [[TTItem alloc] init];
 
-    NSNumber *tmpRealDuration = [[NSNumber alloc] initWithDouble:[[data objectForKey:STR_REAL_DURATION] doubleValue]];
-    NSNumber *tmpPlannedDuration = [[NSNumber alloc] initWithDouble:[[data objectForKey:STR_PLANNED_DURATION] doubleValue]];
-    
-    
-    item.strClientName      = [data objectForKey:STR_CLIENT_NAME];
-    item.strProjectName     = [data objectForKey:STR_PROJECT_NAME];
-    item.strTaskName        = [data objectForKey:STR_TASK_NAME];
-    item.dtStartDate        = [data objectForKey:STR_START_DATE];
-    item.dtEndDate          = [data objectForKey:STR_END_DATE];
-    item.numRealDuration    = tmpRealDuration;
-    item.numPlannedDuration = tmpPlannedDuration;
-    item.strColor           = [data objectForKey:STR_TASK_COLOR];
+    item.strClientName  = [data objectForKey:STR_CLIENT_NAME];
+    item.strProjectName = [data objectForKey:STR_PROJECT_NAME];
+    item.strTaskName    = [data objectForKey:STR_TASK_NAME];
+    item.dtStartDate    = [data objectForKey:STR_START_DATE];
+    item.dtEndDate      = [data objectForKey:STR_END_DATE];
+    item.strColor       = [data objectForKey:STR_TASK_COLOR];
 
     return item;
 }
@@ -568,8 +477,7 @@ static TTLocalDataManager *localDataManager;
 -(NSArray*) getDataForStatistic
 {
     NSMutableArray * arrToReturn = [[NSMutableArray alloc] init];
-    NSArray *arrTasksToSort = [[NSArray alloc] initWithArray:[self getAllTasks]];
-    BOOL bCreateNewProject = NO;
+    NSArray *arrTasksToSort = [[NSArray alloc] initWithArray:[self getAllTasksForToday]];
     for (NSDictionary * tmpTask in arrTasksToSort)
     {
         if (arrToReturn.count == 0)
@@ -599,23 +507,18 @@ static TTLocalDataManager *localDataManager;
                             //                    если клиенты разные - создаем новый массив в arrToReturn и сохраняем туда таск
                             [arrToReturn addObject:[[NSMutableArray alloc] initWithObjects:tmpTask, nil]];
                         }
-                        bCreateNewProject = NO;
+                        
                     }
                     else
                     {
 //                        если проекты разные, создаем новый массив "проект", сохраняем в него таск и добавляем этот массив в arrToReturn.
-                        bCreateNewProject = YES;
-//                        [arrToReturn addObject:[[NSMutableArray alloc] initWithObjects:tmpTask, nil]];
+                        [arrToReturn addObject:[[NSMutableArray alloc] initWithObjects:tmpTask, nil]];
                     }
+                    //обрываем выполнение цикла по таскам внутри "проекта"(массив с тасками с одинаковым названием проекта и клиента).
+//                    если первый таска не совпадает по имени - надо создавать новый "проект". если совпадает надо добавлять.
+//                    не обязательно для этого перебирать все таски в "проекте"
                     break;
-                    //TODO перебрать все таски. засетить флаг.
-                    //если флаг установлен - создаем новый массив, если нет - записываем даск в нужный массив
                 }
-            }
-            if (bCreateNewProject)
-            {
-                [arrToReturn addObject:[[NSMutableArray alloc] initWithObjects:tmpTask, nil]];
-                bCreateNewProject = NO;
             }
             
         }

@@ -55,6 +55,7 @@
 		05CD804017F9EB6C0014B980 /* TTSelectColorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05CD803E17F9EB6C0014B980 /* TTSelectColorViewController.m */; };
 		05F1BCCF18184588005C0739 /* SectionHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 05F1BCCB18184588005C0739 /* SectionHeaderView.m */; };
 		05F1BCD018184588005C0739 /* Section.m in Sources */ = {isa = PBXBuildFile; fileRef = 05F1BCCD18184588005C0739 /* Section.m */; };
+		B35AF9121893438F00414AD1 /* TTAppDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B35AF9111893438F00414AD1 /* TTAppDataManager.m */; };
 		DD2B9B8117B06E1F00E37DA8 /* TTMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD2B9B7F17B06E1F00E37DA8 /* TTMenuViewController.m */; };
 		DD2B9B8217B06E1F00E37DA8 /* TTMenuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DD2B9B8017B06E1F00E37DA8 /* TTMenuViewController.xib */; };
 		DD7BAE3117A5BDCA00CACFB2 /* TTTasksTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DD7BAE2E17A5BDCA00CACFB2 /* TTTasksTableViewCell.xib */; };
@@ -159,6 +160,7 @@
 		05F1BCCC18184588005C0739 /* SectionHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SectionHeaderView.h; sourceTree = "<group>"; };
 		05F1BCCD18184588005C0739 /* Section.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Section.m; sourceTree = "<group>"; };
 		05F1BCCE18184588005C0739 /* Section.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Section.h; sourceTree = "<group>"; };
+		B35AF9111893438F00414AD1 /* TTAppDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTAppDataManager.m; sourceTree = "<group>"; };
 		DD2B9B7E17B06E1F00E37DA8 /* TTMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TTMenuViewController.h; path = viewControllers/menu/TTMenuViewController.h; sourceTree = "<group>"; };
 		DD2B9B7F17B06E1F00E37DA8 /* TTMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TTMenuViewController.m; path = viewControllers/menu/TTMenuViewController.m; sourceTree = "<group>"; };
 		DD2B9B8017B06E1F00E37DA8 /* TTMenuViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TTMenuViewController.xib; path = viewControllers/menu/TTMenuViewController.xib; sourceTree = "<group>"; };
@@ -577,6 +579,7 @@
 			children = (
 				DDB4A85E178522AE007C7F15 /* model */,
 				DDB4A855178521F5007C7F15 /* TTAppDataManager.h */,
+				B35AF9111893438F00414AD1 /* TTAppDataManager.m */,
 				DDB4A857178521F5007C7F15 /* TTICloudDataManager.h */,
 				DDB4A858178521F5007C7F15 /* TTICloudDataManager.m */,
 				DDB4A859178521F5007C7F15 /* TTLocalDataManager.h */,
@@ -771,6 +774,7 @@
 				05F1BCCF18184588005C0739 /* SectionHeaderView.m in Sources */,
 				DD90BF6E17AA06530064233C /* ClockView.m in Sources */,
 				DD90BF6F17AA06530064233C /* ClockViewController.m in Sources */,
+				B35AF9121893438F00414AD1 /* TTAppDataManager.m in Sources */,
 				DD2B9B8117B06E1F00E37DA8 /* TTMenuViewController.m in Sources */,
 				DD968BA017B7BBE8008D583F /* TTSelectPropertyViewController.m in Sources */,
 				0596765117D0CAD000653A60 /* DDMenuController.m in Sources */,
