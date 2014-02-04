@@ -12,7 +12,9 @@
 
 @end
 
-@implementation TTMainClockViewController
+@implementation TTMainClockViewController{
+    int intCurrentClockOffsset;
+}
 
 @synthesize btnNewTask;
 
@@ -35,16 +37,10 @@
 {
     [super viewDidLoad];
    // [self setNeedsStatusBarAppearanceUpdate];
-    
+    [TTTools makeButtonStyled:btnStartPlan];
     //вытаскиваем все таски, которые есть в localData
-    NSMutableArray *arrAllTasks = [[NSMutableArray alloc] initWithArray:[[TTAppDataManager sharedAppDataManager] getAllTasksForToday]];
-    //добавляем кнопку "Начать планировать" есть нету тасков на сегодня
-    if (arrAllTasks.count == 0) {
-        [viewWorksTask addSubview:viewStartPlan];
-    }
-    else{
-        
-    }
+
+    
     UIColor * back = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"background.jpg"]];
     self.view.backgroundColor = back;
     
@@ -54,31 +50,28 @@
 
     //добавляем основные часы
     ClockViewController *clockAM = [[ClockViewController alloc] initWithNibName:@"ClockViewController" bundle:nil];
-    clockAM.view.frame = CGRectMake(0, 0, svClockScrollView.frame.size.width, svClockScrollView.frame.size.height);
-    [svClockScrollView addSubview:clockAM.view];
-
     ClockViewController *clockPM = [[ClockViewController alloc] initWithNibName:@"ClockViewController" bundle:nil];
+    clockAM.view.frame = CGRectMake(0, 0, svClockScrollView.frame.size.width, svClockScrollView.frame.size.height);
     clockPM.view.frame = CGRectMake(svClockScrollView.frame.size.width, 0, svClockScrollView.frame.size.width, svClockScrollView.frame.size.height);
+    [svClockScrollView addSubview:clockAM.view];
     [svClockScrollView addSubview:clockPM.view];
-
     
     CGSize scrollViewContentSize = CGSizeMake(640, 404);
     [svClockScrollView setContentSize:scrollViewContentSize];
     
     //добавляем цветной индикатор тасков вокруг часов
-//    tasksIndicatorAM = [[TTTasksIndicatorViewController alloc] initWithTasks:arrAllTasks];
+    
     tasksIndicatorAM = [[TTTasksIndicatorViewController alloc] init];
     [svClockScrollView addSubview:tasksIndicatorAM.view];
-    
-//    tasksIndicatorPM = [[TTTasksIndicatorViewController alloc] initWithTasks:arrAllTasks];
     tasksIndicatorPM = [[TTTasksIndicatorViewController alloc] init];
     [svClockScrollView addSubview:tasksIndicatorPM.view];
-    tasksIndicatorPM.view.frame = CGRectMake(svClockScrollView.frame.size.width,0,svClockScrollView.frame.size.width, svClockScrollView.frame.size.height);
     
     [self updateData];
 
 //    svClockScrollView.scrollEnabled = false;
     svClockScrollView.showsHorizontalScrollIndicator = false;
+    svClockScrollView.decelerationRate = UIScrollViewDecelerationRateFast;
+    [svClockScrollView setDelegate:self];
     
     pageControl = [[UIPageControl alloc] init];
     pageControl.frame = CGRectMake(110,5,100,100);
@@ -101,7 +94,7 @@
     customTrackerViewController.view.frame = CGRectMake(svScrollView.frame.size.width, 0, svScrollView.frame.size.width, svScrollView.frame.size.height);
     */
     
-    self.title = @"Current Project";
+    
 
     
  //   self.navigationController.navigationController.v view.backgroundColor = [UIColor clearColor];
@@ -122,8 +115,10 @@
 
 -(IBAction) btnNewTaskTouchHandler:(id)sender
 {
-    [[TTApplicationManager sharedApplicationManager] switchViewTo:VIEW_NEW_TASK forNavigationController:self.navigationController];
+         [[TTApplicationManager sharedApplicationManager] pushViewTo:VIEW_NEW_TASK forNavigationController:self.navigationController];
 }
+
+
 
 -(IBAction) btnMenuTouchHandler:(id)sender
 {
@@ -131,20 +126,32 @@
 }
 
 // at the end of scroll animation, reset the boolean used when scrolls originate from the UIPageControl
+-(void)centerCurrentView{
+    //
+    int xhalf = svClockScrollView.frame.size.width/2;
+    int xcurrnet = svClockScrollView.contentOffset.x;
+    if (xcurrnet <= xhalf & xcurrnet > 0) {
+        [svClockScrollView setContentOffset:CGPointMake(0, 0) animated:YES];
+    }
+    else if(xcurrnet > xhalf & xcurrnet <= 320){
+        [svClockScrollView setContentOffset:CGPointMake(320, 0) animated:YES];
+    }
+    
+}
+
+- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate
+{
+    if (!decelerate)
+    {
+        [self centerCurrentView];
+    }
+}
+
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
 {
-    // switch the indicator when more than 50% of the previous/next page is visible
-    CGFloat pageWidth = CGRectGetWidth(svClockScrollView.frame);
-    NSUInteger page = floor((svClockScrollView.contentOffset.x - pageWidth / 2) / pageWidth) + 1;
-    self.pageControl.currentPage = page;
-    
-    // load the visible page and the page on either side of it (to avoid flashes when the user starts scrolling)
-//    [self createPageWithColor:[UIColor redColor] forPage:0];
-//    [self createPageWithColor:[UIColor blueColor] forPage:1];
-
-    
-    // a possible optimization would be to unload the views+controllers which are no longer visible
+    [self centerCurrentView];
 }
+
 
 - (void)gotoPage:(BOOL)animated
 {
@@ -168,22 +175,83 @@
 
 -(void)updateData
 {
+    
+    //добавляем кнопку "Начать планировать" есть нету тасков на сегодня
+    if ([[TTAppDataManager sharedAppDataManager] getAllTasksForToday].count == 0) {
+        viewWorksTask.hidden = true;
+        viewStartPlan.hidden = false;
+    }
+    else{
+        viewWorksTask.hidden = false;
+        viewStartPlan.hidden = true;
+    }
+    
+    // определяем am/pm и ставим текущие часы
+    NSDateFormatter *DateFormatter=[[NSDateFormatter alloc] init];
+    [DateFormatter setDateFormat:@"HH"];
+    NSInteger intCurentHour = [[DateFormatter stringFromDate:[NSDate date]] intValue];
+    if(intCurentHour >=0 & intCurentHour <=11 ){
+        tasksIndicatorAM.view.frame = CGRectMake(0,0,svClockScrollView.frame.size.width, svClockScrollView.frame.size.height);
+        tasksIndicatorPM.view.frame = CGRectMake(svClockScrollView.frame.size.width,0,svClockScrollView.frame.size.width, svClockScrollView.frame.size.height);
+    }
+    else
+    {
+        tasksIndicatorAM.view.frame = CGRectMake(svClockScrollView.frame.size.width,0,svClockScrollView.frame.size.width, svClockScrollView.frame.size.height);
+        tasksIndicatorPM.view.frame = CGRectMake(0,0,svClockScrollView.frame.size.width, svClockScrollView.frame.size.height);
+    }
+    
+
+    
     NSCalendar *cal = [NSCalendar currentCalendar];
 
     NSMutableArray *arrTasksAM = [[NSMutableArray alloc] init];
     NSMutableArray *arrTasksPM = [[NSMutableArray alloc] init];
-
+    
+    NSMutableDictionary * dictNextTask;
+//    NSDictionary * currentTaskDict =[[NSDictionary alloc] init];
+    
     for (NSMutableDictionary *dictTaskData in [[TTAppDataManager sharedAppDataManager] getAllTasksForToday])
     {
-
-        NSDateComponents *tmpComponents = [cal components:( NSDayCalendarUnit | NSHourCalendarUnit | NSMinuteCalendarUnit | NSSecondCalendarUnit ) fromDate:[dictTaskData objectForKey:STR_START_DATE]];
-            
+       NSDateComponents *tmpComponents = [cal components:( NSDayCalendarUnit | NSHourCalendarUnit | NSMinuteCalendarUnit | NSSecondCalendarUnit ) fromDate:[dictTaskData objectForKey:STR_START_DATE]];
+        
             //[NSDate timeIntervalSinceReferenceDate]
         if(tmpComponents.hour < 12)
             [arrTasksAM addObject:dictTaskData ];
         else
             [arrTasksPM addObject:dictTaskData ];
+        
+       // определяем текущий проект
+        if([[dictTaskData objectForKey:STR_END_DATE] timeIntervalSinceNow] > 0 & [[dictTaskData objectForKey:STR_START_DATE] timeIntervalSinceNow] < 0)
+        {
+            btnCurrentTask.titleLabel.text = [NSString stringWithFormat:@"%@",[dictTaskData objectForKey:STR_TASK_NAME]];
+            
+        }
+        // определяем следующий таск
+       
+        if ([[dictTaskData objectForKey:STR_START_DATE] timeIntervalSinceNow] > 0)
+        {
+          if (!dictNextTask)
+          {
+            dictNextTask = [[NSMutableDictionary alloc] initWithDictionary:dictTaskData];
+          }
+           if ([[dictNextTask objectForKey:STR_START_DATE] timeIntervalSinceNow] < [[dictTaskData objectForKey:STR_START_DATE] timeIntervalSinceNow])
+           {
+              dictNextTask = dictTaskData;
+           }
+        }
     }
+    
+    btnNextTask.titleLabel.text = [dictNextTask objectForKey:STR_TASK_NAME];
+    
+//    // определяем следующий таск
+//    for (NSMutableDictionary *dictTaskData in [[TTAppDataManager sharedAppDataManager] getAllTasksForToday])
+//    {
+//        NSDate dateEndCurrTask = [currentTaskDict objectForKey:STR_END_DATE];
+//        
+//        if([dateEndCurrTask timeIntervalSinceDate:[dictTaskData objectForKey:STR_START_DATE]] > 0 & [[dictTaskData objectForKey:STR_START_DATE] timeIntervalSinceNow] < 0)
+//        {
+//        }
+//    }
 
     [tasksIndicatorAM updateWithTasks:arrTasksAM];
     [tasksIndicatorPM updateWithTasks:arrTasksPM];

@@ -14,18 +14,36 @@
 					<integer>0</integer>
 					<key>name</key>
 					<string>Client</string>
+					<key>clear</key>
+					<array>
+						<string>Task</string>
+						<string>Project</string>
+					</array>
 				</dict>
 				<dict>
 					<key>type</key>
 					<integer>0</integer>
 					<key>name</key>
 					<string>Project</string>
+					<key>clear</key>
+					<array>
+						<string>Task</string>
+					</array>
+					<key>change</key>
+					<array>
+						<string>Client</string>
+					</array>
 				</dict>
 				<dict>
 					<key>type</key>
 					<integer>0</integer>
 					<key>name</key>
 					<string>Task</string>
+					<key>change</key>
+					<array>
+						<string>Project</string>
+						<string>Client</string>
+					</array>
 				</dict>
 			</array>
 		</dict>
@@ -101,12 +119,20 @@
 					<integer>0</integer>
 					<key>name</key>
 					<string>Project</string>
+					<key>change</key>
+					<array>
+						<string>Client</string>
+					</array>
 				</dict>
 				<dict>
 					<key>type</key>
 					<integer>0</integer>
 					<key>name</key>
 					<string>Client</string>
+					<key>clear</key>
+					<array>
+						<string>Project</string>
+					</array>
 				</dict>
 				<dict>
 					<key>type</key>
@@ -154,18 +180,32 @@
 					<integer>0</integer>
 					<key>name</key>
 					<string>Project</string>
+					<key>change</key>
+					<array>
+						<string>Client</string>
+					</array>
 				</dict>
 				<dict>
 					<key>type</key>
 					<integer>0</integer>
 					<key>name</key>
 					<string>Client</string>
+					<key>clear</key>
+					<array>
+						<string>Project</string>
+					</array>
 				</dict>
 				<dict>
 					<key>type</key>
 					<integer>3</integer>
 					<key>name</key>
 					<string>Color</string>
+				</dict>
+				<dict>
+					<key>type</key>
+					<integer>2</integer>
+					<key>name</key>
+					<string>Done</string>
 				</dict>
 			</array>
 		</dict>

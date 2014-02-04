@@ -185,7 +185,7 @@
     
     newProjectSelectedCategory = STR_NEW_PROJECT_TASK_EDIT;
     scTaskProjectClient.hidden = true;
-    [self setTitle:[NSString stringWithFormat:@"Edit Task"]];
+    [self setTitle:[NSString stringWithFormat:@"Edit \"%@\"",externalArgument.strTaskName]];
   
     
     [[TTAppDataManager sharedAppDataManager] updateNewTaskFormFieldsWithData:externalArgument onCategory:newProjectSelectedCategory];
@@ -216,6 +216,14 @@
 -(void) saveValue:(id)value byIndexPath:(NSIndexPath*)indexPath{
     [[TTAppDataManager sharedAppDataManager] saveTableFieldsOptionValue:value byIndexPath:indexPath onCategory:newProjectSelectedCategory];
     [tableViewNewProject reloadData];
+}
+-(void) saveValue:(id)value byName:(NSString*)name{
+    NSIndexPath * indexFieldToSave = [[TTAppDataManager sharedAppDataManager] getTableFieldsOptionIndexPathByValue:name onCategory:newProjectSelectedCategory];
+    if (indexFieldToSave) {
+        [[TTAppDataManager sharedAppDataManager] saveTableFieldsOptionValue:value byIndexPath:indexFieldToSave onCategory:newProjectSelectedCategory];
+        [tableViewNewProject reloadData];
+    }
+    
 }
 -(id)getValuebyIndexPath:(NSIndexPath*)indexPath{
     return [[TTAppDataManager sharedAppDataManager] getTableFieldsOptionValueByIndexPath:indexPath onCategory:newProjectSelectedCategory];

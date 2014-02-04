@@ -20,8 +20,6 @@
 @synthesize tasksNavigatorTable;
 @synthesize sectionArray;
 @synthesize openSectionIndex;
-@synthesize arrTasksToDraw;
-@synthesize arrDrawedTasksHolder;
 
 //@synthesize tasksNavigator;
 
@@ -48,17 +46,15 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from
+    // Do any additional setup after loading the view from its nib.
     
-    arrDrawedTasksHolder = [[NSMutableArray alloc] init];
-    
-    bShowTrackedTime = NO;
-    arrTasksToDraw = [[NSMutableArray alloc] initWithArray:[[TTAppDataManager sharedAppDataManager] getDataForStatistic]];
-    [self drawTasksToView:arrTasksToDraw];
+    [self drawTasksToView:[[TTAppDataManager sharedAppDataManager] getDataForStatistic]];
     
     self.tasksNavigatorTable.sectionHeaderHeight = HEADER_HEIGHT;
 //    self.tasksNavigatorTable.tableHeaderView = self.largeProgressView;
     self.openSectionIndex = NSNotFound;
+
+//    [tasksNavigator initWithTasks];
 }
 
 - (void)viewDidUnload
@@ -173,6 +169,8 @@
         for (NSInteger i = 0; i < countOfRowsToDelete; i++) {
             [indexPathsToDelete addObject:[NSIndexPath indexPathForRow:i inSection:previousOpenSectionIndex]];
         }
+        
+        
     }
     
     // Style the animation so that there's a smooth flow in either direction.
@@ -182,8 +180,7 @@
         insertAnimation = UITableViewRowAnimationTop;
         deleteAnimation = UITableViewRowAnimationBottom;
     }
-    else
-    {
+    else {
         insertAnimation = UITableViewRowAnimationBottom;
         deleteAnimation = UITableViewRowAnimationTop;
     }
@@ -194,8 +191,9 @@
     [self.tasksNavigatorTable deleteRowsAtIndexPaths:indexPathsToDelete withRowAnimation:deleteAnimation];
     [self.tasksNavigatorTable endUpdates];
     self.openSectionIndex = sectionOpened;
+    
+    
 }
-
 -(void)sectionHeaderView:(SectionHeaderView*)sectionHeaderView sectionClosed:(NSInteger)sectionClosed {
     
     /*
@@ -222,16 +220,6 @@
 {
 }
 
--(void) clearView
-{
-    for (DACircularProgressView *tmpView in arrDrawedTasksHolder) {
-        [tmpView removeFromSuperview];
-        tmpView.hidden = YES;
-        [tmpView.layer removeFromSuperlayer];
-    }
-    [arrDrawedTasksHolder removeAllObjects];
-}
-
 
 
 -(void)drawTasksToView:(NSArray*)arrTasks
@@ -243,83 +231,66 @@
     NSDate *dtStartDate;
     NSDate *dtEndDate;
     NSString *strColor;
-    BOOL bCreateNewProject = NO;
-    
-    [self clearView];
     
     NSMutableArray *arrProjectsToDraw = [[NSMutableArray alloc] init];
     
     for (NSArray *tmpProjectTasks in arrTasks)
     {
-        //вычисляем общую длительность всех тасков в каждом проекте
+        
         for (NSMutableDictionary *dictTmpTask in tmpProjectTasks)
         {
-            if (bShowTrackedTime)
-            {
-                numDuration = [[dictTmpTask objectForKey:STR_REAL_DURATION] floatValue];
-            }
-            else
-            {
-//                dtStartDate = [dictTmpTask objectForKey:STR_START_DATE];
-//                dtEndDate   = [dictTmpTask objectForKey:STR_END_DATE];
-//                numDuration = [dtEndDate timeIntervalSinceDate:dtStartDate]/3600;
-                numDuration = [[dictTmpTask objectForKey:STR_PLANNED_DURATION] floatValue];
-            }
+            dtStartDate = [dictTmpTask objectForKey:STR_START_DATE];
+            dtEndDate   = [dictTmpTask objectForKey:STR_END_DATE];
+            numDuration = [dtEndDate timeIntervalSinceDate:dtStartDate]/3600;
             
             numTotalDuration += numDuration;
             
-            NSMutableDictionary *dictTmpProject = [[NSMutableDictionary alloc] init];
-            [dictTmpProject setObject:[dictTmpTask objectForKey:STR_PROJECT_NAME] forKey:STR_PROJECT_NAME];
-            [dictTmpProject setObject:[NSNumber numberWithFloat:0.0] forKey:STR_TOTAL_DURATION];
-            [dictTmpProject setObject:[dictTmpTask objectForKey:STR_TASK_COLOR] forKey:STR_TASK_COLOR];
-            
             if (arrProjectsToDraw.count == 0)
             {
-                float tmpProjectDuration = [[dictTmpProject objectForKey:STR_TOTAL_DURATION] floatValue];
+                NSMutableDictionary *dictTmpProject = [[NSMutableDictionary alloc] init];
+                [dictTmpProject setObject:[dictTmpTask objectForKey:STR_PROJECT_NAME] forKey:STR_PROJECT_NAME];
+                [dictTmpProject setObject:[NSNumber numberWithFloat:0.0] forKey:STR_DURATION];
+                [dictTmpProject setObject:[dictTmpTask objectForKey:STR_TASK_COLOR] forKey:STR_TASK_COLOR];
+                
+                float tmpProjectDuration = [[dictTmpProject objectForKey:STR_DURATION] floatValue];
                 tmpProjectDuration += numDuration;
                 NSNumber *tmpNumberDuration = [NSNumber numberWithFloat:tmpProjectDuration];
-                [dictTmpProject setValue:tmpNumberDuration forKey:STR_TOTAL_DURATION];
-                
+                [dictTmpProject setValue:tmpNumberDuration forKey:STR_DURATION];
                 [arrProjectsToDraw addObject:dictTmpProject];
             }
             else
             {
-                
-                for (NSMutableDictionary * dictProject in arrProjectsToDraw)
-                {
-                    if ([dictProject objectForKey:STR_PROJECT_NAME] == [dictTmpTask objectForKey:STR_PROJECT_NAME])
+                for (NSMutableDictionary * dictProject in arrProjectsToDraw) {
+                    if ([dictProject objectForKey:STR_PROJECT_NAME] != [dictTmpTask objectForKey:STR_PROJECT_NAME])
                     {
-                        float tmpProjectDuration = [[dictProject objectForKey:STR_TOTAL_DURATION] floatValue];
+                        NSMutableDictionary *dictTmpProject = [[NSMutableDictionary alloc] init];
+                        [dictTmpProject setObject:[dictTmpTask objectForKey:STR_PROJECT_NAME] forKey:STR_PROJECT_NAME];
+                        [dictTmpProject setObject:[NSNumber numberWithFloat:0.0] forKey:STR_DURATION];
+                        [dictTmpProject setObject:[dictTmpTask objectForKey:STR_TASK_COLOR] forKey:STR_TASK_COLOR];
+                        [arrProjectsToDraw addObject:dictTmpProject];
+                        
+                        float tmpProjectDuration = [[dictTmpProject objectForKey:STR_DURATION] floatValue];
                         tmpProjectDuration += numDuration;
                         NSNumber *tmpNumberDuration = [NSNumber numberWithFloat:tmpProjectDuration];
-                        [dictProject setValue:tmpNumberDuration forKey:STR_TOTAL_DURATION];
-                        
-                        bCreateNewProject = NO;
+                        [dictTmpProject setValue:tmpNumberDuration forKey:STR_DURATION];
                     }
                     else
                     {
-                        bCreateNewProject = YES;
+                        float tmpProjectDuration = [[dictProject objectForKey:STR_DURATION] floatValue];
+                        tmpProjectDuration += numDuration;
+                        NSNumber *tmpNumberDuration = [NSNumber numberWithFloat:tmpProjectDuration];
+                        [dictProject setValue:tmpNumberDuration forKey:STR_DURATION];
                     }
                     
-                }
-                if (bCreateNewProject)
-                {
-                    float tmpProjectDuration = [[dictTmpProject objectForKey:STR_TOTAL_DURATION] floatValue];
-                    tmpProjectDuration += numDuration;
-                    NSNumber *tmpNumberDuration = [NSNumber numberWithFloat:tmpProjectDuration];
-                    [dictTmpProject setValue:tmpNumberDuration forKey:STR_TOTAL_DURATION];
-                    
-                    [arrProjectsToDraw addObject:dictTmpProject];
                 }
                 
             }
         }
         
-        //рисуем проценты
         for (NSMutableDictionary *dictTask in arrProjectsToDraw)
         {
             strColor    = [dictTask objectForKey:STR_TASK_COLOR];
-            numDuration = [[dictTask objectForKey:STR_TOTAL_DURATION] floatValue];
+            numDuration = [[dictTask objectForKey:STR_DURATION] floatValue];
             
             fDurationRatio = numDuration * 12 / numTotalDuration ;
             
@@ -338,7 +309,6 @@
             
             largeProgressViewTMP.roundedCorners = NO;
             [self.largeProgressView addSubview:largeProgressViewTMP];
-            [arrDrawedTasksHolder addObject:largeProgressViewTMP];
             //        [largeProgressViewTMP setThicknessRatio:0.2];
             [largeProgressViewTMP setThicknessRatio:0.15];
             
@@ -365,17 +335,15 @@
 
 	switch (scTaskedPlaned.selectedSegmentIndex) {
 		case 0:
-            //показать натреканное время
-            bShowTrackedTime = NO;
+          
 			break;
 		case 1:
-            //показать запланированное время
-            bShowTrackedTime = NO;
+           
 			break;
 		default:
             break;
     }
-    [self drawTasksToView:arrTasksToDraw];
+
 }
 
 - (void)didReceiveMemoryWarning

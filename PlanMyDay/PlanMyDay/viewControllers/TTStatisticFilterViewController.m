@@ -70,6 +70,11 @@
     [[TTAppDataManager sharedAppDataManager] saveTableFieldsOptionValue:value byIndexPath:indexPath onCategory:filterSelectedCategory];
     [tableFilter reloadData];
 }
+-(void) saveValue:(id)value byName:(NSString*)name{
+    NSIndexPath * indexFieldToSave = [[TTAppDataManager sharedAppDataManager] getTableFieldsOptionIndexPathByValue:name onCategory:filterSelectedCategory];
+    [[TTAppDataManager sharedAppDataManager] saveTableFieldsOptionValue:value byIndexPath:indexFieldToSave onCategory:filterSelectedCategory];
+    [tableFilter reloadData];
+}
 -(id)getValuebyIndexPath:(NSIndexPath*)indexPath{
     return [[TTAppDataManager sharedAppDataManager] getTableFieldsOptionValueByIndexPath:indexPath onCategory:filterSelectedCategory];
 }

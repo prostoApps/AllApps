@@ -24,6 +24,7 @@
 -(UIViewController*) getParentController;
 -(UITableView*) getTableView;
 -(void) saveValue:(id)value byIndexPath:(NSIndexPath*)indexPath;
+-(void) saveValue:(id)value byName:(NSString*)name;
 -(id)getValuebyIndexPath:(NSIndexPath*)indexPath;
 @optional
 -(void) setFieldsCategory:(NSString*)newCategory;
@@ -32,8 +33,9 @@
 @protocol TTSelectedFieldTableDelegate <NSObject>
 @required
 -(void) saveSelectedFieldTableValue:(NSString*)value;
--(NSObject *)getSelectedFieldTableValue;
+-(NSDictionary *)getSelectedFieldTableOptions;
 @optional
+-(void) saveSelectedFieldTableValue:(NSString*)value byFieldName:(NSString*)name;
 -(NSArray*) getColorData;
 -(NSArray*) getSelectedFieldData;
 -(NSString*) getSelectedFieldName;
@@ -76,6 +78,8 @@ extern NSString *const STR_NEW_PROJECT_CELLS;
 extern NSString *const STR_NEW_PROJECT_VALUE;
 extern NSString *const STR_NEW_PROJECT_NAME;
 extern NSString *const STR_NEW_PROJECT_TYPE;
+extern NSString *const STR_NEW_PROJECT_CLEAR;
+extern NSString *const STR_NEW_PROJECT_CHANGE;
 
 extern int const INT_NEW_PROJECT_TYPE_SELECT;
 extern int const INT_NEW_PROJECT_TYPE_INPUT;
