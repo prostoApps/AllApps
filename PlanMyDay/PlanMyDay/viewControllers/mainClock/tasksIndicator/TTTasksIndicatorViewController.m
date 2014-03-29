@@ -12,8 +12,8 @@
 
 @end
 
-float const NUM_ONE_HOUR_DURATION = 0.08333f;
-float const NUM_ONE_HOUR_ROTATION = 0.523f;
+CGFloat const NUM_ONE_HOUR_DURATION = 0.08333f;
+CGFloat const NUM_ONE_HOUR_ROTATION = 0.523f;
 
 @implementation TTTasksIndicatorViewController
 

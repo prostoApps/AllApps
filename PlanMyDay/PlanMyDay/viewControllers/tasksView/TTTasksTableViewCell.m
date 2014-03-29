@@ -124,7 +124,7 @@
     }
     
     
-    if ([[data objectForKey:@"isCheck"] isEqual:@"1"])
+    if ([[data objectForKey:@"isChecked"] isEqual:@"1"])
     {
         [self setTaskChaked];
     }

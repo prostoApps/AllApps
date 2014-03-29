@@ -212,6 +212,9 @@
     {
         externalArgument.numRealDuration = &(tmpTime);
         externalArgument.strIsChecked = @"1";
+        
+        [[TTAppDataManager sharedAppDataManager] editTask:[[TTAppDataManager sharedAppDataManager] serializeTaskData:externalArgument]
+                                              withNewData:[[TTAppDataManager sharedAppDataManager] serializeTaskData:externalArgument]];
 
         [[TTApplicationManager sharedApplicationManager] switchViewTo:VIEW_CURRENT_TASKS forNavigationController:self.navigationController];
     }
